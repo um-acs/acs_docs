@@ -43,8 +43,10 @@ first<vpn>`.
 .. toctree::
    :maxdepth: 2
 
+   Getting Started <getting_started/README>
+   Systems <systems/README>
+   ACS Services <services/README> 
    Triton Cluster  <triton/README>
    Pegasus Cluster <pegasus/README>
    Linux on Clusters <linux/README> 
-   ACS Services <services/README> 
    IDSC ACS Policies <policies/README>
