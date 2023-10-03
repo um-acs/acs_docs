@@ -5,6 +5,15 @@ The following documentation is intended to familiarize users with
 the computing resources managed by the Advanced Computing Services
 team at the Frost Institute of Data Science and Advanced Computing.
 
+Getting Started
+---------------
+
+1. Access to storage and compute on Pegasus and Triton
+
+2. Connecting to Frost IDSC cluster resources
+i. from on-campus
+ii. from off-campus
+
 Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
 
 How do I reset my IDSC password?
