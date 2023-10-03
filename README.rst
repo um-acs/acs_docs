@@ -1,5 +1,9 @@
-Advanced Computing Guides
-=========================
+Welcome to the Advanced Computing Services User Documentation
+=============================================================
+
+The following documentation is intended to familiarize users with
+the computing resources managed by the Advanced Computing Services
+team at the Frost Institute of Data Science and Advanced Computing.
 
 Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
 
