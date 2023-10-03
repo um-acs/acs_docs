@@ -1,5 +1,5 @@
-Welcome to the Advanced Computing Services User Documentation
-=============================================================
+User Documentation
+==================
 
 The following documentation is intended to familiarize users with
 the computing resources managed by the Advanced Computing Services
