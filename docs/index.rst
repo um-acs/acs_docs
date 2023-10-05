@@ -1,42 +1,57 @@
-Advanced Computing Guides
-=========================
+==================
+User Documentation
+==================
 
-Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
+The following documentation is intended to familiarize users with
+the computing resources managed by the Advanced Computing Services
+team. These consist of two clusters, `Pegasus <https://idsc.miami.edu/pegasus/>`__
+and `Triton <https://idsc.miami.edu/triton/>`__, launched in 
+2013 and 2019, respectively.
 
-How do I reset my IDSC password?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Getting Started
+===============
 
-| Via the IDSC Password Reset page : https://idsc.miami.edu/ccs-account
-| More Quick Links : https://idsc.miami.edu/quick-links/
+Access to storage and compute resources on Pegasus and Triton can be 
+obtained through grant programs administered by the IDSC, or through
+project funding managed by research groups. 
 
+Requesting access to cluster computer resources
+-----------------------------------------------
 
-How do I get IDSC cluster resources?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Prospective users can access the storage and computer resources by 
+requesting the following:
 
-Resources on Triton and Pegasus are allocated by project.  Contact your PI for access to their project's resources, or request a New Project here : https://idsc.miami.edu/project_request
+- a project, by filling out `this form <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__.
+- an IDSC account, by filling out `this form <https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`__.
 
+Connecting to cluster computer resources
+----------------------------------------
 
-How do I use IDSC cluster resources? 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+From on-campus using UM's networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To run your work on IDSC clusters, you must submit jobs to the cluster's resource manager with your project ID.  See the menus for more information about each cluster's job scheduler.   
+When connected to any of UM's wired or wireless networks, access to the 
+cluster computing resources is as outlined 
+`here <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__.
 
+From off-campus or when connected to other networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
-How do I connect to IDSC resources from off-site?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When off-campus or when connected to other networks, access to 
+UM's Virtual Private Network (VPN) is needed. In order to get access
+to UM's VPN, start 
+`here <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
 
-To access IDSC resources while offsite, :ref:`open a VPN connection
-first<vpn>`. 
-
-.. note :: IDSC does not administer UM VPN accounts.  Support is handled by UMIT for any and all VPN issues: 
-   
+.. note :: IDSC does not administer UM VPN accounts.  Support for VPN is handled by UMIT for any and all VPN issues: 
+ 
 **UMIT VPN Support Contact Information**
    
 | Call: (305) 284-6565
 | Email: help@miami.edu
 | URL: http://miami.edu/vpn
 
-
+When connected to the VPN, cluster resources can be accessed by following 
+the same instructions as those for on-campus access with UM's networks.
 
 --------------
 
