@@ -11,7 +11,7 @@ From a computer running Windows
 ===============================
 
 You can connect using a terminal emulator like PuTTY
-(`www.putty.org <http://www.putty.org>`__), or OpenSSH (`https://www.openssh.com <https://www.openssh.com>`__. 
+(`www.putty.org <http://www.putty.org>`__), or OpenSSH (`https://www.openssh.com <https://www.openssh.com>`__). 
 Although both PuTTY and OpenSSH can be can be downloaded and installed free of charge,
 we recommend PuTTY as it allows you to name and save your connections.
 
