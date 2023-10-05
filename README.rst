@@ -1,26 +1,31 @@
+==================
 User Documentation
 ==================
 
 The following documentation is intended to familiarize users with
 the computing resources managed by the Advanced Computing Services
-team at the Frost Institute of Data Science and Advanced Computing.
+team.
 
 Getting Started
----------------
+===============
 
-1. Access to storage and compute on Pegasus and Triton
+Access to storage and compute resources on Pegasus and Triton can be 
+obtained through grant programs administered by the IDSC, or through
+project funding managed by research groups. Prospective users 
+can access the storage and computer resources by requesting the 
+following:
+
+- a project, through `this link<https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`
+- an IDSC account, through `this link<https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`
+
+
+Access to storage and compute on Pegasus and Triton
 
 2. Connecting to Frost IDSC cluster resources
 i. from on-campus
 ii. from off-campus
 
 Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
-
-How do I reset my IDSC password?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-| Via the IDSC Password Reset page : https://idsc.miami.edu/ccs-account
-| More Quick Links : https://idsc.miami.edu/quick-links/
 
 
 How do I get IDSC cluster resources?
