@@ -50,10 +50,8 @@ UMIT for any and all VPN issues:
 | Email: help@miami.edu
 | URL: http://miami.edu/vpn
 
-When connected to the VPN, cluster resources can be 
-accessed by following the same instructions as those for on-campus access 
-with UM's networks.
-
+When connected to the VPN, cluster resources can be accessed by following 
+the same instructions as those for on-campus access with UM's networks.
 
 --------------
 
