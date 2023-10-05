@@ -40,8 +40,7 @@ UM's Virtual Private Network (VPN) is needed. In order to get access
 to UM's VPN, start 
 `here <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
 
-.. note :: IDSC does not administer UM VPN accounts.  Support for VPN is handled by 
-UMIT for any and all VPN issues: 
+.. note :: IDSC does not administer UM VPN accounts.  Support for VPN is handled by UMIT for any and all VPN issues: 
  
 **UMIT VPN Support Contact Information**
    
