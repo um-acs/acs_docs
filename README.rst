@@ -28,22 +28,22 @@ Connecting to cluster computer resources
 From on-campus using UM's networks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-from off-campus or when connected to other networks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When connected to any of UM's wired or wireless networks, access to the 
+cluster computing resources is as outlined `here <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__
 
-Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
+From off-campus or when connected to other networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
+To access IDSC resources while offsite, :ref:`open a VPN connection
+first<vpn>`. 
 
-How do I get IDSC cluster resources?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Resources on Triton and Pegasus are allocated by project.  Contact your PI for access to their project's resources, or request a New Project here : https://idsc.miami.edu/project_request
-
-
-How do I use IDSC cluster resources? 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To run your work on IDSC clusters, you must submit jobs to the cluster's resource manager with your project ID.  See the menus for more information about each cluster's job scheduler.  
+.. note :: IDSC does not administer UM VPN accounts.  Support is handled by UMIT for any and all VPN issues: 
+   
+**UMIT VPN Support Contact Information**
+   
+| Call: (305) 284-6565
+| Email: help@miami.edu
+| URL: http://miami.edu/vpn
 
 
 How do I connect to IDSC resources from off-site?
