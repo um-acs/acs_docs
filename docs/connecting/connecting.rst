@@ -13,7 +13,6 @@ From a computer running Windows
 You can connect using a terminal emulator like PuTTY
 (`www.putty.org <http://www.putty.org>`__). PuTTY can 
 be downloaded and installed free of charge.
-
 You can then log onto the IDSC servers with the appropriate account credentials.  
 For instance, in order to connect to Pegasus, you need to specify the 
 host name as *pegasus.ccs.miami.edu*, the port number as *22*, and make other 
