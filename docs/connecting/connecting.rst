@@ -17,8 +17,8 @@ we recommend PuTTY as it allows you to name and save your connections.
 
 When you have installed PuTTY, you can run it, and use it to 
 log onto the IDSC servers with the appropriate account credentials.  
-For instance, in order to connect to Pegasus, you need to specify on
-(the dialog box that shows up when you run PuTTY) the 
+For instance, in order to connect to Pegasus, you need to specify
+(on the PuTTY configuration window that shows up when you run PuTTY) the 
 host name as *pegasus.ccs.miami.edu*, the port number as *22*, the connection 
 type as *SSH* and make other 
 selections as is shown in the figure below::
@@ -27,6 +27,11 @@ selections as is shown in the figure below::
    :alt: PuTTY in Windows
 
    PuTTY on Windows
+
+Notice that you are able to save your connection details as *pegasus* so that you 
+won't need to enter them for subsequent sessions. When you select *open* to open 
+the connection, the PuTTY configuration window is closed and the PuTTY window is 
+presented.
 
 From a computer running Mac or Linux
 ====================================
