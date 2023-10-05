@@ -4,7 +4,10 @@ User Documentation
 
 The following documentation is intended to familiarize users with
 the computing resources managed by the Advanced Computing Services
-team.
+team. These consist of two clusters, `Pegasus <https://idsc.miami.edu/pegasus/>`__
+and `Triton <https://idsc.miami.edu/triton/>`__, launched in 
+2013 and 2019, respectively.
+
 
 Getting Started
 ===============
