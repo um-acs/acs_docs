@@ -19,8 +19,8 @@ Requesting access to cluster computer resources
 Prospective users can access the storage and computer resources by 
 requesting the following:
 
-- a project, through `this link <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__
-- an IDSC account, through `this link <https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`__
+- a project, through `this link <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__.
+- an IDSC account, through `this link <https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`__.
 
 Connecting to cluster computer resources
 ----------------------------------------
@@ -30,7 +30,7 @@ From on-campus using UM's networks
 
 When connected to any of UM's wired or wireless networks, access to the 
 cluster computing resources is as outlined 
-`here <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__
+`here <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__.
 
 From off-campus or when connected to other networks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
@@ -38,7 +38,7 @@ From off-campus or when connected to other networks
 When off-campus or when connected to other networks, access to 
 UM's Virtual Private Network (VPN) is needed. In order to get access
 to UM's VPN, start 
-`here <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__ .
+`here <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
 
 .. note :: IDSC does not administer UM VPN accounts.  Support for VPN is handled by 
 UMIT for any and all VPN issues: 
