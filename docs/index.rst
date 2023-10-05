@@ -58,10 +58,12 @@ the same instructions as those for on-campus access with UM's networks.
 .. toctree::
    :maxdepth: 2
 
-   Getting Started <getting_started/README>
-   Systems <systems/README>
-   ACS Services <services/README> 
-   Triton Cluster  <triton/README>
-   Pegasus Cluster <pegasus/README>
-   Linux on Clusters <linux/README> 
+   Connecting to ACS Systems <connecting/README>
+   Data Storage on ACS Systems <data_storage/README>
+   Training Resources <training/README>
    IDSC ACS Policies <policies/README>
+   Pegasus <pegasus/README>
+   Triton <triton/README>
+   ACS Services <services/README>
+   Linux on Clusters <linux/README> 
+  
