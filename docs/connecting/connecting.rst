@@ -23,7 +23,7 @@ host name as *pegasus.ccs.miami.edu*, the port number as *22*, the connection
 type as *SSH* and make other 
 selections as is shown in the figure below::
 
-.. figure:: assets/putty_1.png
+.. figure:: media/putty_1.png
    :alt: PuTTY in Windows
 
    PuTTY on Windows
