@@ -36,9 +36,11 @@ presented.
 From a computer running Mac or Linux
 ====================================
 
-Connect with the Terminal program, included with the Operating Systems.
+Computers running Mac OS or Linux come with *ssh* utility, which is an SSH client.
+No third party clients need to be downloaded and installed in this case. You can 
+connect via the Terminal (program) included with those operating systems.
 
-Log into IDSC servers with the approprite acount credentials.  Pegasus example::
+To log onto Pegasus, for instance, one needs::
 
     bash-4.1$ ssh username@pegasus.ccs.miami.edu
     username@pegasus.ccs.miami.edu’s password:
