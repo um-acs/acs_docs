@@ -97,7 +97,7 @@ On the X11 Options Panel,
 -  check "Enable X11 forwarding"
 -  enter "``localhost:0``" in the "X display location" text field
 
-.. figure:: assets/putty_2.png
+.. figure:: media/putty_2.png
    :alt: PuTTY X11
 
    PuTTY X11
