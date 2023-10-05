@@ -24,8 +24,12 @@ requesting the following:
 
 Connecting to cluster computer resources
 ----------------------------------------
-i. from on-campus
-ii. from off-campus
+
+From on-campus using UM's networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+from off-campus or when connected to other networks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
 
