@@ -40,21 +40,24 @@ Computers running Mac OS or Linux come with *ssh* utility, which is an SSH clien
 No third party clients need to be downloaded and installed in this case. You can 
 connect via the Terminal (program) included with those operating systems.
 
-To log onto Pegasus, for instance, one needs::
+To log onto Pegasus, for instance, you need to type in::
 
     bash-4.1$ ssh username@pegasus.ccs.miami.edu
+
+and then return/enter, after which you are prompted for a password::
+
     username@pegasus.ccs.miami.edu’s password:
 
-or SSH without account credentials to be prompted::
+Upon entering your password (and pressing return/enter), you gain access to Pegasus.
+
+You could also SSH without account credentials and be prompted for a username and a password::
 
     bash-4.1$ ssh pegasus.ccs.miami.edu
     login as: username
     username@pegasus.ccs.miami.edu's password:
 
-To use SSH key pairs to authenticate, see the CentOS wiki:
-http://wiki.centos.org/HowTos/Network/SecuringSSH
-
-
+To use SSH key pairs to authenticate, see the CentOS wiki (now archived):
+https://wiki.centos.org/HowTos(2f)Network(2f)SecuringSSH.html
 
 .. _x11: 
 
