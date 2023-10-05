@@ -11,17 +11,19 @@ Getting Started
 
 Access to storage and compute resources on Pegasus and Triton can be 
 obtained through grant programs administered by the IDSC, or through
-project funding managed by research groups. Prospective users 
-can access the storage and computer resources by requesting the 
-following:
+project funding managed by research groups. 
+
+Requesting access to cluster computer resources
+-----------------------------------------------
+
+Prospective users can access the storage and computer resources by 
+requesting the following:
 
 - a project, through `this link<https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`
 - an IDSC account, through `this link<https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`
 
-
-Access to storage and compute on Pegasus and Triton
-
-2. Connecting to Frost IDSC cluster resources
+Connecting to cluster computer resources
+----------------------------------------
 i. from on-campus
 ii. from off-campus
 
