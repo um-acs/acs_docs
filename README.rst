@@ -19,8 +19,8 @@ Requesting access to cluster computer resources
 Prospective users can access the storage and computer resources by 
 requesting the following:
 
-- a project, through `this link <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__.
-- an IDSC account, through `this link <https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`__.
+- a project, by filling out `this form <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__.
+- an IDSC account, by filling out `this form <https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`__.
 
 Connecting to cluster computer resources
 ----------------------------------------
