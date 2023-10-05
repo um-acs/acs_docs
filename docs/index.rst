@@ -37,7 +37,7 @@ cluster computing resources is as outlined
 From off-campus or when connected to other networks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
-When off-campus or when connected to other networks, access to 
+When off-campus or when connected to other networks, access to
 UM's Virtual Private Network (VPN) is needed. In order to get access
 to UM's VPN, start 
 `here <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
