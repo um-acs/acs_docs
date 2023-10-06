@@ -20,8 +20,7 @@ log onto the IDSC servers with the appropriate account credentials.
 For instance, in order to connect to Pegasus, you need to specify
 (on the PuTTY configuration window that shows up when you run PuTTY) the 
 host name as *pegasus.ccs.miami.edu*, the port number as *22*, the connection 
-type as *SSH* and make other 
-selections as is shown in the figure below.
+type as *SSH* and make other selections as is shown in the figure below
 
 .. figure:: media/putty_1.png
    :alt: PuTTY in Windows
