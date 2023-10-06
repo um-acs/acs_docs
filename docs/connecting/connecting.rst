@@ -26,7 +26,7 @@ selections as is shown in the figure below::
 .. figure:: media/putty_1.png
    :alt: PuTTY in Windows
 
-   PuTTY on Windows
+   PuTTY in Windows
 
 Notice that you are able to save your connection details as *pegasus* so that you 
 won't need to enter them for subsequent sessions. When you select *open* to open 
