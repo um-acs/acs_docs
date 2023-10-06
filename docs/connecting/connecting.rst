@@ -96,7 +96,7 @@ On the X11 Options Panel,
 .. figure:: media/putty_2.png
    :alt: PuTTY X11
 
-   Configuraing X11 Forwarding
+   Configuring X11 Forwarding
 
 **Mac/Linux: Connect with X11 flag**
 
