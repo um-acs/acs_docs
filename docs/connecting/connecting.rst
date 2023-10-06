@@ -25,7 +25,7 @@ type as *SSH* and make other selections as is shown in the figure below
 .. figure:: media/putty_1.png
    :alt: PuTTY in Windows
 
-   PuTTY in Windows
+   PuTTY Configuration Window
 
 Notice that you are able to save your connection details as *pegasus* so that you 
 won't need to enter them for subsequent sessions. When you select *open* to open 
@@ -96,7 +96,7 @@ On the X11 Options Panel,
 .. figure:: media/putty_2.png
    :alt: PuTTY X11
 
-   PuTTY X11
+   Configuraing X11 Forwarding
 
 **Mac/Linux: Connect with X11 flag**
 
