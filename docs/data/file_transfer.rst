@@ -10,7 +10,7 @@ SFTP and Globus, for transferring large amounts of data from systems outside the
 University of Miami, 
 
 Using command line utilities
-----------------------------
+============================
 
 Use ``cp`` to copy files within the same computation system. Use
 ``scp``, ``sftp``, or ``rsync`` to transfer files between computational
@@ -20,7 +20,7 @@ please ***limit your transfers to no more than 2-3 processes at a
 time.***
 
 scp
-~~~
+---
 
 An example transfer might look like this:
 
@@ -39,7 +39,7 @@ To transfer a directory, use the ``-r`` flag (recursive):
 Consult the Linux man pages for more information on scp.
 
 rsync
-~~~~~
+-----
 
 The rsync command is another way to keep data current. In contrast to
 scp, rsync transfers only the changed parts of a file (instead of
@@ -60,7 +60,7 @@ modification times (``-t`` option) and in the archive mode (``-a``
 option). Consult the Linux man pages for more information on rsync.
 
 rclone 
-~~~~~~
+------
 
 The rclone a command-line program that can be used to manage your file over SFTP. Rclone supports over 40 cloud storage backends, as well as standard transfer protocols like SFTP.  This is a use case using rclone to migrate data from legacy storage to **IDSC CES** on **apex.idsc.miami.edu** using the latest version of rclone on Pegasus, **rclone v1.63.1**. 
 
@@ -304,7 +304,7 @@ You can exit your screen session using the 'exit' command.
 
 
 Using FileZilla
----------------
+===============
 
 FileZilla is a free, user friendly, open source, cross-platform FTP,
 SFTP and FTPS application.
@@ -332,7 +332,7 @@ Click the "Connect" button. Once connected, drag and drop files or
 directories between your local machine and the server.
 
 Using the gateway server
-------------------------
+========================
 
 To transfer large amounts of data from systems outside the University of
 Miami, use the gateway server. This server supports SFTP file
@@ -340,7 +340,7 @@ transfers. Users ***must be a member of a project*** to request access
 to the gateway server. E-mail hpc@ccs.miami.edu to request access.
 
 SFTP
-~~~~
+----
 
 ::
 
