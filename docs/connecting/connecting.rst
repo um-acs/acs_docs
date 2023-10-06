@@ -62,7 +62,7 @@ https://wiki.centos.org/HowTos(2f)Network(2f)SecuringSSH.html
 .. _x11: 
 
 Forwarding the display with x11
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===============================
 
 To use graphical programs over SSH, the graphical display must be
 forwarded securely. This typically requires running an X Window System
@@ -76,13 +76,10 @@ Download an X Window System server
 
 _OS X versions 10.5 through 10.7 include X11 and do not require XQuartz._ 
 
-
-
 Connect with X11 forwarding
 ---------------------------
 
 Launch the appropriate X Window server **before** connecting to IDSC servers via SSH.
-
 
 **Windows: Configure PuTTY for X11 display forwarding**
 
@@ -102,8 +99,7 @@ On the X11 Options Panel,
 
    PuTTY X11
 
-
-**Mac: Connect with X11 flag**
+**Mac/Linux: Connect with X11 flag**
 
 Using either the Mac Terminal or the xterm window, connect using the
 ``-X`` flag:
@@ -127,10 +123,10 @@ allowing continued use of the terminal.
 
 
 Connecting to IDSC Systems from offsite
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================
 
 Triton, Pegasus, and other IDSC resources are only available from within the
-University’s secure campus networks (wired or SecureCanes wireless). To
+University’s secure campus networks. To
 access IDSC resources while offsite, open a VPN connection first. IDSC does not
 administer VPN accounts.
 
