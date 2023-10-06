@@ -59,7 +59,7 @@ the same instructions as those for on-campus access with UM's networks.
    :maxdepth: 2
 
    Connecting to ACS Systems <connecting/README>
-   Data Storage on ACS Systems <data_storage/README>
+   Data Storage on ACS Systems <data_storage_and_management/README>
    Training Resources <training/README>
    IDSC ACS Policies <policies/README>
    Pegasus <pegasus/README>
