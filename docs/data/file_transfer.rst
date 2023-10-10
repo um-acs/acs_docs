@@ -330,7 +330,7 @@ Click the "New Site" button and name the entry.  Pegasus example::
 Selecting Logon Type: **Ask for password** will prompt for a password
 each connection.\ |FileZilla Site Manager|
 
-Remeber: Pegasus and Apex use your IDSC account for authentication.  Triton uses your CaneID.
+Remember: Pegasus and Apex use your IDSC account for authentication.  Triton uses your CaneID.
 
 Click the "Connect" button. Once connected, drag and drop files or
 directories between your local machine and the server.
