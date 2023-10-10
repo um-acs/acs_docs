@@ -8,20 +8,20 @@ choose to learn by video.
 Introduction to Pegasus and Triton
 ==================================
 
-.. image:: https://img.youtube.com/vi/uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF/maxresdefault.jpg
+.. image:: https://img.youtube.com/vi/uuPJGo3uNPA/maxresdefault.jpg
     :alt: Introduction to Pegasus and Triton
-    :target: https://www.youtube.com/watch?v=uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF
+    :target: https://www.youtube.com/watch?v=uuPJGo3uNPA
 
 Storage on Pegasus and Triton
 =============================
 
-.. image:: https://img.youtube.com/vi/00DcvN8yBhk&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF/maxresdefault.jpg
+.. image:: https://img.youtube.com/vi/00DcvN8yBhk/maxresdefault.jpg
     :alt: Storage on Pegasus and Triton
-    :target: https://www.youtube.com/watch?v==00DcvN8yBhk&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF
+    :target: https://www.youtube.com/watch?v==00DcvN8yBhk
 
 Transferring Data on Pegasus and Triton
 =======================================
 
-.. image:: https://img.youtube.com/vi/bMOprFzfd6k&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3/maxresdefault.jpg
+.. image:: https://img.youtube.com/vi/bMOprFzfd6k/maxresdefault.jpg
     :alt: Transferring Data on Pegasus and Triton
-    :target: https://www.youtube.com/watch?v=bMOprFzfd6k&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3
+    :target: https://www.youtube.com/watch?v=bMOprFzfd6k
