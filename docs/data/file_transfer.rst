@@ -364,3 +364,5 @@ credentials: ``xfer.ccs.miami.edu``
     sftp> mkdir <project>
     sftp> cd project
     sftp> put newfile
+
+.. |FileZilla Site Manager| image:: media/fz_sm1.png
