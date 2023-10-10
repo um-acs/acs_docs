@@ -9,5 +9,19 @@ Introduction to Pegasus and Triton
 ==================================
 
 .. image:: https://img.youtube.com/vi/uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=1/maxresdefault.jpg
-    :alt: IMAGE ALT TEXT HERE
+    :alt: Introduction to Pegasus and Triton
     :target: https://www.youtube.com/watch?v=uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=1
+
+Storage on Pegasus and Triton
+=============================
+
+.. image:: https://img.youtube.com/vi/uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=2/maxresdefault.jpg
+    :alt: Storage on Pegasus and Triton
+    :target: https://www.youtube.com/watch?v=uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=2
+
+Transferring Data on Pegasus and Triton
+=======================================
+
+.. image:: https://img.youtube.com/vi/uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3/maxresdefault.jpg
+    :alt: Transferring Data on Pegasus and Triton
+    :target: https://www.youtube.com/watch?v=uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3
