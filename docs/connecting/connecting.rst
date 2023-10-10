@@ -126,8 +126,8 @@ Connecting to IDSC Systems from offsite
 
 Triton, Pegasus, and other IDSC resources are only available from within the
 University’s secure campus networks. To
-access IDSC resources while offsite, open a VPN connection first. IDSC does not
-administer VPN accounts.
+access IDSC resources while offsite, open a VPN connection first. Please note 
+that IDSC does not administer VPN accounts.
 
 University of Miami VPN:
 https://my.it.miami.edu/wda/a-z/virtual-private-network/
