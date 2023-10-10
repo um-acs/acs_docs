@@ -50,12 +50,35 @@ Serial Jobs
     :alt: Serial Jobs
     :target: https://www.youtube.com/watch?v=dKA3hWKKGJ4
 
-Parallel Jobs
--------------
+Multi-node Jobs
+---------------
 
 .. image:: https://img.youtube.com/vi/Lv7Jv3lVFBQ/maxresdefault.jpg
-    :alt: Parallel Jobs
+    :alt: Multi-node Jobs
     :target: https://www.youtube.com/watch?v=Lv7Jv3lVFBQ
+
+Interactive Jobs
+----------------
+
+.. image:: https://img.youtube.com/vi/jQGf-pDniwg/maxresdefault.jpg
+    :alt: Interactive Jobs
+    :target: https://www.youtube.com/watch?v=jQGf-pDniwg
+
+Commands
+--------
+
+.. image:: https://img.youtube.com/vi/oPhgyl7G2z8/maxresdefault.jpg
+    :alt: Commands
+    :target: https://www.youtube.com/watch?v=oPhgyl7G2z8
+
+Queues on Triton and Pegasus
+----------------------------
+
+.. image:: https://img.youtube.com/vi/qwqighvxfHU/maxresdefault.jpg
+    :alt: Queues
+    :target: https://www.youtube.com/watch?v=qwqighvxfHU
+
+
 
 
 
