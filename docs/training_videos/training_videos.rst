@@ -15,13 +15,13 @@ Introduction to Pegasus and Triton
 Storage on Pegasus and Triton
 =============================
 
-.. image:: https://img.youtube.com/vi/uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=2/maxresdefault.jpg
+.. image:: https://img.youtube.com/vi/00DcvN8yBhk&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=2/maxresdefault.jpg
     :alt: Storage on Pegasus and Triton
-    :target: https://www.youtube.com/watch?v=uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=2
+    :target: https://www.youtube.com/watch?v==00DcvN8yBhk&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=2
 
 Transferring Data on Pegasus and Triton
 =======================================
 
-.. image:: https://img.youtube.com/vi/uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3/maxresdefault.jpg
+.. image:: https://img.youtube.com/vi/bMOprFzfd6k&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3/maxresdefault.jpg
     :alt: Transferring Data on Pegasus and Triton
-    :target: https://www.youtube.com/watch?v=uuPJGo3uNPA&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3
+    :target: https://www.youtube.com/watch?v=bMOprFzfd6k&list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF&index=3
