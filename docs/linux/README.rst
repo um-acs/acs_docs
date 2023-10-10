@@ -1,8 +1,8 @@
 Linux Guides
 ============
 
-Introduction to Linux on Pegasus
---------------------------------
+Introduction to Linux on Pegasus and Triton
+-------------------------------------------
 
 Pegasus is currently running the CentOS 7.6 operating system, a
 distribution of Linux. Linux is a UNIX-like kernel, though in this
