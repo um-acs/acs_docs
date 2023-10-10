@@ -5,16 +5,16 @@ Transferring Files
 IDSC systems support multiple file transfer programs such as FileZilla and
 PSFTP, and common command line utilities such as ``scp`` and ``rsync``.
 Use cluster head nodes (login nodes) for these types of file transfers.
-IDSC ACS also offers a gateway server that supports
-SFTP and Globus, for transferring large amounts of data from systems outside the
-University of Miami, 
+For transferring large amounts of data from systems outside the
+University of Miami, IDSC ACS also offers a gateway server that supports
+SFTP and Globus.
 
 Using command line utilities
 ============================
 
 Use ``cp`` to copy files within the same computation system. Use
 ``scp``, ``sftp``, or ``rsync`` to transfer files between computational
-systems (e.g., scratch space to Visx project space). When executing
+systems (e.g., from scratch space to Visx project space). When executing
 multiple instantiations of command line utilities like rsync and scp,
 please ***limit your transfers to no more than 2-3 processes at a
 time.***
@@ -29,23 +29,23 @@ An example transfer might look like this:
     [localmachine: ~]$ scp /local/filename \
                 username@pegasus.ccs.miami.edu:/scratch/projectID/directory
 
-To transfer a directory, use the ``-r`` flag (recursive):
+To transfer a directory, use the ``-r`` (recursive) flag :
 
 ::
 
     [localmachine: ~]$ scp -r /local/directory \
                 username@pegasus.ccs.miami.edu:/scratch/projectID/directory
 
-Consult the Linux man pages for more information on scp.
+Consult the Linux man pages for more information on ``scp``.
 
 rsync
 -----
 
 The rsync command is another way to keep data current. In contrast to
-scp, rsync transfers only the changed parts of a file (instead of
+``scp``, ``rsync`` transfers only the changed parts of a file (instead of
 transferring the entire file). Hence, this selective method of data
-transfer can be much more efficient than scp. The following example
-demonstrates usage of the rsync command for transferring a file named
+transfer can be much more efficient than ``scp``. The following example
+demonstrates usage of the ``rsync`` command for transferring a file named
 "firstExample.c" from the current location to a location on Pegasus.
 
 ::
@@ -62,7 +62,11 @@ option). Consult the Linux man pages for more information on rsync.
 rclone 
 ------
 
-The rclone a command-line program that can be used to manage your file over SFTP. Rclone supports over 40 cloud storage backends, as well as standard transfer protocols like SFTP.  This is a use case using rclone to migrate data from legacy storage to **IDSC CES** on **apex.idsc.miami.edu** using the latest version of rclone on Pegasus, **rclone v1.63.1**. 
+The ``rclone`` a command-line program that can be used to manage your file 
+over SFTP. Rclone supports over 40 cloud storage backends, as well as standard 
+transfer protocols like SFTP.  This is a use case using ``rclone`` to migrate 
+data from legacy storage to **IDSC CES** on **apex.idsc.miami.edu** using the 
+latest version of rclone on Pegasus, **rclone v1.63.1**. 
 
 
 **Load the rclone software module**
@@ -326,7 +330,7 @@ Click the "New Site" button and name the entry.  Pegasus example::
 Selecting Logon Type: **Ask for password** will prompt for a password
 each connection.\ |FileZilla Site Manager|
 
-Remeber Pegasus and Apex use your IDSC account for authentication.  Triton uses your CaneID.
+Remeber: Pegasus and Apex use your IDSC account for authentication.  Triton uses your CaneID.
 
 Click the "Connect" button. Once connected, drag and drop files or
 directories between your local machine and the server.
