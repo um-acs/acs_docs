@@ -25,3 +25,39 @@ Transferring Data on Pegasus and Triton
 .. image:: https://img.youtube.com/vi/bMOprFzfd6k/maxresdefault.jpg
     :alt: Transferring Data on Pegasus and Triton
     :target: https://www.youtube.com/watch?v=bMOprFzfd6k
+
+Applications on Pegasus and Triton
+=======================================
+
+.. image:: https://img.youtube.com/vi/nU4QBF7wz7U/maxresdefault.jpg
+    :alt: Applications on Pegasus and Triton
+    :target: https://www.youtube.com/watch?v=nU4QBF7wz7U
+
+Job Scheduling with LSF
+=======================
+
+Introduction
+------------
+
+.. image:: https://img.youtube.com/vi/S7zFImFuO8c/maxresdefault.jpg
+    :alt: Intoduction to LSF
+    :target: https://www.youtube.com/watch?v=S7zFImFuO8c
+
+Serial Jobs
+-----------
+
+.. image:: https://img.youtube.com/vi/dKA3hWKKGJ4/maxresdefault.jpg
+    :alt: Serial Jobs
+    :target: https://www.youtube.com/watch?v=dKA3hWKKGJ4
+
+Parallel Jobs
+-------------
+
+.. image:: https://img.youtube.com/vi/Lv7Jv3lVFBQ/maxresdefault.jpg
+    :alt: Parallel Jobs
+    :target: https://www.youtube.com/watch?v=Lv7Jv3lVFBQ
+
+
+
+
+
