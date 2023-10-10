@@ -19,7 +19,7 @@ Accounts
 - Disabled accounts cannot log into the Pegasus cluster.
 - Disabled account data will be deleted after **30** days.
 
-IDSC Links
+Handy IDSC Links
 ----------------
 
 - `IDSC Account Registration Form <https://idsc.miami.edu/IDSC_Account_Registration>`_
