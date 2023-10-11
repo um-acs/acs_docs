@@ -22,4 +22,4 @@ Your data is encrypted at four levels using our vault secure data processing fac
 #. **PHI data**. All PHI data must be handled by authorized IDSC personnel and is NOT directly available from your secure server. All uploads and downloads are handed by authorized IDSC personnel only.
 #. **Deleted data**. All deleted data is securely removed from the system.
 
-Along with these security precautions, we also conduct regular security tests and audits in accordance with PCI and HIPAA standards. IDSC welcomes any external audits and will make every effort to comply with industry standards or we will reject the project.
+Along with these security precautions, we also conduct regular security tests and audits in accordance with PCI and HIPAA standards. IDSC welcomes any external audits and will make every effort to comply with industry standards.
