@@ -1,9 +1,9 @@
 Navigating the Linux Shell
 ==========================
 
-The shell is command-line interface (CLI), a type of user interface that
+The shell is a command-line interface (CLI), a type of user interface that
 interprets **commands** typed at a prompt. The default shell on Pegasus
-is Bash.
+and Triton is Bash.
 
 Users send commands to the shell, which runs them and outputs results.
 Commands can include options (or **flags**) to modify output and
@@ -59,22 +59,31 @@ shortcut for home in Bash is the tilde (``~``), shown below just before
 the prompt (``$``). ``pwd`` outputs the **absolute path**, the unique
 location starting from the topmost, or root, directory (``/``).
 
+
+On Pegasus:
 ::
 
-    [username@pegasus ~]$ pwd
+    [username@login4 ~]$ pwd
     /nethome/username
+
+On Triton:
+::
+
+    [username@login1 ~]$ pwd
+    /home/username
+
 
 View the contents of a directory with ``ls``:
 ---------------------------------------------
 
 Entering the ``ls`` command without arguments (as shown below) lists the
 contents of the current directory. *If this is your first connection to
-Pegasus, your home directory may be empty.* Directories can be
+Pegasus or Triton, your home directory may be empty.* Directories can be
 distinguished from files by the leading ``d`` in file permissions.
 
 ::
 
-    [username@pegasus ~]$ ls 
+    [username@login4 ~]$ ls 
     example_file1  example_file2  testdir1
 
 To view the contents of a specific directory, send the path as an
@@ -97,7 +106,7 @@ pages**, accessible via the command line:
 
 ::
 
-    [username@pegasus ~]$ man topic or command
+    [username@login4 ~]$ man topic or command
 
 Press ``SPACE`` to see the next set of lines. To scroll, use the arrow
 keys or ``Page Up`` and ``Page Down``. To exit, type ``q``.
@@ -108,7 +117,7 @@ the ``-lh`` flags.
 
 ::
 
-    [username@pegasus ~]$ ls -lh
+    [username@login4 ~]$ ls -lh
     total 0
     -rw-r--r-- 1 username ccsuser  54  example_file1
     -rw-r--r-- 1 username ccsuser 476  example_file2
@@ -199,9 +208,9 @@ software availability and location.
 
 ::
 
-    [username@pegasus ~]$ which bash
-    /bin/bash
-    [username@pegasus ~]$ which vim
+    [username@login4 ~]$ which bash
+    /usr/bin/bash
+    [username@login4 ~]$ which vim
     /usr/bin/vim
-    [username@pegasus ~]$ which python
-    /share/opt/python/2.7.3/bin/python
+    [username@login4 ~]$ which python
+    /usr/bin/python
