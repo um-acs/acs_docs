@@ -24,13 +24,13 @@ The ``echo`` command displays a line of text. In Linux, ``$`` denotes a
 **variable**. The ``$SHELL`` environment variable contains your current
 shell. To view the contents of this variable, send it to the ``echo``
 command. Variables will be interpreted by the command even when inside
-lines of text, as shown below.
+lines of text, as shown below when a user is logged onto Pegasus.
 
 ::
 
-    [username@pegasus ~]$ echo $SHELL
+    [username@login4 ~]$ echo $SHELL
     /bin/bash
-    [username@pegasus ~]$ echo "My shell is $SHELL"
+    [username@login4 ~]$ echo "My shell is $SHELL"
     My shell is /bin/bash
 
 View all environment variables with ``env``:
@@ -41,13 +41,13 @@ this list alphanumerically, use ``env | sort``.
 
 ::
 
-    [username@pegasus ~]$ env
+    [username@login4 ~]$ env
     MODULE_VERSION_STACK=3.2.10
-    LC_PAPER=en_US.utf8
+    HOME=/nethome/username
     HOSTNAME=login4
     SHELL=/bin/bash
     ...
-    [username@pegasus ~]$ env | sort
+    [username@login4 ~]$ env | sort
     ...
 
 View your current directory with ``pwd``:
@@ -80,6 +80,8 @@ Entering the ``ls`` command without arguments (as shown below) lists the
 contents of the current directory. *If this is your first connection to
 Pegasus or Triton, your home directory may be empty.* Directories can be
 distinguished from files by the leading ``d`` in file permissions.
+The example below is illustrated on Pegasus, but the same should apply 
+on Triton.
 
 ::
 
@@ -93,7 +95,7 @@ file: ``testdir1_file1``
 
 ::
 
-    [username@pegasus ~]$ ls testdir1
+    [username@login4 ~]$ ls testdir1
     testdir1_file1
 
 Note that you can press the ``TAB`` key on your keyboard to
