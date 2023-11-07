@@ -1,8 +1,8 @@
 Access Control Lists – ACL
 ==========================
 
-**Access Control Lists** (ACL) are available on Pegasus and Triton file systems.
-They allow file owners to grant permissions to specific users and
+**Access Control Lists** (ACL) are available the on Pegasus and Triton 
+file systems.They allow file owners to grant permissions to specific users and
 groups. When combining standard Linux permissions and ACL permissions,
 **effective permissions** are the intersection (or overlap) of the two.
 ``cp`` (copy) and ``mv`` (move/rename) will include any ACLs associated
@@ -19,7 +19,7 @@ Get ACL information with ``getfacl``:
 
 ::
 
-    [username@pegasus ~]$ getfacl mydir
+    [username@login4 ~]$ getfacl mydir
     # file: mydir
     # owner: username
     # group: mygroup
@@ -32,7 +32,7 @@ shown by ``ls -ld``:
 
 ::
 
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrw---x 2 username mygroup mydir
 
 Setting ACL information
@@ -49,16 +49,16 @@ only:
 
 ::
 
-    [username@pegasus ~]$ setfacl -m user:mycollaborator:rwx mydir
+    [username@login4 ~]$ setfacl -m user:mycollaborator:rwx mydir
 
 This will set an ACL for only the directory, not any files in the
 directory.
 
 ::
 
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrw---x+ 2 username mygroup mydir
-    [username@pegasus ~]$ getfacl mydir
+    [username@login4 ~]$ getfacl mydir
     # file: mydir
     # owner: username
     # group: mygroup
@@ -77,11 +77,11 @@ Files within ``mydir`` remain unchanged (no ACL has been set).
 
 ::
 
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rwxrw-r-- 1 username mygroup myfile2.txt
     -rwxrw-r-- 1 username mygroup myfile.txt
-    [username@pegasus ~]$ getfacl mydir/myfile.txt
+    [username@login4 ~]$ getfacl mydir/myfile.txt
     # file: mydir/myfile.txt
     # owner: username
     # group: mygroup
@@ -94,7 +94,7 @@ recursively (all contents):
 
 ::
 
-    [username@pegasus ~]$ setfacl -Rm user:mycollaborator:rwX mydir
+    [username@login4 ~]$ setfacl -Rm user:mycollaborator:rwX mydir
 
 This will set an ACL for the directory and all files in the directory.
 Permissions for ``setfacl``:
@@ -110,7 +110,7 @@ Permissions for ``setfacl``:
 
 ::
 
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rwxrw-r--+ 1 username mygroup myfile2.txt
     -rwxrw-r--+ 1 username mygroup myfile.txt
@@ -120,7 +120,7 @@ set. ``getfacl`` on these files returns ACL permissions:
 
 ::
 
-    [username@pegasus ~]$ getfacl mydir/myfile.txt
+    [username@login4 ~]$ getfacl mydir/myfile.txt
     # file: mydir/myfile.txt
     # owner: username
     # group: mygroup
@@ -140,8 +140,8 @@ user:mycollaborator are rw- (the intersection of rwx and rw- is
 
 ::
 
-    [username@pegasus ~]$ chmod u=rw mydir/myfile.txt
-    [username@pegasus ~]$ getfacl mydir/myfile.txt
+    [username@login4 ~]$ chmod u=rw mydir/myfile.txt
+    [username@login4 ~]$ getfacl mydir/myfile.txt
     # file: myfile.txt
     # owner: username
     # group: mygroup
@@ -170,8 +170,8 @@ only:
 
 ::
 
-    [username@pegasus ~]$ setfacl -x user:mycollaborator mydir
-    [username@pegasus ~]$ getfacl mydir
+    [username@login4 ~]$ setfacl -x user:mycollaborator mydir
+    [username@login4 ~]$ getfacl mydir
     # file: mydir
     # owner: username
     # group: mygroup
@@ -179,7 +179,7 @@ only:
     group::rw-
     mask::rwx
     other::--x
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrwx--x+ 2 username mygroup mydir
 
 Note ``user:mycollaborator:rwx`` has been removed, but ``mask::rwx``
@@ -196,10 +196,10 @@ Remove all ACL rules for ``mydir``, directory only:
 
 ::
 
-    [username@pegasus ~]$ setfacl -b mydir
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ setfacl -b mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrwx--x 2 username mygroup mydir
-    [username@pegasus ~]$ getfacl mydir
+    [username@login4 ~]$ getfacl mydir
     # file: mydir
     # owner: username
     # group: mygroup
@@ -215,8 +215,8 @@ Remove all ACL rules for ``mydir``, recursively (all contents):
 
 ::
 
-    [username@pegasus ~]$ setfacl -Rb mydir
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ setfacl -Rb mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rwxrwxr-- 1 username mygroup myfile2.txt
     -rwxrwxr-- 1 username mygroup myfile.txt
