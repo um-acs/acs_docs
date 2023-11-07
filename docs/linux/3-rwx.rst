@@ -1,11 +1,11 @@
 File Permissions
 ================
 
-File permissions control which users can do what with which files on a
-Linux system. Files have three distinct permission sets:  one for the
+On a Linux system, file permissions control which users can do what 
+with which files. Files have three distinct permission sets:  one for the
 **user** who owns the file (u), one for the associated **group** (g),
-and one for all **other** system users (o). Recall that directories are
-types of files in Linux. 
+and one for all **other** system users (o). Recall that in Linux, 
+directories are types of files. 
 
 .. note:: As policy, IDSC does not alter user files on our systems. 
 
@@ -15,9 +15,9 @@ flag: \ ``ls -ld``. Paths can be relative or absolute.
 
 ::
 
-    [username@pegasus ~]$ ls -l /path/to/directory/or/file
+    [username@login4 ~]$ ls -l /path/to/directory/or/file
     ...
-    [username@pegasus ~]$ ls -ld /path/to/directory
+    [username@login4 ~]$ ls -ld /path/to/directory
     ...
 
 Understanding File Permission Categories
@@ -52,7 +52,7 @@ all other users (o) have read (r) permissions.
 
 ::
 
-    [username@pegasus ~]$ ls -l /nethome/username/mydir
+    [username@login4 ~]$ ls -l /nethome/username/mydir
     total 0
     -rw-r--r-- 1 username ccsuser myfile.txt
     -rw-r--r-- 1 username ccsuser myfile2.txt
@@ -63,7 +63,7 @@ all other users (o) have read only (r).
 
 ::
 
-    [username@pegasus ~]$ ls -ld /nethome/username/mydir
+    [username@login4 ~]$ ls -ld /nethome/username/mydir
     drwxr-xr-- 2 username ccsuser /nethome/username/mydir
 
 Decimal representation
@@ -145,8 +145,8 @@ Assign file owner (u) full permissions (rwx) on ``myfile.txt``:
 
 ::
 
-    [username@pegasus mydir]$ chmod u=rwx myfile.txt
-    [username@pegasus mydir]$ ls -l myfile.txt
+    [username@login4 mydir]$ chmod u=rwx myfile.txt
+    [username@login4 mydir]$ ls -l myfile.txt
     -rwxr--r-- 1 username ccsuser myfile.txt
 
 Assign full permissions (7) for file owner, read and write (6) for
@@ -154,8 +154,8 @@ members of ``ccsuser``, and execute only (1) for others:
 
 ::
 
-    [username@pegasus mydir]$ chmod 761 myfile.txt
-    [username@pegasus mydir]$ ls -l myfile.txt
+    [username@login4 mydir]$ chmod 761 myfile.txt
+    [username@login4 mydir]$ ls -l myfile.txt
     -rwx rw- --x 1 username ccsuser myfile.txt
      111 110 001
        7   6   1
@@ -165,12 +165,12 @@ all files under ``mydir`` (``-R`` flag):
 
 ::
 
-    [username@pegasus ~]$ chmod -R g+rwx mydir
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ chmod -R g+rwx mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rw-rwxr-- 1 username ccsuser myfile2.txt
     -rwxrwxr-- 1 username ccsuser myfile.txt
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrwx--x 2 username ccsuser mydir
 
 Remove for members of ccsuser (g) write permission (w) on ``mydir`` and
@@ -178,12 +178,12 @@ all files under ``mydir`` (``-R`` flag):
 
 ::
 
-    [username@pegasus ~]$ chmod -R g-w mydir
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ chmod -R g-w mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rw-r-xr-- 1 username ccsuser myfile2.txt
     -rwxr-xr-- 1 username ccsuser myfile.txt
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxr-x--x 2 username ccsuser mydir
 
 Add for members of ``ccsuser`` (g) write permission (w) on ``mydir``,
@@ -191,10 +191,10 @@ directory only:
 
 ::
 
-    [username@pegasus ~]$ chmod g+w mydir
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ chmod g+w mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrwx--x 2 username ccsuser mydir
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rw-r-xr-- 1 username ccsuser  myfile2.txt
     -rwxr-xr-- 1 username ccsuser  myfile.txt
@@ -217,10 +217,10 @@ Change the group ownership of ``mydir`` to ``mygroup``, directory only:
 
 ::
 
-    [username@pegasus ~]$ chgrp mygroup mydir
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ chgrp mygroup mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrwx--x 2 username mygroup mydir
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rw-r-xr-- 1 username ccsuser  myfile2.txt
     -rwxr-xr-- 1 username ccsuser  myfile.txt
@@ -230,10 +230,10 @@ Change the group ownership of ``mydir`` and all files under ``mydir`` to
 
 ::
 
-    [username@pegasus ~]$ chgrp -R mygroup mydir
-    [username@pegasus ~]$ ls -ld mydir
+    [username@login4 ~]$ chgrp -R mygroup mydir
+    [username@login4 ~]$ ls -ld mydir
     drwxrwx--x 2 username mygroup mydir
-    [username@pegasus ~]$ ls -l mydir
+    [username@login4 ~]$ ls -l mydir
     total 0
     -rw-r-xr-- 1 username mygroup  myfile2.txt
     -rwxr-xr-- 1 username mygroup  myfile.txt
