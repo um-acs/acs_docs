@@ -1,23 +1,22 @@
 Linux Guides
 ============
 
-Introduction to Linux on Pegasus and Triton
--------------------------------------------
+Introduction to Linux
+---------------------
 
-Pegasus is currently running the CentOS 7.6 operating system, a
-distribution of Linux. Linux is a UNIX-like kernel, though in this
-document it will generally refer to the entire CentOS distribution. The
-three basic components of UNIX-like operating systems are the
-**kernel**, **shell**, and **system programs**. The kernel handles
-resource management and program execution. The shell interprets user
-commands typed at a prompt. System programs implement most operating
-system functionalities such as user environments and schedulers.
+Pegasus and Triton both run the CentOS 7.6 and RHEL 7.6 operating systems, 
+respectively. Both of these operating systems are distributions of Linux,
+a UNIX-like operating system. The three basic components of UNIX-like 
+operating systems are the **kernel**, **shell**, and **system programs**. 
+The kernel handles resource management and program execution. The shell 
+interprets user commands typed at a prompt. System programs implement most 
+operating system functionalities such as user environments and schedulers.
 
 Everything in Linux is either a **file** (a collection of data) or a
 **process** (an executing program). Directories in Linux are types of
 files.
 
-In the below examples, ``username`` represents your access account. 
+In the examples below, ``username`` represents your access account. 
 
 
 .. toctree::
@@ -25,7 +24,7 @@ In the below examples, ``username`` represents your access account.
    :glob: 
 
    Navigating the Linux Shell <1-nav>
-   Interacting with Files on Pegasus <2-files>
+   Interacting with Files <2-files>
    File Permissions in Linux <3-rwx>
    Access Control Lists – ACL <4-acl>
 
