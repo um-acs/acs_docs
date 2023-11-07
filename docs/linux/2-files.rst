@@ -8,8 +8,8 @@ This command creates new, empty directories.
 
 ::
 
-    [username@pegasus ~]$ mkdir testdir2
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ mkdir testdir2
+    [username@login4 ~]$ ls
     example_file1  example_file2  testdir1  testdir2
 
 Multiple directories can be created at the same time, as can directory
@@ -17,17 +17,17 @@ hierarchies:
 
 ::
 
-    [username@pegasus ~]$ mkdir firstdir seconddir
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ mkdir firstdir seconddir
+    [username@login4 ~]$ ls
     example_file1  example_file2  firstdir  secondir  testdir1  testdir2
 
-    [username@pegasus ~]$ mkdir -pv level1/level2/level3
+    [username@login4 ~]$ mkdir -pv level1/level2/level3
     mkdir: created directory `level1'
     mkdir: created directory `level1/level2'
     mkdir: created directory `level1/level2/level3'
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ ls
     example_file1  example_file2  firstdir  level1  seconddir  testdir1  testdir2
-    [username@pegasus ~]$ ls level1
+    [username@login4 ~]$ ls level1
     level2
 
 The flags on this ``mkdir -pv`` command:
@@ -39,7 +39,7 @@ If a directory already exists, ``mkdir`` will output an error message:
 
 ::
 
-    [username@pegasus ~]$ mkdir testdir1
+    [username@login4 ~]$ mkdir testdir1
     mkdir: cannot create directory `testdir1': File exists
 
 Remove directories with ``rmdir``:
@@ -49,14 +49,14 @@ Directories must be empty for ``rmdir`` to remove them.
 
 ::
 
-    [username@pegasus ~]$ rmdir firstdir seconddir
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ rmdir firstdir seconddir
+    [username@login4 ~]$ ls
     example_file1  example_file2  level1  testdir1  testdir2
 
-    [username@pegasus ~]$ rmdir testdir1 level1
+    [username@login4 ~]$ rmdir testdir1 level1
     rmdir: failed to remove `testdir1': Directory not empty
     rmdir: failed to remove `level1': Directory not empty
-    [username@pegasus ~]$ ls testdir1 level1
+    [username@login4 ~]$ ls testdir1 level1
     level1:
     level2
 
@@ -70,14 +70,14 @@ of the hierarchy in the above example is not empty, neither is
 Remove files and directories with ``rm``:
 -----------------------------------------
 
-***There is no 'recycle bin' on Pegasus.*** Removing files with ``rm``
+***There is no 'recycle bin' on Pegasus and Triton.*** Removing files with ``rm``
 is permanent and cannot be undone.
 
 ::
 
-    [username@pegasus ~]$ rm -v example_file3
+    [username@login4 ~]$ rm -v example_file3
     removed `example_file3'
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ ls
     example_file1  example_file2  level1  testdir1  testdir2
 
 The flag on this ``rm -v`` command:
@@ -91,9 +91,9 @@ on a directory will produce an error as shown below.
 
 ::
 
-    [username@pegasus ~]$ rm level1
+    [username@login4 ~]$ rm level1
     rm: cannot remove `level1': Is a directory
-    [username@pegasus ~]$ rm -rv level1
+    [username@login4 ~]$ rm -rv level1
     removed directory: `level1/level2/level3'
     removed directory: `level1/level2'
     removed directory: `level1'
@@ -111,10 +111,10 @@ This is best used for small text files.
 
 ::
 
-    [username@pegasus ~]$ cat example_file1
+    [username@login4 ~]$ cat example_file1
     This is example_file1.
     It contains two lines of text.
-    [username@pegasus ~]$ cat -nE example_file1
+    [username@login4 ~]$ cat -nE example_file1
          1    This is example_file1.$
          2  It contains two lines of text.$
 
@@ -133,11 +133,11 @@ the keyboard) then outputs contents (typically the display). Press
 
 ::
 
-    [username@pegasus ~]$ cat
+    [username@login4 ~]$ cat
     No file was given- cat reads standard input from the keyboard and will output this to the display.                              
     No file was given- cat reads standard input from the keyboard and will output this to the display.
     CTRL-D or Command-D
-    [username@pegasus ~]$ 
+    [username@login4 ~]$ 
 
 This feature can be used to create files.
 
@@ -151,12 +151,12 @@ immediately.
 
 ::
 
-    [username@pegasus ~]$ cat > example_file3
+    [username@login4 ~]$ cat > example_file3
     This is example_file3.
     These lines are typed directly into the file.
     Press CTRL-D (Windows) or Command-D (Mac) to return to the prompt.
     CTRL-D or Command-D
-    [username@pegasus ~]$ cat example_file3
+    [username@login4 ~]$ cat example_file3
     This is example_file3.
     These lines are typed directly into the file.
     Press CTRL-D (Windows) or Command-D (Mac) to return to the prompt.
@@ -166,10 +166,10 @@ use the append operator: ``>>``
 
 ::
 
-    [username@pegasus ~]$ cat >> example_file3
+    [username@login4 ~]$ cat >> example_file3
     This is an appended line.
     CTRL-D or Command-D
-    [username@pegasus ~]$ cat example_file3
+    [username@login4 ~]$ cat example_file3
     This is example_file3.
     These lines are typed directly into the file.
     Press CTRL-D (Windows) or Command-D (Mac) to return to the prompt.
@@ -189,7 +189,7 @@ default, both output 10 lines - ``head`` the first 10, ``tail`` the last
 
 ::
 
-    [username@pegasus ~]$ head example_file2
+    [username@login4 ~]$ head example_file2
     This is example_file2.  It contains 20 lines.  
     This is the 2nd line.
     This is the 3rd line.
@@ -200,12 +200,12 @@ default, both output 10 lines - ``head`` the first 10, ``tail`` the last
     This is the 8th line.
     This is the 9th line.
     This is the 10th line.
-    [username@pegasus ~]$ head -3 example_file2
+    [username@login4 ~]$ head -3 example_file2
     This is example_file2.  It contains 20 lines.  
     This is the 2nd line.
     This is the 3rd line.
 
-    [username@pegasus ~]$ tail -4 example_file2
+    [username@login4 ~]$ tail -4 example_file2
     This is the 17th line.
     This is the 18th line.
     This is the 19th line.
@@ -214,18 +214,18 @@ default, both output 10 lines - ``head`` the first 10, ``tail`` the last
 Rename and Move with ``mv``:
 ----------------------------
 
-Moving and renaming in Linux uses the same command, thus files can be
+Moving and renaming in Linux use the same command, thus files can be
 renamed as they are moved. In this example, the file ``example_file1``
 is first renamed using ``mv`` and then moved to a subdirectory (without
 renaming).
 
 ::
 
-    [username@pegasus ~]$ mv example_file1 example_file0
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ mv example_file1 example_file0
+    [username@login4 ~]$ ls
     example_file0  example_file2  testdir1  testdir2
-    [username@pegasus ~]$ mv example_file0 testdir1/
-    [username@pegasus ~]$ ls testdir1
+    [username@login4 ~]$ mv example_file0 testdir1/
+    [username@login4 ~]$ ls testdir1
     example_file0  testdir1_file1
 
 In this example, the file ``example_file0`` is moved and renamed at the
@@ -233,9 +233,9 @@ same time.
 
 ::
 
-    [username@pegasus ~]$ mv -vn testdir1/example_file0 example_file1
+    [username@login4 ~]$ mv -vn testdir1/example_file0 example_file1
     `testdir1/example_file0' -> `example_file1'
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ ls
     example_file1  example_file2  testdir1  testdir2
 
 The flags on this ``mv -vn`` command:
@@ -248,9 +248,9 @@ default.
 
 ::
 
-    [username@pegasus ~]$ mv -v testdir1 testdir2/testdir1
+    [username@login4 ~]$ mv -v testdir1 testdir2/testdir1
     `testdir1' -> `testdir2/testdir1'
-    [username@pegasus ~]$ ls -R testdir2
+    [username@login4 ~]$ ls -R testdir2
     testdir2:
     testdir1
 
@@ -262,13 +262,13 @@ The file inside ``tesdir1`` moved along with the directory.
 Copy with ``cp``:
 -----------------
 
-File and directory copies can be renamed as they are copied. In this
+Files and directories can be renamed as they are copied. In this
 example, ``example_file1`` is copied to ``example_file0``.
 
 ::
 
-    [username@pegasus ~]$ cp example_file1 example_file0
-    [username@pegasus ~]$ cat example_file0
+    [username@login4 ~]$ cp example_file1 example_file0
+    [username@login4 ~]$ cat example_file0
     This is example_file1.
     It contains two lines of text.
 
@@ -279,17 +279,17 @@ recursive flag ``-R``.
 
 ::
 
-    [username@pegasus ~]$ cp -Rv testdir2 testdir2copy
+    [username@login4 ~]$ cp -Rv testdir2 testdir2copy
     `testdir2' -> `testdir2copy'
     `testdir2/testdir1' -> `testdir2copy/testdir1'
     `testdir2/testdir1/testdir1_file1' -> `testdir2copy/testdir1/testdir1_file1'
-    [username@pegasus ~]$ ls
+    [username@login4 ~]$ ls
     example_file0  example_file1  example_file2  testdir2  testdir2copy
 
 The flags on this ``cp -Rv`` command:
 
--  ``-R`` copy directories recursively
--  ``-v`` for verbose, explain what is being done
+-  ``-R`` for copying directories recursively
+-  ``-v`` for verbosity, explain what is being done
 
 Other useful flags:
 
@@ -325,7 +325,7 @@ mode and exit saving changes.
 
 ::
 
-    [username@pegasus ~]$ vi example_file0
+    [username@login4 ~]$ vi example_file0
     ...
     This is example_file0.
     It contains two lines of text.
@@ -335,13 +335,12 @@ mode and exit saving changes.
     ~ 
     "example_file0" 2L, 54C    
     :x
-    [username@pegasus ~]$ cat example_file0
+    [username@login4 ~]$ cat example_file0
     This is example_file0.
     It contains two lines of text.
 
 Some ``vi`` tutorials, commands, and comparisons :
 
--  https://www.ccsf.edu/Pub/Fac/vi.html
 -  http://www.cs.colostate.edu/helpdocs/vi.html
 -  https://www.linuxtrainingacademy.com/nano-emacs-vim/
 
@@ -357,7 +356,7 @@ arrow keys or ``Page Up`` and ``Page Down``, and search with ``?``
 
 ::
 
-    [username@pegasus testdir1]$ less testdir1_file1
+    [username@login4 testdir1]$ less testdir1_file1
     ...
     This is tesdir1_file1.  It contains 42 lines.  
     02
@@ -375,4 +374,4 @@ arrow keys or ``Page Up`` and ``Page Down``, and search with ``?``
     41
     42
     (END)  q
-    [username@pegasus testdir1]$
+    [username@login4 testdir1]$
