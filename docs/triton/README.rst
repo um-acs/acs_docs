@@ -15,8 +15,7 @@ computing (HPC) [citation_1]. Each Power AC922 server that comprises Triton feat
 .. toctree::
    :maxdepth: 5
 
-   Introduction <1-introduction/README>
-   Connecting <2-connecting/README>
-   Software Environment Management <3-software_environment_management/README>
-   Job Scheduling  <4-job_scheduling/README>
-   Applications < 5-applications/README>
+   Connecting <1-connecting/README>
+   Software Environment Management <2-software_environment_management/README>
+   Job Scheduling  <3-job_scheduling/README>
+   Applications < 4-applications/README>
