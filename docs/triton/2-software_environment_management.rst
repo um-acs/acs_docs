@@ -5,7 +5,7 @@ Software Environment Management
 ===============================
 
 Software and dependencies on Triton are deployed and managed through Lmod_, an implementation of `Environment Modules`_.
-Lmod provides a set of module commands that users can employ to modify their software environment. Essentially, 
+Lmod provides a set of commands that users can employ to modify their software environment. Essentially, 
 Lmod provides the `module` command which interprets modulefiles (which are a special type of file) that set or alter shell environment
 variables. 
 
@@ -18,7 +18,9 @@ variables.
 A Summary of Module Commands
 ----------------------------
 
-Shortcut commands are also available :
+Below is a summary of commands that can be used to manage or alter shell 
+environment variables. The short form versions of the commands appear 
+next to the full form commands:
 
 +---------------------------+-----------------------+------------------+
 | Command                   | Shortcut              | Description      |
