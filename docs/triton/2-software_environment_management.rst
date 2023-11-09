@@ -29,24 +29,14 @@ next to the full form commands:
 |                           |                       | loaded modules   |
 +---------------------------+-----------------------+------------------+
 | module avail              | ml av                 | list available   |
-|                           |                       | modules, based   |
-|                           |                       | on currently     |
-|                           |                       | loaded           |
-|                           |                       | hierarchies      |
-|                           |                       | (compilers,      |
-|                           |                       | libraries, etc.) |
+|                           |                       | modules          |
 +---------------------------+-----------------------+------------------+
 | module avail pkgName1     | ml av pkgName1        | search available |
-|                           |                       | modules, based   |
-|                           |                       | on currently     |
-|                           |                       | loaded           |
-|                           |                       | hierarchies      |
+|                           |                       | modules          |
 +---------------------------+-----------------------+------------------+
 | module is-avail pkgName1  | ml is-avail pkgName1  | check if         |
 |                           |                       | module(s) can be |
-|                           |                       | loaded, based on |
-|                           |                       | currently loaded |
-|                           |                       | hierarchies      |
+|                           |                       | loaded           |
 +---------------------------+-----------------------+------------------+
 | module spider             | ml spider             | list all modules |
 +---------------------------+-----------------------+------------------+
@@ -90,8 +80,8 @@ next to the full form commands:
 |                           |                       | changes          |
 +---------------------------+-----------------------+------------------+
 
-Triton Standard Environment
----------------------------
+The Standard Environment on Triton
+----------------------------------
 
 The StdEnv on Triton contains the default configurations for the cluster.
 
