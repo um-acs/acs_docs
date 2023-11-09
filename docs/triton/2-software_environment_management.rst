@@ -109,7 +109,7 @@ The StdEnv on Triton contains the default configurations for the cluster.
 Available Modules on Triton
 ---------------------------
 
-Available modules at login include the compilers under “Compilers”, compiler-independent modules under “Core”, and modules dependent on the currently loaded compiler. 
+On Triton, available modules at login include the compilers under “Compilers”, compiler-independent modules under “Core”, and modules dependent on the currently loaded compiler. 
 
 ***Note :*** some modulefiles are marked (E) for Experimental.  As with all software, please report any issues to `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_.
 
