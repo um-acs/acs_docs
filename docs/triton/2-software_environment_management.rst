@@ -15,11 +15,8 @@ variables.
 
 
 
-Please note, different modules will be shown/hidden depending on the compiler that is loaded. The below examples are performed with
-the gcc/8.3.1 compiler loaded.
-
-Module Commands
----------------
+A Summary of Module Commands
+----------------------------
 
 Shortcut commands are also available :
 
