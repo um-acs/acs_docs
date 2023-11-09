@@ -4,9 +4,9 @@
 Software Environment Management
 ===============================
 
-Software and dependencies on Triton are deployed through Lmod, an upgraded Environment Modules suite.
+Software and dependencies on Triton are deployed through Lmod_, an implementation of Environment Modules.
 
-https://lmod.readthedocs.io/en/latest/010_user.html
+.. _Lmod: https://lmod.readthedocs.io/en/latest/010_user.html
 
 Please note, different modules will be shown/hidden depending on the compiler that is loaded. The below examples are performed with
 the gcc/8.3.1 compiler loaded.
