@@ -2,9 +2,13 @@
 User Guide to the Triton Cluster
 ================================
 
-The Triton Cluster comprises 96 IBM Power System AC922 servers. The 
-Power AC922 is designed for deep learning (DL) and artificial intelligence (AI),
+The Triton Cluster is UM's latest supercomputer, and comprises 96 IBM Power System 
+AC922 servers. The Power AC922 server is designed for deep learning (DL) and artificial intelligence (AI),
 high-performance analytics and high-performance computing (HPC) [citation_1].
+Each Power AC922 server that comprises Triton features:
+
+- Two IBM Power 9 (TM) processors, offering up to 40 cores with 256 GB of memory.
+- Two NVIDIA Tesla V100 (with NVLink) GPUs, each of which has 16 GB memory.
 
 .. [citation_1] https://www.redbooks.ibm.com/redpapers/pdfs/redp5494.pdf
 
