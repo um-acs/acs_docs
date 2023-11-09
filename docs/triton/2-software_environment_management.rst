@@ -106,8 +106,8 @@ The StdEnv on Triton contains the default configurations for the cluster.
 	load("gcc/8.3.1")
 
 
-Triton available modules
-------------------------
+Available Modules on Triton
+---------------------------
 
 Available modules at login include the compilers under “Compilers”, compiler-independent modules under “Core”, and modules dependent on the currently loaded compiler. 
 
