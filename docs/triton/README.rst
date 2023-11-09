@@ -12,7 +12,7 @@ computing (HPC) [citation_1]. Each Power AC922 server that comprises Triton feat
 
 .. [citation_1] https://www.redbooks.ibm.com/redpapers/pdfs/redp5494.pdf
 
-.. image:: media/TRITON_supercomputer.jpg
+.. image:: media/TRITON-Supercomputer.jpg
    :alt: The Triton Supercomputer
 
 .. toctree::
