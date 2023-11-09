@@ -113,14 +113,6 @@ On Triton, available modules at login include the compilers under â€œCompilersâ€
 
 ***Note :*** some modulefiles are marked (E) for Experimental.  As with all software, please report any issues to `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_.
 
--  show loaded modules with ``module list`` or ``ml``
--  show module help info with ``module help NAME`` or ``ml help NAME``
--  show module whatis info with ``module whatis NAME`` or
-   ``ml whatis NAME``
--  show available modules with ``module avail`` or ``ml av``
--  show module settings with ``module show NAME`` or ``ml show NAME``
--  load a module with ``module load NAME`` or ``ml NAME``
-
 ::
 
     [username@login1 ~]$ ml
@@ -135,13 +127,10 @@ On Triton, available modules at login include the compilers under â€œCompilersâ€
 	The GNU Compiler Collection includes front ends for C, C++, Objective-C,
 	Fortran, Ada, and Go, as well as libraries for these languages.
 
-
-
     [username@login1 ~]$ ml whatis gcc
 	gcc/8.3.1           : Name : gcc
 	gcc/8.3.1           : Version : 8.3.1
 	gcc/8.3.1           : Target : power9le
-
 
     [username@login1 ~]$ ml av
 	----------------------- /share/mfiles/Compiler/gcc/8.3.1 -----------------------
