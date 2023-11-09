@@ -4,7 +4,10 @@
 Software Environment Management
 ===============================
 
-Software and dependencies on Triton are deployed through Lmod_, an implementation of `Environment Modules`_.
+Software and dependencies on Triton are deployed and managed through Lmod_, an implementation of `Environment Modules`_.
+Lmod provides a set of module commands that users can employ to modify their software environment. Essentially, 
+Lmod provides the `module` command which interprets modulefiles, which (are a type of file that) set or alter shell enviroment
+variables. 
 
 .. _Lmod: https://lmod.readthedocs.io/en/latest/010_user.html
 
