@@ -86,6 +86,7 @@ The Standard Environment on Triton
 The StdEnv on Triton contains the default configurations for the cluster.
 
 -  show loaded modules with ``module list`` or ``ml``
+
 ::
 
     [username@login1 ~]$ ml
@@ -98,11 +99,6 @@ The StdEnv on Triton contains the default configurations for the cluster.
    ``ml show StdEnv`` 
    
 ::
-
-    [username@login1 ~]$ ml
-
-	Currently Loaded Modules:
-	  1) gcc/8.3.1   2) StdEnv
 
     [username@login1 ~]$ ml show StdEnv
 	----------------------------------------------------------------------------
