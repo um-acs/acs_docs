@@ -23,7 +23,7 @@ environment variables. The short form versions of the commands appear
 next to the full form commands:
 
 +---------------------------+-----------------------+------------------+
-| Command                   | Shortcut              | Description      |
+|Command                    |Shortcut               |Description       |
 +===========================+=======================+==================+
 | module list               | ml                    | list currently   |
 |                           |                       | loaded modules   |
