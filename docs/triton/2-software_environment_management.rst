@@ -115,15 +115,9 @@ Available Modules on Triton
 
 On Triton, available modules at login include the compilers under “Compilers”, compiler-independent modules under “Core”, and modules dependent on the currently loaded compiler. 
 
-***Note :*** some modulefiles are marked (E) for Experimental.  As with all software, please report any issues to `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_.
+***Note:*** some modulefiles are marked (E) for Experimental.  As with all software, please report any issues to `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_.
 
 ::
-
-    [username@login1 ~]$ ml
-
-	Currently Loaded Modules:
-	  1) gcc/8.3.1   2) StdEnv
-
 
     [username@login1 ~]$ ml help gcc
 
@@ -191,6 +185,20 @@ On Triton, available modules at login include the compilers under “Compilers�
 	Use "module spider" to find all possible modules.
 	Use "module keyword key1 key2 ..." to search for all possible modules matching
 	any of the "keys".
+
+    ..
+
+    [username@login1 ~]$ ml help gcc
+
+	--------------------- Module Specific Help for "gcc/8.3.1" ---------------------
+	The GNU Compiler Collection includes front ends for C, C++, Objective-C,
+	Fortran, Ada, and Go, as well as libraries for these languages.
+
+    [username@login1 ~]$ ml whatis gcc
+	gcc/8.3.1           : Name : gcc
+	gcc/8.3.1           : Version : 8.3.1
+	gcc/8.3.1           : Target : power9le
+
 
     ..
 
