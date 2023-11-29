@@ -24,6 +24,10 @@ requesting the following:
 - a project, by filling out `this form <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__.
 - an IDSC account, by filling out `this form <https://redcap.miami.edu/surveys/?s=LWNTAWTTJ4>`__.
 
+Often, a project already exists and only an account needs to be setup for 
+a prospective user. In that case, the prospective user needs
+only to apply for an IDSC account.
+
 Connecting to cluster computer resources
 ----------------------------------------
 
