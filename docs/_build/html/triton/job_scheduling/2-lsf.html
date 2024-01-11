@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Scheduling with LSF &mdash; acs_docs 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Example Job Scripts" href="3-example_jobs.html" />
+    <link rel="prev" title="Job Queues on Triton" href="1-queues.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> acs_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../connecting.html">Connecting to ACS Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training_videos.html">Training Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/README.html">Linux on Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/README.html">Data Storage and Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/README.html">IDSC ACS Policies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">Triton</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1-connecting.html">Connecting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2-quickstart.html">QuickStart Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../3-job_scheduling.html">Job Scheduling</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1-queues.html">Job Queues</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LSF Scheduler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lsf-commands">LSF Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lsf-batch-jobs">LSF Batch Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lsf-interactive-jobs">LSF Interactive Jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3-example_jobs.html">Example Jobs and Job Scripts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">acs_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../README.html">User Guide to the Triton Cluster</a></li>
+          <li class="breadcrumb-item"><a href="../3-job_scheduling.html">Job Scheduling</a></li>
+      <li class="breadcrumb-item active">Job Scheduling with LSF</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/triton/job_scheduling/2-lsf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="job-scheduling-with-lsf">
+<h1>Job Scheduling with LSF<a class="headerlink" href="#job-scheduling-with-lsf" title="Permalink to this heading">¶</a></h1>
+<p>Triton currently uses the <strong>LSF</strong> resource manager to schedule all
+compute resources. LSF (<em>load sharing facility</em>) supports over 1500
+users and over 200,000 simultaneous job submissions. Jobs are submitted
+to <strong>queues</strong>, the software categories we define in the scheduler to
+organize work more efficiently. LSF distributes jobs submitted by users
+to our over 340 compute nodes according to queue, user priority, and
+available resources. You can monitor your job status, queue position,
+and progress using LSF commands.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Reserve an appropriate amount of resources through LSF for your jobs.</strong></p>
+</div>
+<p>If you do not know the resources your jobs need, use the
+<strong>debug</strong> queue to benchmark your jobs.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Jobs with insufficient resource allocations interfere with cluster performance and the IDSC account responsible for those jobs may be suspended (<a class="reference external" href="https://ccs.miami.edu/ac/policies">Policies</a>).</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Stage data for running jobs exclusively in the</strong> <code class="docutils literal notranslate"><span class="pre">/scratch</span></code> <strong>file system,</strong> which is optimized for fast data access.</p>
+</div>
+<p>Any files used as input for your jobs must first be transferred to /scratch.
+The /home file system is optimized for mass data storage and is therefore
+slower-access.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using /home while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended*** (<a class="reference external" href="https://ccs.miami.edu/ac/policies">Policies</a>).</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Do not background processes with the</strong> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> <strong>operator in LSF.</strong></p>
+</div>
+<p>These spawned processes cannot be killed with <strong>bkill</strong> after the parent is
+gone.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using the &amp; operator while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended (<a class="reference external" href="https://ccs.miami.edu/ac/policies">Policies</a>).</p>
+</div>
+<section id="lsf-commands">
+<h2>LSF Commands<a class="headerlink" href="#lsf-commands" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.ibm.com/docs/el/spectrum-lsf/10.1.0?topic=notes-lsf-101-release/">LSF 10.1 Documentation</a></p>
+<p>Common LSF commands and descriptions:</p>
+<table><thead><tr class="header"><th><p>Command</p>
+</th><th><p>Purpose</p>
+</th></tr></thead><tbody><tr class="odd"><td><p>bsub</p>
+</td><td><p>Submits a job to LSF. Define resource requirements with flags.</p>
+</td></tr><tr class="even"><td><p>bsub &lt; scriptfile</p>
+</td><td><p>Submits a job to LSF via script file. The redirection symbol &lt; is
+required when submitting a job script file</p>
+</td></tr><tr class="odd"><td><p>bjobs</p>
+</td><td><p>Displays your running and pending jobs.</p>
+</td></tr><tr class="even"><td><p>bhist</p>
+</td><td><p>Displays historical information about your finished jobs.</p>
+</td></tr><tr class="odd"><td><p>bkill</p>
+</td><td><p>Removes/cancels a job or jobs from the class.</p>
+</td></tr><tr class="even"><td><p>bqueues</p>
+</td><td><p>Shows the current configuration of queues.</p>
+</td></tr><tr class="odd"><td><p>bhosts</p>
+</td><td><p>Shows the load on each node.</p>
+</td></tr><tr class="even"><td><p>bpeek</p>
+</td><td><p>Displays stderr and stdout from your unfinished job.</p>
+</td></tr></tbody></table><section id="scheduling-jobs">
+<h3>Scheduling Jobs<a class="headerlink" href="#scheduling-jobs" title="Permalink to this heading">¶</a></h3>
+<p>The command <code class="docutils literal notranslate"><span class="pre">bsub</span></code> will submit a job for processing. You must include
+the information LSF needs to allocate the resources your job requires,
+handle standard I/O streams, and run the job. For more information about
+flags, type <code class="docutils literal notranslate"><span class="pre">bsub</span> <span class="pre">-h</span></code> at the Pegasus prompt. Detailed information can
+be displayed with <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">bsub</span></code>. On submission, LSF will return the job
+id which can be used to keep track of your job.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ bsub -J jobname -o %J.out -e %J.err -q normal -P myproject myprogram
+Job &lt;2607&gt; is submitted to general queue .
+</pre></div>
+</div>
+<p>The Job Scripts section has more information about organizing multiple
+flags into a job script file for submission.</p>
+</section>
+<section id="monitoring-jobs">
+<h3>Monitoring Jobs<a class="headerlink" href="#monitoring-jobs" title="Permalink to this heading">¶</a></h3>
+<section id="bjobs">
+<h4>bjobs<a class="headerlink" href="#bjobs" title="Permalink to this heading">¶</a></h4>
+<p>The commands <code class="docutils literal notranslate"><span class="pre">bjobs</span></code> displays information about your own pending,
+running, and suspended jobs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ bjobs
+JOBID  USER   STAT  QUEUE    FROM_HOST  EXEC_HOST   JOB_NAME  SUBMIT_TIME
+4225   usernam   RUN   normal  m1       16*n060     testjob   Mar  2 11:53
+                                         16*n061
+                                         16*n063
+                                         16*n064
+</pre></div>
+</div>
+<p>For details about your particular job, issue the command
+<code class="docutils literal notranslate"><span class="pre">bjobs</span> <span class="pre">-l</span> <span class="pre">jobID</span></code> where <code class="docutils literal notranslate"><span class="pre">jobID</span></code> is obtained from the <code class="docutils literal notranslate"><span class="pre">JOBID</span></code> field
+of the above <code class="docutils literal notranslate"><span class="pre">bjobs</span></code> output. To display a specific user’s jobs, use
+<code class="docutils literal notranslate"><span class="pre">bjobs</span> <span class="pre">-u</span> <span class="pre">username</span></code>. To display all user jobs in paging format, pipe
+output to <code class="docutils literal notranslate"><span class="pre">less</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ bjobs -u all | less
+JOBID     USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
+5990529   axt651  RUN   interactiv login4.pega n002        bash       Feb 13 15:23
+6010636   zxh69   RUN   normal    login4.pega 16*n178     *acsjob-01 Feb 23 11:36
+                                               16*n180
+                                               16*n203
+                                               16*n174
+6014246   swishne RUN   interactiv n002.pegasu n002        bash       Feb 24 14:10
+6017561   asingh  PEND  interactiv login4.pega             matlab     Feb 25 14:49
+...
+</pre></div>
+</div>
+</section>
+<section id="bhist">
+<h4>bhist<a class="headerlink" href="#bhist" title="Permalink to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">bhist</span></code> displays information about your recently finished jobs. CPU
+time is not normalized in <code class="docutils literal notranslate"><span class="pre">bhist</span></code> output. To see your <em>finished</em> and
+<em>unfinished</em> jobs, use <code class="docutils literal notranslate"><span class="pre">bhist</span> <span class="pre">-a</span></code>.</p>
+</section>
+<section id="bkill">
+<h4>bkill<a class="headerlink" href="#bkill" title="Permalink to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">bkill</span></code> kills the last job submitted by the user running the command,
+by default. The command <code class="docutils literal notranslate"><span class="pre">bkill</span> <span class="pre">jobID</span></code> will remove a specific job from
+the queue and terminate the job <strong>if</strong> it is running. <code class="docutils literal notranslate"><span class="pre">bkill</span> <span class="pre">0</span></code> will
+kill all jobs belonging to current user.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ bkill 4225
+Job &lt;4225&gt; is being terminated
+</pre></div>
+</div>
+<p>On Pegasus (Unix), SIGINT and SIGTERM are sent to give the job a chance
+to clean up before termination, then SIGKILL is sent to kill the job.</p>
+</section>
+<section id="bqueues">
+<h4>bqueues<a class="headerlink" href="#bqueues" title="Permalink to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">bqueues</span></code> displays information about queues such as queue name, queue
+priority, queue status, job slot statistics, and job state statistics.
+CPU time is normalized by CPU factor.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ bqueues
+QUEUE_NAME      PRIO STATUS          MAX JL/U JL/P JL/H NJOBS  PEND   RUN  SUSP
+bigmem          500  Open:Active       -   16    -    -  1152  1120    32     0
+normal          100  Open:Active       -    -    -    -  9677  5969  3437     0
+interactive      30  Open:Active       -    4    -    -    13     1    12     0
+</pre></div>
+</div>
+</section>
+<section id="bhosts">
+<h4>bhosts<a class="headerlink" href="#bhosts" title="Permalink to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">bhosts</span></code> displays information about all hosts such as host name, host
+status, job state statistics, and jobs lot limits. <code class="docutils literal notranslate"><span class="pre">bhosts</span> <span class="pre">-s</span></code>
+displays information about numeric resources (shared or host-based) and
+their associated hosts. <code class="docutils literal notranslate"><span class="pre">bhosts</span> <span class="pre">hostname</span></code> displays information about
+an individual host and <code class="docutils literal notranslate"><span class="pre">bhosts</span> <span class="pre">-w</span></code> displays more detailed host status.
+closed_Full means the configured maximum number of running jobs has been
+reached (running jobs will not be affected), no new job will be assigned
+to this host.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ bhosts -w | less
+HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV
+n001               ok              -     16     14     14      0      0      0
+n002               ok              -     16      4      4      0      0      0
+...
+n342               closed_Full     -     16     16     12      0      0      4
+n343               closed_Full     -     16     16     16      0      0      0
+n344               closed_Full     -     16     16     16      0      0      0
+</pre></div>
+</div>
+</section>
+<section id="bpeek">
+<h4>bpeek<a class="headerlink" href="#bpeek" title="Permalink to this heading">¶</a></h4>
+<p>Use <code class="docutils literal notranslate"><span class="pre">bpeek</span> <span class="pre">jobID</span></code> to monitor the progress of a job and identify
+errors. If errors are observed, valuable user time and system resources
+can be saved by terminating an erroneous job with <code class="docutils literal notranslate"><span class="pre">bkill</span> <span class="pre">jobID</span></code>. By
+default, <code class="docutils literal notranslate"><span class="pre">bpeek</span></code> displays the standard output and standard error
+produced by one of your unfinished jobs, up to the time the command is
+invoked. <code class="docutils literal notranslate"><span class="pre">bpeek</span> <span class="pre">-q</span> <span class="pre">queuename</span></code> operates on your most recently submitted
+job in that queue and <code class="docutils literal notranslate"><span class="pre">bpeek</span> <span class="pre">-m</span> <span class="pre">hostname</span></code> operates on your most
+recently submitted job dispatched to the specified host.
+<code class="docutils literal notranslate"><span class="pre">bpeek</span> <span class="pre">-f</span> <span class="pre">jobID</span></code> display live outputs from a running job and it can be
+terminated by <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> (Windows &amp; most Linux) or <code class="docutils literal notranslate"><span class="pre">Command-C</span></code> (Mac).</p>
+</section>
+</section>
+<section id="examining-job-output">
+<h3>Examining Job Output<a class="headerlink" href="#examining-job-output" title="Permalink to this heading">¶</a></h3>
+<p>Once your job has completed, examine the contents of your job’s output
+files. Note the script submission under <strong>User input</strong>, whether the job
+completed, and the <strong>Resource usage summary</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ cat test.out
+Sender: LSF System &lt;lsfadmin@n069.triton.edu&gt;
+Subject: Job 6021006: &lt;test&gt; in cluster &lt;mk2&gt; Done
+Job &lt;test&gt; was submitted from host &lt;login4.triton.edu&gt; by user &lt;username&gt; in cluster &lt;mk2&gt;.
+Job was executed on host(s) &lt;8*n069&gt;, in queue &lt;general&gt;, as user &lt;username&gt; in cluster &lt;mk2&gt;.
+...
+Your job looked like:
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh
+#BSUB -n 16
+#BSUB -J test
+#BSUB -o test.out
+...
+------------------------------------------------------------
+Successfully completed.
+Resource usage summary:
+CPU time : 2.26 sec.
+Max Memory : 30 MB
+Average Memory : 30.00 MB
+...
+PS:
+Read file &lt;test.err&gt; for stderr output of this job.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lsf-batch-jobs">
+<h2>LSF Batch Jobs<a class="headerlink" href="#lsf-batch-jobs" title="Permalink to this heading">¶</a></h2>
+<p>Batch jobs are self-contained programs that require no intervention to
+run. Batch jobs are defined by resource requirements such as how many
+cores, how much memory, and how much time they need to complete. These
+requirements can be submitted via command line flags or a script file.
+Detailed information about LSF commands and example script files can be
+found later in this guide.</p>
+<ol class="arabic">
+<li><p><strong>Create a job scriptfile</strong></p>
+<p>Include a job name <code class="docutils literal notranslate"><span class="pre">-J</span></code>, the information LSF needs to allocate
+resources to your job, and names for your output and error files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scriptfile</span>
+<span class="c1">#BSUB -J test</span>
+<span class="c1">#BSUB -q normal</span>
+<span class="c1">#BSUB -P myproject</span>
+<span class="c1">#BSUB -o %J.out</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Submit your job to the appropriate project and queue with</strong>
+<code class="docutils literal notranslate"><span class="pre">bsub</span> <span class="pre">&lt;</span> <span class="pre">scriptfile</span></code></p>
+<p>Upon submission, a <code class="docutils literal notranslate"><span class="pre">jobID</span></code> and the queue name are returned.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login1 ~]$ bsub &lt; scriptfile
+Job &lt;6021006&gt; is submitted to queue &lt;normal&gt;.
+</pre></div>
+</div>
+</li>
+<li><p><strong>Monitor your jobs with</strong> <code class="docutils literal notranslate"><span class="pre">bjobs</span></code></p>
+<p>Flags can be used to specify a single job or another user’s jobs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login1 ~]$ bjobs
+JOBID  USER   STAT  QUEUE    FROM_HOST  EXEC_HOST   JOB_NAME  SUBMIT_TIME
+4225   usernam   RUN   normal  m1       16*n060     testjob   Mar  2 11:53
+</pre></div>
+</div>
+</li>
+<li><p><strong>Examine job output files</strong></p>
+<p>Once your job has completed, view output information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@triton ~]$ cat test.out
+Sender: LSF System &lt;lsfadmin@n069.triton.edu&gt;
+Subject: Job 6021006: &lt;test&gt; in cluster &lt;triton&gt; Done
+Job &lt;test&gt; was submitted from host &lt;login4.triton.edu&gt; by user &lt;username&gt; in cluster &lt;mk2&gt;.
+Job was executed on host(s) &lt;8*n069&gt;, in queue &lt;normal&gt;, as user &lt;username&gt; in cluster &lt;mk2&gt;.
+...
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="lsf-interactive-jobs">
+<h2>LSF Interactive Jobs<a class="headerlink" href="#lsf-interactive-jobs" title="Permalink to this heading">¶</a></h2>
+<p>HPC clusters primarily take batch jobs and run them in the
+<em>background</em> — users do not need to interact with the job during the
+execution. However, sometimes users do need to interact with the
+application. For example, the application needs the input from the
+command line or waits for a mouse event in X windows. Use
+<code class="docutils literal notranslate"><span class="pre">bsub</span> <span class="pre">-Is</span> <span class="pre">-q</span> <span class="pre">interactive</span> <span class="pre">command</span></code> to launch interactive work on
+Triton.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login1 ~]$ bsub -Is -q interactive bash
+</pre></div>
+</div>
+<p>Upon exiting the interactive job, you will be returned to one of the
+login nodes.</p>
+<section id="utilizing-x11-client">
+<h3>Utilizing X11 client<a class="headerlink" href="#utilizing-x11-client" title="Permalink to this heading">¶</a></h3>
+<p>Additionally, the interactive queue can run X11 jobs. The bsub <code class="docutils literal notranslate"><span class="pre">-XF</span></code>
+option is used for X11 jobs, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login1 ~]$ bsub -Is -q interactive -XF
+Job &lt;50274&gt; is submitted to queue &lt;interactive&gt;.
+&lt;&lt;ssh X11 forwarding job&gt;&gt;
+&lt;&lt;Waiting for dispatch ...&gt;&gt;
+&lt;&lt;Starting on n003.triton.edu&gt;&gt;
+</pre></div>
+</div>
+<p>Upon exiting the X11 interactive job, you will be returned to one of the
+login nodes.</p>
+<p>To run an X11 application, establish an X tunnel with SSH when
+connecting to Triton. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">X</span> <span class="n">username</span><span class="nd">@triton</span><span class="o">.</span><span class="n">ccs</span><span class="o">.</span><span class="n">miami</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>Note that by default, the auth token is good for 20 minutes.  SSH will
+block new X11 connections after 20 minutes. To avoid this on Linux or OS
+X, run <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-Y</span></code> instead, or set the option <strong>ForwardX11Trusted yes</strong>
+in your ~/.ssh/config.</p>
+<p>In Windows, use <a class="reference external" href="https://www.cygwin.com/">Cygwin/X</a> to provide a
+Linux-like environment.  Then run <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-Y</span></code> or set the option in your
+~/.ssh/config file.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1-queues.html" class="btn btn-neutral float-left" title="Job Queues on Triton" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3-example_jobs.html" class="btn btn-neutral float-right" title="Example Job Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

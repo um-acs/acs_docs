@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triton QuickStart Guide &mdash; acs_docs 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Job Scheduling" href="3-job_scheduling.html" />
+    <link rel="prev" title="Connecting to Triton" href="1-connecting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> acs_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../connecting.html">Connecting to ACS Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_videos.html">Training Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/README.html">Linux on Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/README.html">Data Storage and Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/README.html">IDSC ACS Policies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Triton</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1-connecting.html">Connecting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QuickStart Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#before-you-get-started">Before you get started:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-concepts">Basic Concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#home-directory-vs-scratch-directory-scratch-space">home directory vs. scratch directory (scratch space)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#login-node-vs-compute-node">login node vs. compute node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-steps">Basic Steps</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparing-the-code-you-would-like-to-run">1. Preparing the code you would like to run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#preparing-the-input-data">2. Preparing the input data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-libraries-on-triton-on-which-your-application-is-dependent">3. Installing libraries on Triton on which your application is dependent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#preparing-the-job-script">4. Preparing the job script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submitting-and-monitoring-the-job">5. Submitting and monitoring the job</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-the-job-output">6. Checking the job output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-out-from-triton">7. Logging out from Triton</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-job_scheduling.html">Job Scheduling</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acs_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">User Guide to the Triton Cluster</a></li>
+      <li class="breadcrumb-item active">Triton QuickStart Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/triton/2-quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="triton-quickstart-guide">
+<h1>Triton QuickStart Guide<a class="headerlink" href="#triton-quickstart-guide" title="Permalink to this heading">¶</a></h1>
+<section id="before-you-get-started">
+<h2>Before you get started:<a class="headerlink" href="#before-you-get-started" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Make sure you understand our <a class="reference external" href="https://acs-docs.readthedocs.io/policies/policies.html">core
+Policies</a>.</p></li>
+<li><p>You need to be a member of a <a class="reference external" href="https://redcap.miami.edu/surveys/?s=F8MK9NMW9N">Triton
+project</a> which has
+one of <code class="docutils literal notranslate"><span class="pre">triton_faculty</span></code>, <code class="docutils literal notranslate"><span class="pre">triton_student</span></code> or <code class="docutils literal notranslate"><span class="pre">triton_education</span></code>
+resource type.</p></li>
+<li><p>You need to connect to the UM network (on campus or via
+<a class="reference external" href="https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html">VPN</a>).</p></li>
+</ul>
+</section>
+<section id="basic-concepts">
+<h2>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this heading">¶</a></h2>
+<section id="home-directory-vs-scratch-directory-scratch-space">
+<h3>home directory vs. scratch directory (scratch space)<a class="headerlink" href="#home-directory-vs-scratch-directory-scratch-space" title="Permalink to this heading">¶</a></h3>
+<p>Each user will have a home directory on Triton located at
+<code class="docutils literal notranslate"><span class="pre">/home/&lt;caneid&gt;</span></code> as the working directory for submitting and running
+jobs. User software and libraries that are not
+provided as system utilities can also be installed in the home directory. The <code class="docutils literal notranslate"><span class="pre">/home</span></code> directory contains an allocation of 250GB per user.</p>
+<p>Each project will have a scratch directory located at
+<code class="docutils literal notranslate"><span class="pre">/scratch/&lt;project_name&gt;</span></code> for holding input and output data. You
+can have some small and intermediate data in your home directory, but
+there are benefits to put data in the scratch directory: 1. every member/user
+belonging to the project can share the data; 2. the scratch directory is larger
+(usually 2 TB, and you can request more); 3. the scratch directory will be
+faster. Although currently (2023.12) /home and /scratch have the same
+hardware (storage and i/o), /scratch has priority with hardware
+upgrades.</p>
+</section>
+<section id="login-node-vs-compute-node">
+<h3>login node vs. compute node<a class="headerlink" href="#login-node-vs-compute-node" title="Permalink to this heading">¶</a></h3>
+<p>You can think of the login node as the “user interface” to the whole
+Triton system. When you connect to Triton and run commands on the
+command line, you are actually doing things on the login node.</p>
+<p>When you submit jobs using <code class="docutils literal notranslate"><span class="pre">bsub</span></code>, <a class="reference external" href="https://acs-docs.readthedocs.io/triton/3-jobs/1-lsf.html">Triton’s job
+scheduler</a>
+will look for the compute nodes that satisfy your resource request and
+assign your code to the nodes to run. You do not have direct access to
+the compute nodes yourself.</p>
+</section>
+</section>
+<section id="basic-steps">
+<h2>Basic Steps<a class="headerlink" href="#basic-steps" title="Permalink to this heading">¶</a></h2>
+<p>Here are the basic steps to run a simple Python script on Triton. In
+this example, the user has CaneID <code class="docutils literal notranslate"><span class="pre">abc123</span></code> and is a member of Triton
+project <code class="docutils literal notranslate"><span class="pre">xyz</span></code>. You need to replace these with your own CaneID and
+Triton project name.</p>
+<section id="preparing-the-code-you-would-like-to-run">
+<h3>1. Preparing the code you would like to run<a class="headerlink" href="#preparing-the-code-you-would-like-to-run" title="Permalink to this heading">¶</a></h3>
+<p><strong>Editing the code</strong></p>
+<p>You can edit the code written in any programming language on your local
+computer. The <code class="docutils literal notranslate"><span class="pre">example.py</span></code> here is written in Python.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="c1"># read the input data from the scratch directory</span>
+<span class="c1"># remember to replace xyz with your project name</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/scratch/xyz/data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">):</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+    <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="c1"># save the output data to the scratch directory</span>
+<span class="c1"># remember to replace xyz with your project name</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;/scratch/xyz/data_plot.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># give you some time to monitor the submitted job</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">elapsed</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The program lasts for </span><span class="si">{</span><span class="n">elapsed</span><span class="si">}</span><span class="s2"> seconds.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Transfering the code to your Triton home directory</strong></p>
+<p>After editing the code, you need to transfer it from the local computer
+to your Triton home directory. You can do it with a file transfer tool
+such as <code class="docutils literal notranslate"><span class="pre">FileZilla</span></code> GUI application or the <code class="docutils literal notranslate"><span class="pre">scp</span></code> command-line utility.</p>
+<p>If using <code class="docutils literal notranslate"><span class="pre">FileZilla</span></code>, you need to put <code class="docutils literal notranslate"><span class="pre">sftp://triton.ccs.miami.edu</span></code>
+in the <code class="docutils literal notranslate"><span class="pre">Host</span></code> field, fill in the <code class="docutils literal notranslate"><span class="pre">Username</span></code> and <code class="docutils literal notranslate"><span class="pre">Password</span></code> fields
+with your CaneID and the associated password, and leave the <code class="docutils literal notranslate"><span class="pre">Port</span></code>
+field blank. By clicking the check mark icon in the menu bar, you will
+connect to Triton and the <code class="docutils literal notranslate"><span class="pre">Remote</span> <span class="pre">site</span></code> on the right will be your
+Triton home directory by default. Then, you can change the
+<code class="docutils literal notranslate"><span class="pre">Local</span> <span class="pre">site</span></code> on the left to the directory holding <code class="docutils literal notranslate"><span class="pre">example.py</span></code> and
+transfer the file by dragging it from left to right.</p>
+<p>If using <code class="docutils literal notranslate"><span class="pre">scp</span></code>, you need to type, assuming <code class="docutils literal notranslate"><span class="pre">origin</span></code> is the absolute
+path that specifies the directory on your local computer holding
+<code class="docutils literal notranslate"><span class="pre">example.py</span></code>,  <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">origin/example.py</span>
+<span class="pre">abc123&#64;triton.ccs.miami.edu:/home/abc123</span></code>, not forgetting to put
+your CaneID in place of <code class="docutils literal notranslate"><span class="pre">abc123</span></code>, and then following the prompt for
+the associated password.</p>
+<p>After that, the file will be located at <code class="docutils literal notranslate"><span class="pre">/home/abc123/example.py</span></code> on
+Triton for user abc123.</p>
+</section>
+<section id="preparing-the-input-data">
+<h3>2. Preparing the input data<a class="headerlink" href="#preparing-the-input-data" title="Permalink to this heading">¶</a></h3>
+<p><strong>Getting the input data</strong></p>
+<p>In this example, you prepare the <code class="docutils literal notranslate"><span class="pre">data.txt</span></code> file as your input data on
+the local computer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>  <span class="mi">0</span>
+<span class="mi">1</span>  <span class="mi">1</span>
+<span class="mi">2</span>  <span class="mi">4</span>
+<span class="mi">4</span> <span class="mi">16</span>
+<span class="mi">5</span> <span class="mi">25</span>
+<span class="mi">6</span> <span class="mi">36</span>
+</pre></div>
+</div>
+<p><strong>Transferring the input data to your project scratch directory on Triton</strong></p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">FileZilla</span></code> or <code class="docutils literal notranslate"><span class="pre">scp</span></code> to transfer the input data to
+<code class="docutils literal notranslate"><span class="pre">/scratch/xyz/data.txt</span></code> on Triton. You need to replace xyz with your
+project name.</p>
+</section>
+<section id="installing-libraries-on-triton-on-which-your-application-is-dependent">
+<h3>3. Installing libraries on Triton on which your application is dependent<a class="headerlink" href="#installing-libraries-on-triton-on-which-your-application-is-dependent" title="Permalink to this heading">¶</a></h3>
+<p><strong>Logging in to Triton</strong></p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> on a Mac or <code class="docutils literal notranslate"><span class="pre">PuTTY</span></code> on a Windows
+machine to log in to Triton via SSH Protocol.</p>
+<p>If using <code class="docutils literal notranslate"><span class="pre">Terminal</span></code> on Mac, you can run the command
+<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">abc123&#64;triton.ccs.miami.edu</span></code> (remember to replace abc123 with
+your CaneID) and follow the instruction to type your password.</p>
+<p>If using <code class="docutils literal notranslate"><span class="pre">PuTTY</span></code>, you need to put <code class="docutils literal notranslate"><span class="pre">triton.ccs.miami.edu</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">Host</span> <span class="pre">Name</span></code> field, leave <code class="docutils literal notranslate"><span class="pre">22</span></code> in the <code class="docutils literal notranslate"><span class="pre">Port</span></code> field, and select
+<code class="docutils literal notranslate"><span class="pre">SSH</span></code> as the <code class="docutils literal notranslate"><span class="pre">Connection</span> <span class="pre">type</span></code>, then press <code class="docutils literal notranslate"><span class="pre">Open</span></code>. After that, you
+can follow the instruction to type your password.</p>
+<p>At this point, you should be able to see the Triton welcome message and
+<code class="docutils literal notranslate"><span class="pre">[abc123&#64;login</span> <span class="pre">~]$</span></code> which indicates you have logged in to the Triton
+login node and (are) at the home directory <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p>
+<p>If you are new to Linux, you can check our <a class="reference external" href="https://acs-docs.readthedocs.io/linux/README.html">Linux
+Guides</a>.</p>
+<p><strong>Installing software/libraries needed for the code</strong></p>
+<p>In the example, you will need the Python interpreter and Python packages
+to run the code. Also, for Python, it is better to set up different
+environments for different projects to avoid conflicts of packages.</p>
+<p>On Triton, you can use the <a class="reference external" href="https://acs-docs.readthedocs.io/triton/2-sw/anaconda.html">system-installed
+Anaconda</a>
+to set up and manage Python environments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[abc123@login ~]$ ml anaconda3
+[abc123@login ~]$ conda create -n example_env python=3.8 matplotlib
+</pre></div>
+</div>
+</section>
+<section id="preparing-the-job-script">
+<h3>4. Preparing the job script<a class="headerlink" href="#preparing-the-job-script" title="Permalink to this heading">¶</a></h3>
+<p><strong>Editing the job script</strong></p>
+<p>The <a class="reference external" href="https://acs-docs.readthedocs.io/triton/3-jobs/4-scripts.html">job
+script</a>
+is important. It tells the job scheduler how much resources your job
+needs, where to find the dependent software or libraries, and how the
+job should be run.</p>
+<p>You can edit the <code class="docutils literal notranslate"><span class="pre">example_script.job</span></code> file to make <code class="docutils literal notranslate"><span class="pre">example.py</span></code> run
+on a Triton compute node.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#BSUB -J example_job</span>
+<span class="c1">#BSUB -o example_job.%J.out</span>
+<span class="c1">#BSUB -e example_job.%J.err</span>
+<span class="c1">#BSUB -P xyz</span>
+<span class="c1">#BSUB -n 1</span>
+<span class="c1">#BSUB -R &quot;rusage[mem=128M]&quot;</span>
+<span class="c1">#BSUB -q normal</span>
+<span class="c1">#BSUB -W 00:10</span>
+
+
+<span class="n">ml</span> <span class="n">anaconda3</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">example_env</span>
+<span class="n">cd</span> <span class="o">~</span>
+<span class="n">python</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-J</span> <span class="pre">example_job</span></code> specifies the name of the job.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-o</span> <span class="pre">~/example_job.%J.out</span></code> The line gives the path and name for
+the standard output file. It contains the job report and any text you
+print out to the standard output. <code class="docutils literal notranslate"><span class="pre">%J</span></code> in the name of the file will
+be replaced by the unique job id.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-P</span> <span class="pre">xyz</span></code> specifies the project (remember to replace xyz with
+your project name).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-q</span> <span class="pre">normal</span></code> specifies which queue you are submitting the job
+to. Most of the “normal” jobs running on Triton will submit to the
+<code class="docutils literal notranslate"><span class="pre">normal</span></code> queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-n</span> <span class="pre">1</span></code> requests 1 CPU core to run the job. Since the example
+job is simple, 1 CPU core will be enough. You can request up to 40
+cores from one computing node on Triton for non-distributed jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-R</span> <span class="pre">&quot;rusage[mem=128M]&quot;</span></code> requests 128 megabytes memory to run
+the job. Since the example job is simple, 128 megabytes memory will
+be enough. You can request up to ~250 gigabytes memory from one
+computing node on Triton.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-W</span> <span class="pre">00:10</span></code> requests 10 minutes to run the job. If you do not
+put this line, the default time limit is 1 day and the maximum time
+you can request is 7 days.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ml</span> <span class="pre">anaconda3</span></code> loads the Anaconda module on Triton.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">example_env</span></code> activates the Conda environment you
+created which contains the dependent Python package for the job.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code> goes to the home directory where <code class="docutils literal notranslate"><span class="pre">example.py</span></code> is located.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">example.py</span></code> runs <code class="docutils literal notranslate"><span class="pre">example.py</span></code></p></li>
+</ul>
+<p><strong>Transferring the job script to your Triton home directory</strong></p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">FileZilla</span></code> or <code class="docutils literal notranslate"><span class="pre">scp</span></code> to transfer the job script to
+<code class="docutils literal notranslate"><span class="pre">/home/abc123/example.job</span></code> on Triton. You need to replace abc123 with
+your CaneID.</p>
+</section>
+<section id="submitting-and-monitoring-the-job">
+<h3>5. Submitting and monitoring the job<a class="headerlink" href="#submitting-and-monitoring-the-job" title="Permalink to this heading">¶</a></h3>
+<p><strong>Job submission</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[abc123@login ~]$ bsub &lt; example_script.job
+</pre></div>
+</div>
+<p><strong>Job monitoring</strong></p>
+<p>While the job is submitted, you can use <code class="docutils literal notranslate"><span class="pre">bjobs</span></code> to check the status.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[abc123@login ~]$ bjobs
+</pre></div>
+</div>
+<p>When the job is running you will see:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JOBID</span>   <span class="n">USER</span>    <span class="n">STAT</span>  <span class="n">QUEUE</span>      <span class="n">FROM_HOST</span>   <span class="n">EXEC_HOST</span>   <span class="n">JOB_NAME</span>   <span class="n">SUBMIT_TIME</span>
+<span class="mi">594966</span>  <span class="n">abc123</span>  <span class="n">RUN</span>   <span class="n">normal</span>     <span class="n">login1</span>      <span class="n">t094</span>        <span class="o">*</span><span class="n">ample_job</span> <span class="n">Oct</span> <span class="mi">12</span> <span class="mi">11</span><span class="p">:</span><span class="mi">43</span>
+</pre></div>
+</div>
+<p>If the job has finished you will see:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">No</span> <span class="n">unfinished</span> <span class="n">job</span> <span class="n">found</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-the-job-output">
+<h3>6. Checking the job output<a class="headerlink" href="#checking-the-job-output" title="Permalink to this heading">¶</a></h3>
+<p><strong>Standard output file</strong></p>
+<p>This is the file you specify with <code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-o</span></code> in your job script. In
+this example, after the job is finished, the standard output file
+<code class="docutils literal notranslate"><span class="pre">example_job.594966.out</span></code> will be placed in the directory you submit the
+job, you can locate it to a different directory by giving the path.
+<code class="docutils literal notranslate"><span class="pre">594966</span></code> is the job id which is unique for each submitted job.</p>
+<p>At the end of this file, you can see the report which gives the CPU
+time, memory usage, run time, etc., for the job. It could guide you to
+estimate the resources to request for the future jobs. Also, you can see
+the text you ask to <code class="docutils literal notranslate"><span class="pre">print</span></code> (to the stardard output) in
+<code class="docutils literal notranslate"><span class="pre">example.py</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">------------------------------------------------------------</span>
+
+<span class="n">Successfully</span> <span class="n">completed</span><span class="o">.</span>
+
+<span class="n">Resource</span> <span class="n">usage</span> <span class="n">summary</span><span class="p">:</span>
+
+    <span class="n">CPU</span> <span class="n">time</span> <span class="p">:</span>                                   <span class="mf">8.89</span> <span class="n">sec</span><span class="o">.</span>
+    <span class="n">Max</span> <span class="n">Memory</span> <span class="p">:</span>                                 <span class="mi">51</span> <span class="n">MB</span>
+    <span class="n">Average</span> <span class="n">Memory</span> <span class="p">:</span>                             <span class="mf">48.50</span> <span class="n">MB</span>
+    <span class="n">Total</span> <span class="n">Requested</span> <span class="n">Memory</span> <span class="p">:</span>                     <span class="mf">128.00</span> <span class="n">MB</span>
+    <span class="n">Delta</span> <span class="n">Memory</span> <span class="p">:</span>                               <span class="mf">77.00</span> <span class="n">MB</span>
+    <span class="n">Max</span> <span class="n">Swap</span> <span class="p">:</span>                                   <span class="o">-</span>
+    <span class="n">Max</span> <span class="n">Processes</span> <span class="p">:</span>                              <span class="mi">4</span>
+    <span class="n">Max</span> <span class="n">Threads</span> <span class="p">:</span>                                <span class="mi">5</span>
+    <span class="n">Run</span> <span class="n">time</span> <span class="p">:</span>                                   <span class="mi">123</span> <span class="n">sec</span><span class="o">.</span>
+    <span class="n">Turnaround</span> <span class="n">time</span> <span class="p">:</span>                            <span class="mi">0</span> <span class="n">sec</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">output</span> <span class="p">(</span><span class="k">if</span> <span class="nb">any</span><span class="p">)</span> <span class="n">follows</span><span class="p">:</span>
+
+<span class="n">The</span> <span class="n">program</span> <span class="n">lasts</span> <span class="k">for</span> <span class="mf">120.23024702072144</span> <span class="n">seconds</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Output data</strong></p>
+<p>After the job is done, you will find the output data which is the png
+file saved in the scratch space. In this example, it is
+<code class="docutils literal notranslate"><span class="pre">/scratch/xyz/data_plot.png</span></code>.</p>
+<p><strong>Transferring output file to local computer</strong></p>
+<p>You can view the output plot using any image viewer software on your
+local computer. To transfer the output file from Triton to your local
+computer, you can use <code class="docutils literal notranslate"><span class="pre">FileZilla</span></code> to drag the file from right to
+left, which transfers it, or you can use <code class="docutils literal notranslate"><span class="pre">scp</span></code> by typing, in the terminal
+on your local computer (assuming your CaneID is <code class="docutils literal notranslate"><span class="pre">abc123</span></code>, and <code class="docutils literal notranslate"><span class="pre">destination</span></code> is
+the absolute path that specifies the directory on the local computer to
+which you intend to move the file),
+<code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">abc123&#64;triton.ccs.miami.edu:/scratch/xyz/data_plot.png</span> <span class="pre">destination</span></code>
+and following the prompt to provide a password.</p>
+</section>
+<section id="logging-out-from-triton">
+<h3>7. Logging out from Triton<a class="headerlink" href="#logging-out-from-triton" title="Permalink to this heading">¶</a></h3>
+<p><strong>Logging out from Triton on the command-line interface</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[abc123@login ~]$ exit
+</pre></div>
+</div>
+<p><strong>Disconnecting from Triton on ``FileZilla``</strong></p>
+<p>On FileZilla, you can click on the <code class="docutils literal notranslate"><span class="pre">x</span></code> icon in the menu bar to
+disconnect from Triton.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1-connecting.html" class="btn btn-neutral float-left" title="Connecting to Triton" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3-job_scheduling.html" class="btn btn-neutral float-right" title="Job Scheduling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

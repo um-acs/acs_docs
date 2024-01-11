@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigating the Linux Shell &mdash; acs_docs 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interacting with Files" href="2-files.html" />
+    <link rel="prev" title="Linux Guides" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> acs_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../connecting.html">Connecting to ACS Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_videos.html">Training Videos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Linux on Clusters</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="README.html#introduction-to-linux">Introduction to Linux</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Navigating the Linux Shell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#view-your-current-shell-with-echo">View your current shell with <code class="docutils literal notranslate"><span class="pre">echo</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-all-environment-variables-with-env">View all environment variables with <code class="docutils literal notranslate"><span class="pre">env</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-your-current-directory-with-pwd">View your current directory with <code class="docutils literal notranslate"><span class="pre">pwd</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-the-contents-of-a-directory-with-ls">View the contents of a directory with <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigate-to-directories-with-cd">Navigate to directories with <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-directory-contents-with-tree">View directory contents with <code class="docutils literal notranslate"><span class="pre">tree</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-command-availability-and-location-with-which">Check command availability and location with <code class="docutils literal notranslate"><span class="pre">which</span></code>:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2-files.html">Interacting with Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-rwx.html">File Permissions in Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-acl.html">Access Control Lists – ACL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#linux-faqs">Linux FAQs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data/README.html">Data Storage and Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/README.html">IDSC ACS Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../triton/README.html">Triton</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acs_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Linux Guides</a></li>
+      <li class="breadcrumb-item active">Navigating the Linux Shell</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/linux/1-nav.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="navigating-the-linux-shell">
+<h1>Navigating the Linux Shell<a class="headerlink" href="#navigating-the-linux-shell" title="Permalink to this heading">¶</a></h1>
+<p>The shell is a command-line interface (CLI), a type of user interface that
+interprets <strong>commands</strong> typed at a prompt. The default shell on Pegasus
+and Triton is Bash.</p>
+<p>Users send commands to the shell, which runs them and outputs results.
+Commands can include options (or <strong>flags</strong>) to modify output and
+<strong>arguments</strong> to specify command targets. In Bash, command history can
+be accessed from the prompt with up and down arrow keys - use this to
+repeat a previously issued command.</p>
+<p>Below are some useful Linux shell commands with explanations and
+examples. Recall that Linux is <em>case-sensitive</em>– “name” is distinct from
+“NAME” and other capital and lower-case combinations (“Name”, “nAMe”,
+etc.). To cancel a process and return to the prompt in Linux, press
+<code class="docutils literal notranslate"><span class="pre">CTRL-C</span></code> in Windows or <code class="docutils literal notranslate"><span class="pre">Command-C</span></code> in Mac.</p>
+<section id="view-your-current-shell-with-echo">
+<h2>View your current shell with <code class="docutils literal notranslate"><span class="pre">echo</span></code>:<a class="headerlink" href="#view-your-current-shell-with-echo" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">echo</span></code> command displays a line of text. In Linux, <code class="docutils literal notranslate"><span class="pre">$</span></code> denotes a
+<strong>variable</strong>. The <code class="docutils literal notranslate"><span class="pre">$SHELL</span></code> environment variable contains your current
+shell. To view the contents of this variable, send it to the <code class="docutils literal notranslate"><span class="pre">echo</span></code>
+command. Variables will be interpreted by the command even when inside
+lines of text, as shown below when a user is logged onto Pegasus.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ echo $SHELL
+/bin/bash
+[username@login4 ~]$ echo &quot;My shell is $SHELL&quot;
+My shell is /bin/bash
+</pre></div>
+</div>
+</section>
+<section id="view-all-environment-variables-with-env">
+<h2>View all environment variables with <code class="docutils literal notranslate"><span class="pre">env</span></code>:<a class="headerlink" href="#view-all-environment-variables-with-env" title="Permalink to this heading">¶</a></h2>
+<p>To view all your environment variables, use the <code class="docutils literal notranslate"><span class="pre">env</span></code> command. To view
+this list alphanumerically, use <code class="docutils literal notranslate"><span class="pre">env</span> <span class="pre">|</span> <span class="pre">sort</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ env
+MODULE_VERSION_STACK=3.2.10
+HOME=/nethome/username
+HOSTNAME=login4
+SHELL=/bin/bash
+...
+[username@login4 ~]$ env | sort
+...
+</pre></div>
+</div>
+</section>
+<section id="view-your-current-directory-with-pwd">
+<h2>View your current directory with <code class="docutils literal notranslate"><span class="pre">pwd</span></code>:<a class="headerlink" href="#view-your-current-directory-with-pwd" title="Permalink to this heading">¶</a></h2>
+<p><strong>Directories</strong> in Linux are similar to folders in other operating
+systems. Your home directory is the default location after login. The
+shortcut for home in Bash is the tilde (<code class="docutils literal notranslate"><span class="pre">~</span></code>), shown below just before
+the prompt (<code class="docutils literal notranslate"><span class="pre">$</span></code>). <code class="docutils literal notranslate"><span class="pre">pwd</span></code> outputs the <strong>absolute path</strong>, the unique
+location starting from the topmost, or root, directory (<code class="docutils literal notranslate"><span class="pre">/</span></code>).</p>
+<p>On Pegasus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ pwd
+/nethome/username
+</pre></div>
+</div>
+<p>On Triton:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login1 ~]$ pwd
+/home/username
+</pre></div>
+</div>
+</section>
+<section id="view-the-contents-of-a-directory-with-ls">
+<h2>View the contents of a directory with <code class="docutils literal notranslate"><span class="pre">ls</span></code>:<a class="headerlink" href="#view-the-contents-of-a-directory-with-ls" title="Permalink to this heading">¶</a></h2>
+<p>Entering the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command without arguments (as shown below) lists the
+contents of the current directory. <em>If this is your first connection to
+Pegasus or Triton, your home directory may be empty.</em> Directories can be
+distinguished from files by the leading <code class="docutils literal notranslate"><span class="pre">d</span></code> in file permissions.
+The example below is illustrated on Pegasus, but the same should apply
+on Triton.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ ls
+example_file1  example_file2  testdir1
+</pre></div>
+</div>
+<p>To view the contents of a specific directory, send the path as an
+argument to <code class="docutils literal notranslate"><span class="pre">ls</span></code>. In this example the current directory is home, which
+contains <code class="docutils literal notranslate"><span class="pre">testdir1</span></code>. As shown in the output, <code class="docutils literal notranslate"><span class="pre">testdir1</span></code> contains one
+file: <code class="docutils literal notranslate"><span class="pre">testdir1_file1</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ ls testdir1
+testdir1_file1
+</pre></div>
+</div>
+<p>Note that you can press the <code class="docutils literal notranslate"><span class="pre">TAB</span></code> key on your keyboard to
+auto-complete names. If there are multiple matches, a list of options
+will be shown. Type the next letter and press TAB again until
+tab-complete finishes.</p>
+<p>Command details and flag information can be found in the <strong>Linux manual
+pages</strong>, accessible via the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ man topic or command
+</pre></div>
+</div>
+<p>Press <code class="docutils literal notranslate"><span class="pre">SPACE</span></code> to see the next set of lines. To scroll, use the arrow
+keys or <code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">Up</span></code> and <code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">Down</span></code>. To exit, type <code class="docutils literal notranslate"><span class="pre">q</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span></code> can be run with options, or flags, to customise output. For
+example, view more detailed information such as file permissions using
+the <code class="docutils literal notranslate"><span class="pre">-lh</span></code> flags.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ ls -lh
+total 0
+-rw-r--r-- 1 username ccsuser  54  example_file1
+-rw-r--r-- 1 username ccsuser 476  example_file2
+drwxr-xr-x 2 username ccsuser 512  testdir1
+...
+</pre></div>
+</div>
+<p>The flags on this <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> long list format (includes permissions, owner, and more)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h</span></code> human readable filesize format (useful for larger file sizes)</p></li>
+</ul>
+<p>Other useful <code class="docutils literal notranslate"><span class="pre">ls</span></code> flags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-a</span></code> include hidden files *</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-d</span></code> list properties of a directory itself, not the contents</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span></code> (<strong>number 1</strong>) one result per line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-R</span></code> recursively list subdirectory contents</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-S</span></code> sort by file size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-X</span></code> sort alphanumerically by extension</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-m</span></code> comma-separated list</p></li>
+</ul>
+<p>* Hidden files include the <strong>.</strong> and <strong>..</strong> directories, which
+represent the current and parent (respectively). These can be used as
+shortcuts in relative paths:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@pegasus testdir1]$ ls -a
+.  ..  testdir1_file1
+[username@pegasus testdir1]$ ls ..
+example_file1  example_file2  testdir1
+</pre></div>
+</div>
+</section>
+<section id="navigate-to-directories-with-cd">
+<h2>Navigate to directories with <code class="docutils literal notranslate"><span class="pre">cd</span></code>:<a class="headerlink" href="#navigate-to-directories-with-cd" title="Permalink to this heading">¶</a></h2>
+<p>This command changes your current directory to the path specified, which
+can be <strong>absolute</strong>, starting with <code class="docutils literal notranslate"><span class="pre">/</span></code>, or <strong>relative</strong>, starting from
+the current directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@pegasus ~]$ cd testdir1
+[username@pegasus testdir1]$
+</pre></div>
+</div>
+<p>Some useful <code class="docutils literal notranslate"><span class="pre">cd</span></code> commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> or <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code> move to user’s home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> move to parent directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> move to previous working directory</p></li>
+</ul>
+</section>
+<section id="view-directory-contents-with-tree">
+<h2>View directory contents with <code class="docutils literal notranslate"><span class="pre">tree</span></code>:<a class="headerlink" href="#view-directory-contents-with-tree" title="Permalink to this heading">¶</a></h2>
+<p>Pegasus has the <code class="docutils literal notranslate"><span class="pre">tree</span></code> package installed, which recursively outputs a
+depth-indented list of contents. This may be more helpful than <code class="docutils literal notranslate"><span class="pre">ls</span></code>
+for nested directories.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@pegasus ~]$ tree -vC
+.
+|-- example_file1
+|-- example_file2
+|-- testdir1
+    `-- testdir1_file1
+
+1 directory, 3 files
+</pre></div>
+</div>
+<p>The flags on this <code class="docutils literal notranslate"><span class="pre">tree</span> <span class="pre">-vC</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> sort alphanumerically by type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span></code> colorise output</p></li>
+</ul>
+<p>Other useful <code class="docutils literal notranslate"><span class="pre">tree</span></code> flags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-a</span></code> include hidden files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-d</span></code> list directories only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code> sort reverse alphanumerically</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-L</span> <span class="pre">number</span></code> descend only <em>number</em> levels deep</p></li>
+</ul>
+</section>
+<section id="check-command-availability-and-location-with-which">
+<h2>Check command availability and location with <code class="docutils literal notranslate"><span class="pre">which</span></code>:<a class="headerlink" href="#check-command-availability-and-location-with-which" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">which</span></code> command returns the full path of any shell commands
+registered in the current environment by searching locations in the
+<code class="docutils literal notranslate"><span class="pre">$PATH</span></code> environment variable. Use <code class="docutils literal notranslate"><span class="pre">which</span></code> to check command and
+software availability and location.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ which bash
+/usr/bin/bash
+[username@login4 ~]$ which vim
+/usr/bin/vim
+[username@login4 ~]$ which python
+/usr/bin/python
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README.html" class="btn btn-neutral float-left" title="Linux Guides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2-files.html" class="btn btn-neutral float-right" title="Interacting with Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

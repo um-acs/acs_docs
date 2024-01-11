@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transferring Files &mdash; acs_docs 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Storage Options" href="storage_options.html" />
+    <link rel="prev" title="Data Storage and Management" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> acs_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../connecting.html">Connecting to ACS Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_videos.html">Training Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/README.html">Linux on Clusters</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Data Storage and Management</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Transferring Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-command-line-utilities">Using command line utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scp">scp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsync">rsync</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rclone">rclone</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-filezilla">Using FileZilla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-gateway-server">Using the gateway server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sftp">SFTP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="storage_options.html">Data Storage Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subversion_server_service.html">Subversion Server Service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/README.html">IDSC ACS Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../triton/README.html">Triton</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acs_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Data Storage and Management</a></li>
+      <li class="breadcrumb-item active">Transferring Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/data/file_transfer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transferring-files">
+<h1>Transferring Files<a class="headerlink" href="#transferring-files" title="Permalink to this heading">¶</a></h1>
+<p>IDSC systems support multiple file transfer programs such as FileZilla and
+PSFTP, and common command line utilities such as <code class="docutils literal notranslate"><span class="pre">scp</span></code> and <code class="docutils literal notranslate"><span class="pre">rsync</span></code>.
+Use cluster head nodes (login nodes) for these types of file transfers.
+For transferring large amounts of data from systems outside the
+University of Miami, IDSC ACS also offers a gateway server that supports
+SFTP and Globus.</p>
+<section id="using-command-line-utilities">
+<h2>Using command line utilities<a class="headerlink" href="#using-command-line-utilities" title="Permalink to this heading">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">cp</span></code> to copy files within the same computation system. Use
+<code class="docutils literal notranslate"><span class="pre">scp</span></code>, <code class="docutils literal notranslate"><span class="pre">sftp</span></code>, or <code class="docutils literal notranslate"><span class="pre">rsync</span></code> to transfer files between computational
+systems (e.g., from scratch space to Visx project space). When executing
+multiple instantiations of command line utilities like rsync and scp,
+please <strong>*limit your transfers to no more than 2-3 processes at a
+time.*</strong></p>
+<section id="scp">
+<h3>scp<a class="headerlink" href="#scp" title="Permalink to this heading">¶</a></h3>
+<p>An example transfer might look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[localmachine: ~]$ scp /local/filename \
+            username@pegasus.ccs.miami.edu:/scratch/projectID/directory
+</pre></div>
+</div>
+<p>To transfer a directory, use the <code class="docutils literal notranslate"><span class="pre">-r</span></code> (recursive) flag :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[localmachine: ~]$ scp -r /local/directory \
+            username@pegasus.ccs.miami.edu:/scratch/projectID/directory
+</pre></div>
+</div>
+<p>Consult the Linux man pages for more information on <code class="docutils literal notranslate"><span class="pre">scp</span></code>.</p>
+</section>
+<section id="rsync">
+<h3>rsync<a class="headerlink" href="#rsync" title="Permalink to this heading">¶</a></h3>
+<p>The rsync command is another way to keep data current. In contrast to
+<code class="docutils literal notranslate"><span class="pre">scp</span></code>, <code class="docutils literal notranslate"><span class="pre">rsync</span></code> transfers only the changed parts of a file (instead of
+transferring the entire file). Hence, this selective method of data
+transfer can be much more efficient than <code class="docutils literal notranslate"><span class="pre">scp</span></code>. The following example
+demonstrates usage of the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command for transferring a file named
+“firstExample.c” from the current location to a location on Pegasus.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[localmachine: ~]$ rsync firstExample.c \
+            username@pegasus.ccs.miami.edu:/scratch/projectID/directory
+</pre></div>
+</div>
+<p>An entire directory can be transferred from source to destination by
+using rsync. For directory transfers, the options <code class="docutils literal notranslate"><span class="pre">-atvr</span></code> will
+transfer the files recursively (<code class="docutils literal notranslate"><span class="pre">-r</span></code> option) along with the
+modification times (<code class="docutils literal notranslate"><span class="pre">-t</span></code> option) and in the archive mode (<code class="docutils literal notranslate"><span class="pre">-a</span></code>
+option). Consult the Linux man pages for more information on rsync.</p>
+</section>
+<section id="rclone">
+<h3>rclone<a class="headerlink" href="#rclone" title="Permalink to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">rclone</span></code> a command-line program that can be used to manage your file
+over SFTP. Rclone supports over 40 cloud storage backends, as well as standard
+transfer protocols like SFTP.  This is a use case using <code class="docutils literal notranslate"><span class="pre">rclone</span></code> to migrate
+data from legacy storage to <strong>IDSC CES</strong> on <strong>apex.idsc.miami.edu</strong> using the
+latest version of rclone on Pegasus, <strong>rclone v1.63.1</strong>.</p>
+<p><strong>Load the rclone software module</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[nra20a@login4 ~]$ module load rclone
+[nra20@login4 ~]$ module list
+Currently Loaded Modulefiles:
+  1) perl/5.18.1(default)   2) rclone/1.63.1
+
+[nra20@login4 ~]$ rclone -V
+rclone v1.63.1
+- os/version: centos 7.6.1810 (64 bit)
+- os/kernel: 3.10.0-957.el7.x86_64 (x86_64)
+- os/type: linux
+- os/arch: amd64
+- go/version: go1.20.6
+- go/linking: static
+- go/tags: none
+</pre></div>
+</div>
+<p><strong>Configure a new remote</strong></p>
+<p>1. Login to Pegasus</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh pegasus.ccs.miami.edu
+</pre></div>
+</div>
+<p>2. Create a new Remote</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[pdavila@login4 ~]$ rclone config
+  No remotes found - make a new one
+  n) New remote
+  s) Set configuration password
+  q) Quit config
+
+  n/s/q&gt; n
+  name&gt; apex
+</pre></div>
+</div>
+<p>3. Select your Storage Option (SSH/SFTP Connection “sftp”)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="n">Option</span> <span class="n">Storage</span><span class="o">.</span>
+<span class="n">Type</span> <span class="n">of</span> <span class="n">storage</span> <span class="n">to</span> <span class="n">configure</span><span class="o">.</span>
+<span class="n">Choose</span> <span class="n">a</span> <span class="n">number</span> <span class="kn">from</span> <span class="nn">below</span><span class="p">,</span> <span class="ow">or</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">own</span> <span class="n">value</span><span class="o">.</span>
+<span class="o">...</span>
+<span class="mi">40</span> <span class="o">/</span> <span class="n">SSH</span><span class="o">/</span><span class="n">SFTP</span> <span class="n">Connection</span> <span class="s2">&quot;sftp&quot;</span>
+<span class="o">...</span>
+<span class="n">Storage</span><span class="o">&gt;</span> <span class="mi">40</span>
+</pre></div>
+</div>
+<p>4. Enter apex host name</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span> <span class="n">host</span><span class="o">.</span>
+<span class="n">SSH</span> <span class="n">host</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span><span class="o">.</span>
+<span class="n">E</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="s2">&quot;example.com&quot;</span><span class="o">.</span>
+<span class="n">Enter</span> <span class="n">a</span> <span class="n">value</span><span class="o">.</span>
+<span class="n">host</span><span class="o">&gt;</span> <span class="n">apex</span><span class="o">.</span><span class="n">idsc</span><span class="o">.</span><span class="n">miami</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>5. Enter your username</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span> <span class="n">user</span><span class="o">.</span>
+<span class="n">SSH</span> <span class="n">username</span><span class="o">.</span>
+<span class="n">Enter</span> <span class="n">a</span> <span class="n">string</span> <span class="n">value</span><span class="o">.</span> <span class="n">Press</span> <span class="n">Enter</span> <span class="k">for</span> <span class="n">the</span> <span class="n">default</span> <span class="p">(</span><span class="n">pdavila</span><span class="p">)</span><span class="o">.</span>
+<span class="n">user</span><span class="o">&gt;</span> <span class="n">pdavila</span>
+</pre></div>
+</div>
+<p>6. Enter port number (leave blank)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span> <span class="n">port</span><span class="o">.</span>
+<span class="n">SSH</span> <span class="n">port</span> <span class="n">number</span><span class="o">.</span>
+<span class="n">Enter</span> <span class="n">a</span> <span class="n">signed</span> <span class="n">integer</span><span class="o">.</span> <span class="n">Press</span> <span class="n">Enter</span> <span class="k">for</span> <span class="n">the</span> <span class="n">default</span> <span class="p">(</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span>
+<span class="n">port</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>7. Enter your password</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span> <span class="k">pass</span><span class="o">.</span>
+<span class="n">SSH</span> <span class="n">password</span><span class="p">,</span> <span class="n">leave</span> <span class="n">blank</span> <span class="n">to</span> <span class="n">use</span> <span class="n">ssh</span><span class="o">-</span><span class="n">agent</span><span class="o">.</span>
+<span class="n">Choose</span> <span class="n">an</span> <span class="n">alternative</span> <span class="n">below</span><span class="o">.</span> <span class="n">Press</span> <span class="n">Enter</span> <span class="k">for</span> <span class="n">the</span> <span class="n">default</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span>
+<span class="n">y</span><span class="p">)</span> <span class="n">Yes</span><span class="p">,</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">my</span> <span class="n">own</span> <span class="n">password</span>
+<span class="n">g</span><span class="p">)</span> <span class="n">Generate</span> <span class="n">random</span> <span class="n">password</span>
+<span class="n">n</span><span class="p">)</span> <span class="n">No</span><span class="p">,</span> <span class="n">leave</span> <span class="n">this</span> <span class="n">optional</span> <span class="n">password</span> <span class="n">blank</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<span class="n">y</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="n">n</span><span class="o">&gt;</span> <span class="n">y</span>
+<span class="n">Enter</span> <span class="n">the</span> <span class="n">password</span><span class="p">:</span>
+<span class="n">password</span><span class="p">:</span>
+<span class="n">Confirm</span> <span class="n">the</span> <span class="n">password</span><span class="p">:</span>
+<span class="n">password</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>8. Option key files (can be left blank by default)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Option key_pem.
+Raw PEM-encoded private key.
+If specified, will override key_file parameter.
+Enter a value. Press Enter to leave empty.
+key_pem&gt;
+
+Option key_file.
+Path to PEM-encoded private key file.
+Leave blank or set key-use-agent to use ssh-agent.
+Leading `~` will be expanded in the file name as will environment variables such as `${RCLONE_CONFIG_DIR}`.
+Enter a value. Press Enter to leave empty.
+key_file&gt;
+</pre></div>
+</div>
+<p>9. Option key file password (type your own password)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span> <span class="n">key_file_pass</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">passphrase</span> <span class="n">to</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">PEM</span><span class="o">-</span><span class="n">encoded</span> <span class="n">private</span> <span class="n">key</span> <span class="n">file</span><span class="o">.</span>
+<span class="n">Only</span> <span class="n">PEM</span> <span class="n">encrypted</span> <span class="n">key</span> <span class="n">files</span> <span class="p">(</span><span class="n">old</span> <span class="n">OpenSSH</span> <span class="nb">format</span><span class="p">)</span> <span class="n">are</span> <span class="n">supported</span><span class="o">.</span> <span class="n">Encrypted</span> <span class="n">keys</span>
+<span class="ow">in</span> <span class="n">the</span> <span class="n">new</span> <span class="n">OpenSSH</span> <span class="nb">format</span> <span class="n">can</span><span class="s1">&#39;t be used.</span>
+<span class="n">Choose</span> <span class="n">an</span> <span class="n">alternative</span> <span class="n">below</span><span class="o">.</span> <span class="n">Press</span> <span class="n">Enter</span> <span class="k">for</span> <span class="n">the</span> <span class="n">default</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span>
+<span class="n">y</span><span class="p">)</span> <span class="n">Yes</span><span class="p">,</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">my</span> <span class="n">own</span> <span class="n">password</span>
+<span class="n">g</span><span class="p">)</span> <span class="n">Generate</span> <span class="n">random</span> <span class="n">password</span>
+<span class="n">n</span><span class="p">)</span> <span class="n">No</span><span class="p">,</span> <span class="n">leave</span> <span class="n">this</span> <span class="n">optional</span> <span class="n">password</span> <span class="n">blank</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<span class="n">y</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="n">n</span><span class="o">&gt;</span> <span class="n">y</span>
+<span class="n">Enter</span> <span class="n">the</span> <span class="n">password</span><span class="p">:</span>
+<span class="n">password</span><span class="p">:</span>
+<span class="n">Confirm</span> <span class="n">the</span> <span class="n">password</span><span class="p">:</span>
+<span class="n">password</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>10. Public key options (Can be left blank by default)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Option pubkey_file.
+Optional path to public key file.
+Set this if you have a signed certificate you want to use for authentication.
+Leading `~` will be expanded in the file name as will environment variables such as `${RCLONE_CONFIG_DIR}`.
+Enter a value. Press Enter to leave empty.
+pubkey_file&gt;
+
+Option key_use_agent.
+When set forces the usage of the ssh-agent.
+When key-file is also set, the &quot;.pub&quot; file of the specified key-file is read and only the associated key is
+requested from the ssh-agent. This allows to avoid `Too many authentication failures for *username*` errors
+when the ssh-agent contains many keys.
+Enter a boolean value (true or false). Press Enter for the default (false).
+key_use_agent&gt;
+</pre></div>
+</div>
+<p>11. Insecure cipher and hash options can be left blank by default</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Option use_insecure_cipher.
+Enable the use of insecure ciphers and key exchange methods.
+This enables the use of the following insecure ciphers and key exchange methods:
+- aes128-cbc
+- aes192-cbc
+- aes256-cbc
+- 3des-cbc
+- diffie-hellman-group-exchange-sha256
+- diffie-hellman-group-exchange-sha1
+Those algorithms are insecure and may allow plaintext data to be recovered by an attacker.
+This must be false if you use either ciphers or key_exchange advanced options.
+Choose a number from below, or type in your own boolean value (true or false).
+ Press Enter for the default (false).
+ 1 / Use default Cipher list.
+   \ (false)
+ 2 / Enables the use of the aes128-cbc cipher and diffie-hellman-group-exchange-sha256, diffie-hellman-group-exchange-sha1 key
+exchange.
+   \ (true)
+ use_insecure_cipher&gt;
+
+Option disable_hashcheck.
+Disable the execution of SSH commands to determine if remote file hashing is available.
+Leave blank or set to false to enable hashing (recommended), set to true to disable hashing.
+Enter a boolean value (true or false). Press Enter for the default (false).
+disable_hashcheck&gt;
+
+Edit advanced config?
+y) Yes
+n) No (default)
+y/n&gt;
+</pre></div>
+</div>
+<p>12. Configurations are now complete and will be shown, you can type in ‘q’ to quit the config menu</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Configuration complete.
+Options:
+- type: sftp
+- host: apex.idsc.miami.edu
+- pass: *** ENCRYPTED ***
+- key_file_pass: *** ENCRYPTED ***
+Keep this &quot;apex&quot; remote?
+y) Yes this is OK (default)
+e) Edit this remote
+d) Delete this remote
+y/e/d&gt;
+
+Current remotes:
+
+Name                 Type
+====                 ====
+apex                 sftp
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt;q
+</pre></div>
+</div>
+<p><strong>Transfer your data to remote site</strong></p>
+<p>The rclone lsd command will list the folders of the current specified path in the remote system</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[nra20@login4 ~]$ rclone lsd apex:/
+          -1 2023-08-09 10:36:35        -1 acs
+          -1 2022-11-04 15:20:10        -1 bin
+          -1 2022-11-28 15:36:50        -1 dcrawford
+          -1 2022-11-04 15:19:15        -1 lib64
+          -1 2022-09-30 18:17:33        -1 netra
+          -1 2022-09-13 18:12:26        -1 schurerlab
+          -1 2023-08-08 17:35:21        -1 selipot
+</pre></div>
+</div>
+<p>You can create a subdirectory if needed using the rclone mkdir command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[nra20@login4 ~]$ rclone mkdir apex:/acs/nra20
+[nra20@login4 ~]$ rclone lsd apex:/acs
+      -1 2022-06-08 12:40:43        -1 mihg-mapping
+      -1 2023-08-09 10:39:04        -1 nra20
+      -1 2022-11-04 15:23:17        -1 pdavila
+</pre></div>
+</div>
+<p><strong>Note:</strong> Because <code class="docutils literal notranslate"><span class="pre">rclone</span> <span class="pre">copy</span></code> command can take hours to complete, we recommend you use the <code class="docutils literal notranslate"><span class="pre">screen</span></code> command when running rclone interactively.  This way the sync will not terminate prematurally, should your ssh session end.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[pdavila@login4 ~]$ screen
+[pdavila@login4 ~]$ rclone copy /projects/ccs/schurerlab/cheminfo/pdavila apex:/schurerlab/pdavila
+[pdavila@login4 ~]$ rclone lsd apex:/schurerlab/pdavila/apps/
+  -1 2022-06-23 10:36:21        -1 bin
+  -1 2022-06-23 10:36:21        -1 ffmpeg
+  -1 2022-06-23 10:36:21        -1 firefox
+  -1 2022-06-23 10:36:21        -1 wget
+</pre></div>
+</div>
+<p>You can exit your screen session using the ‘exit’ command.</p>
+</section>
+</section>
+<section id="using-filezilla">
+<h2>Using FileZilla<a class="headerlink" href="#using-filezilla" title="Permalink to this heading">¶</a></h2>
+<p>FileZilla is a free, user friendly, open source, cross-platform FTP,
+SFTP and FTPS application.</p>
+<p>Download the FileZilla client here:
+<a class="reference external" href="https://filezilla-project.org/download.php?show_all=1">https://filezilla-project.org/download.php?show_all=1</a> and follow the
+installation instructions for the appropriate platform
+(<a class="reference external" href="http://wiki.filezilla-project.org/Client_Installation">http://wiki.filezilla-project.org/Client_Installation</a>).</p>
+<p>Launch FileZilla and open <strong>File : Site Manager</strong>.</p>
+<p>Click the “New Site” button and name the entry.  Pegasus example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span><span class="p">:</span>       <span class="n">pegasus</span><span class="o">.</span><span class="n">ccs</span><span class="o">.</span><span class="n">miami</span><span class="o">.</span><span class="n">edu</span> <span class="o">|</span> <span class="n">triton</span><span class="o">.</span><span class="n">ccs</span><span class="o">.</span><span class="n">miami</span><span class="o">.</span><span class="n">edu</span> <span class="o">|</span> <span class="n">apex</span><span class="o">.</span><span class="n">idsc</span><span class="o">.</span><span class="n">miami</span><span class="o">.</span><span class="n">edu</span> <span class="p">(</span><span class="n">CES</span><span class="p">)</span>
+<span class="n">Protocol</span><span class="p">:</span>   <span class="n">SFTP</span>
+<span class="n">Logon</span> <span class="n">Type</span><span class="p">:</span> <span class="n">Normal</span>
+<span class="n">enter</span> <span class="n">your</span> <span class="n">username</span> <span class="ow">and</span> <span class="n">password</span>
+</pre></div>
+</div>
+<p>Selecting Logon Type: <strong>Ask for password</strong> will prompt for a password
+each connection.<img alt="FileZilla Site Manager" src="../_images/fz_sm1.png" /></p>
+<p>Remember: Pegasus and Apex use your IDSC account for authentication.  Triton uses your CaneID.</p>
+<p>Click the “Connect” button. Once connected, drag and drop files or
+directories between your local machine and the server.</p>
+</section>
+<section id="using-the-gateway-server">
+<h2>Using the gateway server<a class="headerlink" href="#using-the-gateway-server" title="Permalink to this heading">¶</a></h2>
+<p>To transfer large amounts of data from systems outside the University of
+Miami, use the gateway server. This server supports SFTP file
+transfers. Users <strong>*must be a member of a project*</strong> to request access
+to the gateway server. E-mail <a class="reference external" href="mailto:hpc&#37;&#52;&#48;ccs&#46;miami&#46;edu">hpc<span>&#64;</span>ccs<span>&#46;</span>miami<span>&#46;</span>edu</a> to request access.</p>
+<section id="sftp">
+<h3>SFTP<a class="headerlink" href="#sftp" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span><span class="p">:</span>  <span class="n">xfer</span><span class="o">.</span><span class="n">ccs</span><span class="o">.</span><span class="n">miami</span><span class="o">.</span><span class="n">edu</span>
+<span class="n">protocol</span><span class="p">:</span>  <span class="n">SFTP</span>
+<span class="n">user</span><span class="p">:</span>    <span class="n">caneid</span>
+<span class="n">pw</span><span class="p">:</span>  <span class="p">[</span><span class="n">UM</span> <span class="n">caneid</span> <span class="n">passwd</span><span class="p">]</span>
+<span class="n">Folder</span><span class="p">:</span> <span class="n">download</span><span class="o">/&lt;</span><span class="n">projectname</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Open an SFTP session to the gateway server using your IDSC account
+credentials: <code class="docutils literal notranslate"><span class="pre">xfer.ccs.miami.edu</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[localmachine: ~]$ sftp username@xfer.ccs.miami.edu
+sftp&gt; cd download
+sftp&gt; mkdir &lt;project&gt;
+sftp&gt; cd project
+sftp&gt; put newfile
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README.html" class="btn btn-neutral float-left" title="Data Storage and Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="storage_options.html" class="btn btn-neutral float-right" title="Data Storage Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

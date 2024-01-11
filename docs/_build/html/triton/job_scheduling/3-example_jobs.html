@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Job Scripts &mdash; acs_docs 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Job Scheduling with LSF" href="2-lsf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> acs_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../connecting.html">Connecting to ACS Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training_videos.html">Training Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/README.html">Linux on Clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data/README.html">Data Storage and Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies/README.html">IDSC ACS Policies</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">Triton</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1-connecting.html">Connecting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2-quickstart.html">QuickStart Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../3-job_scheduling.html">Job Scheduling</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1-queues.html">Job Queues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2-lsf.html">LSF Scheduler</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Example Jobs and Job Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-script-for-the-serial-job">Example script for the serial job</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-scripts-for-parallel-jobs">Example scripts for parallel jobs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">acs_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../README.html">User Guide to the Triton Cluster</a></li>
+          <li class="breadcrumb-item"><a href="../3-job_scheduling.html">Job Scheduling</a></li>
+      <li class="breadcrumb-item active">Example Job Scripts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/triton/job_scheduling/3-example_jobs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example-job-scripts">
+<h1>Example Job Scripts<a class="headerlink" href="#example-job-scripts" title="Permalink to this heading">¶</a></h1>
+<p>A job script should contain the information that
+the job scheduler (LSF in this case) needs to allocate
+the resources your job requires, to be able to handle
+standard I/O streams, and to run the job. The examples
+job scripts we will show below are for
+a job involving training a 3-layer multiperceptron
+model for image classification. The model is trained
+on the MNIST handwritten image dataset. We will first show a
+serial example involving the use of 1 CPU and GPU, then
+a parallel example involving the use of 1 CPU and 2 GPUs,
+then a parallel distributed  example involving the use of
+4 CPUs and 4 GPUs (since each Triton nodes has 2 GPUs, 2 triton
+nodes are needed in this case).</p>
+<section id="example-script-for-the-serial-job">
+<h2>Example script for the serial job<a class="headerlink" href="#example-script-for-the-serial-job" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">serial_job.lsf</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#BSUB -L /bin/bash</span>
+<span class="c1">#BSUB -J &quot;mnist_serial&quot;</span>
+<span class="c1">#BSUB -P my_project_name</span>
+<span class="c1">#BSUB -e &quot;mnist_serial.%J.err&quot;</span>
+<span class="c1">#BSUB -o &quot;mnist_serial.%J.out&quot;</span>
+<span class="c1">#BSUB -W 1:00</span>
+<span class="c1">#BSUB -q normal</span>
+<span class="c1">#BSUB -n 1</span>
+<span class="c1">#BSUB -R &quot;span[ptile=1]&quot;</span>
+<span class="c1">#BSUB -gpu &quot;num=1&quot;</span>
+<span class="c1">#BSUB -B</span>
+<span class="c1">#BSUB -N</span>
+<span class="c1">#BSUB -u myemail@miami.edu</span>
+
+ml<span class="w"> </span>wml_anaconda3
+conda<span class="w"> </span>activate<span class="w"> </span>wmlce_env
+
+python<span class="w"> </span>mnist.py
+</pre></div>
+</div>
+<p>Here is a detailed line-by-line breakdown of the keywords and their
+assigned values listed in this script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+specifies<span class="w"> </span>the<span class="w"> </span>shell<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>used<span class="w"> </span>when<span class="w"> </span>executing<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>portion<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>script.
+The<span class="w"> </span>default<span class="w"> </span>shell<span class="w"> </span>is<span class="w"> </span>Bash.
+
+BSUB<span class="w"> </span>-J<span class="w"> </span>mnist_serial
+assign<span class="w"> </span>a<span class="w"> </span>name<span class="w"> </span>to<span class="w"> </span>job.<span class="w"> </span>The<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>job<span class="w"> </span>will<span class="w"> </span>show<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>bjobs<span class="w"> </span>output.
+
+<span class="c1">#BSUB -P my_project_name</span>
+specify<span class="w"> </span>the<span class="w"> </span>project<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>when<span class="w"> </span>submitting<span class="w"> </span>the<span class="w"> </span>job.<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>required<span class="w"> </span>when<span class="w"> </span>a<span class="w"> </span>user<span class="w"> </span>has<span class="w"> </span>more<span class="w"> </span>than<span class="w"> </span>one<span class="w"> </span>project<span class="w"> </span>on<span class="w"> </span>Triton.
+
+<span class="c1">#BSUB -e mnist_serial.%J.err</span>
+redirect<span class="w"> </span>std<span class="w"> </span>error<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>specified<span class="w"> </span>file,<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span><span class="k">case</span><span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>mnist_serial.%J.err
+
+<span class="c1">#BSUB -o mnist_serial.%J.out</span>
+redirect<span class="w"> </span>std<span class="w"> </span>output<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>specified<span class="w"> </span>file,<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span><span class="k">case</span><span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>mnist_serial.%J.out
+
+<span class="c1">#BSUB -W 1:00</span>
+<span class="nb">set</span><span class="w"> </span>wall<span class="w"> </span>clock<span class="w"> </span>run<span class="w"> </span><span class="nb">time</span><span class="w"> </span>limit<span class="w"> </span>of<span class="w"> </span><span class="m">1</span><span class="w"> </span>hour,<span class="w"> </span>otherwise<span class="w"> </span>queue<span class="w"> </span>specific<span class="w"> </span>default<span class="w"> </span>run<span class="w"> </span><span class="nb">time</span><span class="w"> </span>limit<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>applied.
+
+<span class="c1">#BSUB -q normal</span>
+specify<span class="w"> </span>queue<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>used.<span class="w"> </span>Without<span class="w"> </span>this<span class="w"> </span>option,<span class="w"> </span>default<span class="w"> </span><span class="s1">&#39;normal&#39;</span><span class="w"> </span>queue<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>applied.
+
+<span class="c1">#BSUB -n 1</span>
+specify<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>processors.<span class="w"> </span>In<span class="w"> </span>this<span class="w"> </span>job,<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>processor<span class="w"> </span>is<span class="w"> </span>requested.
+
+<span class="c1">#BSUB -gpu &quot;num=1&quot;</span>
+specify<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>GPUs.<span class="w"> </span>In<span class="w"> </span>this<span class="w"> </span>job,<span class="w"> </span>a<span class="w"> </span>single<span class="w"> </span>GPU<span class="w"> </span>is<span class="w"> </span>requested.
+
+<span class="c1">#BSUB -B</span>
+send<span class="w"> </span>mail<span class="w"> </span>to<span class="w"> </span>specified<span class="w"> </span>email<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>job<span class="w"> </span>is<span class="w"> </span>dispatched<span class="w"> </span>and<span class="w"> </span>begins<span class="w"> </span>execution.
+
+<span class="c1">#BSUB -u example@miami.edu</span>
+send<span class="w"> </span>notification<span class="w"> </span>through<span class="w"> </span>email<span class="w"> </span>to<span class="w"> </span>example@miami.edu.
+
+<span class="c1">#BSUB -N</span>
+send<span class="w"> </span>job<span class="w"> </span>statistics<span class="w"> </span>report<span class="w"> </span>through<span class="w"> </span>email<span class="w"> </span>when<span class="w"> </span>job<span class="w"> </span>finishes.
+</pre></div>
+</div>
+</section>
+<section id="example-scripts-for-parallel-jobs">
+<h2>Example scripts for parallel jobs<a class="headerlink" href="#example-scripts-for-parallel-jobs" title="Permalink to this heading">¶</a></h2>
+<p>We recommend using IBM Advance Toolchain and SMPI unless you have specific reason for using OpenMP or OpenMPI. IBM’s SMPI scales better and has better performance than both OpenMP or OpenMPI on Triton.</p>
+<p>For optimum performance, use the <code class="docutils literal notranslate"><span class="pre">#BSUB</span> <span class="pre">-R</span> <span class="pre">&quot;span[ptile=40]&quot;</span></code>. This requires the LSF job scheduler to allocate 40 processors per host, ensuring all processors on a single host are used by that job.</p>
+<p><strong>Reserve enough memory for your jobs.</strong> Memory reservations are per core. Parallel job performance may be affected, or even interrupted, by other badly-configured jobs running on the same host.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mpi_hello_world.job</span></code></p>
+<hr class="docutils" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>mpi_hello_world.job
+<span class="c1">#!/bin/sh</span>
+<span class="c1">#BSUB -n 80</span>
+<span class="c1">#BSUB -J mpi_hello_world</span>
+<span class="c1">#BSUB -o %J.out</span>
+<span class="c1">#BSUB -e %J.err</span>
+<span class="c1">#BSUB -R &quot;span[ptile=40]&quot;</span>
+<span class="c1">#BSUB -q normal</span>
+
+<span class="c1"># Use the optimized IBM Advance Toolkit gcc/8.3.1 and smpi</span>
+ml<span class="w"> </span>gcc/8.3.1
+ml<span class="w"> </span>smpi
+
+mpirun<span class="w"> </span>./mpi_hello_world
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mpi_hello_world.c</span></code></p>
+<hr class="docutils" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>mpi_hello_world.c
+<span class="c1">#include &lt;mpi.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+int<span class="w"> </span>main<span class="o">(</span>int<span class="w"> </span>argc,<span class="w"> </span>char**<span class="w"> </span>argv<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>//<span class="w"> </span>Initialize<span class="w"> </span>the<span class="w"> </span>MPI<span class="w"> </span>environment
+<span class="w">  </span>MPI_Init<span class="o">(</span>NULL,<span class="w"> </span>NULL<span class="o">)</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>Get<span class="w"> </span>the<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>processes
+<span class="w">  </span>int<span class="w"> </span>world_size<span class="p">;</span>
+<span class="w">  </span>MPI_Comm_size<span class="o">(</span>MPI_COMM_WORLD,<span class="w"> </span><span class="p">&amp;</span>world_size<span class="o">)</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>Get<span class="w"> </span>the<span class="w"> </span>rank<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>process
+<span class="w">  </span>int<span class="w"> </span>world_rank<span class="p">;</span>
+<span class="w">  </span>MPI_Comm_rank<span class="o">(</span>MPI_COMM_WORLD,<span class="w"> </span><span class="p">&amp;</span>world_rank<span class="o">)</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>Get<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>processor
+<span class="w">  </span>char<span class="w"> </span>processor_name<span class="o">[</span>MPI_MAX_PROCESSOR_NAME<span class="o">]</span><span class="p">;</span>
+<span class="w">  </span>int<span class="w"> </span>name_len<span class="p">;</span>
+<span class="w">  </span>MPI_Get_processor_name<span class="o">(</span>processor_name,<span class="w"> </span><span class="p">&amp;</span>name_len<span class="o">)</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>Print<span class="w"> </span>off<span class="w"> </span>a<span class="w"> </span>hello<span class="w"> </span>world<span class="w"> </span>message
+<span class="w">  </span>printf<span class="o">(</span><span class="s2">&quot;Hello world from processor %s, rank %d out of %d processors\n&quot;</span>,
+<span class="w">         </span>processor_name,<span class="w"> </span>world_rank,<span class="w"> </span>world_size<span class="o">)</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>Finalize<span class="w"> </span>the<span class="w"> </span>MPI<span class="w"> </span>environment.
+<span class="w">  </span>MPI_Finalize<span class="o">()</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Compile</span> <span class="pre">the</span> <span class="pre">mpi_hello_world.c</span> <span class="pre">file</span></code></p>
+<hr class="docutils" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ml<span class="w"> </span>gcc/8.3.1
+$<span class="w"> </span>ml<span class="w"> </span>smpi
+$<span class="w"> </span>mpicc<span class="w"> </span>-o<span class="w"> </span>mpi_hello_world<span class="w"> </span>mpi_hello_world.c
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">the</span> <span class="pre">mpi_hello_world.job</span> <span class="pre">file</span></code></p>
+<hr class="docutils" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bsub<span class="w"> </span>&lt;<span class="w"> </span>mpi_hello_world.job
+Job<span class="w"> </span>&lt;<span class="m">981431</span>&gt;<span class="w"> </span>is<span class="w"> </span>submitted<span class="w"> </span>to<span class="w"> </span>queue<span class="w"> </span>&lt;normal&gt;.
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">mpi_hello_world.job</span> <span class="pre">status</span></code></p>
+<hr class="docutils" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>bjobs<span class="w"> </span>-l<span class="w"> </span><span class="m">284204</span>
+
+Job<span class="w"> </span>&lt;<span class="m">284204</span>&gt;,<span class="w"> </span>Job<span class="w"> </span>Name<span class="w"> </span>&lt;mpi_hello_world&gt;,<span class="w"> </span>User<span class="w"> </span>&lt;nra20&gt;,<span class="w"> </span>Project<span class="w"> </span>&lt;default&gt;,<span class="w"> </span>Status<span class="w"> </span>&lt;DONE&gt;
+...
+
+Wed<span class="w"> </span>Jan<span class="w">  </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:251:07:<span class="w"> </span>Done<span class="w"> </span>successfully.<span class="w"> </span>The<span class="w"> </span>CPU<span class="w"> </span><span class="nb">time</span><span class="w"> </span>used<span class="w"> </span>is<span class="w"> </span><span class="m">9</span>.7<span class="w"> </span>seconds.
+<span class="w">                   </span>HOST:<span class="w"> </span>t039<span class="p">;</span><span class="w"> </span>CPU_TIME:<span class="w"> </span><span class="m">0</span><span class="w"> </span>seconds
+<span class="w">                   </span>HOST:<span class="w"> </span>t072<span class="p">;</span><span class="w"> </span>CPU_TIME:<span class="w"> </span><span class="m">0</span><span class="w"> </span>seconds
+<span class="w">                   </span>HOST:<span class="w"> </span>t059<span class="p">;</span><span class="w"> </span>CPU_TIME:<span class="w"> </span><span class="m">0</span><span class="w"> </span>seconds
+<span class="w">                   </span>HOST:<span class="w"> </span>t047<span class="p">;</span><span class="w"> </span>CPU_TIME:<span class="w"> </span><span class="m">0</span><span class="w"> </span>seconds
+<span class="w">                   </span>HOST:<span class="w"> </span>t017<span class="p">;</span><span class="w"> </span>CPU_TIME:<span class="w"> </span><span class="m">0</span><span class="w"> </span>seconds
+
+<span class="w"> </span>MEMORY<span class="w"> </span>USAGE:
+<span class="w"> </span>MAX<span class="w"> </span>MEM:<span class="w"> </span><span class="m">14</span><span class="w"> </span>Mbytes<span class="p">;</span><span class="w">  </span>AVG<span class="w"> </span>MEM:<span class="w"> </span><span class="m">9</span><span class="w"> </span>Mbytes
+<span class="w"> </span>...
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span><span class="m">284204</span>.out
+Sender:<span class="w"> </span>LSF<span class="w"> </span>System<span class="w"> </span>&lt;hpc@ccs.miami.edu&gt;
+Subject:<span class="w"> </span>Job<span class="w"> </span><span class="m">284204</span>:<span class="w"> </span>&lt;mpi_hello_world&gt;<span class="w"> </span><span class="k">in</span><span class="w"> </span>cluster<span class="w"> </span>&lt;triton&gt;<span class="w"> </span>Done
+
+Job<span class="w"> </span>&lt;mpi_hello_world&gt;<span class="w"> </span>was<span class="w"> </span>submitted<span class="w"> </span>from<span class="w"> </span>host<span class="w"> </span>&lt;login1&gt;<span class="w"> </span>by<span class="w"> </span>user<span class="w"> </span>&lt;nra20&gt;<span class="w"> </span><span class="k">in</span><span class="w"> </span>cluster<span class="w"> </span>&lt;triton&gt;<span class="w"> </span>at<span class="w"> </span>Wed<span class="w"> </span>Jan<span class="w">  </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:25:03<span class="w"> </span><span class="m">2021</span>
+Job<span class="w"> </span>was<span class="w"> </span>executed<span class="w"> </span>on<span class="w"> </span>host<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>&lt;<span class="m">4</span>*t039&gt;,<span class="w"> </span><span class="k">in</span><span class="w"> </span>queue<span class="w"> </span>&lt;normal&gt;,<span class="w"> </span>as<span class="w"> </span>user<span class="w"> </span>&lt;nra20&gt;<span class="w"> </span><span class="k">in</span><span class="w"> </span>cluster<span class="w"> </span>&lt;triton&gt;<span class="w"> </span>at<span class="w"> </span>Wed<span class="w"> </span>Jan<span class="w">  </span><span class="m">11</span><span class="w"> </span><span class="m">11</span>:25:03<span class="w"> </span><span class="m">2021</span>
+<span class="w">                            </span>&lt;<span class="m">4</span>*t071&gt;
+<span class="w">                            </span>&lt;<span class="m">4</span>*t059&gt;
+<span class="w">                            </span>&lt;<span class="m">4</span>*t047&gt;
+<span class="w">                            </span>&lt;<span class="m">4</span>*t017&gt;
+
+...
+
+Your<span class="w"> </span>job<span class="w"> </span>looked<span class="w"> </span>like:
+
+------------------------------------------------------------
+<span class="c1"># LSBATCH: User input</span>
+<span class="c1">#!/bin/sh</span>
+<span class="c1">#BSUB -n 20</span>
+<span class="c1">#BSUB -J mpi_hello_world</span>
+<span class="c1">#BSUB -o %J.out</span>
+<span class="c1">#BSUB -e %J.err</span>
+<span class="c1">#BSUB -a openmpi</span>
+<span class="c1">#BSUB -R &quot;span[ptile=4]&quot;</span>
+<span class="c1">#BSUB -q normal</span>
+
+<span class="c1"># Use openmpi</span>
+ml<span class="w"> </span>gcc/8.3.1<span class="w"> </span>openmpi/4.0.5
+
+<span class="c1"># Use the optimized IBM Advance Toolkit (gcc 8.3.1) and smpi</span>
+<span class="c1"># ml at smpi</span>
+
+
+mpirun<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span>./mpi_hello_world
+
+------------------------------------------------------------
+
+Successfully<span class="w"> </span>completed.
+
+Resource<span class="w"> </span>usage<span class="w"> </span>summary:
+
+<span class="w">  </span>CPU<span class="w"> </span><span class="nb">time</span><span class="w"> </span>:<span class="w">                                   </span><span class="m">2</span>.49<span class="w"> </span>sec.
+<span class="w">  </span>Max<span class="w"> </span>Memory<span class="w"> </span>:<span class="w">                                 </span><span class="m">53</span><span class="w"> </span>MB
+<span class="w">  </span>Average<span class="w"> </span>Memory<span class="w"> </span>:<span class="w">                             </span><span class="m">35</span>.67<span class="w"> </span>MB
+<span class="w">  </span>Total<span class="w"> </span>Requested<span class="w"> </span>Memory<span class="w"> </span>:<span class="w">                     </span>-
+<span class="w">  </span>Delta<span class="w"> </span>Memory<span class="w"> </span>:<span class="w">                               </span>-
+<span class="w">  </span>Max<span class="w"> </span>Swap<span class="w"> </span>:<span class="w">                                   </span><span class="m">1</span><span class="w"> </span>MB
+<span class="w">  </span>Max<span class="w"> </span>Processes<span class="w"> </span>:<span class="w">                              </span><span class="m">8</span>
+<span class="w">  </span>Max<span class="w"> </span>Threads<span class="w"> </span>:<span class="w">                                </span><span class="m">20</span>
+<span class="w">  </span>Run<span class="w"> </span><span class="nb">time</span><span class="w"> </span>:<span class="w">                                   </span><span class="m">3</span><span class="w"> </span>sec.
+<span class="w">  </span>Turnaround<span class="w"> </span><span class="nb">time</span><span class="w"> </span>:<span class="w">                            </span><span class="m">6</span><span class="w"> </span>sec.
+
+The<span class="w"> </span>output<span class="w"> </span><span class="o">(</span><span class="k">if</span><span class="w"> </span>any<span class="o">)</span><span class="w"> </span>follows:
+
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t047,<span class="w"> </span>rank<span class="w"> </span><span class="m">14</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t039,<span class="w"> </span>rank<span class="w"> </span><span class="m">3</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t039,<span class="w"> </span>rank<span class="w"> </span><span class="m">0</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t039,<span class="w"> </span>rank<span class="w"> </span><span class="m">1</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t039,<span class="w"> </span>rank<span class="w"> </span><span class="m">2</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t017,<span class="w"> </span>rank<span class="w"> </span><span class="m">17</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t047,<span class="w"> </span>rank<span class="w"> </span><span class="m">15</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t017,<span class="w"> </span>rank<span class="w"> </span><span class="m">18</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t047,<span class="w"> </span>rank<span class="w"> </span><span class="m">12</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t017,<span class="w"> </span>rank<span class="w"> </span><span class="m">19</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t047,<span class="w"> </span>rank<span class="w"> </span><span class="m">13</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t017,<span class="w"> </span>rank<span class="w"> </span><span class="m">16</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t072,<span class="w"> </span>rank<span class="w"> </span><span class="m">5</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t059,<span class="w"> </span>rank<span class="w"> </span><span class="m">8</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t072,<span class="w"> </span>rank<span class="w"> </span><span class="m">6</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t072,<span class="w"> </span>rank<span class="w"> </span><span class="m">7</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t072,<span class="w"> </span>rank<span class="w"> </span><span class="m">4</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t059,<span class="w"> </span>rank<span class="w"> </span><span class="m">9</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t059,<span class="w"> </span>rank<span class="w"> </span><span class="m">10</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>processor<span class="w"> </span>t059,<span class="w"> </span>rank<span class="w"> </span><span class="m">11</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">20</span><span class="w"> </span>processors
+
+
+PS:
+
+Read<span class="w"> </span>file<span class="w"> </span>&lt;<span class="m">284204</span>.err&gt;<span class="w"> </span><span class="k">for</span><span class="w"> </span>stderr<span class="w"> </span>output<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>job.
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2-lsf.html" class="btn btn-neutral float-left" title="Job Scheduling with LSF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

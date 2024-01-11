@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Guides &mdash; acs_docs 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Navigating the Linux Shell" href="1-nav.html" />
+    <link rel="prev" title="Training Videos" href="../training_videos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> acs_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../connecting.html">Connecting to ACS Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_videos.html">Training Videos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux on Clusters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-linux">Introduction to Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1-nav.html">Navigating the Linux Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2-files.html">Interacting with Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-rwx.html">File Permissions in Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-acl.html">Access Control Lists – ACL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-faqs">Linux FAQs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data/README.html">Data Storage and Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/README.html">IDSC ACS Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../triton/README.html">Triton</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acs_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Linux Guides</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/linux/README.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linux-guides">
+<h1>Linux Guides<a class="headerlink" href="#linux-guides" title="Permalink to this heading">¶</a></h1>
+<section id="introduction-to-linux">
+<h2>Introduction to Linux<a class="headerlink" href="#introduction-to-linux" title="Permalink to this heading">¶</a></h2>
+<p>Pegasus and Triton both run the CentOS 7.6 and RHEL 7.6 operating systems,
+respectively. Both of these operating systems are distributions of Linux,
+a UNIX-like operating system. The three basic components of UNIX-like
+operating systems are the <strong>kernel</strong>, <strong>shell</strong>, and <strong>system programs</strong>.
+The kernel handles resource management and program execution. The shell
+interprets user commands typed at a prompt. System programs implement most
+operating system functionalities such as user environments and schedulers.</p>
+<p>Everything in Linux is either a <strong>file</strong> (a collection of data) or a
+<strong>process</strong> (an executing program). Directories in Linux are types of
+files.</p>
+<p>In the examples below, <code class="docutils literal notranslate"><span class="pre">username</span></code> represents your access account.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1-nav.html">Navigating the Linux Shell</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1-nav.html#view-your-current-shell-with-echo">View your current shell with <code class="docutils literal notranslate"><span class="pre">echo</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-nav.html#view-all-environment-variables-with-env">View all environment variables with <code class="docutils literal notranslate"><span class="pre">env</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-nav.html#view-your-current-directory-with-pwd">View your current directory with <code class="docutils literal notranslate"><span class="pre">pwd</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-nav.html#view-the-contents-of-a-directory-with-ls">View the contents of a directory with <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-nav.html#navigate-to-directories-with-cd">Navigate to directories with <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-nav.html#view-directory-contents-with-tree">View directory contents with <code class="docutils literal notranslate"><span class="pre">tree</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-nav.html#check-command-availability-and-location-with-which">Check command availability and location with <code class="docutils literal notranslate"><span class="pre">which</span></code>:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2-files.html">Interacting with Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#make-directories-with-mkdir">Make directories with <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#remove-directories-with-rmdir">Remove directories with <code class="docutils literal notranslate"><span class="pre">rmdir</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#remove-files-and-directories-with-rm">Remove files and directories with <code class="docutils literal notranslate"><span class="pre">rm</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#view-file-contents-with-cat">View file contents with <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#create-files-with-cat-and-redirection">Create files with <code class="docutils literal notranslate"><span class="pre">cat</span></code> and redirection:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#view-file-contents-with-head-and-tail">View file contents with <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#rename-and-move-with-mv">Rename and Move with <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#copy-with-cp">Copy with <code class="docutils literal notranslate"><span class="pre">cp</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#edit-files-nano-emacs-vi">Edit files : <code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, <code class="docutils literal notranslate"><span class="pre">vi</span></code>:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-files.html#view-file-contents-by-page-with-more-and-less">View file contents by page with <code class="docutils literal notranslate"><span class="pre">more</span></code> and <code class="docutils literal notranslate"><span class="pre">less</span></code>:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3-rwx.html">File Permissions in Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3-rwx.html#understanding-file-permission-categories">Understanding File Permission Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-rwx.html#changing-file-permissions-in-linux">Changing File Permissions in Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-rwx.html#changing-group-ownership-in-linux">Changing Group Ownership in Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4-acl.html">Access Control Lists – ACL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4-acl.html#getting-acl-information">Getting ACL information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-acl.html#setting-acl-information">Setting ACL information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-acl.html#removing-acl-information">Removing ACL information</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="linux-faqs">
+<h2>Linux FAQs<a class="headerlink" href="#linux-faqs" title="Permalink to this heading">¶</a></h2>
+<p><strong>How can I check my shell?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">echo</span> <span class="pre">$SHELL</span></code> or <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">echo</span> <span class="pre">$0</span></code></p>
+<p><strong>How can I view my environment variables?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">env</span></code> or <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">env</span> <span class="pre">|</span> <span class="pre">sort</span></code></p>
+<p><strong>How can I check command/software availability and location?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">which</span> <span class="pre">executable</span></code>, for example <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">which</span> <span class="pre">vim</span></code></p>
+<p><strong>How can I get help with commands/software?</strong></p>
+<p>Use the Linux manual pages: <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">man</span> <span class="pre">executable</span></code>, for example
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">man</span> <span class="pre">vim</span></code></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../training_videos.html" class="btn btn-neutral float-left" title="Training Videos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="1-nav.html" class="btn btn-neutral float-right" title="Navigating the Linux Shell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

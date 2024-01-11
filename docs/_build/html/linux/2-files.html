@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interacting with Files &mdash; acs_docs 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="File Permissions" href="3-rwx.html" />
+    <link rel="prev" title="Navigating the Linux Shell" href="1-nav.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> acs_docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../connecting.html">Connecting to ACS Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training_videos.html">Training Videos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="README.html">Linux on Clusters</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="README.html#introduction-to-linux">Introduction to Linux</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="1-nav.html">Navigating the Linux Shell</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Interacting with Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#make-directories-with-mkdir">Make directories with <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-directories-with-rmdir">Remove directories with <code class="docutils literal notranslate"><span class="pre">rmdir</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-files-and-directories-with-rm">Remove files and directories with <code class="docutils literal notranslate"><span class="pre">rm</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-file-contents-with-cat">View file contents with <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-files-with-cat-and-redirection">Create files with <code class="docutils literal notranslate"><span class="pre">cat</span></code> and redirection:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-file-contents-with-head-and-tail">View file contents with <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rename-and-move-with-mv">Rename and Move with <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copy-with-cp">Copy with <code class="docutils literal notranslate"><span class="pre">cp</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-files-nano-emacs-vi">Edit files : <code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, <code class="docutils literal notranslate"><span class="pre">vi</span></code>:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-file-contents-by-page-with-more-and-less">View file contents by page with <code class="docutils literal notranslate"><span class="pre">more</span></code> and <code class="docutils literal notranslate"><span class="pre">less</span></code>:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3-rwx.html">File Permissions in Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-acl.html">Access Control Lists – ACL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#linux-faqs">Linux FAQs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data/README.html">Data Storage and Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/README.html">IDSC ACS Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../triton/README.html">Triton</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">acs_docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="README.html">Linux Guides</a></li>
+      <li class="breadcrumb-item active">Interacting with Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/linux/2-files.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="interacting-with-files">
+<h1>Interacting with Files<a class="headerlink" href="#interacting-with-files" title="Permalink to this heading">¶</a></h1>
+<section id="make-directories-with-mkdir">
+<h2>Make directories with <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>:<a class="headerlink" href="#make-directories-with-mkdir" title="Permalink to this heading">¶</a></h2>
+<p>This command creates new, empty directories.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ mkdir testdir2
+[username@login4 ~]$ ls
+example_file1  example_file2  testdir1  testdir2
+</pre></div>
+</div>
+<p>Multiple directories can be created at the same time, as can directory
+hierarchies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ mkdir firstdir seconddir
+[username@login4 ~]$ ls
+example_file1  example_file2  firstdir  secondir  testdir1  testdir2
+
+[username@login4 ~]$ mkdir -pv level1/level2/level3
+mkdir: created directory `level1&#39;
+mkdir: created directory `level1/level2&#39;
+mkdir: created directory `level1/level2/level3&#39;
+[username@login4 ~]$ ls
+example_file1  example_file2  firstdir  level1  seconddir  testdir1  testdir2
+[username@login4 ~]$ ls level1
+level2
+</pre></div>
+</div>
+<p>The flags on this <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-pv</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> make parent directories as needed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> print a message for each created directory</p></li>
+</ul>
+<p>If a directory already exists, <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> will output an error message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ mkdir testdir1
+mkdir: cannot create directory `testdir1&#39;: File exists
+</pre></div>
+</div>
+</section>
+<section id="remove-directories-with-rmdir">
+<h2>Remove directories with <code class="docutils literal notranslate"><span class="pre">rmdir</span></code>:<a class="headerlink" href="#remove-directories-with-rmdir" title="Permalink to this heading">¶</a></h2>
+<p>Directories must be empty for <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> to remove them.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ rmdir firstdir seconddir
+[username@login4 ~]$ ls
+example_file1  example_file2  level1  testdir1  testdir2
+
+[username@login4 ~]$ rmdir testdir1 level1
+rmdir: failed to remove `testdir1&#39;: Directory not empty
+rmdir: failed to remove `level1&#39;: Directory not empty
+[username@login4 ~]$ ls testdir1 level1
+level1:
+level2
+
+testdir1:
+testdir1_file1
+</pre></div>
+</div>
+<p>The individual directories in the above example are empty. The top level
+of the hierarchy in the above example is not empty, neither is
+<code class="docutils literal notranslate"><span class="pre">testdir1</span></code>. To remove directories that are not empty, see <code class="docutils literal notranslate"><span class="pre">rm</span></code>.</p>
+</section>
+<section id="remove-files-and-directories-with-rm">
+<h2>Remove files and directories with <code class="docutils literal notranslate"><span class="pre">rm</span></code>:<a class="headerlink" href="#remove-files-and-directories-with-rm" title="Permalink to this heading">¶</a></h2>
+<p><strong>*There is no ‘recycle bin’ on Pegasus and Triton.*</strong> Removing files with <code class="docutils literal notranslate"><span class="pre">rm</span></code>
+is permanent and cannot be undone.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ rm -v example_file3
+removed `example_file3&#39;
+[username@login4 ~]$ ls
+example_file1  example_file2  level1  testdir1  testdir2
+</pre></div>
+</div>
+<p>The flag on this <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-v</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> print a message for each removed file or directory</p></li>
+</ul>
+<p>Because directories are types of files in Linux, <code class="docutils literal notranslate"><span class="pre">rm</span></code> can be used with
+the recursive flag to remove directories. Recall that <code class="docutils literal notranslate"><span class="pre">rm</span></code> in Linux is
+<strong>*permanent and cannot be undone*</strong>. Without the recursive flag, <code class="docutils literal notranslate"><span class="pre">rm</span></code>
+on a directory will produce an error as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ rm level1
+rm: cannot remove `level1&#39;: Is a directory
+[username@login4 ~]$ rm -rv level1
+removed directory: `level1/level2/level3&#39;
+removed directory: `level1/level2&#39;
+removed directory: `level1&#39;
+</pre></div>
+</div>
+<p>The flags on this <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rv</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code> remove directories and their contents recursively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> print a message for each removed file or directory</p></li>
+</ul>
+</section>
+<section id="view-file-contents-with-cat">
+<h2>View file contents with <code class="docutils literal notranslate"><span class="pre">cat</span></code>:<a class="headerlink" href="#view-file-contents-with-cat" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span></code> reads file contents into standard output, typically the display.
+This is best used for small text files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ cat example_file1
+This is example_file1.
+It contains two lines of text.
+[username@login4 ~]$ cat -nE example_file1
+     1    This is example_file1.$
+     2  It contains two lines of text.$
+</pre></div>
+</div>
+<p>Flags used in this command for <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> number all output lines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-E</span></code> display $ at the end of each line</p></li>
+</ul>
+<p>Other useful flags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-b</span></code> number non-empty output lines</p></li>
+</ul>
+<p>When <strong>no file is given</strong>, <code class="docutils literal notranslate"><span class="pre">cat</span></code> reads standard input (typically from
+the keyboard) then outputs contents (typically the display). Press
+<code class="docutils literal notranslate"><span class="pre">CTRL-D</span></code> (Windows) or <code class="docutils literal notranslate"><span class="pre">Command-D</span></code> (Mac) to return to the prompt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ cat
+No file was given- cat reads standard input from the keyboard and will output this to the display.
+No file was given- cat reads standard input from the keyboard and will output this to the display.
+CTRL-D or Command-D
+[username@login4 ~]$
+</pre></div>
+</div>
+<p>This feature can be used to create files.</p>
+</section>
+<section id="create-files-with-cat-and-redirection">
+<h2>Create files with <code class="docutils literal notranslate"><span class="pre">cat</span></code> and redirection:<a class="headerlink" href="#create-files-with-cat-and-redirection" title="Permalink to this heading">¶</a></h2>
+<p><strong>Redirection</strong> operators in Linux send output from one source as input
+to another. <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> redirects standard output (typically the display) to a
+file. Combine <code class="docutils literal notranslate"><span class="pre">cat</span></code> with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> to create a new file and add content
+immediately.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ cat &gt; example_file3
+This is example_file3.
+These lines are typed directly into the file.
+Press CTRL-D (Windows) or Command-D (Mac) to return to the prompt.
+CTRL-D or Command-D
+[username@login4 ~]$ cat example_file3
+This is example_file3.
+These lines are typed directly into the file.
+Press CTRL-D (Windows) or Command-D (Mac) to return to the prompt.
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> operator <em>overwrites</em> file contents. To <em>append</em>,
+use the append operator: <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ cat &gt;&gt; example_file3
+This is an appended line.
+CTRL-D or Command-D
+[username@login4 ~]$ cat example_file3
+This is example_file3.
+These lines are typed directly into the file.
+Press CTRL-D (Windows) or Command-D (Mac) to return to the prompt.
+This is an appended line.
+</pre></div>
+</div>
+<p>Linux output redirection operators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> overwrite standard output a file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> append standard output to a file</p></li>
+</ul>
+</section>
+<section id="view-file-contents-with-head-and-tail">
+<h2>View file contents with <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code>:<a class="headerlink" href="#view-file-contents-with-head-and-tail" title="Permalink to this heading">¶</a></h2>
+<p>For longer text files, use <code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">tail</span></code> to restrict output. By
+default, both output 10 lines - <code class="docutils literal notranslate"><span class="pre">head</span></code> the first 10, <code class="docutils literal notranslate"><span class="pre">tail</span></code> the last
+10. This can be modified with numerical flags.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ head example_file2
+This is example_file2.  It contains 20 lines.
+This is the 2nd line.
+This is the 3rd line.
+This is the 4th line.
+This is the 5th line.
+This is the 6th line.
+This is the 7th line.
+This is the 8th line.
+This is the 9th line.
+This is the 10th line.
+[username@login4 ~]$ head -3 example_file2
+This is example_file2.  It contains 20 lines.
+This is the 2nd line.
+This is the 3rd line.
+
+[username@login4 ~]$ tail -4 example_file2
+This is the 17th line.
+This is the 18th line.
+This is the 19th line.
+This is the 20th line, also the last.
+</pre></div>
+</div>
+</section>
+<section id="rename-and-move-with-mv">
+<h2>Rename and Move with <code class="docutils literal notranslate"><span class="pre">mv</span></code>:<a class="headerlink" href="#rename-and-move-with-mv" title="Permalink to this heading">¶</a></h2>
+<p>Moving and renaming in Linux use the same command, thus files can be
+renamed as they are moved. In this example, the file <code class="docutils literal notranslate"><span class="pre">example_file1</span></code>
+is first renamed using <code class="docutils literal notranslate"><span class="pre">mv</span></code> and then moved to a subdirectory (without
+renaming).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ mv example_file1 example_file0
+[username@login4 ~]$ ls
+example_file0  example_file2  testdir1  testdir2
+[username@login4 ~]$ mv example_file0 testdir1/
+[username@login4 ~]$ ls testdir1
+example_file0  testdir1_file1
+</pre></div>
+</div>
+<p>In this example, the file <code class="docutils literal notranslate"><span class="pre">example_file0</span></code> is moved and renamed at the
+same time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ mv -vn testdir1/example_file0 example_file1
+`testdir1/example_file0&#39; -&gt; `example_file1&#39;
+[username@login4 ~]$ ls
+example_file1  example_file2  testdir1  testdir2
+</pre></div>
+</div>
+<p>The flags on this <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">-vn</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> explain what is being done</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> do not overwrite and existing file</p></li>
+</ul>
+<p>Note that when <code class="docutils literal notranslate"><span class="pre">mv</span></code> is used with directories, it is recursive by
+default.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ mv -v testdir1 testdir2/testdir1
+`testdir1&#39; -&gt; `testdir2/testdir1&#39;
+[username@login4 ~]$ ls -R testdir2
+testdir2:
+testdir1
+
+testdir2/testdir1:
+testdir1_file1
+</pre></div>
+</div>
+<p>The file inside <code class="docutils literal notranslate"><span class="pre">tesdir1</span></code> moved along with the directory.</p>
+</section>
+<section id="copy-with-cp">
+<h2>Copy with <code class="docutils literal notranslate"><span class="pre">cp</span></code>:<a class="headerlink" href="#copy-with-cp" title="Permalink to this heading">¶</a></h2>
+<p>Files and directories can be renamed as they are copied. In this
+example, <code class="docutils literal notranslate"><span class="pre">example_file1</span></code> is copied to <code class="docutils literal notranslate"><span class="pre">example_file0</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ cp example_file1 example_file0
+[username@login4 ~]$ cat example_file0
+This is example_file1.
+It contains two lines of text.
+</pre></div>
+</div>
+<p>The contents of the copied file are the same as the original.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span></code> is not recursive by default. To copy directories, use the
+recursive flag <code class="docutils literal notranslate"><span class="pre">-R</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ cp -Rv testdir2 testdir2copy
+`testdir2&#39; -&gt; `testdir2copy&#39;
+`testdir2/testdir1&#39; -&gt; `testdir2copy/testdir1&#39;
+`testdir2/testdir1/testdir1_file1&#39; -&gt; `testdir2copy/testdir1/testdir1_file1&#39;
+[username@login4 ~]$ ls
+example_file0  example_file1  example_file2  testdir2  testdir2copy
+</pre></div>
+</div>
+<p>The flags on this <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-Rv</span></code> command:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-R</span></code> for copying directories recursively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> for verbosity, explain what is being done</p></li>
+</ul>
+<p>Other useful flags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-u</span></code> (update) copy only when source is newer, or destination is
+missing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> do not overwrite an existing file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> preserve attributes (mode, ownership, and timestamps)</p></li>
+</ul>
+</section>
+<section id="edit-files-nano-emacs-vi">
+<h2>Edit files : <code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, <code class="docutils literal notranslate"><span class="pre">vi</span></code>:<a class="headerlink" href="#edit-files-nano-emacs-vi" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">nano</span></code> and <code class="docutils literal notranslate"><span class="pre">emacs</span></code> are simple text editors available on the cluster and most Linux systems, while <code class="docutils literal notranslate"><span class="pre">vi</span></code> is a modal text editor with a bit of a learning curve.</p>
+<p>For a quick comparison of these text editors, see : <a class="reference external" href="https://www.linuxtrainingacademy.com/nano-emacs-vim/">https://www.linuxtrainingacademy.com/nano-emacs-vim/</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">vi</span></code> can be launched with the command <code class="docutils literal notranslate"><span class="pre">vi</span></code> (plain) or <code class="docutils literal notranslate"><span class="pre">vim</span></code>
+(syntax-highlighted based on file extension). <code class="docutils literal notranslate"><span class="pre">vi</span></code> has two main modes:
+<strong>Insert</strong> and <strong>Command</strong>.</p>
+<ul class="simple">
+<li><p><strong>Command mode:</strong>  searching, navigating, saving, exiting, etc.</p></li>
+<li><p><strong>Insert mode:</strong>  inserting text, pasting from clipboard, etc.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">vi</span></code> launches in Command mode by default. To enter Insert mode, type
+<code class="docutils literal notranslate"><span class="pre">i</span></code> on the keyboard. Return to Command mode by pressing <code class="docutils literal notranslate"><span class="pre">ESC</span></code> on the
+keyboard. To exit and save changes, type <code class="docutils literal notranslate"><span class="pre">:x</span></code> (exit with save) or
+<code class="docutils literal notranslate"><span class="pre">:wq</span></code> (write and quit) on the keyboard while in Command mode (from
+Insert mode, type <code class="docutils literal notranslate"><span class="pre">ESC</span></code> before each sequence).</p>
+<p>In the example below, the arrow keys are used to navigate to the end of
+the first line. <code class="docutils literal notranslate"><span class="pre">i</span></code> is pressed to enter Insert mode and the file name
+on line 1 is changed. Then <code class="docutils literal notranslate"><span class="pre">ESC:x</span></code> is entered to change to Command
+mode and exit saving changes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 ~]$ vi example_file0
+...
+This is example_file0.
+It contains two lines of text.
+~
+~
+~
+~
+&quot;example_file0&quot; 2L, 54C
+:x
+[username@login4 ~]$ cat example_file0
+This is example_file0.
+It contains two lines of text.
+</pre></div>
+</div>
+<p>Some <code class="docutils literal notranslate"><span class="pre">vi</span></code> tutorials, commands, and comparisons :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.cs.colostate.edu/helpdocs/vi.html">http://www.cs.colostate.edu/helpdocs/vi.html</a></p></li>
+<li><p><a class="reference external" href="https://www.linuxtrainingacademy.com/nano-emacs-vim/">https://www.linuxtrainingacademy.com/nano-emacs-vim/</a></p></li>
+</ul>
+</section>
+<section id="view-file-contents-by-page-with-more-and-less">
+<h2>View file contents by page with <code class="docutils literal notranslate"><span class="pre">more</span></code> and <code class="docutils literal notranslate"><span class="pre">less</span></code>:<a class="headerlink" href="#view-file-contents-by-page-with-more-and-less" title="Permalink to this heading">¶</a></h2>
+<p>Pager applications provide scroll and search functionalities, useful for
+larger files. Sets of lines are shown based on terminal height. In both
+<code class="docutils literal notranslate"><span class="pre">more</span></code> and <code class="docutils literal notranslate"><span class="pre">less</span></code>, <code class="docutils literal notranslate"><span class="pre">SPACE</span></code> shows the next set of lines and <code class="docutils literal notranslate"><span class="pre">q</span></code>
+quits. <code class="docutils literal notranslate"><span class="pre">more</span></code> cannot scroll backwards. In <code class="docutils literal notranslate"><span class="pre">less</span></code>, navigate with the
+arrow keys or <code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">Up</span></code> and <code class="docutils literal notranslate"><span class="pre">Page</span> <span class="pre">Down</span></code>, and search with <code class="docutils literal notranslate"><span class="pre">?</span></code>
+(similar to <code class="docutils literal notranslate"><span class="pre">man</span></code> pages).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[username@login4 testdir1]$ less testdir1_file1
+...
+This is tesdir1_file1.  It contains 42 lines.
+02
+03
+04
+05
+06
+07
+: SPACE or Page Down
+36
+37
+38
+39
+40
+41
+42
+(END)  q
+[username@login4 testdir1]$
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1-nav.html" class="btn btn-neutral float-left" title="Navigating the Linux Shell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3-rwx.html" class="btn btn-neutral float-right" title="File Permissions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, XXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
