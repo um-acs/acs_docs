@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#BSUB -J jobname
+#BSUB -o %J.out
+#BSUB -e %J.err
+#BSUB -P myproject
+#BSUB -q normal
+
+myprogram
+
