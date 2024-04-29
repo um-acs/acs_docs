@@ -4,7 +4,7 @@ Advanced Computing Guides
 Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
 
 How do I reset my IDSC password?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Via the IDSC Password Reset page : https://idsc.miami.edu/ccs-account
 | More Quick Links : https://idsc.miami.edu/quick-links/
@@ -23,7 +23,7 @@ To run your work on IDSC clusters, you must submit jobs to the cluster's resourc
 
 
 How do I connect to IDSC resources from off-site?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access IDSC resources while offsite, :ref:`open a VPN connection
 first<vpn>`. 
