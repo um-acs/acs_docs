@@ -23,7 +23,7 @@ To run your work on IDSC clusters, you must submit jobs to the cluster's resourc
 
 
 How do I connect to IDSC resources from off-site?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access IDSC resources while offsite, :ref:`open a VPN connection
 first<vpn>`. 
