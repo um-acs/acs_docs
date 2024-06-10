@@ -1,7 +1,7 @@
 Advanced Computing Guides
 =========================
 
-Detailed information for FAQ topics is available here and on our :ref:`IDSC ACS Policies<policies>`
+Detailed information for FAQ topics is available here and on our `IDSC ACS Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__
 
 How do I reset my IDSC password?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,8 +25,7 @@ To run your work on IDSC clusters, you must submit jobs to the cluster's resourc
 How do I connect to IDSC resources from off-site?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To access IDSC resources while offsite, :ref:`open a VPN connection
-first<vpn>`. 
+To access IDSC resources while offsite, `open a VPN connection first <https://acs-docs.readthedocs.io/services/1-access.html#vpn>`__. 
 
 .. note :: IDSC does not administer UM VPN accounts.  Support is handled by UMIT for any and all VPN issues: 
    
