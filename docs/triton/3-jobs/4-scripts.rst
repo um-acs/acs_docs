@@ -9,7 +9,7 @@ and run the job. For more information about flags, type ``bsub -h`` or
 below.
 
 You must be a member of a project to submit jobs to it. See
-:ref:`Projects <projects>` for more information.
+`Projects <https://acs-docs.readthedocs.io/pegasus/env/3-projects.html#projects>`__ for more information.
 
 On submission, LSF will return the ``jobID`` which can be used to track
 your job.
