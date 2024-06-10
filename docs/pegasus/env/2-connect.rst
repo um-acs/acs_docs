@@ -2,7 +2,7 @@ Connecting to Pegasus
 =====================
 
 | **DNS** : pegasus.ccs.miami.edu 
-| **Access** : :ref:`SSH <ssh>` over secure UM networks, :ref:`x11 <x11>` 
+| **Access** : `SSH <https://acs-docs.readthedocs.io/services/1-access.html#ssh>`__ over secure UM networks, `x11 <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__ 
 | **Credentials** : IDSC Account 
 
 
@@ -36,4 +36,4 @@ information about your disk quotas.
 Transferring files
 ~~~~~~~~~~~~~~~~~~
 
-:ref:`Transferring files to IDSC systems <transfer>`
+`Transferring files to IDSC systems <https://acs-docs.readthedocs.io/services/2-transfer.html>`__
