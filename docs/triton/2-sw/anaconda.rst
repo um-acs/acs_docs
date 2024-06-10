@@ -9,7 +9,7 @@ languages for scientific computing. The Anaconda distribution comes with
 conda, which is a package manager and environment manager, and over 150
 packages automatically installed (other 1,500+ packages could be
 downloaded and installed easily from the Anaconda repository). In order to use Anaconda on Triton, you need to have access to the UM network and the Triton system. 
-Please check :ref:`IDSC ACS Policies<policies>`
+Please check `IDSC ACS Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__
 
 Conda General Commands
 ----------------------
