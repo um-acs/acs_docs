@@ -8,20 +8,18 @@ to **queues**, the software categories we define in the scheduler to
 organize work more efficiently. LSF distributes jobs submitted by users
 to our over 340 compute nodes according to queue, user priority, and
 available resources. You can monitor your job status, queue position,
-and progress using :ref:`LSF commands <lsf-commands>`.
+and progress using `LSF Commands <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__.
 
 .. tip:: **Reserve an appropriate amount of resources through LSF for your jobs.** 
 
 If you do not know the resources your jobs need, use the
-**debug** queue to benchmark your jobs. More on :ref:`Pegasus
-Queues <p-queues>` and :ref:`LSF Job Scripts <lsf-scripts>` 
+**debug** queue to benchmark your jobs. More on `Pegasus Queues <https://acs-docs.readthedocs.io/pegasus/jobs/2-queues.html#p-queues>`__ and `LSF Job Scripts <https://acs-docs.readthedocs.io/pegasus/jobs/4-scripts.html#lsf-scripts>`__
 
 .. warning:: Jobs with insufficient resource allocations interfere with cluster performance and the IDSC account responsible for those jobs may be suspended (`Policies <https://ccs.miami.edu/ac/policies>`__).
 
 .. tip:: **Stage data for running jobs exclusively in the** ``/scratch`` **file system,** which is optimized for fast data access. 
 
-Any files used as input for your jobs must first be transferred to /scratch. See :ref:`Pegasus
-Resource Allocations <projects>` for more information. The
+Any files used as input for your jobs must first be transferred to /scratch. See `Pegasus Resource Allocations <https://acs-docs.readthedocs.io/pegasus/env/3-projects.html#projects>`__ for more information. The
 /nethome file system is optimized for mass data storage and is therefore
 slower-access. 
 
