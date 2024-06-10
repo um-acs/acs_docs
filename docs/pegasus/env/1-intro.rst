@@ -8,7 +8,7 @@ high-performance supercomputer, available to all University of Miami
 employees and students. Pegasus resources such as hardware (login and
 compute nodes) and system software are shared by all users.
 
-.. tip:: **Before** running commands, submitting jobs, or using software on the Pegasus supercomputer, understand our core :ref:`Policies <policies>`.
+.. tip:: **Before** running commands, submitting jobs, or using software on the Pegasus supercomputer, understand our core `Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__.
 
 ::
 
@@ -26,9 +26,7 @@ Understanding what your jobs do on the cluster helps keep Pegasus
 running smoothly for everyone.
 
 -  **Do not run resource-intensive jobs on the Pegasus login nodes.**
-   Submit your production jobs to LSF, and use the :ref:`interactive
-   queue <p-queues>` and :ref:`LSF Job
-   Scripts <lsf-scripts>` below. Jobs with insufficient
+   Submit your production jobs to LSF, and use the `interactive queue <https://acs-docs.readthedocs.io/pegasus/jobs/2-queues.html#p-queues>`__ and `LSF Job Scripts <https://acs-docs.readthedocs.io/pegasus/jobs/4-scripts.html#lsf-scripts>`__ below. Jobs with insufficient
    resource allocations interfere with cluster performance and the IDSC
    account responsible for those jobs may be suspended.
 -  **Stage data for running jobs exclusively in the** ``/scratch`` **file
@@ -38,9 +36,9 @@ running smoothly for everyone.
    therefore slower-access. Using /nethome while running jobs degrades
    the performance of the entire system and the IDSC account responsible
    may be suspended.
--  **Include your projectID in your job submissions.** Access to IDSC Advanced Computing resources is managed on a project basis. This allows us to better support interaction between teams (including data sharing) at the University of Miami regardless of group, school, or campus.  Any University of Miami faculty member or Principal Investigator (PI) can request a new project. All members of a project share that project’s resource allocations.  More on :ref:`Projects here <projects>`.
+-  **Include your projectID in your job submissions.** Access to IDSC Advanced Computing resources is managed on a project basis. This allows us to better support interaction between teams (including data sharing) at the University of Miami regardless of group, school, or campus.  Any University of Miami faculty member or Principal Investigator (PI) can request a new project. All members of a project share that project’s resource allocations.  More on `Projects here <https://acs-docs.readthedocs.io/pegasus/env/3-projects.html#projects>`__.
 
-:ref:`Connecting to Pegasus <ssh>`: To access the Pegasus
+`Connecting to Pegasus <https://acs-docs.readthedocs.io/services/1-access.html#ssh>`__: To access the Pegasus
 supercomputer, open a secure shell (SSH) connection to
 ``pegasus.ccs.miami.edu`` and log in with your active IDSC account. Once
 authenticated, you should see the Pegasus welcome message – ***which
@@ -95,20 +93,20 @@ and **scratch**.
 Pegasus Environment Links
 -------------------------
 
-:ref:`Resource allocations <projects>` : Cluster resources,
+`Resource Allocations <https://acs-docs.readthedocs.io/pegasus/env/3-projects.html#projects>`__ : Cluster resources,
 including CPU hours and scratch space, are allocated to projects. To
 access resources, all IDSC accounts must belong to a project with active
 resource allocations. Join projects by contacting Principal
 Investigators (PIs) directly.
 
-:ref:`Transferring files <transfer>` : Whether on **nethome** or
+`Transferring Files <https://acs-docs.readthedocs.io/services/2-transfer.html>`__ : Whether on **nethome** or
 **scratch**, transfer data with secure copy (SCP) and secure FTP (SFTP)
 between Pegasus file systems and local machines. Use Pegasus login nodes
 for these types of transfers. See the link for more information about
 transferring large amounts of data from systems outside the University
 of Miami.
 
-:ref:`Software on Pegasus <p-soft>` : To use system
+`Software on Pegasus <https://acs-docs.readthedocs.io/pegasus/soft/1-modules.html#p-soft>`__ : To use system
 software on Pegasus, first load the software using the **module load**
 command. Some modules are loaded automatically when you log into
 Pegasus. The modules utility handles any paths or libraries needed for
@@ -122,7 +120,7 @@ Once your preferred software module is loaded, submit a job to the Pegasus job s
 Pegasus Job Submissions
 -----------------------
 
-:ref:`Job submissions <p-jobs>` : Pegasus cluster compute
+`Job Submissions <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__ : Pegasus cluster compute
 nodes are the workhorses of the supercomputer, with significantly more
 resources than the login nodes. Compute nodes are grouped into
 **queues** and their available resources are assigned through scheduling
