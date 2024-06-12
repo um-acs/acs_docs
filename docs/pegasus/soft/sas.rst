@@ -31,13 +31,12 @@ Type the following command to submit the job:
     [username@pegasus ~]$ bsub < scriptfile
 
 For general information about how to submit jobs via LSF, see
-:ref:`Scheduling Jobs on Pegasus <p-jobs>`.
+`Scheduling Jobs on Pegasus <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__.
 
 Interactive Graphical Mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To run SAS interactively, first :ref:`forward the
-display <x11>`. Load the SAS module and use the
+To run SAS interactively, first `forward the display <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__. Load the SAS module and use the
 interactive queue to launch the application.
 
 ::
