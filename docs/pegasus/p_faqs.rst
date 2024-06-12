@@ -1,7 +1,7 @@
 Pegasus FAQs - Frequently Asked Questions
 =========================================
 
-Detailed information for FAQ topics is available here and in :ref:`IDSC ACS Policies<policies>`
+Detailed information for FAQ topics is available here and in `IDSC ACS Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__
 
 If you are new to Pegasus and HPC clusters, review this documentation on
 the Pegasus system, the job scheduler, and modularized software. 
@@ -12,7 +12,7 @@ the Pegasus system, the job scheduler, and modularized software.
 Pegasus Projects
 ----------------
 
-:ref:`Projects on Pegasus <projects>`
+`Projects on Pegasus <https://acs-docs.readthedocs.io/pegasus/env/3-projects.html#projects>`__
 
 How do I join a project?
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,7 +41,7 @@ Contact IDSC ACS at hpc@ccs.miami.edu
 Pegasus Software
 ----------------
 
-:ref:`Software on Pegasus <p-soft>`
+`Software on Pegasus <https://acs-docs.readthedocs.io/pegasus/soft/1-modules.html#p-soft>`__
 
 What software is available?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,15 +56,15 @@ How do I view my currently loaded modules?
 How do I use software modules?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Software on Pegasus <p-soft>`
+`Software on Pegasus <https://acs-docs.readthedocs.io/pegasus/soft/1-modules.html#p-soft>`__
 
 May I install software?
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Yes! Pegasus users are free to compile and install software in their
 respective home directories by following the software’s source code or
-local installation instructions. See our :ref:`Software
-Installation <soft-install>` guide for more information.
+local installation instructions. See our `Software Installation <https://acs-docs.readthedocs.io/pegasus/soft/4-install.html#soft-install>`__
+ guide for more information.
 
 
 .. note :: IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request to hpc@ccs.miami.edu 
@@ -99,7 +99,7 @@ Load the java module, then change the value of \_JAVA_OPTIONS.
 Pegasus Job Scheduling
 ----------------------
 
-:ref:`Scheduling Jobs <p-jobs>`
+`Scheduling Jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
 
 May I run resource-intensive jobs on Pegasus login nodes?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -109,17 +109,17 @@ No. Resource-intensive jobs must be submitted to LSF.
 How do I submit jobs to Pegasus?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bsub`` :ref:`command <lsf-commands>` : :ref:`LSF <p-jobs>`
+With ``bsub`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
 
 How do I check on my submitted jobs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bjobs`` :ref:`command <lsf-commands>` : :ref:`LSF <p-jobs>`
+With ``bjobs`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
 
 How do I monitor job progress?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bpeek`` :ref:`command <lsf-commands>` : :ref:`LSF <p-jobs>`
+With ``bpeek`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
 
 Is there a limit on how many jobs I can run?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +131,7 @@ at a time.
 How can I see pending and running job counts for Pegasus queues?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bqueues`` :ref:`command <lsf-commands>` : :ref:`LSF <p-jobs>`
+With ``bqueues`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
 
 Why is my job still pending?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,17 +159,17 @@ The scheduler can handle hundreds of thousands of jobs.
 How do I submit jobs to my Project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the ``-P`` flag : :ref:`LSF jobs <p-jobs>`
+With the ``-P`` flag : `LSF jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
 
 How do I submit an interactive job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the ``-Is -q interactive`` flags : :ref:`LSF interactive jobs <p-interactive>`
+With the ``-Is -q interactive`` flags : `LSF interactive jobs <https://acs-docs.readthedocs.io/pegasus/jobs/5-interactive.html#p-interactive>`__
 
 How do I submit an interactive X11 job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the ``-Is -q interactive -XF`` flags : :ref:`LSF interactive jobs <p-interactive>`
+With the ``-Is -q interactive -XF`` flags : `LSF interactive jobs <https://acs-docs.readthedocs.io/pegasus/jobs/5-interactive.html#p-interactive>`__
 
 Why was my job killed?
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -186,7 +186,7 @@ Common reasons include:
 -  using more ``/tmp`` space than available on compute nodes
 
 See :ref:`LSF <p-jobs>` for assistance with appropriate resource
-reservations and :ref:`Pegasus Queues <p-queues>` for default wall
+reservations and `Pegasus Queues <https://acs-docs.readthedocs.io/pegasus/jobs/2-queues.html#p-queues>`__ for default wall
 times.
 
 
