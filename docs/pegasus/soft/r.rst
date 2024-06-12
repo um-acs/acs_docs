@@ -18,7 +18,7 @@ version of R, say, ``3.6.3``, you can type the following:
 
 To see a list of available software, including R versions, use the command 
 ``module avail``. For more information about software available on Pegasus, 
-see :ref:`Software on the Pegasus Cluster <p-soft>`.
+see `Software on the Pegasus Cluster <https://acs-docs.readthedocs.io/pegasus/soft/1-modules.html#p-soft>`__.
 
 Batch R
 -------
@@ -88,8 +88,7 @@ Installing additional R packages
 
 To install additional R packages, you'll need to confirm that your package's 
 pre-requisites are met by inspecting and modifying your local environment as needed 
-or by loading the appropriate modules. See :ref:`Pegasus Cluster 
-Software Installation <soft-install>` for help with complex requirements.
+or by loading the appropriate modules. See `Pegasus Cluster Software Installation  <https://acs-docs.readthedocs.io/pegasus/soft/4-install.html#soft-install>`__ for help with complex requirements.
 
 From the R prompt, install any R package to your personal R library with
 the standard ``install.package()`` R command. For instance, to install the 
