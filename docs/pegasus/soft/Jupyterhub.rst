@@ -24,7 +24,7 @@ Using JupyterHub on Pegasus
 Login
 ~~~~~
 
--  First you need to have access to Pegasus. Please check the :ref:`IDSC ACS Policies<policies>`
+-  First you need to have access to Pegasus. Please check the `IDSC ACS Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__
 -  Connect with the UM network on campus or via
    `VPN <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
 -  Open the Login page http://pegasus.ccs.miami.edu:8000 on your
