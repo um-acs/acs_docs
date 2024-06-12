@@ -196,7 +196,7 @@ your project before running.
     mpirun.lsf ./mpi_example1.x
 
 Submit this scriptfile using ``bsub``. For job script information, see
-:ref:`Scheduling Jobs on Pegasus <p-jobs>`.
+`Scheduling Jobs on Pegasus <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__.
 
 ::
 
