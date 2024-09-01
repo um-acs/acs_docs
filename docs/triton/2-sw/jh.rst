@@ -73,9 +73,8 @@ Creating Your Python Kernel
 -  $ ``ssh <caneid>@triton.ccs.miami.edu`` to login to Triton
 -  $ ``ml anaconda3``
    or ``ml wml_anaconda3`` if you need to install deep learning packages
--  $ ``conda create -n <your environment> python=<version> <package1> <package2> ...`` 
+-  $ ``conda create -n <your environment> -c conda-forge python=<version> ipykernel <package1> <package2> ...`` 
 -  $ ``conda activate <your environment>``
--  (your environment)$ ``conda install ipykernel``
 -  (your environment)$
    ``ipython kernel install --user --name <kernel name> --display-name "<the displayed name for the kernel>"``
 
