@@ -6,9 +6,7 @@ Before you get started:
 
 -  Make sure you understand our `core
    Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__.
--  You need to be a member of a `Pegasus
-   project <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__ which has
-  ``pegasus_project`` resource type.
+-  You need to be a member of a `Pegasus project <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__ with a ``pegasus_project`` resource type.
 -  Make sure you connect to the UM network (on campus or via
    `VPN <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__).
 
