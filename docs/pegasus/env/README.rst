@@ -8,4 +8,4 @@ Pegasus Environment
    Pegasus Introduction <1-intro>
    Connecting <2-connect>
    Pegasus Projects & Resources <3-projects>
-   Pegasus Quick Start Guide <4-pegasus_quickstart>
+   Pegasus Quickstart Guide <4-pegasus_quickstart>
