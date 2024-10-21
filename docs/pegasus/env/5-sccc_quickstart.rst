@@ -12,6 +12,44 @@ If you are new to Pegasus, please review our `Onboarding Training Material <http
 
 If you’re new to Linux, please review our `Linux Training Material <https://acs-docs.readthedocs.io/linux>`__.
 
+What are specs of HPC Nodes?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Triton (96 nodes)** ::
+
+    - OS:   CentOS 7.9, ppc64le
+    - CPU:  2 x IBM Power9 (40 cores/node, 3840 cores total)
+    - RAM:  16 x 16GiB RDIMM DDR4 2666MHz ECC (256GiB/node, 6.4GB/core)
+    - GPU:  2 x Nvidia V100-SXM2 (16GB GPU RAM) 
+    - NET:  100Gbps Infiniband (IB), 1Gbps Ethernet
+    - Disk: 2 x 1.92TB Micron 5100PRO SSD (RAID1, 1080MBps/1040MBps Seq Read/Write, 186K/74K IOPS)
+
+**Pegasus Compute (350 nodes)** ::
+
+    - OS:   CentOS 7.6, x86_64
+    - CPU:  16c/node (for a total of 4800 CPU-cores)
+    - RAM:  64GiB nodes (4GiB/core, for a total of 22400GiB)
+    - RAM:  256GiB nodes (16GiB/core, for a total of 4096GiB)
+    - NET:  56Gbps Infiniband, 1 Gbps Ethernet 
+    - Disk: Stateless (ramdisk)
+
+**Pegasus SCCC Dedicated Compute (16 nodes)** ::
+
+    - OS:   CentOS 7.9, x86_64 
+    - CPU:  2 x Intel Xeon Gold 6338 CPU @ 2.00GHz (64 cores/node, 1024 cores total)
+    - RAM:  16 x 32GiB RDIMM DDR4 3200MHz ECC (512GiB/node, 8192GiB RAM total) 
+    - Net:  100Gbps Infiniband, 10Gbps Ethernet, 
+    - Disk: Samsung PM9A3 960GiB (6500MBps/1500MBps Seq Read/Write, 580K/70K IOPS)  
+
+**Pegasus SCCC Dedicated Big Memory GPU (2 nodes)** ::
+
+    - OS:   CentOS 7.9, x86_64  
+    - CPU:  2 x Intel Xeon Gold 6338 CPU @ 2.00GHz (64 cores/node, 128 cores total)
+    - RAM:  32 x 128GiB RDIMM DDR4 3200MHz ECC (4096GB/node, 8192GiB RAM total)
+    - GPU:  1 x Nvidia A100 (80GB GPU RAM)  
+    - Net:  100Gbps Infiniband, 10Gbps Ethernet, 
+    - Disk: Samsung PM9A3 960GB NVMe (6500MBps/1500MBps Seq Read/Write, 580K/70K IOPS) 
+
 How do I reset my IDSC password?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
