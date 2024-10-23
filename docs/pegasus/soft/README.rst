@@ -12,6 +12,7 @@ Pegasus Software
    Allinea <allinea>
    Amazon Web Services CLI <amazon_cli>
    MATLAB <matlab>
+   Nextflow <nextflow>
    Perl <perl>
    Python <python>
    Python Virtual Environments <python-ve>
