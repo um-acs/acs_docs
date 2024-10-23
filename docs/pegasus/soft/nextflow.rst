@@ -1,7 +1,9 @@
 Nextflow on Pegasus
 ===================
 
-This is working **draft** we will use as part of our **SCCC HPC Onboarding Material**.  It is **not** an optimal example, but rather, one we will build on, like the  `Software Carpentries Tutorials <https://carpentries-incubator.github.io/workflows-nextflow/index.html>`__ provided by the `Nextflow Community <https://www.nextflow.io/blog/2023/learn-nextflow-in-2023.html>`__.
+This is a simplified Guide on how to run `nf-core/sarek <https://nf-co.re/sarek/3.4.4/>`__, a Nextflow workflow designed to detect variants on whole genome or targeted sequencing data. 
+
+If you are new to Nextflow on HPC, please see the `Software Carpentries Tutorials <https://carpentries-incubator.github.io/workflows-nextflow/index.html>`__ provided by the `Nextflow Community <https://www.nextflow.io/blog/2023/learn-nextflow-in-2023.html>`__.
 
 Sample User Nextflow LSF Configuration
 --------------------------------------
