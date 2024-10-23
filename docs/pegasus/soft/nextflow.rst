@@ -1,6 +1,11 @@
+Nextflow on Pegasus
+===================
+
 This is working **draft** we will use as part of our **SCCC HPC Onboarding Material**.  It is **not** an optimal example, but rather, one we will build on, like the  `Software Carpentries Tutorials <https://carpentries-incubator.github.io/workflows-nextflow/index.html>`__ provided by the `Nextflow Community <https://www.nextflow.io/blog/2023/learn-nextflow-in-2023.html>`__.
 
-**Sample User Nextflow LSF Configuration**
+Sample User Nextflow LSF Configuration
+--------------------------------------
+
 ::
 
     [pdavila@login4 nextflow]$ cat pedro_pegasus_hpc.config 
@@ -46,7 +51,9 @@ This is working **draft** we will use as part of our **SCCC HPC Onboarding Mater
         queueSize      = params.lsf_queue_size
     }
 
-**Nextflow Submission Script**
+Nextflow Submission Script
+--------------------------
+
 ::
 
     [pdavila@login4 nextflow]$ cat pedro_run_nextflow.sh 
@@ -81,13 +88,17 @@ This is working **draft** we will use as part of our **SCCC HPC Onboarding Mater
             -c pegasus_hpc.config \
             -resume -bg > run_pipeline.log
 
-**Submit Job to LSF Cluster**
+Submit Job to LSF Cluster
+-------------------------
+
 ::
 
     [pdavila@login4 nextflow]$ bsub <pedro_run_nextflow.sh 
     Job <28994646> is submitted to queue <sccc>.
 
-**Check status of running Job**
+Check status of running Job
+---------------------------
+
 ::
 
     [pdavila@login4 nextflow]$ bpeek 28994646
@@ -117,7 +128,9 @@ You can also use use the ``tail -f run_pipeline.log`` command to see the log fil
     [88/d69b7a] Submitted process > NFCORE_SAREK:SAREK:MULTIQC
     -[nf-core/sarek] Pipeline completed successfully-
 
-**View your Results**
+View your Results
+-----------------
+
 :: 
 
     [pdavila@login4 nextflow]$ tree results/
