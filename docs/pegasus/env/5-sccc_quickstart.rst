@@ -29,7 +29,7 @@ HPC Storage
 - Each user may utilize up to 250 GB (50,000 files) of GPFS home space.
 - Each project may utilize up to 2T (400,000 files) of GPFS scratch space.
 - Each project may utilize up to 2T (400,000 files) of GPFS SCCC project space.
-- Users and Projects over GPFS quotas will not be able to create new files till they are in compliance.
+- Users and Projects over quotas will not be able to create new files.
 - Scratch and Project space is intended only for data in active use. There are NO BACKUPS.
 - Scratch space is subject to purging when necessary for continued operation.
 - Scratch space is charged only for actual utilization.
