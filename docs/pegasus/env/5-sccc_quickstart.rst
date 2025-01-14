@@ -30,7 +30,8 @@ HPC Storage
 - Each project may utilize up to 2T (400,000 files) of GPFS scratch space.
 - Each project may utilize up to 2T (400,000 files) of GPFS SCCC project space.
 - Users and Projects over quotas will not be able to create new files.
-- Scratch and Project space is intended only for data in active use. There are NO BACKUPS.
+- Scratch and Project space is intended only for data in active use.
+- There are no IDSC managed backups of GPFS Scratch or Project space.
 - Scratch space is subject to purging when necessary for continued operation.
 - Scratch space is charged only for actual utilization.
 - Projects may lease additional GPFS project space annually at $500 for 10TB (2,000,000 files).
