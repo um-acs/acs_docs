@@ -24,6 +24,18 @@ SCCC Dedicated Queues [Proposal]
 
 We can leverage the `IDSC Service Units (SU) pricing model <https://idsc.miami.edu/service-unit-match/>`__ and a **Tier Subscription** approach to increase the **performance** and **utilization** of Sylvester HPC dedicated resources while maintaining high availability for users who have financially contributed to these dedicated resources. 
 
+SCCC Storage [Proposal]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Each user may utilize up to 250 GB (50,000 files) of GPFS home space.
+- Each project may utilize up to 2T (400,000 files) of GPFS scratch space.
+- Each project may utilize up to 2T (400,000 files) of GPFS SCCC project space.
+- Users and Projects over the quota limitations will not be able to create additional files till they are in compliance.
+- Scratch and Project space is intended only for data in active use. 
+- Scratch space is subject to purging when necessary for continued operation.
+- Scratch space is charged only for actual utilization.
+- Projects may also request allocation of dedicated GPFS storage.
+- Dedicated space is charged for total allocation and not by utilization. 
+
 Tier 1 Development (sccc-dev)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Open to all Sylvester Labs, requires Lab's PI approval.
