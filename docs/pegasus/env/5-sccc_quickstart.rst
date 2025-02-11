@@ -6,7 +6,7 @@ The purpose of this document is to provide members of the Sylvester Comprehensiv
 How do I get started?
 ---------------------
 
-After reviewing our `Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__, you will need an `Sylvester Project Allocation <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9&sysparm_category=95fc11615f1211001c9b2572f2b477c6&catalog_id=-1>`__ with a ``pegasus_project`` resource type.  If you are submitting the request on behalf of your Lab's PI, please include their CaneID in the form's ``Project Description``. 
+After reviewing our `Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__, you will need to submit a `Sylvester Project Allocation Request <https://umiami.qualtrics.com/jfe/form/SV_dgMjKPBxPuIt9ci>`__. 
 
 If you are new to Pegasus, please review our `Onboarding Training Material <https://www.youtube.com/playlist?list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF>`__.
 
