@@ -1,26 +1,26 @@
-SCCC HPC QuickStart Guide
-=========================
+Sylvester HPC QuickStart Guide
+==============================
 
-The purpose of this document is to provide members of the Sylvester Comprehensive Cancer Center (SCCC) community with the basic tools necessary to access the High-Performance Computing (HPC) resources at the UM Frost Institute for Data Science and Computing (IDSC). This guide is designed as a starting point for users new to Pegasus and is intended to act as a reference to supplement the on boarding training required for all users.
+The purpose of this document is to provide members of the Sylvester Comprehensive Cancer Center community with the basic tools necessary to access the High-Performance Computing (HPC) resources at the UM Frost Institute for Data Science and Computing (IDSC). This guide is designed as a starting point for users new to Pegasus and is intended to act as a reference to supplement the on boarding training required for all users.
 
 How do I get started?
 ---------------------
 
-After reviewing our `Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__, you will need an `SCCC Project Allocation <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9&sysparm_category=95fc11615f1211001c9b2572f2b477c6&catalog_id=-1>`__ with a ``pegasus_project`` resource type.  If you are submitting the request on behalf of your Lab's PI, please include their CaneID in the form's ``Project Description``. 
+After reviewing our `Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__, you will need an `Sylvester Project Allocation <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9&sysparm_category=95fc11615f1211001c9b2572f2b477c6&catalog_id=-1>`__ with a ``pegasus_project`` resource type.  If you are submitting the request on behalf of your Lab's PI, please include their CaneID in the form's ``Project Description``. 
 
 If you are new to Pegasus, please review our `Onboarding Training Material <https://www.youtube.com/playlist?list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF>`__.
 
 If you’re new to Linux, please review our `Linux Training Material <https://acs-docs.readthedocs.io/linux>`__.
 
-SCCC Utilization
-----------------
+Sylvester Utilization
+---------------------
 ::
 
-For access to the `SCCC Utilization Dashboard <http://prometheus.idsc.miami.edu:3000/d/WZGTYp0Sz/sccc-cluster-dashboard?orgId=1>`__ please contact hpc@ccs.miami.edu.
+For access to the `Sylvester Utilization Dashboard <http://prometheus.idsc.miami.edu:3000/d/WZGTYp0Sz/sccc-cluster-dashboard?orgId=1>`__ please contact hpc@ccs.miami.edu.
 
 
-SCCC Dedicated Queues [Proposal] 
---------------------------------
+Sylvester Dedicated HPC Queues 
+------------------------------
 
 We can leverage the `IDSC Service Units (SU) pricing model <https://idsc.miami.edu/service-unit-match/>`__ and a **Tier Subscription** approach to increase the **performance** and **utilization** of Sylvester HPC dedicated resources while maintaining high availability for users who have financially contributed to these dedicated resources. 
 
@@ -28,7 +28,7 @@ HPC Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Each user may utilize up to 250 GB (50,000 files) of GPFS home space.
 - Each project may utilize up to 2T (400,000 files) of GPFS scratch space.
-- Each project may utilize up to 2T (400,000 files) of GPFS SCCC project space.
+- Each project may utilize up to 2T (400,000 files) of GPFS Sylvester project space.
 - Users and Projects over quotas will not be able to create new files.
 - Scratch and Project space is intended only for data in active use.
 - There are no IDSC managed backups of GPFS Scratch or Project space.
@@ -105,7 +105,7 @@ Restricted to Sylvester Labs that have contributed to aquisition of the dedicate
                  - Job priority: Other Tier 4 Jobs
                  - Job limitations: Up to Lab PI's
                  - Scratch Storage: Local 1TB NVMe (optimal) and Pegasus HPC Scratch (PI respondsible)
-                 - Project Storage: Pegasus HPC HOME (250GB), SCCC HPC Storage, and Pegasus HPC Storage (PI respondsible)
+                 - Project Storage: Pegasus HPC HOME (250GB), Sylvester HPC Storage, and Pegasus HPC Storage (PI respondsible)
 
 
 What are specs of available HPC Nodes?
@@ -137,8 +137,8 @@ Pegasus Compute (350 nodes)
     Disk: Stateless (ramdisk)
 
 
-Pegasus SCCC Dedicated Compute (16 nodes)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pegasus Sylvester Dedicated Compute (16 nodes)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -148,8 +148,8 @@ Pegasus SCCC Dedicated Compute (16 nodes)
     Net:  100Gbps Infiniband, 10Gbps Ethernet, 
     Disk: 960GiB Samsung PM9A3 NVMe (6500MBps/1500MBps Seq Read/Write, 580K/70K IOPS)  
 
-Pegasus SCCC Dedicated Big Memory GPU (2 nodes)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pegasus Sylvester Dedicated Big Memory GPU (2 nodes)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -164,14 +164,14 @@ Pegasus SCCC Dedicated Big Memory GPU (2 nodes)
 How do I reset my IDSC password?
 --------------------------------
 
-Via the `IDSC Password Management <https://idsc.miami.edu/ccs-account>`__ tool.  You will need to be connected to the **University's Secure Network** to access this tool and all SCCC HPC Resources.
+Via the `IDSC Password Management <https://idsc.miami.edu/ccs-account>`__ tool.  You will need to be connected to the **University's Secure Network** to access this tool and all Sylvester HPC Resources.
 
 How do I access the Secure Network remotely?
 --------------------------------------------
 
 Via the `University of Miami's VPN <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
 
-How do I run Nextflow on SCCC HPC resources?
---------------------------------------------
+How do I run Nextflow on Sylvester HPC resources?
+-------------------------------------------------
 
 `Running Nextflow (nf-core/sarek) <https://acs-docs.readthedocs.io/pegasus/soft/nextflow.html>`__
