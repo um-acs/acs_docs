@@ -40,7 +40,7 @@ HPC Storage
 
 Tier 1 Development (sccc-dev)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open to all Sylvester Labs, requires Lab's PI approval.
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
 ::
 
@@ -55,7 +55,7 @@ Open to all Sylvester Labs, requires Lab's PI approval.
 
 Tier 2 General (sccc) 
 ~~~~~~~~~~~~~~~~~~~~~
-Open to all Sylvester Labs, requires Lab's PI approval.
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
 ::
 
@@ -69,7 +69,7 @@ Open to all Sylvester Labs, requires Lab's PI approval.
 
 Tier 3 Big Memory (sccc-bigmem) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open to all Sylvester Labs, requires Lab's PI approval.
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
 ::
 
@@ -83,7 +83,7 @@ Open to all Sylvester Labs, requires Lab's PI approval.
 
 Tier 3 GPU Queue (sccc-gpu) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Open to all Sylvester Labs, requires Lab's PI approval.
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
 ::
 
@@ -98,7 +98,7 @@ Open to all Sylvester Labs, requires Lab's PI approval.
 
 Tier 4 Premium (sccc-premium, sccc-bigmem-premium, sccc-gpu-premium)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Restricted to Sylvester Labs that have contributed to aquisition of the dedicated resources
+Reserved for Sylvester Labs that have purchased dedicated resources
 
 ::
 
