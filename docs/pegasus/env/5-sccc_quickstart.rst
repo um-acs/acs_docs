@@ -6,7 +6,9 @@ The purpose of this document is to provide members of the Sylvester Comprehensiv
 How do I get started?
 ---------------------
 
-After reviewing our `Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__, you will need to submit a `Sylvester Project Allocation Request <https://umiami.qualtrics.com/jfe/form/SV_dgMjKPBxPuIt9ci>`__. 
+After reviewing our `Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__, you will need a Sylvester Project Allocation.  You can submit a `Sylvester Project Allocation Request <https://umiami.qualtrics.com/jfe/form/SV_dgMjKPBxPuIt9ci>`__. 
+
+To join an existing Project, submit a `IDSC Account Request <https://umiami.qualtrics.com/jfe/form/SV_6X75zmmzuOQjHCK>`__, with the Project ID.
 
 If you are new to Pegasus, please review our `Onboarding Training Material <https://www.youtube.com/playlist?list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF>`__.
 
