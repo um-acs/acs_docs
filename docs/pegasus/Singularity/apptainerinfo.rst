@@ -425,8 +425,13 @@ A “fake root” user can’t access or modify files and directories for which 
  
 **Running GUI Jupyter notebook through apptainer container**
 ====================
+see JupyterHub on Pegasus User Menu
+https://acs-docs.readthedocs.io/pegasus/soft/Jupyterhub.html
 
-Running jupyter notebook through apptainer container without port mapping as in kubernetes  pod configuration and click on the below kind of link to access notebook through container running on host system. Remember shell session will expire after closing, better to download workload sessions and files as backup. Any ipynb Jupyter Notebook file you will create for running applications will automatically be loaded to your Pegasus environment. You may also access files in your Pegasus environment to Jupyter notebook and to make it as permanent session download images through appatainer.  
+JupyterHub on Triton User Menu
+https://acs-docs.readthedocs.io/triton/2-sw/jh.html
+
+Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket to hpc@ccs.miami.edu, based on your project requirements and we will recommend the best execution approach  to run your application. For sample running Running jupyter notebook through apptainer container without port mapping as in kubernetes  pod configuration and click on the below kind of link to access notebook through container running on host system. Remember shell session will expire after closing, better to download workload sessions and files as backup. Any ipynb Jupyter Notebook file you will create for running applications will automatically be loaded to your Pegasus environment. You may also access files in your Pegasus environment to Jupyter notebook and to make it as permanent session download images through appatainer.  
 
 ::
 
@@ -699,7 +704,8 @@ We have changed def file in above link as rajsample.def and given name of build 
 **Apptainer GUI R Studio Server**
 ==================================
 
-Create apptainer  **tidyverse_long.def** file with environment variables of user_id and password. **export LC_ALL=C** means which support scirpts in all languages for container to run applications. Containers are read-only, but RStudio will want to be able to write configuration and temporary files in the home. Let us bind mount the current work directory as the container home. 
+see the link RStudio on Pegasus
+https://acs-docs.readthedocs.io/pegasus/soft/RStudio.html . Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket to hpc@ccs.miami.edu, based on your project requirements and we will recommend the best execution approach  to run your application.  TO know sample Rstudio container execution Create apptainer  **tidyverse_long.def** file with environment variables of user_id and password. **export LC_ALL=C** means which support scirpts in all languages for container to run applications. Containers are read-only, but RStudio will want to be able to write configuration and temporary files in the home. Let us bind mount the current work directory as the container home. 
 There’s a little caveat here, in that the actual username in the RStudio server will be rstudio if the host user has ID equal to 1000 (first user in the system), and it will instead be the same as the host $USER otherwise. Let us code these conditions as follows: 
 
 
