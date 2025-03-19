@@ -40,5 +40,5 @@ bigmem queue.
      - 40 
      - 250GB max 
      - 6 hours \/ 1 day 
-     - Interactive jobs <br/> only max 1 job per user
+     - Interactive jobs only max 1 job per user
 
