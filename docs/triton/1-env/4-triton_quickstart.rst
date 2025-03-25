@@ -7,7 +7,7 @@ Before you get started:
 -  Make sure you understand our `core
    Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__.
 -  You need to be a member of a `Triton
-   project <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__ which has
+   project <https://idsc.miami.edu/project-request>`__ which has
    one of ``triton_faculty``, ``triton_student`` or ``triton_education``
    resource type.
 -  Make sure you connect to the UM network (on campus or via
@@ -25,14 +25,15 @@ jobs. It is also for installing user software and libraries that are not
 provided as system utilities. Home directory contains an allocation of 250GB per user. 
 
 Each project group will have a scratch directory located at
-``/scratch/<project_name>`` for holding the input and output data. You
+``/scratch/projects/<project_name>`` for holding the input and output data. You
 can have some small and intermediate data in your home directory, but
-there are benefits to put data in the scratch directory: 1. everyone in
-the group can share the data; 2. the scratch directory is larger
-(usually 2T, and you can require more); 3. the scratch directory will be
-faster. Although currently (2020.10) /home and /scratch have the same
-hardware (storage and i/o), /scratch has priority with hardware
-upgrades.
+there are benefits to put data in the scratch directory: 
+
+1. everyone in the group can share the data
+
+2. the scratch directory is larger (usually 2T, and you can require more)
+
+3. the scratch directory will be faster
 
 login node vs. compute node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,7 +100,7 @@ After editing the code, you need to transfer it from the local computer
 to your Triton home directory. You can do it with a file transfer tool
 such as ``FileZilla`` GUI application and ``scp`` command-line utility.
 
-If using ``FileZilla``, you need to put ``sftp://triton.ccs.miami.edu``
+If using ``FileZilla``, you need to put ``sftp://t2.idsc.miami.edu``
 in the ``Host`` field, fill in the ``Username`` and ``Password`` fields
 with your CaneID and the associated password, and leave the ``Port``
 field blank. By clicking the check mark icon in the menu bar, you will
@@ -111,7 +112,7 @@ transfer the file by dragging it from left to right.
 If using ``scp``, you need to type, assuming ``origin`` is the absolute 
 path that specifies the directory on your local computer holding 
 ``example.py``,  ``scp origin/example.py 
-abc123@triton.ccs.miami.edu:/home/abc123``, not forgetting to put 
+abc123@t2.idsc.miami.edu:/home/abc123``, not forgetting to put 
 your CaneID in place of ``abc123``, and then following the prompt for 
 the associated password. 
 
@@ -138,7 +139,7 @@ the local computer.
 **Transferring the input data to your project scratch directory on Triton**
 
 You can use ``FileZilla`` or ``scp`` to transfer the input data to
-``/scratch/xyz/data.txt`` on Triton. You need to replace xyz with your
+``/scratch/projects/xyz/data.txt`` on Triton. You need to replace xyz with your
 project name.
 
 3. Installing dependent libraries on Triton
@@ -150,16 +151,16 @@ You can use ``Terminal`` on a Mac or ``PuTTY`` on a Windows
 machine to log in to Triton via SSH Protocol.
 
 If using ``Terminal`` on Mac, you can run the command
-``ssh abc123@triton.ccs.miami.edu`` (remember to replace abc123 with
+``ssh abc123@t2.idsc.miami.edu`` (remember to replace abc123 with
 your CaneID) and follow the instruction to type your password.
 
-If using ``PuTTY``, you need to put ``triton.ccs.miami.edu`` in the
+If using ``PuTTY``, you need to put ``t2.idsc.miami.edu`` in the
 ``Host Name`` field, leave ``22`` in the ``Port`` field, and select
 ``SSH`` as the ``Connection type``, then press ``Open``. After that, you
 can follow the instruction to type your password.
 
 At this point, you should be able to see the Triton welcome message and
-``[abc123@login ~]$`` which indicates you have logged in to the Triton
+``[abc123@mgt3.summit ~]$`` which indicates you have logged in to the Triton
 login node and at the home directory ``~``.
 
 If you are new to Linux, you can check our `Linux
@@ -177,8 +178,8 @@ to do the Python environment set up:
 
 ::
 
-    [abc123@login ~]$ ml anaconda3
-    [abc123@login ~]$ conda create -n example_env python=3.8 matplotlib
+    [abc123@mgt3.summit ~]$ module load python/2.7.15-anaconda2-5.3.0
+    [abc123@mgt3.summit ~]$ conda create -n example_env python=3.8 matplotlib
 
 4. Preparing the job script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -205,7 +206,7 @@ on a Triton compute node.
     #BSUB -q normal
     #BSUB -W 00:10
 
-    ml anaconda3
+    module load python/2.7.15-anaconda2-5.3.0
     conda activate example_env
     cd ~
     python example.py
@@ -230,7 +231,7 @@ on a Triton compute node.
 -  ``#BSUB -W 00:10`` requests 10 minutes to run the job. If you do not
    put this line, the default time limit is 1 day and the maximum time
    you can request is 7 days.
--  ``ml anaconda3`` loads the Anaconda module on Triton.
+-  ``module load python/2.7.15-anaconda2-5.3.0`` loads the Anaconda module on Triton.
 -  ``conda activate example_env`` activates the Conda environment you
    created which contains the dependent Python package for the job.
 -  ``cd ~`` goes to the home directory where ``example.py`` is located.
@@ -249,7 +250,7 @@ your CaneID.
 
 ::
 
-    [abc123@login ~]$ bsub < example_script.job
+    [abc123@mgt3.summit ~]$ bsub < example_script.job
 
 **Job monitoring**
 
@@ -257,14 +258,14 @@ While the job is submitted, you can use ``bjobs`` to check the status.
 
 ::
 
-    [abc123@login ~]$ bjobs
+    [abc123@mgt3.summit ~]$ bjobs
 
 When the job is running you will see:
 
 ::
 
     JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-    594966  abc123  RUN   normal     login1      t094        *ample_job Oct 12 11:43
+    594966  abc123  RUN   normal     mgt3      t031        *ample_job Mar 25 11:43
 
 If the job has finished you will see:
 
@@ -272,132 +273,6 @@ If the job has finished you will see:
 
     No unfinished job found
 
-.. COMMENTING OUT BACCT SECTION 
-   User Usage: bacct
-   ~~~~~~~~~~~~~~~~~
-
-   The bacct command displays accounting statistics about finished jobs.  All times are in seconds.
-
-   To get summary statistics about jobs that were dispatched/completed/submitted between 2020/10/01/00:00 and 2020/11/01/00:00, for user abc123 you can use:
-
-   ::
-
-     bacct -D 2020/10/01/00:00,2020/11/01/00:00 -u abc123
-     bacct -C 2020/10/01/00:00,2020/11/01/00:00 -u abc123
-     bacct -S 2020/10/01/00:00,2020/11/01/00:00 -u abc123
-
-
-   Statistics about jobs submitted to a project project123:
-
-   ::
-
-     bacct -P project123
-
-   Statistics about JOBID 123456:
-
-   ::
-
-    [abc123@login ~]$ bacct -l 123456
-
-   Example of dispatched jobs between 2020/10/01/00:00 and 2020/11/01/00:00, for user abc123:
-
-   ::
-
-    [abc123@login1 ~]$ bacct -D 2020/10/01/00:00,2020/11/01/00:00 -u abc123
-
-    Accounting information about jobs that are: 
-     - submitted by users abc123, 
-     - accounted on all projects.
-     - completed normally or exited
-     - dispatched between  Thu Oct  1 00:00:00 2020
-                     ,and   Sun Nov  1 00:00:00 2020
-     - executed on all hosts.
-     - submitted to all queues.
-     - accounted on all service classes.
-    ------------------------------------------------------------------------------
-
-    SUMMARY:      ( time unit: second ) 
-     Total number of done jobs:       8      Total number of exited jobs:     2
-     Total CPU time consumed:       7.8      Average CPU time consumed:     0.8
-     Maximum CPU time of a job:     1.9      Minimum CPU time of a job:     0.0
-     Total wait time in queues:     8.0
-     Average wait time in queue:    0.8
-     Maximum wait time in queue:    2.0      Minimum wait time in queue:    0.0
-     Average turnaround time:       500 (seconds/job)
-     Maximum turnaround time:      2513      Minimum turnaround time:         7
-     Average hog factor of a job:  0.03 ( cpu time / turnaround time )
-     Maximum hog factor of a job:  0.09      Minimum hog factor of a job:  0.00
-     Average expansion factor of a job:  13.81 ( turnaround time / run time )
-     Maximum expansion factor of a job:  114.00
-     Minimum expansion factor of a job:  1.00
-     Total Run time consumed:      4873      Average Run time consumed:     487
-     Maximum Run time of a job:    2513      Minimum Run time of a job:       0
-     Total throughput:             0.03 (jobs/hour)  during  384.74 hours
-     Beginning time:       Oct 14 12:23      Ending time:          Oct 30 13:08
-
-   Example of "long form" output of dispatched jobs between 2020/10/01/00:00 and 2020/11/01/00:00, for project123:  
-
-   ::
-
-     $ bacct -l -D 2020/10/01/00:00,2020/11/01/00:00 -P project123
-
-
-     Accounting information about jobs that are: 
-       - submitted by users abc123, 
-       - accounted on projects project123, 
-       - completed normally or exited
-       - dispatched between  Thu Oct  1 00:00:00 2020
-                       ,and   Sun Nov  1 00:00:00 2020
-       - executed on all hosts.
-       - submitted to all queues.
-       - accounted on all service classes.
-     ------------------------------------------------------------------------------
-
-     Job <1234568>, Job Name <email-test>, User <abc123>, Project <project123>, Mail
-                         <abc123@miami.edu>, Status <DONE>, Queue <normal>, Command
-                         <#!/bin/bash;#BSUB -J email-test;#BSUB -P acprojects ;#BS
-                         UB -o %J.out;#BSUB -e %J.err;#BSUB -W 1:00;#BSUB -q normal
-                         ;#BSUB -n 1;#BSUB -R "rusage[mem=128M]";#BSUB -B;#BSUB -N;
-                         #BSUB -u pedro@miami.edu;#;# cd /path/to/scratch/directory
-                         ;date;sleep 100;date>, Share group charged </abc123>
-     Wed Oct 14 20:33:28: Submitted from host <login1>, CWD <$HOME>, Output File <%J
-                        .out>, Error File <%J.err>;
-     Wed Oct 14 20:33:28: Dispatched 1 Task(s) on Host(s) <t077>, Allocated 1 Slot(s
-                          ) on Host(s) <t077>, Effective RES_REQ <select[((type == L
-                        INUXPPC64LE ) && (type == any))] order[r15s:pg] rusage[mem
-                        =128.00] >;
-     Wed Oct 14 20:35:09: Completed <done>.
-
-     Accounting information about this job:
-           Share group charged </abc123>
-           CPU_T     WAIT     TURNAROUND   STATUS     HOG_FACTOR    MEM    SWAP
-            0.10        0            101     done         0.0010     7M      0M
-     ------------------------------------------------------------------------------
-
-     Job <1234569>, Job Name <email-test>, User <abc123>, Project <project123>, Mail
-     ...
-
-     ------------------------------------------------------------------------------
-     SUMMARY:      ( time unit: second ) 
-     Total number of done jobs:       8      Total number of exited jobs:     0
-     Total CPU time consumed:       1.0      Average CPU time consumed:     0.1
-     Maximum CPU time of a job:     0.5      Minimum CPU time of a job:     0.0
-     Total wait time in queues:     2.0
-     Average wait time in queue:    0.2
-     Maximum wait time in queue:    1.0      Minimum wait time in queue:    0.0
-     Average turnaround time:       168 (seconds/job)
-     Maximum turnaround time:      1002      Minimum turnaround time:        10
-     Average hog factor of a job:  0.00 ( cpu time / turnaround time )
-     Maximum hog factor of a job:  0.00      Minimum hog factor of a job:  0.00
-     Average expansion factor of a job:  1.01 ( turnaround time / run time )
-     Maximum expansion factor of a job:  1.10
-     Minimum expansion factor of a job:  1.00
-     Total Run time consumed:      1347      Average Run time consumed:     168
-     Maximum Run time of a job:    1002      Minimum Run time of a job:      10
-     Total throughput:             0.02 (jobs/hour)  during  349.72 hours
-     Beginning time:       Oct 14 20:35      Ending time:          Oct 29 10:18
-
-   If you do not provide the "-u CaneID" argument, command defaults to the user running the command.  The long form output "-l" displays detailed information for each job in a multiline format, followed by a summary.
 
 6. Checking the job output
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -443,7 +318,7 @@ the text you ask to ``print`` (to the stardard output) in
 
 After the job is done, you will find the output data which is the png
 file saved in the scratch space. In this example, it is
-``/scratch/xyz/data_plot.png``.
+``/scratch/projects/xyz/data_plot.png``.
 
 **Transferring output file to local computer**
 
@@ -454,7 +329,7 @@ left, which transfers it, or you can use ``scp`` by typing, in the terminal
 on your local computer (assuming your CaneID is ``abc123``, and ``destination`` is 
 the absolute path that specifies the directory on the local computer to 
 which you intend to move the file),
-``scp abc123@triton.ccs.miami.edu:/scratch/xyz/data_plot.png destination`` 
+``scp abc123@t2.idsc.miami.edu:/scratch/projects/xyz/data_plot.png destination`` 
 and following the prompt to provide a password.
 
 7. Chao
@@ -464,7 +339,7 @@ and following the prompt to provide a password.
 
 ::
 
-    [abc123@login ~]$ exit
+    [abc123@mgt3.summit ~]$ exit
 
 **Disconnecting from Triton on ``FileZilla``**
 
