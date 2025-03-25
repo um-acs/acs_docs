@@ -11,6 +11,8 @@ packages automatically installed (other 1,500+ packages could be
 downloaded and installed easily from the Anaconda repository). In order to use Anaconda on Triton, you need to have access to the UM network and the Triton system. 
 Please check `IDSC ACS Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__
 
+Miniforge is used on the t2 server. 
+
 Conda General Commands
 ----------------------
 
@@ -40,7 +42,7 @@ A Conda environment contains a specific collection of application software, fram
 Using Conda environment on the command line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- $  ``ml anaconda3/<version>`` or ``ml wml_anaconda3/<version>`` if you need to install `deep learning packages <https://acs-docs.readthedocs.io/triton/2-sw/wmlce.html>`__
+- $  ``ml miniforge3/24.3.0-0``
 - $  ``conda activate <your environment or system pre-installed environment>``
 - Run test program (dependencies have been installed in the environment)
 - $  ``conda deactivate``
@@ -67,7 +69,7 @@ An LSF job script example using Conda environment:
     #BSUB -N
     #BSUB -u <my_email>@miami.edu
 
-    ml anaconda3
+    ml miniforge3/24.3.0-0
     conda activate <my_environment>
     python <path to my_program.py>
 
@@ -120,51 +122,6 @@ If you want to install more packages after creating the environment, you can run
    as possible should pip be used to install any remaining software. If
    modifications are needed to the environment, it is best to create a new
    environment rather than running conda after pip.
-   
-Different Anaconda Installed on Triton
---------------------------------------
-
-Several Anaconda have been installed on Triton. You can use ``module load`` (``ml`` as a shortcut)
-to load different Anaconda. Loading the module does ``source <anaconda installed path>/etc/profile.d/conda.sh``
-behind the scenes.
-
-Anaconda3
-~~~~~~~~~
-
-Anaconda3 has Python 3.x as its base Python version (although it can download Python 2.x as well). 
-On Triton, different versions of Anaconda3 located at
-``/share/apps/anaconda3/`` use the default configuration
-which will search packages from ``https://repo.anaconda.com/pkgs/main``
-and ``https://repo.anaconda.com/pkgs/r``. 
-
-In order to use it, run ``ml anaconda3/<version>``.
-``ml anaconda3`` will load the default version which is Anaconda3-2019.10 at the time the document is edited.
-
-Anaconda2
-~~~~~~~~~
-
-Anaconda2 has Python 2.x as its base Python version.
-On Triton, different versions of Anaconda2 located at
-``/share/apps/anaconda2/`` use the default configuration
-which will search packages from ``https://repo.anaconda.com/pkgs/main``
-and ``https://repo.anaconda.com/pkgs/r``. 
-
-In order to use it, run ``ml anaconda2/<version>``.
-``ml anaconda2`` will load the default version which is Anaconda2-2019.07 at the time the document is edited.
-
-Anaconda3 for Deep Learning
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Anaconda3 for Deep Learning is configured to first search packages from the deep learning channel
-supported by IBM at
-``https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/``,
-and then the ``https://repo.anaconda.com/pkgs/main`` and ``https://repo.anaconda.com/pkgs/r`` channels.
-
-In order to use it, run ``ml wml_anaconda3/<version>``.
-``ml wml_anaconda3`` will load the default version which is Anaconda3-2019.10 at the time the document is edited.
-
-More details can be found at `IBM WML on Triton User
-Menu <https://acs-docs.readthedocs.io/triton/2-sw/wmlce.html>`__.
 
 Installing Your Own Anaconda
 ----------------------------
