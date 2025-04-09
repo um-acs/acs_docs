@@ -5,9 +5,7 @@ Triton currently uses the **LSF** resource manager to schedule all
 compute resources. LSF (*load sharing facility*) supports over 1500
 users and over 200,000 simultaneous job submissions. Jobs are submitted
 to **queues**, the software categories we define in the scheduler to
-organize work more efficiently. LSF distributes jobs submitted by users
-to our over 340 compute nodes according to queue, user priority, and
-available resources. You can monitor your job status, queue position,
+organize work more efficiently. You can monitor your job status, queue position,
 and progress using `LSF Commands <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__.
 
 .. tip:: **Reserve an appropriate amount of resources through LSF for your jobs.** 
@@ -63,8 +61,10 @@ found later in this guide.
 
    ::
 
-       [username@triton ~]$ bsub < scriptfile 
-       Job <6021006> is submitted to queue <normal>.
+       [username@mgt3.summit hpc]$ pwd
+       /scratch/projects/hpc/
+       [username@mgt3.summit hpc]$ bsub < scriptfile 
+       Job <391> is submitted to queue <normal>.
 
 3. **Monitor your jobs with** ``bjobs``
 
@@ -72,9 +72,9 @@ found later in this guide.
 
    ::
 
-       [username@triton ~]$ bjobs
+       [username@mgt3.summit hpc]$ bjobs
        JOBID  USER   STAT  QUEUE    FROM_HOST  EXEC_HOST   JOB_NAME  SUBMIT_TIME
-       4225   usernam   RUN   normal  m1       16*n060     testjob   Mar  2 11:53
+       391   usernam   RUN   normal  mgt3       16*t030     testjob   Apr  9 10:22
 
 4. **Examine job output files**
 
@@ -82,9 +82,9 @@ found later in this guide.
 
    ::
 
-       [username@triton ~]$ cat test.out
-       Sender: LSF System <lsfadmin@n069.triton.edu>
-       Subject: Job 6021006: <test> in cluster <triton> Done
-       Job <test> was submitted from host <login4.triton.edu> by user <username> in cluster <mk2>.
-       Job was executed on host(s) <8*n069>, in queue <normal>, as user <username> in cluster <mk2>.
+       [username@mgt3.summit hpc]$ cat 391.out
+       Sender: LSF System <lsfadmin@t030>
+       Subject: Job 391: <test> in cluster <t1> Done
+       Job <test> was submitted from host <mgt3> by user <username> in cluster <t1> at Wed Apr  9 10:22:26 2025.
+       Job was executed on host(s) <16*t030>, in queue <normal>, as user <username> in cluster <t1>.
        ...
