@@ -1,7 +1,6 @@
 Triton LSF Commands
 ====================
 
-`LSF 9.1.1 Documentation <https://ccs.maimi.edu/ac/lsf/9.1.1/>`__
 
 Common LSF commands and descriptions:
 
@@ -294,8 +293,8 @@ id which can be used to keep track of your job.
 
 ::
 
-    [username@triton ~]$ bsub -J jobname -o %J.out -e %J.err -q normal -P myproject myprogram
-    Job <2607> is submitted to general queue .
+    [username@mgt3.summit ~]$ bsub -J jobname -o %J.out -e %J.err -q normal -P myproject myprogram
+    Job <2607> is submitted to normal queue .
 
 The Job Scripts section has more information about organizing multiple
 flags into a job script file for submission.
@@ -311,12 +310,12 @@ running, and suspended jobs.
 
 ::
 
-    [username@triton ~]$ bjobs
+    [username@mgt3.summit ~]$ bjobs
     JOBID  USER   STAT  QUEUE    FROM_HOST  EXEC_HOST   JOB_NAME  SUBMIT_TIME
-    4225   usernam   RUN   normal  m1       16*n060     testjob   Mar  2 11:53
-                                             16*n061
-                                             16*n063
-                                             16*n064
+    4225   usernam   RUN   normal  mgt3      16*t030     testjob   Mar  2 11:53
+                                             16*t031
+                                             16*t032
+                                             16*t033
 
 For details about your particular job, issue the command
 ``bjobs -l jobID`` where ``jobID`` is obtained from the ``JOBID`` field
@@ -326,15 +325,14 @@ output to ``less``:
 
 ::
 
-    [username@triton ~]$ bjobs -u all | less
+    [username@mgt3.summit ~]$ bjobs -u all | less
     JOBID     USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-    5990529   axt651  RUN   interactiv login4.pega n002        bash       Feb 13 15:23
-    6010636   zxh69   RUN   normal    login4.pega 16*n178     *acsjob-01 Feb 23 11:36
-                                                   16*n180
-                                                   16*n203
-                                                   16*n174
-    6014246   swishne RUN   interactiv n002.pegasu n002        bash       Feb 24 14:10
-    6017561   asingh  PEND  interactiv login4.pega             matlab     Feb 25 14:49
+    5990529   axt651  RUN   interactiv mgt3        t035        bash       Feb 13 15:23
+    6010636   zxh69   RUN   normal     mgt3        16*t030    *acsjob-01  Feb 23 11:36
+                                                   16*t031
+                                                   16*t032
+                                                   16*t033
+    6014246   swishne RUN   interactiv t034.mgt3   t034        bash       Feb 24 14:10
     ...
 
 bhist
@@ -354,10 +352,10 @@ kill all jobs belonging to current user.
 
 ::
 
-    [username@triton ~]$ bkill 4225
+    [username@mgt3.summit ~]$ bkill 4225
     Job <4225> is being terminated
 
-On Pegasus (Unix), SIGINT and SIGTERM are sent to give the job a chance
+On Triton (Unix), SIGINT and SIGTERM are sent to give the job a chance
 to clean up before termination, then SIGKILL is sent to kill the job.
 
 bqueues
@@ -369,11 +367,17 @@ CPU time is normalized by CPU factor.
 
 ::
 
-    [username@triton ~]$ bqueues
-    QUEUE_NAME      PRIO STATUS          MAX JL/U JL/P JL/H NJOBS  PEND   RUN  SUSP 
-    bigmem          500  Open:Active       -   16    -    -  1152  1120    32     0
-    normal          100  Open:Active       -    -    -    -  9677  5969  3437     0
-    interactive      30  Open:Active       -    4    -    -    13     1    12     0
+    [username@mgt3.summit ~]$ bqueues
+   QUEUE_NAME      PRIO STATUS          MAX JL/U JL/P JL/H NJOBS  PEND   RUN  SUSP 
+   admin            50  Open:Active       -    -    -    -     0     0     0     0
+   owners           43  Open:Active       -    -    -    -     0     0     0     0
+   priority         43  Open:Active       -    -    -    -     0     0     0     0
+   night            40  Open:Inact        -    -    -    -     0     0     0     0
+   short            35  Open:Active       -    -    -    -     0     0     0     0
+   dataq            33  Open:Active       -    -    -    -     0     0     0     0
+   normal           30  Open:Active       -    -    -    -     0     0     0     0
+   interactive      30  Open:Active       -    -    -    -     1     0     1     0
+   idle             20  Open:Active       -    -    -    -     0     0     0     0
 
 bhosts
 ~~~~~~
@@ -389,14 +393,19 @@ to this host.
 
 ::
 
-    [username@triton ~]$ bhosts -w | less
-    HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV 
-    n001               ok              -     16     14     14      0      0      0
-    n002               ok              -     16      4      4      0      0      0
-    ...
-    n342               closed_Full     -     16     16     12      0      0      4
-    n343               closed_Full     -     16     16     16      0      0      0
-    n344               closed_Full     -     16     16     16      0      0      0
+    [username@mgt3.summit ~]$ bhosts -w | less
+   HOST_NAME          STATUS          JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV 
+   mgt3               ok              -     32      1      1      0      0      0
+   t030               ok              -     40      0      0      0      0      0
+   t031               ok              -     40      0      0      0      0      0
+   t032               ok              -     40      0      0      0      0      0
+   t033               ok              -     40      0      0      0      0      0
+   t034               ok              -     40      0      0      0      0      0
+   t035               ok              -     40      0      0      0      0      0
+   t036               ok              -     40      0      0      0      0      0
+   t037               ok              -     40      0      0      0      0      0
+   t038               ok              -     40      0      0      0      0      0
+   t039               ok              -     40      0      0      0      0      0
 
 bpeek
 ~~~~~
@@ -421,26 +430,74 @@ completed, and the **Resource usage summary**.
 
 ::
 
-    [username@triton ~]$ cat test.out
-    Sender: LSF System <lsfadmin@n069.triton.edu>
-    Subject: Job 6021006: <test> in cluster <mk2> Done
-    Job <test> was submitted from host <login4.triton.edu> by user <username> in cluster <mk2>.
-    Job was executed on host(s) <8*n069>, in queue <general>, as user <username> in cluster <mk2>.
-    ...
-    Your job looked like:
-    ------------------------------------------------------------
-    # LSBATCH: User input
-    #!/bin/sh
-    #BSUB -n 16
-    #BSUB -J test
-    #BSUB -o test.out
-    ...
-    ------------------------------------------------------------
-    Successfully completed.
-    Resource usage summary:
-    CPU time : 2.26 sec.
-    Max Memory : 30 MB
-    Average Memory : 30.00 MB
-    ...
-    PS:
-    Read file <test.err> for stderr output of this job.
+    [nra20@mgt3.summit ~]$ cat 391.out
+   Sender: LSF System <lsfadmin@t037>
+   Subject: Job 391: <mpi_hello_world> in cluster <t1> Done
+   
+   Job <mpi_hello_world> was submitted from host <mgt3> by user <nra20> in cluster <t1> at Wed Apr  9 10:22:26 2025
+   Job was executed on host(s) <4*t037>, in queue <normal>, as user <nra20> in cluster <t1> at Wed Apr  9 10:04:52 2025
+                               <4*t030>
+                               <4*t039>
+   </projectnb/triton/home/nra20> was used as the home directory.
+   </scratch/projects/hpc/nra20/mpi_test> was used as the working directory.
+   Started at Wed Apr  9 10:04:52 2025
+   Terminated at Wed Apr  9 10:05:08 2025
+   Results reported at Wed Apr  9 10:05:08 2025
+   
+   Your job looked like:
+   
+   ------------------------------------------------------------
+   # LSBATCH: User input
+   #!/bin/sh
+   #BSUB -P hpc
+   #BSUB -J mpi_hello_world
+   #BSUB -o %J.out
+   #BSUB -e %J.err
+   #BSUB -q normal
+   #BSUB -n 12
+   #BSUB -R "span[ptile=4]"
+   #BSUB -R "rusage[mem=128M]"
+   
+   module load spectrum-mpi/10.4.0.6-20230210
+
+   mpirun -n 12 ./mpi_hello_world
+
+   ------------------------------------------------------------
+   
+   Successfully completed.
+   
+   Resource usage summary:
+   
+       CPU time :                                   7.67 sec.
+       Max Memory :                                 34 MB
+       Average Memory :                             24.75 MB
+       Total Requested Memory :                     384.00 MB
+       Delta Memory :                               350.00 MB
+       Max Swap :                                   -
+       Max Processes :                              5
+       Max Threads :                                9
+       Run time :                                   14 sec.
+       Turnaround time :                            0 sec.
+   
+   The output (if any) follows:
+   
+   Hello world from processor t037, rank 0 out of 12 processors
+   Hello world from processor t037, rank 1 out of 12 processors
+   Hello world from processor t037, rank 2 out of 12 processors
+   Hello world from processor t037, rank 3 out of 12 processors
+   Hello world from processor t030, rank 5 out of 12 processors
+   Hello world from processor t039, rank 10 out of 12 processors
+   Hello world from processor t030, rank 6 out of 12 processors
+   Hello world from processor t039, rank 11 out of 12 processors
+   Hello world from processor t030, rank 7 out of 12 processors
+   Hello world from processor t039, rank 8 out of 12 processors
+   Hello world from processor t039, rank 9 out of 12 processors
+   Hello world from processor t030, rank 4 out of 12 processors
+   
+   
+   PS:
+   
+   Read file <391.err> for stderr output of this job.
+
+
+
