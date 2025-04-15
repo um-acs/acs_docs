@@ -11,7 +11,7 @@ Triton.
 
 ::
 
-    [username@triton ~]$ bsub -Is -q interactive bash
+    [username@mgt3.summit ~]$ bsub -Is -q interactive bash
 
 
 Upon exiting the interactive job, you will be returned to one of the
@@ -25,11 +25,11 @@ option is used for X11 jobs, for example:
 
 ::
 
-    [username@triton ~]$ bsub -Is -q interactive -XF 
-    Job <50274> is submitted to queue <interactive>.
+    [username@mgt3.summit ~]$ bsub -Is -q interactive -XF 
+    Job <393> is submitted to queue <interactive>.
     <<ssh X11 forwarding job>>
     <<Waiting for dispatch ...>>
-    <<Starting on n003.triton.edu>> 
+    <<Starting on t039>> 
 
 Upon exiting the X11 interactive job, you will be returned to one of the
 login nodes.
@@ -39,7 +39,7 @@ connecting to Triton. For example,
 
 ::
 
-    ssh -X username@triton.ccs.miami.edu
+    ssh -X username@t2.idsc.miami.edu
 
 Note that by default, the auth token is good for 20 minutes.  SSH will
 block new X11 connections after 20 minutes. To avoid this on Linux or OS
