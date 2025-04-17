@@ -3,8 +3,8 @@
 Pegasus Environment Introduction
 ================================
 
-The Pegasus cluster is the University of Miami’s 350-node
-high-performance supercomputer, available to all University of Miami
+The Pegasus cluster is the University of Miami’s 73-node
+high-performance supercomputer (and counting), available to all University of Miami
 employees and students. Pegasus resources such as hardware (login and
 compute nodes) and system software are shared by all users.
 
@@ -15,7 +15,7 @@ compute nodes) and system software are shared by all users.
     Details:              Pegasus Supercomputer
     Credentials:          IDSC Account
     Access & Allocations: Policies 
-    Operating System:     CentOS 7.6
+    Operating System:     Rocky Linux 8.8
     Default Shell:        Bash
     Data Transfer:        SCP and SFTP
 
@@ -40,7 +40,7 @@ running smoothly for everyone.
 
 `Connecting to Pegasus <https://acs-docs.readthedocs.io/services/1-access.html#ssh>`__: To access the Pegasus
 supercomputer, open a secure shell (SSH) connection to
-``pegasus.ccs.miami.edu`` and log in with your active IDSC account. Once
+``pegasus2.ccs.miami.edu`` and log in with your active IDSC account. Once
 authenticated, you should see the Pegasus welcome message – ***which
 includes links to Pegasus documentation*** and information about your
 disk quotas – then the Pegasus command prompt.
@@ -48,46 +48,68 @@ disk quotas – then the Pegasus command prompt.
 ::
 
     ------------------------------------------------------------------------------
-                         Welcome to the Pegasus Supercomputer
-               Center for Computational Science, University of Miami 
+                     Welcome to the Pegasus Supercomputer
+           Frost Institute for Data Science & Computing, University of Miami 
     ------------------------------------------------------------------------------
-    ...
-    ...
-    ...
-    --------------------------Disk Quota------------------------------
-    filesystem | project    | used(GB)   | quota (GB) | Util(%)   
-    ============================================================
-    nethome    | user       | 0.76       | 250.00     |    0%
-    scratch    | projectID  | 93.32      | 20000.00   |    0%
-    ------------------------------------------------------------------
-         Files on /scratch are subject to purging after 21 days       
-    ------------------------------------------------------------------
-    [username@pegasus ~]$
-
-Pegasus Filesystems
--------------------
-
-The landing location on Pegasus is your **home** directory, which
-corresponds to ``/nethome/username``. As shown in the Welcome message,
-Pegasus has two parallel file systems available to users: **nethome**
-and **scratch**.
-
-.. list-table:: Pegasus Filesystems 
-   :header-rows: 1
-   
-   * - Filesystem
-     - Description 
-     - Notes 
-   * - ``/nethome`` 
-     - permanent, quota’d, not backed-up
-     - directories are limited to 250GB and intended primarily for basic account information, source codes and binaries 
-   * - ``/scratch``
-     - high-speed storage 
-     - directories should be used for compiles and run-time input & output files 
-
-
-.. warning:: **Do not** stage job data in the ``/nethome`` file system. If your jobs writes or read files from Pegasus, put those files exclusively in the ``/scratch`` file system.
-
+    
+                  ** Unauthorized use/access is prohibited. **
+    
+    If you log on to this computer system, you acknowledge your awareness
+    of and concurrence with the University Use Policy. The University will prosecute 
+    violators to the full extent of the law.
+    
+    ACS Usage Policies: https://acs-docs.readthedocs.io/policies 
+    ______________________________________________________________________________
+    
+    Questions and Problem Reports:
+    
+    -->  hpc@ccs.miami.edu
+    
+    If you are new to Pegasus and high-performance compute clusters, 
+    start with our documentation and user guides.
+    
+    Documentation  :  https://acs-docs.readthedocs.io/
+    Pegasus Cluster:  https://acs-docs.readthedocs.io/pegasus
+    ______________________________________________________________________________
+    
+    Welcome to Pegasus.  Before use, please read these important system notes:
+    
+    --> Pegasus is currently running the LSF resource manager to 
+        schedule all compute resources. 
+    
+        See "man bsub", our online resources, and the LSF 9.1.1 user guide
+        for more detailed information.
+        
+        https://acs-docs.readthedocs.io/pegasus/jobs
+    
+    
+    --> You may compile software and test commands on login nodes.  
+        However, any jobs exceeding 30 minutes of run time or using 
+        excessive resources on login nodes will be terminated and 
+        the user's account may be suspended.
+    
+    --> To see which software packages are available, issue command: 
+             module avail
+    
+        To load a module, issue command: 
+             module load <module name>
+    
+        See "module help" or consult ACS Documentation & User Guides:
+             https://acs-docs.readthedocs.io/pegasus/soft
+    
+    --> Pegasus has two parallel file systems available to users: 
+             /nethome (permanent, quota'd, not backed-up)
+             /scratch (high-speed *purged* storage)
+    
+        IMPORTANT:  *NO* backups are performed on Pegasus file systems
+       
+        Files on /scratch are subject to purging after 21 days. No critical data should be kept on /scratch
+       
+        See ACS Policies for more information
+             https://acs-docs.readthedocs.io/policies
+    
+    
+    If you have any questions or concerns, please do not hesitate to reach out to us at hpc@ccs.miami.edu
 
 
 Pegasus Environment Links
