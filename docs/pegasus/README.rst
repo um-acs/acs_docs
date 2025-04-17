@@ -1,7 +1,7 @@
 Pegasus user guides
 ====================
 
-The Pegasus cluster has been upgraded to CentOS 7.  
+The Pegasus cluster has been upgraded to Rocky Linux 8.  
 
 If you encounter issues running your jobs, let our IDSC cluster support team know via email to `IDSC team (hpc@ccs.miami.edu) <mailto:hpc@ccs.miami.edu>`_ .
 
