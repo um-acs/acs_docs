@@ -12,7 +12,7 @@ University of Miami faculty member or Principal Investigator (PI) can
 request a new project. All members of a project share that project’s
 resource allocations.
 
-To join a project, contact the project owner. PIs and faculty, request new `IDSC Projects here <https://idsc.miami.edu/project_request>`_ (https://idsc.miami.edu/project_request)
+To join a project, contact the project owner. PIs and faculty, request new `IDSC Projects here <https://idsc.miami.edu/project-request>`_ (https://idsc.miami.edu/project-request)
 
 Using projects in computing jobs
 --------------------------------
@@ -42,7 +42,7 @@ information will be printed on the screen.
 
     Job is submitted to <abc> project.
 
-    Job <11234> is submitted to default queue <general>.
+    Job <11234> is submitted to default queue <normal>.
 
 The cluster scheduler will only accept job submissions to active
 projects. The IDSC user must be a current member of that project.
