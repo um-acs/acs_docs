@@ -27,7 +27,7 @@ can have some small and intermediate data in your home directory, but
 there are benefits to put data in the scratch directory: 1. everyone in
 the group can share the data; 2. the scratch directory is larger
 (usually 2T, and you can require more); 3. the scratch directory will be
-faster. Although currently (2024.10) /nethome and /scratch have the same
+faster. Although currently (2025.04) /nethome and /scratch have the same
 hardware (storage and i/o), /scratch has priority with hardware
 upgrades.
 
@@ -96,7 +96,7 @@ After editing the code, you need to transfer it from the local computer
 to your Pegasus home directory. You can do it with a file transfer tool
 such as ``FileZilla`` GUI application and ``scp`` command-line utility.
 
-If using ``FileZilla``, you need to put ``sftp://pegasus.ccs.miami.edu``
+If using ``FileZilla``, you need to put ``sftp://pegasus2.ccs.miami.edu``
 in the ``Host`` field, fill in the ``Username`` and ``Password`` fields
 with your CaneID and the associated password, and leave the ``Port``
 field blank. By clicking the check mark icon in the menu bar, you will
@@ -108,7 +108,7 @@ transfer the file by dragging it from left to right.
 If using ``scp``, you need to type, assuming ``origin`` is the absolute 
 path that specifies the directory on your local computer holding 
 ``example.py``,  ``scp origin/example.py 
-abc123@pegasus.ccs.miami.edu:/nethome/abc123``, not forgetting to put 
+abc123@pegasus2.ccs.miami.edu:/nethome/abc123``, not forgetting to put 
 your CaneID in place of ``abc123``, and then following the prompt for 
 the associated password. 
 
@@ -135,7 +135,7 @@ the local computer.
 **Transferring the input data to your project scratch directory on Pegasus**
 
 You can use ``FileZilla`` or ``scp`` to transfer the input data to
-``/scratch/xyz/data.txt`` on Pegasus. You need to replace xyz with your
+``/scratch/projects/xyz/data.txt`` on Pegasus. You need to replace xyz with your
 project name.
 
 3. Installing dependent libraries on Pegasus
@@ -147,16 +147,16 @@ You can use ``Terminal`` on a Mac or ``PuTTY`` on a Windows
 machine to log in to Pegasus via SSH Protocol.
 
 If using ``Terminal`` on Mac, you can run the command
-``ssh abc123@pegasus.ccs.miami.edu`` (remember to replace abc123 with
+``ssh abc123@pegasus2.ccs.miami.edu`` (remember to replace abc123 with
 your CaneID) and follow the instruction to type your password.
 
-If using ``PuTTY``, you need to put ``pegasus.ccs.miami.edu`` in the
+If using ``PuTTY``, you need to put ``pegasus2.ccs.miami.edu`` in the
 ``Host Name`` field, leave ``22`` in the ``Port`` field, and select
 ``SSH`` as the ``Connection type``, then press ``Open``. After that, you
 can follow the instruction to type your password.
 
 At this point, you should be able to see the Pegasus welcome message and
-``[abc123@login ~]$`` which indicates you have logged in to the Pegasus
+``[abc123@pegasus ~]$`` which indicates you have logged in to the Pegasus
 login node and at the home directory ``~``.
 
 If you are new to Linux, you can check our `Linux
@@ -170,8 +170,8 @@ environments for different projects to avoid conflictions of packages.
 
 ::
 
-    [abc123@login ~]$ module load miniforge3
-    [abc123@login ~]$ conda create -n example_env python=3.8 matplotlib
+    [abc123@pegasus ~]$ module load miniforge3
+    [abc123@pegasus ~]$ conda create -n example_env python=3.8 matplotlib
 
 4. Preparing the job script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -242,7 +242,7 @@ your CaneID.
 
 ::
 
-    [abc123@login ~]$ bsub < example_script.job
+    [abc123@pegasus ~]$ bsub < example_script.job
 
 **Job monitoring**
 
@@ -250,14 +250,14 @@ While the job is submitted, you can use ``bjobs`` to check the status.
 
 ::
 
-    [abc123@login ~]$ bjobs
+    [abc123@pegasus ~]$ bjobs
 
 When the job is running you will see:
 
 ::
 
     JOBID   USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-    594966  abc123  RUN   normal     login1      t094        *ample_job Oct 12 11:43
+    594966  abc123  RUN   normal     login1      n084        *ample_job Oct 12 11:43
 
 If the job has finished you will see:
 
@@ -290,13 +290,13 @@ If the job has finished you will see:
 
    ::
 
-    [abc123@login ~]$ bacct -l 123456
+    [abc123@pegasus ~]$ bacct -l 123456
 
    Example of dispatched jobs between 2020/10/01/00:00 and 2020/11/01/00:00, for user abc123:
 
    ::
 
-    [abc123@login1 ~]$ bacct -D 2020/10/01/00:00,2020/11/01/00:00 -u abc123
+    [abc123@pegasus ~]$ bacct -D 2020/10/01/00:00,2020/11/01/00:00 -u abc123
 
     Accounting information about jobs that are: 
      - submitted by users abc123, 
@@ -436,7 +436,7 @@ the text you ask to ``print`` (to the stardard output) in
 
 After the job is done, you will find the output data which is the png
 file saved in the scratch space. In this example, it is
-``/scratch/xyz/data_plot.png``.
+``/scratch/projects/xyz/data_plot.png``.
 
 **Transferring output file to local computer**
 
@@ -447,7 +447,7 @@ left, which transfers it, or you can use ``scp`` by typing, in the terminal
 on your local computer (assuming your CaneID is ``abc123``, and ``destination`` is 
 the absolute path that specifies the directory on the local computer to 
 which you intend to move the file),
-``scp abc123@pegasus.ccs.miami.edu:/scratch/xyz/data_plot.png destination`` 
+``scp abc123@pegasus2.ccs.miami.edu:/scratch/projects/xyz/data_plot.png destination`` 
 and following the prompt to provide a password.
 
 7. Chao
@@ -457,7 +457,7 @@ and following the prompt to provide a password.
 
 ::
 
-    [abc123@login ~]$ exit
+    [abc123@pegasus ~]$ exit
 
 **Disconnecting from Pegasus on ``FileZilla``**
 
