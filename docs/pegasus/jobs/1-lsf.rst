@@ -8,7 +8,7 @@ compute resources. LSF (*load sharing facility*) supports over 1500
 users and over 200,000 simultaneous job submissions. Jobs are submitted
 to **queues**, the software categories we define in the scheduler to
 organize work more efficiently. LSF distributes jobs submitted by users
-to our over 340 compute nodes according to queue, user priority, and
+to our over 70 compute nodes (and counting) according to queue, user priority, and
 available resources. You can monitor your job status, queue position,
 and progress using `LSF Commands <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__.
 
@@ -53,7 +53,7 @@ found later in this guide.
 
        scriptfile
        #BSUB -J test
-       #BSUB -q general
+       #BSUB -q normal
        #BSUB -P myproject
        #BSUB -o %J.out
        ...
@@ -67,7 +67,7 @@ found later in this guide.
 
        [username@pegasus ~]$ bsub < scriptfile 
        Job is submitted to <my_project> project.
-       Job <6021006> is submitted to queue <general>.
+       Job <6021006> is submitted to queue <normal>.
 
 3. **Monitor your jobs with** ``bjobs``
 
@@ -77,7 +77,7 @@ found later in this guide.
 
        [username@pegasus ~]$ bjobs
        JOBID  USER   STAT  QUEUE    FROM_HOST  EXEC_HOST   JOB_NAME  SUBMIT_TIME
-       4225   usernam   RUN   general  m1       16*n060     testjob   Mar  2 11:53
+       4225   usernam   RUN   normal  login1       16*n060     testjob   Mar  2 11:53
 
 4. **Examine job output files**
 
@@ -88,6 +88,6 @@ found later in this guide.
        [username@pegasus ~]$ cat test.out
        Sender: LSF System <lsfadmin@n069.pegasus.edu>
        Subject: Job 6021006: <test> in cluster <mk2> Done
-       Job <test> was submitted from host <login4.pegasus.edu> by user <username> in cluster <mk2>.
-       Job was executed on host(s) <8*n069>, in queue <general>, as user <username> in cluster <mk2>.
+       Job <test> was submitted from host <login1.pegasus.edu> by user <username> in cluster <mk2>.
+       Job was executed on host(s) <8*n069>, in queue <normal>, as user <username> in cluster <mk2>.
        ...
