@@ -26,14 +26,14 @@ An example transfer might look like this:
 ::
 
     [localmachine: ~]$ scp /local/filename \
-                username@pegasus.ccs.miami.edu:/scratch/projectID/directory
+                username@pegasus2.ccs.miami.edu:/scratch/projects/projectID/directory
 
 To transfer a directory, use the ``-r`` flag (recursive):
 
 ::
 
     [localmachine: ~]$ scp -r /local/directory \
-                username@pegasus.ccs.miami.edu:/scratch/projectID/directory
+                username@pegasus2.ccs.miami.edu:/scratch/projects/projectID/directory
 
 Consult the Linux man pages for more information on scp.
 
@@ -50,7 +50,7 @@ demonstrates usage of the rsync command for transferring a file named
 ::
 
     [localmachine: ~]$ rsync firstExample.c \
-                username@pegasus.ccs.miami.edu:/scratch/projectID/directory
+                username@pegasus2.ccs.miami.edu:/scratch/projects/projectID/directory
 
 An entire directory can be transferred from source to destination by
 using rsync. For directory transfers, the options ``-atvr`` will
@@ -68,12 +68,12 @@ The rclone a command-line program that can be used to manage your file over SFTP
 
 ::
 
-    [nra20a@login4 ~]$ module load rclone
-    [nra20@login4 ~]$ module list
+    [nra20@pegasus ~]$ module load rclone
+    [nra20@pegasus ~]$ module list
     Currently Loaded Modulefiles:
       1) perl/5.18.1(default)   2) rclone/1.63.1
 
-    [nra20@login4 ~]$ rclone -V
+    [nra20@pegasus ~]$ rclone -V
     rclone v1.63.1
     - os/version: centos 7.6.1810 (64 bit)
     - os/kernel: 3.10.0-957.el7.x86_64 (x86_64)
@@ -89,13 +89,13 @@ The rclone a command-line program that can be used to manage your file over SFTP
 1. Login to Pegasus 
 ::
 
-    $ ssh pegasus.ccs.miami.edu
+    $ ssh pegasus2.ccs.miami.edu
 
 
 2. Create a new Remote 
 ::
 
-    [pdavila@login4 ~]$ rclone config
+    [pdavila@pegasus ~]$ rclone config
       No remotes found - make a new one
       n) New remote
       s) Set configuration password
@@ -276,7 +276,7 @@ The rclone a command-line program that can be used to manage your file over SFTP
 The rclone lsd command will list the folders of the current specified path in the remote system
 ::
 
-     [nra20@login4 ~]$ rclone lsd apex:/
+     [nra20@pegasus ~]$ rclone lsd apex:/
                -1 2023-08-09 10:36:35        -1 acs
                -1 2022-11-04 15:20:10        -1 bin
                -1 2022-11-28 15:36:50        -1 dcrawford
@@ -288,8 +288,8 @@ The rclone lsd command will list the folders of the current specified path in th
 You can create a subdirectory if needed using the rclone mkdir command
 ::
 
-    [nra20@login4 ~]$ rclone mkdir apex:/acs/nra20
-    [nra20@login4 ~]$ rclone lsd apex:/acs
+    [nra20@pegasus ~]$ rclone mkdir apex:/acs/nra20
+    [nra20@pegasus ~]$ rclone lsd apex:/acs
           -1 2022-06-08 12:40:43        -1 mihg-mapping
           -1 2023-08-09 10:39:04        -1 nra20
           -1 2022-11-04 15:23:17        -1 pdavila
@@ -300,9 +300,9 @@ You can create a subdirectory if needed using the rclone mkdir command
 
 ::
     
-    [pdavila@login4 ~]$ screen
-    [pdavila@login4 ~]$ rclone copy /projects/ccs/schurerlab/cheminfo/pdavila apex:/schurerlab/pdavila
-    [pdavila@login4 ~]$ rclone lsd apex:/schurerlab/pdavila/apps/
+    [pdavila@pegasus ~]$ screen
+    [pdavila@pegasus ~]$ rclone copy /projects/ccs/schurerlab/cheminfo/pdavila apex:/schurerlab/pdavila
+    [pdavila@pegasus ~]$ rclone lsd apex:/schurerlab/pdavila/apps/
       -1 2022-06-23 10:36:21        -1 bin
       -1 2022-06-23 10:36:21        -1 ffmpeg
       -1 2022-06-23 10:36:21        -1 firefox
@@ -326,15 +326,15 @@ Launch FileZilla and open **File : Site Manager**.
 
 Click the "New Site" button and name the entry.  Pegasus example::
 
-    Host:       pegasus.ccs.miami.edu | triton.ccs.miami.edu | apex.idsc.miami.edu (CES)
+    Host:       pegasus2.ccs.miami.edu | t2.idsc.miami.edu | apex.idsc.miami.edu (CES)
     Protocol:   SFTP
     Logon Type: Normal
     enter your username and password
 
 Selecting Logon Type: **Ask for password** will prompt for a password
-each connection.\ |FileZilla Site Manager|
+each connection.
 
-Remeber Pegasus and Apex use your IDSC account for authentication.  Triton uses your CaneID.
+Pegasus, Triton & Apex use your IDSC account for authentication.
 
 Click the "Connect" button. Once connected, drag and drop files or
 directories between your local machine and the server.
