@@ -13,7 +13,7 @@ Connect using a terminal emulator like PuTTY
 
 Log into IDSC servers with the appropriate account credentials.  Pegasus example::
 
-    username@pegasus.ccs.miami.edu (optional username @ host)
+    username@pegasus2.ccs.miami.edu (optional username @ host)
     22 (port)
     SSH (connection type)
 
@@ -29,14 +29,14 @@ Connect with the Terminal program, included with the Operating Systems.
 
 Log into IDSC servers with the approprite acount credentials.  Pegasus example::
 
-    bash-4.1$ ssh username@pegasus.ccs.miami.edu
+    bash-4.1$ ssh username@pegasus2.ccs.miami.edu
     username@pegasus.ccs.miami.edu’s password:
 
 or SSH without account credentials to be prompted::
 
-    bash-4.1$ ssh pegasus.ccs.miami.edu
+    bash-4.1$ ssh pegasus2.ccs.miami.edu
     login as: username
-    username@pegasus.ccs.miami.edu's password:
+    username@pegasus2.ccs.miami.edu's password:
 
 To use SSH key pairs to authenticate, see Tutorial below:
 https://phoenixnap.com/kb/how-to-generate-ssh-key-centos-7
@@ -94,7 +94,7 @@ Using either the Mac Terminal or the xterm window, connect using the
 
 ::
 
-    bash-4.1$ ssh -X username@pegasus.ccs.miami.edu
+    bash-4.1$ ssh -X username@pegasus2.ccs.miami.edu
 
 Launch a graphical application
 ------------------------------
@@ -114,7 +114,7 @@ Connecting to IDSC Systems from offsite
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Triton, Pegasus, and other IDSC resources are only available from within the
-University’s secure campus networks (wired or SecureCanes wireless). To
+University’s secure campus networks (wired or UMiamiWireless, CantNet_Wireless). To
 access IDSC resources while offsite, open a VPN connection first. IDSC does not
 administer VPN accounts.
 
