@@ -444,7 +444,7 @@ completed, and the **Resource usage summary**.
     [username@pegasus ~]$ cat test.out
     Sender: LSF System <lsfadmin@n069>
     Subject: Job 173772: <test> in cluster <pegasus> Done
-    Job <test> was submitted from host <login1> by user <username> in cluster <pegasys>.
+    Job <test> was submitted from host <login1> by user <username> in cluster <pegasus>.
     Job was executed on host(s) <8*n069>, in queue <normal>, as user <username> in cluster <pegasus>.
     ...
     Your job looked like:
