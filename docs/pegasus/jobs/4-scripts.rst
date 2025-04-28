@@ -19,7 +19,7 @@ your job.
 ::
 
     [username@pegasus ~]$ bsub < test.job
-    Job <4225> is submitted to the default queue <general>.
+    Job <4225> is submitted to the default queue <normal>.
 
 Example script for a serial Job
 -------------------------------
@@ -36,7 +36,7 @@ Example script for a serial Job
     #BSUB -o %J.out
     #BSUB -e %J.err
     #BSUB -W 1:00
-    #BSUB -q general
+    #BSUB -q normal
     #BSUB -n 1
     #BSUB -R "rusage[mem=128]"
     #BSUB -B
@@ -72,8 +72,8 @@ assigned values listed in this script:
     #BSUB -W 1:00
     set wall clock run time limit of 1 hour, otherwise queue specific default run time limit will be applied.
 
-    #BSUB -q general
-    specify queue to be used. Without this option, default 'general' queue will be applied.
+    #BSUB -q normal
+    specify queue to be used. Without this option, default 'normal' queue will be applied.
 
     #BSUB -n 1
     specify number of processors. In this job, a single processor is requested.
@@ -96,7 +96,7 @@ Example scripts for parallel jobs
 We recommend using Intel MPI unless you have specific reason for using
 OpenMP.  Intel MPI scales better and has better performance than OpenMP.
 
-Submit parallel jobs to the **parallel** job queue with ``-q parallel``.
+Submit parallel jobs to the **normal** job queue with ``-q normal``.
 
 For optimum performance, the default resource allocation on the parallel
 queue is ``ptile=16``. This requires the LSF job scheduler to allocate
@@ -121,7 +121,7 @@ Example script for Intel/Intel MPI
     #BSUB -o %J.out
     #BSUB -e %J.err
     #BSUB -W 1:30
-    #BSUB -q parallel
+    #BSUB -q normal
     #BSUB -n 32                             # Request 32 cores
     #BSUB -R "span[ptile=16]"               # Request 16 cores per node
     #BSUB -R "rusage[mem=128]"              # Request 128MB per core
@@ -146,7 +146,7 @@ Example script for MPI/OpenMP
     #BSUB -o %J.out
     #BSUB -e %J.err
     #BSUB -W 1:30
-    #BSUB -q parallel
+    #BSUB -q normal
     #BSUB -n 32                             # Request 32 cores                
     #BSUB -R "span[ptile=16]"               # Request 16 cores per node
     #BSUB -R "rusage[mem=128]"              # Request 128MB per core
