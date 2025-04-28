@@ -296,8 +296,8 @@ id which can be used to keep track of your job.
 
 ::
 
-    [username@pegasus ~]$ bsub -J jobname -o %J.out -e %J.err -q general -P myproject myprogram
-    Job <2607> is submitted to general queue .
+    [username@pegasus ~]$ bsub -J jobname -o %J.out -e %J.err -q normal -P myproject myprogram
+    Job <2607> is submitted to normal queue .
 
 The Job Scripts section has more information about organizing multiple
 flags into a job script file for submission.
@@ -315,7 +315,7 @@ running, and suspended jobs.
 
     [username@pegasus ~]$ bjobs
     JOBID  USER   STAT  QUEUE    FROM_HOST  EXEC_HOST   JOB_NAME  SUBMIT_TIME
-    4225   usernam   RUN   general  m1       16*n060     testjob   Mar  2 11:53
+    4225   usernam   RUN   normal  login1.pega       16*n060     testjob   Mar  2 11:53
                                              16*n061
                                              16*n063
                                              16*n064
@@ -330,13 +330,13 @@ output to ``less``:
 
     [username@pegasus ~]$ bjobs -u all | less
     JOBID     USER    STAT  QUEUE      FROM_HOST   EXEC_HOST   JOB_NAME   SUBMIT_TIME
-    5990529   axt651  RUN   interactiv login4.pega n002        bash       Feb 13 15:23
-    6010636   zxh69   RUN   general    login4.pega 16*n178     *acsjob-01 Feb 23 11:36
+    5990529   axt651  RUN   interactiv login1.pega n021        bash       Feb 13 15:23
+    6010636   zxh69   RUN   normal    login1.pega 16*n178     *acsjob-01 Feb 23 11:36
                                                    16*n180
                                                    16*n203
                                                    16*n174
     6014246   swishne RUN   interactiv n002.pegasu n002        bash       Feb 24 14:10
-    6017561   asingh  PEND  interactiv login4.pega             matlab     Feb 25 14:49
+    6017561   asingh  PEND  interactiv login1.pega             matlab     Feb 25 14:49
     ...
 
 bhist
@@ -371,17 +371,27 @@ CPU time is normalized by CPU factor.
 
 ::
 
-    [username@pegasus ~]$ bqueues
-    QUEUE_NAME      PRIO STATUS          MAX JL/U JL/P JL/H NJOBS  PEND   RUN  SUSP 
-    bigmem          500  Open:Active       -   16    -    -  1152  1120    32     0
-    visx            500  Open:Active       -    -    -    -     0     0     0     0
-    hihg            500  Open:Active       -    -    -    -     0     0     0     0
-    hpc             300  Open:Active       -    -    -    -  2561  1415  1024     0
-    debug           200  Open:Active       -    -    -    -     0     0     0     0
-    gpu             200  Open:Active       -    -    -    -     0     0     0     0
-    ...
-    general         100  Open:Active       -    -    -    -  9677  5969  3437     0
-    interactive      30  Open:Active       -    4    -    -    13     1    12     0
+   [nra20@pegasus ~]$ bqueues
+   QUEUE_NAME      PRIO STATUS          MAX JL/U JL/P JL/H NJOBS  PEND   RUN  SUSP 
+   gpu_h100_premiu  99  Open:Active       -    -    -    -     0     0     0     0
+   sccc_premium     99  Open:Active       -    -    -    -     0     0     0     0
+   sccc_bigmem_pre  99  Open:Active       -    -    -    -     0     0     0     0
+   sccc_gpu_premiu  99  Open:Active       -    -    -    -     0     0     0     0
+   admin            50  Open:Active       -    -    -    -     0     0     0     0
+   hihg             30  Open:Active       -    -    -    -     0     0     0     0
+   bigmem           30  Open:Active       -    -    -    -    82    50    32     0
+   gpu_titan        30  Open:Active       -    -    -    -     0     0     0     0
+   gpu_h100         30  Open:Active       -    -    -    -     0     0     0     0
+   interactive      30  Open:Active       -    -    -    -     2     0     2     0
+   jupyter          30  Open:Active       -    -    -    -     0     0     0     0
+   hp               30  Open:Active       -    -    -    -     0     0     0     0
+   normal           30  Open:Active       -    -    -    -     0     0     0     0
+   sccc             10  Open:Active       -    -    -    -     1     0     1     0
+   sccc_dev         10  Open:Active       -    -    -    -     0     0     0     0
+   sccc_bigmem      10  Open:Active       -    -    -    -     0     0     0     0
+   sccc_gpu         10  Open:Active       -    -    -    -     0     0     0     0
+   sccc_jupyter     10  Open:Active       -    -    -    -     0     0     0     0
+   sccc_restudio    10  Open:Active       -    -    -    -     0     0     0     0
 
 bhosts
 ~~~~~~
@@ -398,13 +408,15 @@ to this host.
 ::
 
     [username@pegasus ~]$ bhosts -w | less
-    HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV 
-    n001               ok              -     16     14     14      0      0      0
-    n002               ok              -     16      4      4      0      0      0
-    ...
-    n342               closed_Full     -     16     16     12      0      0      4
-    n343               closed_Full     -     16     16     16      0      0      0
-    n344               closed_Full     -     16     16     16      0      0      0
+   HOST_NAME          STATUS          JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV 
+   gpu1               ok              -     96      0      0      0      0      0
+   gpu2               ok              -     96      0      0      0      0      0
+   login1             ok              -     16      0      0      0      0      0
+   n021               ok              -     16      2      2      0      0      0
+   .
+   .
+   n044               ok              -     16      0      0      0      0      0
+   n045               ok              -     16      0      0      0      0      0
 
 bpeek
 ~~~~~
@@ -430,10 +442,10 @@ completed, and the **Resource usage summary**.
 ::
 
     [username@pegasus ~]$ cat test.out
-    Sender: LSF System <lsfadmin@n069.pegasus.edu>
-    Subject: Job 6021006: <test> in cluster <mk2> Done
-    Job <test> was submitted from host <login4.pegasus.edu> by user <username> in cluster <mk2>.
-    Job was executed on host(s) <8*n069>, in queue <general>, as user <username> in cluster <mk2>.
+    Sender: LSF System <lsfadmin@n069>
+    Subject: Job 173772: <test> in cluster <pegasus> Done
+    Job <test> was submitted from host <login1> by user <username> in cluster <pegasys>.
+    Job was executed on host(s) <8*n069>, in queue <normal>, as user <username> in cluster <pegasus>.
     ...
     Your job looked like:
     ------------------------------------------------------------
