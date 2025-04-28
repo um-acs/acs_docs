@@ -189,9 +189,8 @@ your project before running.
     #BSUB -J test
     #BSUB -o test.out
     #BSUB -e test.err
-    #BSUB -a openmpi
     #BSUB -R "span[ptile=16]"
-    #BSUB -q parallel
+    #BSUB -q normal
     #BSUB -P hpc
     mpirun.lsf ./mpi_example1.x
 
@@ -200,6 +199,6 @@ Submit this scriptfile using ``bsub``. For job script information, see
 
 ::
 
-    [username@pegasus ~]$ bsub -q parallel < mpi_example1.job
-    Job <6021006> is submitted to queue <parallel>.
+    [username@pegasus ~]$ bsub -q normal < mpi_example1.job
+    Job <6021006> is submitted to queue <normal>.
     ...
