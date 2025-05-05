@@ -1,79 +1,107 @@
 RStudio on Pegasus
 ==================
 
-Rstudio is available as a software module on Pegasus utilizing R version 4.1.0. RStudio graphical jobs can be submitted to 
-the LSF scheduler via the interactive queue.
+Rstudio is available graphically as a singularity container. The current version is R/4.2.1 using a tidyverse base. 
 
 
-Forwarding X11
-----------------
-
-In order to launch an RStudio interactive job, you will need to login to Pegasus with X11 forwarding enabled.
-
-You will also need to install an X11 server on your local machine such as Xming for Windows or XQuartz for Mac.
-
-Please see the following guide on how to achieve this: 
-https://acs-docs.readthedocs.io/services/1-access.html?highlight=x11#connect-with-x11-forwarding
-
-
-Loading the Module
+Setup your $RSTUDIO_WORK_DIR
 -------------------
-The RStudio module is dependent on the gcc/8.3.0 and R/4.1.0 software modules. These will come pre-loaded once the RStudio module has been loaded
 
 ::
 
-    [nra20@login4 ~]$ module load rstudio
-    [nra20@login4 ~]$ module list
-     Currently Loaded Modulefiles:
-       1) perl/5.18.1(default)   3) gcc/8.3.0
-       2) R/4.1.0                4) rstudio/2022.05.999
+    [pdavila@pegasus ~]$ echo "export RSTUDIO_WORK_DIR=/$HOME/rstudio/" >> ~/.bash_profile
+    [pdavila@pegasus ~]$ source ~/.bash_profile
+    [pdavila@pegasus ~]$ mkdir -p $RSTUDIO_WORK_DIR
+    [pdavila@pegasus ~]$ cp /projectnb/pegasus/sw/rstudio/pegasus_rstudio_lsf.* $RSTUDIO_WORK_DIR/
+    
+    [pdavila@pegasus rstudio]$ ls -lh $RSTUDIO_WORK_DIR/
+    -rw-r--r-- 1 pdavila hpc           5.0K Aug 27 11:23 pegasus_rstudio_lsf.job
+    -rwxr-xr-x 1 pdavila hpc            516 Aug 27 10:46 pegasus_rstudio_lsf.sh
+
        
-First Time configurations
+Edit your rstudio_lsf.job Script 
 ----------------------------
-If this is the first time you are using the RStudio module you will need to configure the rendering engine to run in software mode by editing /nethome/caneid/.config/RStudio/desktop.ini
+You should set your project, queue, and email.  You may also want to update the requested LSF 1. runtime, cpu cores, and memory, defaults below.  
 
 ::
 
-    [nra20@login4 ~]$ vi /nethome/nra20/.config/RStudio/desktop.ini
+    [pdavila@login4 ~]$ cd $RSTUDIO_WORK_DIR   # Edit the Job script
+    [pdavila@login4 rstudio]$ head -20 $RSTUDIO_WORK_DIR/pegasus_rstudio_lsf.job
+    #!/bin/sh
+    #BSUB -J rstudio_server         # Job Name
+    #BSUB -o %J.out                 # Save standard output to JOBID.out
+    #BSUB -e %J.err                 # Save standard error to JOBID.err
+    #BSUB -P projectID              # Project ID 
+    #BSUB -q normal                 # Select LSF Queue 
+    #BSUB -W 8:00                   # 8 hours, 0 minutes job walltime (runtime)
+    #BSUB -n 1                      # Set n = number of cores (1 in this template)
+    #BSUB -R "span[hosts=1]"        # Select all cores from the same host
+    #BSUB -R "rusage[mem=7800]"     # Requests 7,800 MB of RAM per core
+    #BSUB -u email@miami.edu        # Email address to send notification to
+    #BSUB -B                        # Email user (-u) when job is dispatched and begins execution
+    #BSUB -N                        # Email user (-u) job statistics report when job finishes.
+     
+    ###############################################################################
+    # DEFAUTS
+    ###############################################################################
+     
+    module load singularity
+     
+    LOGIN_NODE="pegasus2.ccs.miami.edu"
+    R="4.2.1"
+    BASE="tidyverse"
+     
+    IMAGE="rocker/${BASE}:${R}"
+    IMAGE_DIR="/projectnb/pegasus/sw/rstudio/sif"
+    SIF="${IMAGE_DIR}/${BASE}_${R}.sif"
+    SINGULARITY_BIND="/scratch,/projectnb"
+
     
-Add the following line under [General]
-
-    desktop.renderingEngine=software
-    
 
 
-Launching RStudio jobs through LSF 
+Run RSTUDIO on Pegasus Nodes
 -------------------------------------
-To launch RStudio jobs to the LSF scheduler, you will need to pass the X11 **-XF** parameter and submit to the **interactive** queue through the command line. 
+The wrapper script will return your JOBID, RStudio Server URL, and credentials.  It will also return the LSF command you can use to close your job, should you finish your work in less time than the requested runtime (-W 8:00). Please follow the instructions as detailed in the job message. Example below:
 
 ::
 
-    [nra20@login4 ~]$ bsub -Is -q interactive -P hpc -XF rstudio
-    Job is submitted to <hpc> project.
-    Job <27157788> is submitted to queue <interactive>.
-    <<ssh X11 forwarding job>>
-    <<Waiting for dispatch ...>>
-    Warning: Permanently added '10.10.104.5' (ECDSA) to the list of known hosts.
-    <<Starting on n131>>
+    [pdavila@pegasus ~]$ cd $RSTUDIO_WORK_DIR
+    [pdavila@pegasus rstudio]$ ./pegasus_rstudio_lsf.sh 
+    Job is submitted to <projectID> project.
+    JOBID: 28929532
+     
+    << output from stdout >>
+    The RStudio Singularity container (/projectnb/pegasus/sw/rstudio/sif/tidyverse_4.2.1.sif) is available.
+     
+     1. Create an SSH tunnel from your workstation in a new terminal with the
+        following command:
+     
+       ssh -N -L 8787:n127:60218 pdavila@pegasus.ccs.miami.edu
+     
+       and point your web browser to http://localhost:8787
+     
+    2. log in to RStudio Server using the following credentials:
+     
+       user: pdavila
+       password: aTAfBBKffxjdDsu+y4fs
+     
+    When done using RStudio Server, terminate the job by:
+     
+    1. Exit the RStudio Session ("power" button in the top right corner of the RStudio window)
+    2. Issue the following command on the login node:
+     
+          bkill 28929505
+     
+    << output from stderr >>
 
-The RStudio graphical interface will then appear, from which you can utilize and install any needed packages. 
 
-Changing Graphical Backend
-----------------------------
-In order to utilize the graphical features of RStudio, please change the graphical backend to AGG format. You can do after lauching the graphical
-UI from the previous step. 
+The RStudio graphical interface will then appear, from which you can utilize and install any needed packages. Remember to create an ssh tunnel by opening a new terminal on your local machine and running the ssh command as specified above.
 
-1. Navigate to "Tools > Global Optios"
-2. Navigate to the "Graphics" tab located towards the top of the menu
-3. Switch the "Backend" option to "AGG"
+**DO NOT SHARE YOUR RSTUDIO JOB CREDENTIALS!!!**
+ 
+The password generated by pegasus_rstudio_lsf.sh is a randomly generated per JOB.
+THE JOB WILL HAVE ACCESS TO ALL SINGULARITY_BIND DIRECTORIES YOU HAVE ACCESS TO ON PEGASUS.
 
-This option only has to be configured once. Subsequent RStudio sessions will now have the AGG backend enabled and your sessions can 
-now utilize graphical features. 
-
-
-
-More information on submitting graphical interactive jobs: https://acs-docs.readthedocs.io/pegasus/jobs/5-interactive.html
-
-If you run into any issues with package installations, please send an email to hpc@ccs.miami.edu 
+If you run into any issues, please send an email to hpc@ccs.miami.edu 
 
 
