@@ -25,6 +25,8 @@ You should set your project, queue, and email.  You may also want to update the 
 
 ::
 
+    [pdavila@login4 ~]$ module load python
+    [pdavila@login4 ~]$ module load singularity 
     [pdavila@login4 ~]$ cd $RSTUDIO_WORK_DIR   # Edit the Job script
     [pdavila@login4 rstudio]$ head -20 $RSTUDIO_WORK_DIR/pegasus_rstudio_lsf.job
     #!/bin/sh
