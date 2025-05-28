@@ -436,11 +436,13 @@ After a package is installed, you can use it in your notebook by running ``impor
 Creating your R Kernels
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-$ mamba create -n myRenv -c conda-forge r-base r-irkernel
-$ mamba activate myRenv
-$ mamba install -c conda-forge jupyter_client
-$ R
-> IRkernel::installspec(name='my_r_kernel', displayname='My R Kernel')
+::
+
+   $ mamba create -n myRenv -c conda-forge r-base r-irkernel
+   $ mamba activate myRenv
+   $ mamba install -c conda-forge jupyter_client
+   $ R
+   > IRkernel::installspec(name='my_r_kernel', displayname='My R Kernel')
 
 Later on, you can still install new packages to the kernel using ``conda install <package>`` or install.packages() in R after activating the environment.
 
