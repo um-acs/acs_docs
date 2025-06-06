@@ -5,6 +5,29 @@ This is a simplified Guide on how to run `nf-core/sarek <https://nf-co.re/sarek/
 
 If you are new to Nextflow on HPC, please see the `Software Carpentries Tutorials <https://carpentries-incubator.github.io/workflows-nextflow/index.html>`__ provided by the `Nextflow Community <https://www.nextflow.io/blog/2023/learn-nextflow-in-2023.html>`__.
 
+Load Nextflow module
+--------------------
+
+::
+
+  [pdavila@login4 ~]$ module load nextflow/25.04.2
+
+Want to run an nf-core pipeline that requires DSL1 or an older version of Nextflow, no problem.
+
+::
+
+  mkdir $HOME/bin && cd $HOME/bin
+  export NXF_VER=24.04.4
+  curl -s https://get.nextflow.io | bash
+
+  # Set as your default nextflow
+  echo "export PATH=$HOME/bin:$PATH" >> $HOME/.bash_profile
+  source $HOME/.bash_profile
+
+  # Return to your previous $PWD
+  cd -
+
+
 Sample User Nextflow LSF Configuration
 --------------------------------------
 
