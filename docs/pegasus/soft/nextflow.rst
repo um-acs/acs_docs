@@ -12,7 +12,8 @@ Load Nextflow module
 
   [pdavila@login4 ~]$ module load nextflow/25.04.2
 
-Want to run an nf-core pipeline that requires DSL1 or an older version of Nextflow, no problem.
+Want to run an nf-core pipeline that requires DSL1 or an older version of Nextflow, no problem.  You can use your own nextflow executable, instructions below.  
+
 
 ::
 
@@ -257,3 +258,11 @@ View your Results
                 ├── test.strelka.genome.vcf.gz.tbi
                 ├── test.strelka.variants.vcf.gz
                 └── test.strelka.variants.vcf.gz.tbi
+
+Sources
+-------
+
+The nextflow/25.04.2 module provides nf-core and nf-core tools.  It was installed using Miniforge and Bioconda.
+
+https://nf-co.re/docs/nf-core-tools/installation
+
