@@ -20,7 +20,7 @@ as well.
 
 ::
 
-    [username@pegasus ~]$ module load matlab
+    [username@pegasus ~]$ module load matlab/r2024b
     [username@pegasus ~]$ bsub -Is -q interactive -XF -P projectID matlab
 
 Once the interactive MATLAB graphical desktop is loaded, you can then
