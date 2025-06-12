@@ -338,37 +338,3 @@ Pegasus, Triton & Apex use your IDSC account for authentication.
 
 Click the "Connect" button. Once connected, drag and drop files or
 directories between your local machine and the server.
-
-Using the gateway server
-------------------------
-
-To transfer large amounts of data from systems outside the University of
-Miami, use the gateway server. This server supports SFTP file
-transfers. Users ***must be a member of a project*** to request access
-to the gateway server. E-mail hpc@ccs.miami.edu to request access.
-
-SFTP
-~~~~
-
-::
-
-    Host:  xfer.ccs.miami.edu
-    protocol:  SFTP
-    user:    caneid
-    pw:  [UM caneid passwd]  
-    Folder: download/<projectname>
-
-Open an SFTP session to the gateway server using your IDSC account
-credentials: ``xfer.ccs.miami.edu``
-
-::
-
-    [localmachine: ~]$ sftp username@xfer.ccs.miami.edu
-    sftp> cd download
-    sftp> mkdir <project>
-    sftp> cd project
-    sftp> put newfile
-
-
-.. |FileZilla Site Manager| image:: assets/fz_sm1.png
-
