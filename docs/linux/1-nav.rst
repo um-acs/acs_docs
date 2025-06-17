@@ -157,7 +157,7 @@ Some useful ``cd`` commands:
 
 -  ``cd`` or ``cd ~`` move to user’s home directory
 -  ``cd ..`` move to parent directory
--  ``cd -`` move to previous working directory
+-  ``cd -`` move to previous working directory and also prints it. 
 
 View directory contents with ``tree``:
 --------------------------------------
