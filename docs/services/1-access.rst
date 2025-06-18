@@ -59,7 +59,9 @@ Save and close the file. Note that the ``Host`` value is an alias you will use l
 
 Press ``Ctrl+Shift+P`` again. Search for and select: **Remote-SSH: Connect to Host...**. Then choose the alias you defined (e.g., ``pegasus``). When prompted, enter your SSH password.
 
-After successful connection, you can browse the remote file system directly within VS Code. You may be prompted for your password again when accessing directories outside your home directory.
+After successful connection, you can browse the remote file system directly within VS Code. You may be prompted for your password again when accessing directories outside your home directory. 
+
+Ensure you have the ``Remote - SSH extension`` installed in VS Code.
 
 .. _x11: 
 
