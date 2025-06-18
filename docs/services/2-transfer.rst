@@ -338,3 +338,11 @@ Pegasus, Triton & Apex use your IDSC account for authentication.
 
 Click the "Connect" button. Once connected, drag and drop files or
 directories between your local machine and the server.
+
+Using VS Code
+-------------
+
+Once logged in through VS Code, you can **upload and download files** as follows:
+
+- To **download**, right-click a file or folder and select **Download** from the context menu.
+- To **upload**, simply drag and drop files from your local machine into the VS Code interface connected to the remote server.
