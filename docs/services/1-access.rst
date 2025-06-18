@@ -42,6 +42,24 @@ To use SSH key pairs to authenticate, see Tutorial below:
 https://phoenixnap.com/kb/how-to-generate-ssh-key-centos-7
 
 
+Using VS Code
+~~~~~~~~~~~~~
+
+Open Visual Studio Code by pressing ``Ctrl+Shift+P`` (or ``Cmd+Shift+P`` on macOS) to open the command palette. Then type and select: **Remote-SSH: Open SSH Configuration File...**, and choose your user's SSH config file (typically located at ``~/.ssh/config``).
+
+In the opened config file, add the following block (modify placeholders accordingly):
+
+    ::
+
+        Host <preferred-host-alias>
+            HostName pegasus2.ccs.miami.edu
+            User <your-username>
+
+Save and close the file. Note that the ``Host`` value is an alias you will use later to connect from VS Code.
+
+Press ``Ctrl+Shift+P`` again. Search for and select: **Remote-SSH: Connect to Host...**. Then choose the alias you defined (e.g., ``pegasus``). When prompted, enter your SSH password.
+
+After successful connection, you can browse the remote file system directly within VS Code. You may be prompted for your password again when accessing directories outside your home directory.
 
 .. _x11: 
 
