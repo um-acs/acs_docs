@@ -45,7 +45,7 @@ https://phoenixnap.com/kb/how-to-generate-ssh-key-centos-7
 Using VS Code
 ~~~~~~~~~~~~~
 
-Open Visual Studio Code by pressing ``Ctrl+Shift+P`` (or ``Cmd+Shift+P`` on macOS) to open the command palette. Then type and select: **Remote-SSH: Open SSH Configuration File...**, and choose your user's SSH config file (typically located at ``~/.ssh/config``).
+In Visual Studio Code, open the command palette by pressing ``Ctrl+Shift+P`` (or ``Cmd+Shift+P`` on macOS). Then type and select: **Remote-SSH: Open SSH Configuration File...**, and choose your user's SSH config file (typically located at ``~/.ssh/config``).
 
 In the opened config file, add the following block (modify placeholders accordingly):
 
