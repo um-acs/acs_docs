@@ -61,7 +61,7 @@ Press ``Ctrl+Shift+P`` again. Search for and select: **Remote-SSH: Connect to Ho
 
 After successful connection, you can browse the remote file system directly within VS Code. You may be prompted for your password again when accessing directories outside your home directory. 
 
-Ensure you have the ``Remote - SSH extension`` installed in VS Code.
+Ensure you have the **Remote - SSH** extension installed in VS Code.
 
 .. _x11: 
 
