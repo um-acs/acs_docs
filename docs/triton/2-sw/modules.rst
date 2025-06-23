@@ -3,7 +3,7 @@ Software Modules
 
 Below is a list of the software on Triton accessible through LMOD (modules) as of 2021/01/13 5:00pm.  
 
-The "module avail command" reports only the modules that are available with with the current compiler.  The "module spider" command lists all available modules, regardless of which compiler is loaded. 
+The "module avail" command reports only the modules that are available with with the current compiler.  The "module spider" command lists all available modules, regardless of which compiler is loaded. 
 
 The Anaconda and IBM Watson Machine Learning (WML) modules provide additional software.  More information on using modules on Triton is available on the modules documentation page, link below.
 
