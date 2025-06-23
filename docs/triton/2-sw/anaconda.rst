@@ -89,15 +89,13 @@ For example, ``conda create -n my_env python=3.7 numpy scipy`` will
 create an environment at ``~/.conda/envs`` with Python 3.7.x and two packages
 numpy and scipy. You can also specify the package versions. 
 
-If you have a list of specific dependencies, you can install them using a requirements file. First, activate your virtual environment. Then run the installation command:
+If you have a list of specific packages, you can install them using a requirements file. First, activate your virtual environment. Then run the installation command:
 
-::
-   python -m pip install -r requirements.txt
+$ ``python -m pip install -r requirements.txt``
 
 Make sure the `requirements.txt` file is in the current working directory. If the file is located somewhere else, update the path or filename accordingly:
 
-::
-   python -m pip install -r path/to/your_file.txt`
+$ ``python -m pip install -r path/to/your_file.txt``
 
 
 .. note::
