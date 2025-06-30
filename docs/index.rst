@@ -44,6 +44,5 @@ To access IDSC resources while offsite, `open a VPN connection first <https://ac
 
    Linux on Clusters <linux/README>
    Services <services/README>  
-   Triton Cluster  <triton/README>
-   Pegasus Cluster <pegasus/README>
+   Clusters  <clusters/README>
    IDSC ACS Policies <policies/README>
