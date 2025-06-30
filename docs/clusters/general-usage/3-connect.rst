@@ -1,13 +1,22 @@
-Connecting to Triton 
-^^^^^^^^^^^^^^^^^^^^
+Connecting to the Clusters
+==========================
 
-| **DNS** : t2.idsc.miami.edu 
-| **Access** : `SSH <https://acs-docs.readthedocs.io/services/1-access.html#ssh>`__ over secure UM networks, `x11 <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__ 
-| **Credentials** : IDSC Account  
+Triton Access
+^^^^^^^^^^^^^
 
-Connecting to Pegasus 
-^^^^^^^^^^^^^^^^^^^^
+- **DNS:** ``t2.idsc.miami.edu``
+- **Access:**  
+  Connect via `SSH <https://acs-docs.readthedocs.io/services/1-access.html#ssh>`__ over secure University of Miami networks.  
+  For graphical sessions, use `X11 forwarding <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__.
+- **Credentials:**  
+  Requires a valid **IDSC Account**.
 
-| **DNS** : pegasus2.ccs.miami.edu 
-| **Access** : `SSH <https://acs-docs.readthedocs.io/services/1-access.html#ssh>`__ over secure UM networks, `x11 <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__ 
-| **Credentials** : IDSC Account 
+Pegasus Access
+^^^^^^^^^^^^^
+
+- **DNS:** ``pegasus2.ccs.miami.edu``
+- **Access:**  
+  Connect via `SSH <https://acs-docs.readthedocs.io/services/1-access.html#ssh>`__ over secure University of Miami networks.  
+  For graphical sessions, use `X11 forwarding <https://acs-docs.readthedocs.io/services/1-access.html#x11>`__.
+- **Credentials:**  
+  Requires a valid **IDSC Account**.
