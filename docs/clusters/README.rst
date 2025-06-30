@@ -9,5 +9,6 @@ Currently these clusters are available for usage.
    :maxdepth: 2
    :glob: 
 
-   Triton Cluster  <triton/README>
-   Pegasus Cluster <pegasus/README>
+   General Usage <general-usage/README>
+   Triton Specifics  <triton-only/README>
+   Pegasus Specifics <pegasus-only/README>
