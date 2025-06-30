@@ -40,10 +40,10 @@ To access IDSC resources while offsite, `open a VPN connection first <https://ac
 --------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
+   Linux on Clusters <linux/README>
+   Services <services/README>  
    Triton Cluster  <triton/README>
    Pegasus Cluster <pegasus/README>
-   Linux on Clusters <linux/README> 
-   ACS Services <services/README> 
    IDSC ACS Policies <policies/README>
