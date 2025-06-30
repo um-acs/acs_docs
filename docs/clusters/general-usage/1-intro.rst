@@ -34,23 +34,3 @@ The **Pegasus** cluster is the University of Miami’s flagship high-performance
     Access Requirements:  IDSC Account
     Data Transfer:        SCP, SFTP
     Target Workloads:     General HPC
-
-
-
-.. tip::
-
-   Before working on **Pegasus** or **Triton**, please review our official `usage policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__.
-
-
-
-Important Usage Guidelines
---------------------------
-
-- **Do not run resource-intensive jobs on login nodes.**  
-  Use the `LSF batch scheduler <https://acs-docs.readthedocs.io/pegasus/jobs/4-scripts.html#lsf-scripts>`__ or the `interactive queue <https://acs-docs.readthedocs.io/pegasus/jobs/2-queues.html#p-queues>`__ instead. Login node misuse may result in account suspension.
-
-- **Use the ``/scratch`` file system for job data.**  
-  Input/output files must be staged in ``/scratch``, which is optimized for high-throughput I/O. Avoid using ``/nethome`` when using ``Pegasus`` during job execution—it can slow down the entire cluster and may result in account restrictions.
-
-- **Include your project ID when submitting jobs.**  
-  Access to IDSC resources is managed on a per-project basis. This facilitates team collaboration and data sharing across departments. Learn more on the `Projects page <https://acs-docs.readthedocs.io/pegasus/env/3-projects.html#projects>`__.
