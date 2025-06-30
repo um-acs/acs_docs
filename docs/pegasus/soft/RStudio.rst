@@ -123,3 +123,130 @@ THE JOB WILL HAVE ACCESS TO ALL SINGULARITY_BIND DIRECTORIES YOU HAVE ACCESS TO 
 If you run into any issues, please send an email to hpc@ccs.miami.edu 
 
 
+Updating an RStudio Container
+-----------------------------
+
+We can install most R packages to our personal R library from the RStudio GUI and RStudio terminal. 
+
+Some R packages will require us to update the container.  We can update the container from any Linux environment we have sudo, for example a Windows Subsystem for Linux (WSL) VM.
+
+Installing WSL
+~~~~~~~~~~~~~~
+
+1. Open "Admin By Request" and authenticate.  You will need admin access on your UM/UHealth IT managed Windows machine to install WSL.
+
+2. Open PowerShell as Administrator: Right-click the Start button and select "Windows PowerShell (Admin)" or "Windows Terminal (Admin)."
+
+3. Enable WSL: Run the following command to enable WSL and install the default Ubuntu distribution.
+
+:: 
+
+  PS C:\>wsl --install
+
+If this is the first time you install WSL on your machine, it is recommended to reboot your machine to complete the setup.
+
+You only need admin privileges to install WSL once.  After WSL is installed, you do not need admin privileges to install additional VM's. 
+
+Let's install AlmaLinux-8, a RHEL8 distribution like the OS we run on pegasus.idsc.miami.edu.  Open a regular Windows PowerShell or Windows Terminal and run the following commands.
+
+::
+
+  PS C:\> wsl --list --online
+  PS C:\> wsl --install AlmaLinux-8
+
+We will now be in your new VM.
+
+::
+
+  # Change Directory to your home folder
+  [pdavila@UH-B9XLL33 v1.0]$ cd
+
+  [pdavila@UH-B9XLL33 ~]$ cat /etc/redhat-release
+  AlmaLinux release 8.10 (Cerulean Leopard)
+
+I suspect the default network settings will also not work.  Below is how we fix the network access.
+
+Fix WSL network access
+~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+  [pdavila@UH-B9XLL33 ~]$ cat fix_network.sh
+  #!/usr/bin/sh
+
+  sudo chattr -i /etc/resolv.conf
+  sudo rm /etc/resolv.conf
+  sudo bash -c 'echo "nameserver 10.50.50.100" > /etc/resolv.conf'
+  sudo bash -c 'echo "nameserver 10.100.50.100" >> /etc/resolv.conf'
+  sudo bash -c 'echo "nameserver 8.8.8.8" >> /etc/resolv.conf'
+  sudo bash -c 'echo "[network]" > /etc/wsl.conf'
+  sudo bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
+  sudo chattr +i /etc/resolv.conf
+
+  [pdavila@UH-B9XLL33 ~]$ chmod +x ./fix_network.sh
+  [pdavila@UH-B9XLL33 ~]$ sudo ./fix_network.sh
+
+
+We will now install e2fsprogs, rsync and epel-release.  We need e2fsprogs for the chattr (prevent WSL from change /etc/resolv.conf), rsync to transfer files cleanly and epel-release for apptainer (singularity).
+::
+
+  [pdavila@UH-B9XLL33 ~]$ sudo dnf update -y
+  [pdavila@UH-B9XLL33 ~]$ sudo dnf install rsync e2fsprogs epel-release -y
+  [pdavila@UH-B9XLL33 ~]$ sudo dnf install apptainer -y
+
+Download container we want to update
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::
+
+  [pdavila@UH-B9XLL33 ~]$ rsync -av pdavila@pegasus.idsc.miami.edu:/sccc/projects/sccc_iavarone/rstudio/rstudio_sccc_R-4.3.3_v12.sif ./
+
+Create sandbox from the Singularity container 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+::
+
+  [pdavila@UH-B9XLL33 ~]$ TMPDIR=/tmp/pdavila/rstudio
+  [pdavila@UH-B9XLL33 ~]$ mkdir -p $TMPDIR
+  [pdavila@UH-B9XLL33 ~]$ time sudo singularity build --sandbox ${TMPDIR}/rstudio_sccc_R-4.3.3_v12 rstudio_sccc_R-4.3.3_v12.sif
+ 
+  INFO:    Starting build...
+  INFO:    Verifying bootstrap image rstudio_sccc_R-4.3.3_v12.sif
+  INFO:    Extracting local image...
+
+  INFO:    Creating sandbox directory...
+  INFO:    Build complete: /tmp/pdavila/rstudio/rstudio_sccc_R-4.3.3_v12
+
+  real    0m54.754s
+  user    1m27.472s
+  sys     1m5.582s
+
+Edit the sandbox
+~~~~~~~~~~~~~~~~
+::
+
+  [pdavila@UH-B9XLL33 ~]$ sudo singularity shell --writable ${TMPDIR}/rstudio_sccc_R-4.3.3_v12
+
+We will now be inside the container.  Here we should always first run "apt update" to update repos.  Then we can upgrade OS packages, install OS packages, or even install R packages.  
+::
+
+  Singularity> apt update
+  Singularity> apt install libgl1-mesa-dev libglu1-mesa-dev
+
+  Singularity> R
+  > remotes::install_github("dmurdoch/rgl")
+  …
+  ** testing if installed package can be loaded from final location
+  ** testing if installed package keeps a record of temporary installation path
+  * DONE (rgl)
+  > q()
+
+Create new container
+~~~~~~~~~~~~~~~~~~~~
+::
+
+  Singularity> exit
+  [pdavila@UH-B9XLL33 ~]$ time sudo singularity build rstudio_sccc_R-4.3.3_v13.sif ${TMPDIR}/rstudio_sccc_R-4.3.3_v12/
+
+We can now use rsync to transfer the new container to Pegasus and then update our RSTUDIO LSF Job script to use the new container.
+
+
+
