@@ -50,7 +50,7 @@ You should set your project, queue, and email.  You may also want to update the 
     module load singularity
      
     LOGIN_NODE="pegasus2.ccs.miami.edu"
-    R="4.2.1"
+    R="4.4.2_v5"
     BASE="tidyverse"
      
     IMAGE="rocker/${BASE}:${R}"
