@@ -49,7 +49,7 @@ The table below lists commonly used modules commands.
      - displays location and library information about a module
 
 
-See our `Policies <https://acs-docs.readthedocs.io/policies/README.html>`_ page for minimum requirements and more information.
+See our `Policies <https://dev-acs-docs.readthedocs.io/policies/README.html>`_ page for minimum requirements and more information.
 
 
 

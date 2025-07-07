@@ -3,7 +3,7 @@ Important Guidelines
 
 - **Review Policies:**  
   Before running commands, submitting jobs, or using software on **Pegasus** or **Triton**, please review our  
-  `usage policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__ and ensure you understand the rules governing access to IDSC resources.
+  `usage policies <https://dev-acs-docs.readthedocs.io/policies/policies.html#policies>`__ and ensure you understand the rules governing access to IDSC resources.
 
 - **Use ``/scratch`` for Job I/O:**  
   Input and output files must be staged in the ``/scratch`` filesystem, which is optimized for high-throughput I/O.  
@@ -21,10 +21,14 @@ Important Guidelines
 
 - **Per-Project Access Model:**  
   Access to IDSC resources is managed on a **per-project basis**, facilitating team collaboration and secure data sharing across the University.  
-  More details are available on the `Projects page <https://acs-docs.readthedocs.io/pegasus/env/3-projects.html#projects>`__.
+  More details are available on the `Projects page <https://dev-acs-docs.readthedocs.io/clusters/general-usage/6-jobs/4-projects.html#projects>`__.
 
 - **Do Not Run Jobs on Login Nodes:**  
   Always use the  
-  `LSF batch scheduler <https://acs-docs.readthedocs.io/pegasus/jobs/4-scripts.html#lsf-scripts>`__  
-  or the `interactive queue <https://acs-docs.readthedocs.io/pegasus/jobs/2-queues.html#p-queues>`__ to submit jobs.  
+
+  docs/clusters/general-usage/6-jobs/4-scripts.rst
+
+
+  `LSF batch scheduler <https://dev-acs-docs.readthedocs.io/clusters/general-usage/6-jobs/4-scripts.html#lsf-scripts>`__  
+  or the `interactive queue <https://dev-acs-docs.readthedocs.io/clusters/general-usage/6-jobs/2-queues.html#p-queues>`__ to submit jobs.  
   Running intensive tasks on login nodes can disrupt other users and may result in account suspension.
