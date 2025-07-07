@@ -130,8 +130,9 @@ recently submitted job dispatched to the specified host.
 ``bpeek -f jobID`` display live outputs from a running job and it can be
 terminated by ``Ctrl-C`` (Windows & most Linux) or ``Command-C`` (Mac).
 
+
 Examining Job Output
---------------------
+----------------------
 
 Once your job has completed, examine the contents of your job’s output
 files. Note the script submission under **User input**, whether the job
