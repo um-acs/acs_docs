@@ -1,6 +1,6 @@
 .. _g-queues:
 
-Job Queues
+Queues
 ==================
 
 Pegasus queues are organized using limits like job size, job length, job

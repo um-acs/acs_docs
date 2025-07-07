@@ -1,6 +1,6 @@
 .. _g-schedule: 
 
-Scheduling Jobs
+Submitting Jobs
 ====================
 
 The command ``bsub`` will submit a job for processing. You must include

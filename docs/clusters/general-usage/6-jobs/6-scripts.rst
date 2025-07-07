@@ -1,6 +1,6 @@
-.. _g-lsf-scripts:
+.. _g-scripts:
 
-LSF Job Scripts
+Job Scripts
 =======================
 
 The command ``bsub < ScriptFile`` will submit the given script for
@@ -10,8 +10,7 @@ and run the job. For more information about flags, type ``bsub -h`` or
 ``man bsub`` at the Pegasus prompt. Example scripts and descriptions are
 below.
 
-You must be a member of a project to submit jobs to it. See
-`Projects <https://dev-acs-docs.readthedocs.io/clusters/general-usage/4-projects.html#projects>`__ for more information.
+You must be a member of a project to submit jobs to it. See :ref:`g-projects` for more information.
 
 On submission, LSF will return the ``jobID`` which can be used to track
 your job.

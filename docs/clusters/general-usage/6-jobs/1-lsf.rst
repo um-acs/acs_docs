@@ -1,6 +1,6 @@
 .. _g-lsf: 
 
-Job Scheduling with LSF
+LSF Overview
 ===============================
 
 LSF (*load sharing facility*) supports over 1500

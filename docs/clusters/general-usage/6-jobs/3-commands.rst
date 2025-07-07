@@ -1,6 +1,6 @@
 .. _g-lsf-commands: 
 
-LSF Commands
+Commands
 ====================
 
 `LSF 9.1.1 Documentation <https://ccs.maimi.edu/ac/lsf/9.1.1/>`__

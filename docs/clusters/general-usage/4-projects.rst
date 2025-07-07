@@ -1,4 +1,4 @@
-.. _projects:
+.. _g-projects:
 
 Projects & Resources
 ============================
