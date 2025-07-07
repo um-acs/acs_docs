@@ -9,6 +9,9 @@ to **queues**, the software categories we define in the scheduler to
 organize work more efficiently. LSF distributes jobs submitted by users
 to our over 70 compute nodes (and counting) according to queue, user priority, and
 available resources. You can monitor your job status, queue position,
+
+and progress using :ref: `lsf-commands`
+
 and progress using `LSF Commands <https://dev-acs-docs.readthedocs.io/clusters/general-usage/6-jobs/3-commands.html#lsf-commands>`__.
 
 .. tip:: **Reserve an appropriate amount of resources through LSF for your jobs.** 
