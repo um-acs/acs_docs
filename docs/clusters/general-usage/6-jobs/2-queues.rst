@@ -17,7 +17,7 @@ bigmem queue.
 
 .. warning:: Jobs using less than 1.5G of memory per core on the bigmem queue are 
 in violation of acceptable use policies and the IDSC account responsible for those jobs 
-may be suspended (`Policies <https://dev-acs-docs.readthedocs.io/policies/policies.html#policies>`__).
+may be suspended (:ref:`policies`)
 
 
 .. role:: raw-html(raw)
