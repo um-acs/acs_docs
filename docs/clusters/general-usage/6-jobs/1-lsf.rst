@@ -1,4 +1,4 @@
-.. _p-jobs: 
+.. _g-jobs: 
 
 Job Scheduling with LSF
 ===============================
@@ -9,33 +9,30 @@ to **queues**, the software categories we define in the scheduler to
 organize work more efficiently. LSF distributes jobs submitted by users
 to our over 70 compute nodes (and counting) according to queue, user priority, and
 available resources. You can monitor your job status, queue position,
+and progress using :ref:`g-lsf-commands`
 
-and progress using :ref:`lsf-commands`
-
-and progress using `LSF Commands <https://dev-acs-docs.readthedocs.io/clusters/general-usage/6-jobs/3-commands.html#lsf-commands>`__.
 
 .. tip:: **Reserve an appropriate amount of resources through LSF for your jobs.** 
 
 If you do not know the resources your jobs need, use the
-**debug** queue to benchmark your jobs. More on `Queues <https://dev-acs-docs.readthedocs.io/clusters/general-usage/6-jobs/2-queues.html#p-queues>`__ and `LSF Job Scripts <https://dev-acs-docs.readthedocs.io/clusters/general-usage/6-jobs/4-scripts.html#lsf-scripts>`__ 
+**debug** queue to benchmark your jobs. More on :ref:`g-queues` and :ref:`g-lsf-commands`
 
-.. warning:: Jobs with insufficient resource allocations interfere with cluster performance and the IDSC account responsible for those jobs may be suspended (`Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__).
+.. warning:: Jobs with insufficient resource allocations interfere with cluster performance and the IDSC account responsible for those jobs may be suspended (:ref:`policies`).
 
 .. tip:: **Stage data for running jobs exclusively in the** ``/scratch`` **file system,** which is optimized for fast data access. 
 
-Any files used as input for your jobs must first be transferred to /scratch. See `Pegasus Resource Allocations <https://dev-acs-docs.readthedocs.io/policies/policies.html#policies>`__ for more information. The
+Any files used as input for your jobs must first be transferred to /scratch. See :ref:`policies` for more information. The
 /nethome file system is optimized for mass data storage and is therefore
 slower-access. 
 
-.. warning:: Using /nethome while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended*** (`Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__).
+.. warning:: Using /nethome while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended*** (:ref:`policies`).
 
 .. tip:: **Do not background processes with the** ``&`` **operator in LSF.** 
 
 These spawned processes cannot be killed with **bkill** after the parent is
 gone. 
 
-.. warning:: Using the & operator while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended (`Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__).
-
+.. warning:: Using the & operator while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended (:ref:`policies`)
 LSF Batch Jobs
 """"""""""""""
 
