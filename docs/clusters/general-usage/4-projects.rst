@@ -15,7 +15,7 @@ Using projects in computing jobs
 --------------------------------
 
 To run jobs using your project’s resources, submit jobs with your assigned ``projectID`` using the ``-P`` argument to ``bsub``: ``bsub -P projectID``. 
-For more information about LSF and job scheduling, see `Scheduling Jobs <https://acs-docs.readthedocs.io/general-usage/4-jobs.html>`__.
+For more information about LSF and job scheduling, see :ref:`g-schedule`.
 
 For example, if you were assigned the project id "abc", 
 a batch submission from the command line would look like:
