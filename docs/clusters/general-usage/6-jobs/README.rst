@@ -2,7 +2,7 @@ Job Scheduling
 ======================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    LSF Overview <1-lsf>
    Queues <2-queues>
