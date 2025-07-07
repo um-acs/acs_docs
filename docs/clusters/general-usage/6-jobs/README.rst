@@ -4,9 +4,10 @@ Job Scheduling
 .. toctree::
    :maxdepth: 2
 
-   Job Scheduler – LSF <1-lsf>
-   Job Queues <2-queues>
-   LSF Commands <3-commands>
-   LSF Job Scripts <4-scripts>
-   Interactive Jobs <5-interactive>
-   
+   LSF Overview <1-lsf>
+   Queues <2-queues>
+   Commands <3-commands>
+   Submitting Jobs <4-schedule>
+   Monitoring Jobs <5-monitor>
+   Job Scripts <6-scripts>
+   Interactive Jobs <7-interactive>
