@@ -9,5 +9,6 @@ Job Scheduling
    Commands <3-commands>
    Submitting Jobs <4-schedule>
    Monitoring Jobs <5-monitor>
-   Job Scripts <6-scripts>
-   Interactive Jobs <7-interactive>
+   Examining Jobs <6-monitor>
+   Job Scripts <7-scripts>
+   Interactive Jobs <8-interactive>
