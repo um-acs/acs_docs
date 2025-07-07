@@ -4,7 +4,7 @@ Monitoring Jobs
 ====================
 
 bjobs
-~~~~~
+""""""""""
 
 The commands ``bjobs`` displays information about your own pending,
 running, and suspended jobs.
@@ -38,14 +38,14 @@ output to ``less``:
     ...
 
 bhist
-~~~~~
+""""""""""
 
 ``bhist`` displays information about your recently finished jobs. CPU
 time is not normalized in ``bhist`` output. To see your *finished* and
 *unfinished* jobs, use ``bhist -a``.
 
 bkill
-~~~~~
+""""""""""
 
 ``bkill`` kills the last job submitted by the user running the command,
 by default. The command ``bkill jobID`` will remove a specific job from
@@ -61,7 +61,7 @@ On Pegasus (Unix), SIGINT and SIGTERM are sent to give the job a chance
 to clean up before termination, then SIGKILL is sent to kill the job.
 
 bqueues
-~~~~~~~
+""""""""""
 
 ``bqueues`` displays information about queues such as queue name, queue
 priority, queue status, job slot statistics, and job state statistics.
@@ -92,7 +92,7 @@ CPU time is normalized by CPU factor.
    sccc_restudio    10  Open:Active       -    -    -    -     0     0     0     0
 
 bhosts
-~~~~~~
+""""""""""
 
 ``bhosts`` displays information about all hosts such as host name, host
 status, job state statistics, and jobs lot limits. ``bhosts -s``
@@ -117,7 +117,7 @@ to this host.
    n045               ok              -     16      0      0      0      0      0
 
 bpeek
-~~~~~
+""""""""""
 
 Use ``bpeek jobID`` to monitor the progress of a job and identify
 errors. If errors are observed, valuable user time and system resources
