@@ -1,6 +1,6 @@
-.. _p-interactive: 
+.. _g-interactive: 
 
-Pegasus Interactive Jobs
+Interactive Jobs
 ========================
 
 HPC clusters primarily take batch jobs and run them in the

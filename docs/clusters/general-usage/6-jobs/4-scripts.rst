@@ -1,6 +1,6 @@
-.. _lsf-scripts:
+.. _g-lsf-scripts:
 
-Pegasus LSF Job Scripts
+LSF Job Scripts
 =======================
 
 The command ``bsub < ScriptFile`` will submit the given script for
