@@ -1,4 +1,4 @@
-.. _g-jobs: 
+.. _g-lsf: 
 
 Job Scheduling with LSF
 ===============================
@@ -33,6 +33,7 @@ These spawned processes cannot be killed with **bkill** after the parent is
 gone. 
 
 .. warning:: Using the & operator while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended (:ref:`policies`)
+
 LSF Batch Jobs
 """"""""""""""
 
