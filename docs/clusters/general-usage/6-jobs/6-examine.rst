@@ -1,6 +1,6 @@
 .. _g-examine:
 
-Examining Job Output
+Examining Jobs
 =======================
 
 Once your job has completed, examine the contents of your job’s output
