@@ -11,7 +11,6 @@ to our over 70 compute nodes (and counting) according to queue, user priority, a
 available resources. You can monitor your job status, queue position,
 and progress using :ref:`g-lsf-commands`
 
-
 .. tip:: **Reserve an appropriate amount of resources through LSF for your jobs.** 
 
 If you do not know the resources your jobs need, use the
