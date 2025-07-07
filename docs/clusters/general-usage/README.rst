@@ -1,4 +1,4 @@
-Triton user guides
+General User guides
 ==================
 
 .. toctree::
