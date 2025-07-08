@@ -155,14 +155,8 @@ machine to log in to Pegasus via SSH Protocol.
 If using ``Terminal`` on Mac, you can run the following commands 
 (remember to replace abc123 with your CaneID) and follow the instruction to type your password.
 
-**Triton:**
-```bash
-ssh abc123@t2.idsc.miami.edu
-```
-**Pegasus:**
-```bash
-ssh abc123@pegasus2.ccs.miami.edu
-```
+- **Triton:** ``ssh abc123@t2.idsc.miami.edu``
+- **Pegasus:** ``ssh abc123@pegasus2.ccs.miami.edu``
 
 If using ``PuTTY``, you need to put respective hostname in the
 ``Host Name`` field, leave ``22`` in the ``Port`` field, and select
@@ -181,15 +175,17 @@ to run the code. Also, for Python it is better to set up different
 environments for different projects to avoid conflictions of packages.
 
 **Triton:**
-```bash
-module load python/2.7.15-anaconda2-5.3.0
-conda create -n example_env python=3.8 matplotlib
-```
+::
+
+    module load python/2.7.15-anaconda2-5.3.0
+    conda create -n example_env python=3.8 matplotlib
+
 **Pegasus:**
-```bash
-module load miniforge3
-conda create -n example_env python=3.8 matplotlib
-```
+::
+
+    module load miniforge3
+    conda create -n example_env python=3.8 matplotlib
+
 
 5. Prepare the Job Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
