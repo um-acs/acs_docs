@@ -33,8 +33,7 @@ gone.
 
 .. warning:: Using the & operator while running jobs degrades the performance of the entire system and the IDSC account responsible may be suspended (:ref:`policies`)
 
-LSF Batch Jobs
-""""""""""""""
+**LSF Batch Jobs**
 
 Batch jobs are self-contained programs that require no intervention to
 run. Batch jobs are defined by resource requirements such as how many
