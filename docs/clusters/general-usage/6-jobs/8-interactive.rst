@@ -29,8 +29,7 @@ Upon exiting the interactive job, you will be returned to one of the
 login nodes.
 
 
-Interactive Job Utilizing X11 client
--------------------------------------
+**Interactive Job Utilizing X11 client**
 
 Additionally, the interactive queue can run X11 jobs. The bsub ``-XF``
 option is used for X11 jobs, for example:
