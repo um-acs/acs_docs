@@ -20,8 +20,7 @@ your job.
     [username@pegasus ~]$ bsub < test.job
     Job <4225> is submitted to the default queue <normal>.
 
-Example script for a serial Job
--------------------------------
+**Example script for a serial Job**
 
 ``test.job``
 
@@ -89,8 +88,7 @@ assigned values listed in this script:
     #BSUB -N
     send job statistics report through email when job finishes.
 
-Example scripts for parallel jobs
----------------------------------
+**Example scripts for parallel jobs**
 
 We recommend using Intel MPI unless you have specific reason for using
 OpenMP.  Intel MPI scales better and has better performance than OpenMP.
@@ -106,8 +104,7 @@ number other than 16 will be rejected from the parallel queue.***
 core. Parallel job performance may be affected, or even interrupted, by
 other badly-configured jobs running on the same host.
 
-Example script for Intel/Intel MPI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Example script for Intel/Intel MPI**
 
 ``testparai.job``
 
@@ -131,8 +128,7 @@ Example script for Intel/Intel MPI
 ``foo.exe`` is the mpi executable name. It can be followed by its own
 argument list.
 
-Example script for MPI/OpenMP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Example script for MPI/OpenMP**
 
 ``testparao.job``
 
