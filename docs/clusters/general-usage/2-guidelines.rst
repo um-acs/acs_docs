@@ -1,7 +1,7 @@
 Important Guidelines
 ====================
 
-Review Policies and Project Requirements:
+Review Policies and Project Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Before running commands, submitting jobs, or using software on **Pegasus** or **Triton**, please review our  
 :ref:`policies` and ensure you understand the rules governing access to IDSC resources.  
@@ -21,7 +21,7 @@ Join projects by contacting Principal Investigators (PIs). See :ref:`g-projects`
 
 
 
-Network Access Requirement:
+Network Access Requirement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 You must connect to the University of Miami network either:
 - Directly on campus, or
@@ -39,7 +39,7 @@ Use the **interactive** queue for resource-intensive CLI jobs (e.g., `sort`, `fi
 
 
 
-Job Submissions and Scheduler Guidance:
+Job Submissions and Scheduler Guidance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Pegasus compute nodes run jobs through the **LSF** scheduler. Jobs must be submitted as either **batch** or **interactive**, based on use case.
 
@@ -56,7 +56,7 @@ See :ref:`g-lsf` for complete job submission instructions.
 
 
 
-Software Modules and Environment Management:
+Software Modules and Environment Management
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Pegasus and Triton use the **Environment Modules** system to load available software.  
 Use ``module avail`` to see available software and ``module load <name>`` to activate it.  
@@ -66,7 +66,7 @@ See :ref:`g-modules` for full usage details.
 
 
 
-File Transfer Best Practices:
+File Transfer Best Practices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Use **SCP** or **SFTP** to move files between local machines and Pegasus or Triton.  
 File transfers should be performed from login nodes.
@@ -79,7 +79,7 @@ See :ref:`transfer` for instructions and recommendations, including large data t
 
 
 
-Scratch Usage for Job I/O:
+Scratch Usage for Job I/O
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 All input and output data for compute jobs must reside in the ``/scratch`` filesystem.  
 This area is optimized for high-throughput access.
