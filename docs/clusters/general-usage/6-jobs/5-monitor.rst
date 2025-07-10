@@ -3,8 +3,7 @@
 Monitoring Jobs
 ====================
 
-bjobs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**bjobs**
 
 The commands ``bjobs`` displays information about your own pending,
 running, and suspended jobs.
@@ -37,15 +36,13 @@ output to ``less``:
     6017561   asingh  PEND  interactiv login1.pega             matlab     Feb 25 14:49
     ...
 
-bhist
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**bhist**
 
 ``bhist`` displays information about your recently finished jobs. CPU
 time is not normalized in ``bhist`` output. To see your *finished* and
 *unfinished* jobs, use ``bhist -a``.
 
-bkill
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**bkill**
 
 ``bkill`` kills the last job submitted by the user running the command,
 by default. The command ``bkill jobID`` will remove a specific job from
@@ -60,8 +57,7 @@ kill all jobs belonging to current user.
 On Pegasus (Unix), SIGINT and SIGTERM are sent to give the job a chance
 to clean up before termination, then SIGKILL is sent to kill the job.
 
-bqueues
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**bqueues**
 
 ``bqueues`` displays information about queues such as queue name, queue
 priority, queue status, job slot statistics, and job state statistics.
@@ -91,8 +87,7 @@ CPU time is normalized by CPU factor.
    sccc_jupyter     10  Open:Active       -    -    -    -     0     0     0     0
    sccc_restudio    10  Open:Active       -    -    -    -     0     0     0     0
 
-bhosts
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**bhosts**
 
 ``bhosts`` displays information about all hosts such as host name, host
 status, job state statistics, and jobs lot limits. ``bhosts -s``
@@ -116,8 +111,7 @@ to this host.
    n044               ok              -     16      0      0      0      0      0
    n045               ok              -     16      0      0      0      0      0
 
-bpeek
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**bpeek**
 
 Use ``bpeek jobID`` to monitor the progress of a job and identify
 errors. If errors are observed, valuable user time and system resources
