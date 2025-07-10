@@ -177,7 +177,7 @@ environments for different projects to avoid conflictions of packages.
 **Triton:**
 ::
 
-    module load python/2.7.15-anaconda2-5.3.0
+    module load miniconda3
     conda create -n example_env python=3.8 matplotlib
 
 **Pegasus:**
