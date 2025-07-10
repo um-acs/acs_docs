@@ -11,7 +11,8 @@ All members of a project share that project’s resource allocations.
 
 To join a project, contact the project owner. PIs and faculty, request new `IDSC Projects here <https://idsc.miami.edu/project-request>`_ (https://idsc.miami.edu/project-request)
 
-**Using projects in computing jobs** 
+Using projects in computing jobs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To run jobs using your project’s resources, submit jobs with your assigned ``projectID`` using the ``-P`` argument to ``bsub``: ``bsub -P projectID``. 
 For more information about LSF and job scheduling, see :ref:`g-schedule`.
