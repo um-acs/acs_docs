@@ -8,8 +8,6 @@ If you encounter issues running your jobs, let our IDSC cluster support team kno
 
 .. toctree::
    :maxdepth: 2
-
-   Pegasus Environment <env/README>
-   Pegasus Job Scheduling <jobs/README>
-   Pegasus Software <soft/README>
+   
+   Pegasus Software Suites <soft/README>
    Pegasus FAQ <p_faqs>
