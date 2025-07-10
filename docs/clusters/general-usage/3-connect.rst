@@ -1,22 +1,25 @@
 Connecting to the Clusters
 ==========================
 
-Triton Access
-^^^^^^^^^^^^^
+You can access both **Triton** and **Pegasus** clusters using the same method, with the only difference being the DNS address.
 
-- **DNS:** ``t2.idsc.miami.edu``
+Cluster DNS
+-----------
+
++----------+------------------------------+
+| Cluster  | DNS                          |
++==========+==============================+
+| Triton   | ``t2.idsc.miami.edu``        |
++----------+------------------------------+
+| Pegasus  | ``pegasus2.ccs.miami.edu``   |
++----------+------------------------------+
+
+Access Details
+--------------
+
 - **Access:**  
   Connect via :ref:`ssh` over secure University of Miami networks.  
-  For graphical sessions, use :ref:`x11`
-- **Credentials:**  
-  Requires a valid **IDSC Account**.
+  For graphical sessions, use :ref:`x11`.
 
-Pegasus Access
-^^^^^^^^^^^^^
-
-- **DNS:** ``pegasus2.ccs.miami.edu``
-- **Access:**  
-  Connect via :ref:`ssh` over secure University of Miami networks.  
-  For graphical sessions, use :ref:`x11`
 - **Credentials:**  
   Requires a valid **IDSC Account**.
