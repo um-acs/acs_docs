@@ -8,11 +8,13 @@ Introduction to Linux
 --------------------------------
 
 Linux is a UNIX-like operating system, composed of three fundamental components:
+
 - Kernel : Manages hardware resources and handles process execution, memory, device drivers, and system calls.
 - Shell : A command-line interface that interprets user input and communicates with the kernel.
 - System Programs : Provide essential functionalities such as user environments, file and process management, networking tools, and scheduling services.
 
 In Linux, everything is treated as either a file or a process:
+
 - A file is any collection of data, including directories, device nodes, and configuration files.
 - A process is an executing instance of a program.
 
