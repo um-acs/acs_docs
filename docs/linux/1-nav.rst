@@ -4,9 +4,7 @@ Navigating the Linux Shell
 This guide provides an introduction to essential Linux shell commands for navigating 
 and interacting with the filesystem, especially within a typical cluster login 
 environment. The shell is provides a **command-line interface (CLI)** that allows users to 
-communicate with the system by typing **commands**.
-
-On Triton/Pegasus, the default shell is Bash.
+communicate with the system by typing **commands**. On Triton/Pegasus, the default shell is Bash.
 
 Users input commands into the shell, which executes them and displays the output. 
 Commands may include **options** (also called **flags**) to modify behavior, 
