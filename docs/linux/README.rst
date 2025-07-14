@@ -4,31 +4,26 @@
 Linux Guides
 ============
 
-Introduction to Linux on Pegasus
+Introduction to Linux
 --------------------------------
 
-Pegasus is currently running the CentOS 7.6 operating system, a
-distribution of Linux. Linux is a UNIX-like kernel, though in this
-document it will generally refer to the entire CentOS distribution. The
-three basic components of UNIX-like operating systems are the
-**kernel**, **shell**, and **system programs**. The kernel handles
-resource management and program execution. The shell interprets user
-commands typed at a prompt. System programs implement most operating
-system functionalities such as user environments and schedulers.
+Linux is a UNIX-like operating system, composed of three fundamental components:
+- Kernel : Manages hardware resources and handles process execution, memory, device drivers, and system calls.
+- Shell : A command-line interface that interprets user input and communicates with the kernel.
+- System Programs : Provide essential functionalities such as user environments, file and process management, networking tools, and scheduling services.
 
-Everything in Linux is either a **file** (a collection of data) or a
-**process** (an executing program). Directories in Linux are types of
-files.
+In Linux, everything is treated as either a file or a process:
+- A file is any collection of data, including directories, device nodes, and configuration files.
+- A process is an executing instance of a program.
 
-In the below examples, ``username`` represents your access account. 
-
+Directories themselves are implemented as a special type of file that contains mappings of filenames to index node references.
 
 .. toctree::
    :maxdepth: 2
    :glob: 
 
    Navigating the Linux Shell <1-nav>
-   Interacting with Files on Pegasus <2-files>
+   Interacting with Files <2-files>
    File Permissions in Linux <3-rwx>
    Access Control Lists – ACL <4-acl>
 
