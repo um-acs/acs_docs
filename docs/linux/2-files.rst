@@ -1,8 +1,8 @@
 Interacting with Files
 ======================
 
-Make directories with ``mkdir``:
---------------------------------
+Creating Directories with ``mkdir``
+------------------------------------
 
 This command creates new, empty directories.
 
@@ -12,8 +12,7 @@ This command creates new, empty directories.
     [username@pegasus ~]$ ls
     example_file1  example_file2  testdir1  testdir2
 
-Multiple directories can be created at the same time, as can directory
-hierarchies:
+You can create multiple directories or a hierarchy of directories:
 
 ::
 
@@ -42,8 +41,8 @@ If a directory already exists, ``mkdir`` will output an error message:
     [username@pegasus ~]$ mkdir testdir1
     mkdir: cannot create directory `testdir1': File exists
 
-Remove directories with ``rmdir``:
-----------------------------------
+Removing Directories with ``rmdir``
+------------------------------------
 
 Directories must be empty for ``rmdir`` to remove them.
 
@@ -67,8 +66,8 @@ The individual directories in the above example are empty. The top level
 of the hierarchy in the above example is not empty, neither is
 ``testdir1``. To remove directories that are not empty, see ``rm``.
 
-Remove files and directories with ``rm``:
------------------------------------------
+Removing Files and Directories with ``rm``
+-------------------------------------------
 
 ***There is no 'recycle bin' on Pegasus.*** Removing files with ``rm``
 is permanent and cannot be undone.
@@ -103,8 +102,8 @@ The flags on this ``rm -rv`` command:
 -  ``-r`` remove directories and their contents recursively
 -  ``-v`` print a message for each removed file or directory
 
-View file contents with ``cat``:
---------------------------------
+Viewing File Contents with ``cat``
+----------------------------------
 
 ``cat`` reads file contents into standard output, typically the display.
 This is best used for small text files.
@@ -141,8 +140,8 @@ the keyboard) then outputs contents (typically the display). Press
 
 This feature can be used to create files.
 
-Create files with ``cat`` and redirection:
-------------------------------------------
+Creating Files with ``cat`` and Redirection
+-------------------------------------------
 
 **Redirection** operators in Linux send output from one source as input
 to another. ``>`` redirects standard output (typically the display) to a
@@ -180,8 +179,8 @@ Linux output redirection operators:
 -  ``>`` overwrite standard output a file
 -  ``>>`` append standard output to a file
 
-View file contents with ``head`` and ``tail``:
-----------------------------------------------
+Viewing Files with ``head`` and ``tail``
+----------------------------------------
 
 For longer text files, use ``head`` and ``tail`` to restrict output. By
 default, both output 10 lines - ``head`` the first 10, ``tail`` the last
@@ -211,8 +210,8 @@ default, both output 10 lines - ``head`` the first 10, ``tail`` the last
     This is the 19th line.
     This is the 20th line, also the last.
 
-Rename and Move with ``mv``:
-----------------------------
+Renaming and Moving with ``mv``
+-------------------------------
 
 Moving and renaming in Linux uses the same command, thus files can be
 renamed as they are moved. In this example, the file ``example_file1``
@@ -259,8 +258,8 @@ default.
 
 The file inside ``tesdir1`` moved along with the directory.
 
-Copy with ``cp``:
------------------
+Copying with ``cp``
+-------------------
 
 File and directory copies can be renamed as they are copied. In this
 example, ``example_file1`` is copied to ``example_file0``.
@@ -298,8 +297,8 @@ Other useful flags:
 -  ``-n`` do not overwrite an existing file
 -  ``-p`` preserve attributes (mode, ownership, and timestamps)
 
-Edit files : ``nano``, ``emacs``, ``vi``:
----------------------------------------------
+Editing Files with ``nano``, ``emacs``, ``vi``
+----------------------------------------------
 
 ``nano`` and ``emacs`` are simple text editors available on the cluster and most Linux systems, while ``vi`` is a modal text editor with a bit of a learning curve.  
 
@@ -345,8 +344,8 @@ Some ``vi`` tutorials, commands, and comparisons :
 -  http://www.cs.colostate.edu/helpdocs/vi.html
 -  https://www.linuxtrainingacademy.com/nano-emacs-vim/
 
-View file contents by page with ``more`` and ``less``:
-------------------------------------------------------
+Viewing File Contents by Page with ``more`` and ``less``
+-------------------------------------------------------
 
 Pager applications provide scroll and search functionalities, useful for
 larger files. Sets of lines are shown based on terminal height. In both
