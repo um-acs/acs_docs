@@ -10,4 +10,5 @@ If you encounter issues running your jobs, let our IDSC cluster support team kno
    :maxdepth: 2
    
    Pegasus Software Suites <soft/README>
+   Pegasus Container Platform (Apptainer) <Singularity/apptainerinfo>
    Pegasus FAQ <p_faqs>
