@@ -1,3 +1,5 @@
+.. _t-softs:
+
 Triton user guides
 ==================
 

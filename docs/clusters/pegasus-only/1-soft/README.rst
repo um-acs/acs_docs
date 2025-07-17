@@ -1,3 +1,5 @@
+.. _p-softs:
+
 Pegasus Software
 ================
 
