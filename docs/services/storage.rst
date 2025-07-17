@@ -18,7 +18,7 @@ CES storage
 * Projects may also request 10T of CES storage.
 * The Principle Investigator (PI) of project must contact hpc@ccs.miami.edu for access to CES Storage.
 * Usage above 10T requires review by the allocations committee.
-* Fee for 10T of CES project storage is charged annually. ($300)
+* Fee for 10T of CES project storage is charged annually. ($200)
 * CES storage is restricted to SFTP access through apex.idsc.miami.edu.
 
 You can access your CES storage using any SFTP client.  We recommend FileZilla.  Please see Using Filezilla use case in URL below.
