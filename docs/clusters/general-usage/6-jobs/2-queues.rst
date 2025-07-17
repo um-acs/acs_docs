@@ -3,6 +3,9 @@
 Queues
 ==================
 
+.. this should be seperated for triton and pegasus as the names are different.
+
+
 Pegasus queues are organized using limits like job size, job length, job
 purpose, and project. In general, users run jobs on Pegasus with equal
 resource shares. A user's current or recent resource usage lowers the 
