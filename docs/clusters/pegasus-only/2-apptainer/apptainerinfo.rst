@@ -11,38 +11,37 @@ Your container is a single file, and you don’t have to worry about how
 to install all the software you need on each different operating system
 and it reduces configuration setup work manually. We have implemented some of the applications using singularity and completed documentation.
 
-1. `Quick start of Singularity`_ 
+.. 1. `Quick start of Singularity`_ 
 
-2. `Switching OS to run specific applications`_  
+.. 2. `Switching OS to run specific applications`_  
 
-3. `Running Singularity container with python script`_
+.. 3. `Running Singularity container with python script`_
 
-4. `Running GUI Jupyter notebook through apptainer container`_  
+.. 4. `Running GUI Jupyter notebook through apptainer container`_  
 
-5. `Apptainer Interactive applications using MATLAB and R`_ 
+.. 5. `Apptainer Interactive applications using MATLAB and R`_ 
 
-6. `Apptainer Definition Files`_
+.. 6. `Apptainer Definition Files`_
 
-7. `Apptainer GUI R Studio Server`_
+.. 7. `Apptainer GUI R Studio Server`_
 
-8. `Running LSF Job with Singularity or Apptainer`_ 
+.. 8. `Running LSF Job with Singularity or Apptainer`_ 
 
-9. `Comparison of LSF Job with singularity and Normal`_
+.. 9. `Comparison of LSF Job with singularity and Normal`_
 
-10. `Singularity GPU Support with PyTorch and TensorFlow`_ 
+.. 10. `Singularity GPU Support with PyTorch and TensorFlow`_ 
 
-11. `LSF JOB with Singularity GPU access Script submission`_ 
+.. 11. `LSF JOB with Singularity GPU access Script submission`_ 
 
-12.  `LSF Job with MCMICRO with singularity, NextFlow`_ 
+.. 12.  `LSF Job with MCMICRO with singularity, NextFlow`_ 
 
-13.  `Nextflow custom configuration to run LSF Job`_  
+.. 13.  `Nextflow custom configuration to run LSF Job`_  
 
-14.  `nf-core Module for Nextflow`_ 
+.. 14.  `nf-core Module for Nextflow`_ 
 
-15. `SIF Image Verification / Fingerprints Header`_
+.. 15. `SIF Image Verification / Fingerprints Header`_
 
 **Why use Apptainer**
-----------------------
 
 Apptainer was created to run complex applications on HPC clusters in a
 simple, portable, and reproducible way. Many container platforms are
@@ -74,8 +73,8 @@ S.NO     Docker                                               Singularity
 
 
 
-**Quick start of Singularity**
-==============================
+Quick start of Singularity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This guide is intended for running Apptainer on Pegasus with few intended applications scenarios. Apptainer’s command line
 interface : https://apptainer.org/docs/user/1.1/cli.html#cli allows you to build and interact with containers transparently. You can run programs inside a container as if they were running on your host system. You can easily redirect IO, use pipes, pass arguments, and access files, sockets, and ports on the host system from within a container.
@@ -86,8 +85,8 @@ After logging into pegasus, see availability of apptainer modules using command
 
 To make it persistent across sessions, edit the **vi ~/.bashrc**  file and add  **module load apptainer/version**  at last .
 
-**Overview of the Apptainer Interface**
---------------------------------------
+Overview of the Apptainer Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Verify the version of apptainer
 ::
@@ -131,8 +130,8 @@ Use one of the following commands to interact with Singularity containers:
 * singularity run   — for executing a pre-defined runscript within the container 
 
 
-**Switching OS to run specific applications**
-=================================================
+Switching OS to run specific applications
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Shell**
 
@@ -261,8 +260,8 @@ In addition to downloading images, you can use build to create images from other
      Similarly  downloading python , $ apptainer pull docker://pyhton 
 
 
-**Running Singularity container with python script**
-====================================================
+Running Singularity container with python script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -423,8 +422,8 @@ A “fake root” user can’t access or modify files and directories for which 
      drwxr-xr-x 18 apptaineruser ccsuser      4096 Jul 17 14:40 ubuntu 
 
  
-**Running GUI Jupyter notebook through apptainer container**
-====================
+Running GUI Jupyter notebook through apptainer container
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 see JupyterHub on Pegasus User Menu
 https://acs-docs.readthedocs.io/pegasus/soft/Jupyterhub.html
 
@@ -458,11 +457,10 @@ You will get Jupyter Server 2.7.0 is running at: http://127.0.0.1:8888/lab?token
   :alt: screenshot
 
 
-**Apptainer Interactive applications using MATLAB and R**
-==========================================================
+Apptainer Interactive applications using MATLAB and R
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Apptainer Matlab Interactive:**
-====================
 
 To pull the MatLab container, 
 
@@ -564,8 +562,8 @@ Now run the container's R binary when you successfully load the Tidyverse.
  
  
 
-**Apptainer Definition Files** 
-============================
+Apptainer Definition Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 For a reproducible, verifiable and production-quality container you should build a SIF file using an Apptainer definition file. This also makes it easy to add files, environment variables, and install custom software. You can start with base images from Docker Hub and use images directly from official repositories such as Ubuntu, Debian, CentOS, Arch, and BusyBox. 
@@ -701,8 +699,8 @@ We have changed def file in above link as rajsample.def and given name of build 
  
 
 
-**Apptainer GUI R Studio Server**
-==================================
+Apptainer GUI R Studio Server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 see the link RStudio on Pegasus
 https://acs-docs.readthedocs.io/pegasus/soft/RStudio.html . Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket to hpc@ccs.miami.edu, based on your project requirements and we will recommend the best execution approach  to run your application.  TO know sample Rstudio container execution Create apptainer  **tidyverse_long.def** file with environment variables of user_id and password. **export LC_ALL=C** means which support scirpts in all languages for container to run applications. Containers are read-only, but RStudio will want to be able to write configuration and temporary files in the home. Let us bind mount the current work directory as the container home. 
@@ -814,8 +812,8 @@ Open the browser http://pegasus.ccs.miami.edu:8787/    enter details then you wi
 
 
 
-**Running LSF Job with Singularity or Apptainer** 
-=================================================
+Running LSF Job with Singularity or Apptainer 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 **Requirements**
@@ -900,8 +898,8 @@ Create singularity.job file and it describes, trying to execute the python scrip
     LSF JOB IS RUNNING WITH SINGULARITY 
 
 
-**Comparison of LSF Job with singularity and Normal**
-=====================================================
+Comparison of LSF Job with singularity and Normal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  Above job submitted with singularity and normal queue LSF job Submission; we can observe that deviations of utilizing CPU time and memory are less while using singularity container instead of normal LSF job submission. 
 
@@ -924,8 +922,8 @@ Create singularity.job file and it describes, trying to execute the python scrip
     The sum of 1.5 and 6.3 is 7.8 
  
 
-**Singularity GPU Support with PyTorch and TensorFlow** 
-=========================================================
+Singularity GPU Support with PyTorch and TensorFlow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 First check GPU are accessing to your environment, if not get access permission for GPU (need to pay for use) and requested to raise the ticket to get the GPU access with brief description of project requirement to hpc@ccs.miami.edu   
 
@@ -1119,7 +1117,6 @@ You can verify the GPU is available within the container by using the tensorflow
 
 
 **GPU Support with PyTorch**
-===========================
 
 Pull the latest lsf GPU image supports for PyTorch  
 
@@ -1141,8 +1138,8 @@ Check availibility of GPU inside sigularity and CUDA is available as true in int
 
 
 
-**LSF JOB with Singularity GPU access Script submission**  
-=========================================================
+LSF JOB with Singularity GPU access Script submission  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create file **$ vi singularitygpu.job** with gpu access queue and make sure u have access to gpu nodes and no extra spaces at end of each line in a script file and pull the images to your environment python_latest.sif,tensorflow_latest-gpu.sif and activate your conda environment. In my case, TensorFlow version is: 2.13.0 require s CUDA 11.8,  Python 3.8-3.11, install modules accordingly then only it will work fine. See the previous example of “**Singularity GPU Support with PyTorch and TensorFlow**” before submitting job script. 
 
@@ -1207,8 +1204,8 @@ submit the job
 
 
 
-**LSF Job with MCMICRO with singularity, Nextflow**
-===================================================
+LSF Job with MCMICRO with singularity, Nextflow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Note1:** 
 
@@ -1422,8 +1419,8 @@ Open image   s3seg/ in path of   “/scratch/projects/hpc/rajesh/exemplar-001”
   :alt: An image of the Text component in the visual editor.
 
 
-**Nextflow  custom configuration to run LSF Job**
-==================================================
+Nextflow  custom configuration to run LSF Job
+=============================================
 
 In the Nextflow framework architecture, the executor is the component that determines the system where a pipeline process is run and supervises its execution. The executor provides an abstraction between the pipeline processes and the underlying execution system. The "profile" is the string value for the config file names in the config folder, such as "standard" for the native local environment and "Azure" for Microsoft Azure cloud computing. Two types of profiles are defined in the nextflow.config -- for defining the executor ("local", "lsf") and the execution environment ("test", "conda", "docker", "singularity"). To run the workflow in an LSF cluster, for instance, you would run Nextflow with **nextflow run -profile lsf,singularity** .
 
@@ -1610,8 +1607,8 @@ Verifying the Nextflow is running the Job through LSF
     Command 
 
  
-**nf-core Module for Nextflow**  
-===============================
+nf-core Module for Nextflow  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 nf -core,  it will maintain all nextflow pipelines easily and supports for custom config files as per DSL2 (Domain specific Language) 
 After activation of any conda environment having python version
@@ -1624,9 +1621,9 @@ After activation of any conda environment having python version
 
 
 
-# Checking all nf-core pilines 
+**Checking all nf-core pipelines** 
 
-.. code:: bash
+::
 
     $  nf-core list  
 
@@ -1722,7 +1719,6 @@ After activation of any conda environment having python version
     │ slamseq                │     4 │            dev │   2 years ago │           - │ -                    │
     └────────────────────────┴───────┴────────────────┴───────────────┴─────────────┴──────────────────────┘
 
-
 checking all configuration files for user pipline and maintain orginal copy of user pipeline nexflow.config and change it as per application needs is always good approach. 
 
 ::
@@ -1734,8 +1730,7 @@ checking all configuration files for user pipline and maintain orginal copy of u
     $ cd nf-core-rajeshsamplepipline/ 
     (rajesh_env) $ tree 
 
-
-.. code:: bash
+::
 
     ├── assets 
     │   ├── adaptivecard.json 
@@ -1849,7 +1844,7 @@ To sign your own containers you first need to generate one or more keys.
     Retype your passphrase :  
     Generating Entity and OpenPGP Key Pair... done 
 
-The **list** subcommand will show you all of the keys you have created or saved locally.` 
+The **list** subcommand will show you all of the keys you have created or saved locally.
 
 ::
 
@@ -1880,9 +1875,9 @@ Now that you have a key generated, you can use it to sign images:
     Signing image: python_latest.sif 
     Signature created and applied to python_latest.sif 
 
- Because your public PGP key is saved locally you can verify the image without needing to contact the key server 
+Because your public PGP key is saved locally you can verify the image without needing to contact the key server 
 
-:: 
+::
 
     $ apptainer verify python_latest.sif  
     Verifying image: python_latest.sif 
