@@ -1,5 +1,5 @@
-**Introduction to Singularity/Apptainer on Pegasus**
-=======================================
+Introduction to Singularity/Apptainer on Pegasus
+=================================================
 
 Apptainer is a **container platform** earlier called **singularity
 containers.** It allows you to create and run containers that package up
@@ -503,8 +503,8 @@ If you do not have credentials for Mathworks login, registered with your gmail a
 
  
 
-**Apptainer R Interactive:**
-====================
+Apptainer R Interactive
+^^^^^^^^^^^^^^^^^^^^^^^
 
 The most popular library for R is the Tidyverse, popular Docker containers for R, including a pre-built one with Tidyverse so you can grab the latest tagged container from Docker hub and it takes few seconds wait for until creation of sif image . 
 
@@ -1420,7 +1420,7 @@ Open image   s3seg/ in path of   “/scratch/projects/hpc/rajesh/exemplar-001”
 
 
 Nextflow  custom configuration to run LSF Job
-=============================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the Nextflow framework architecture, the executor is the component that determines the system where a pipeline process is run and supervises its execution. The executor provides an abstraction between the pipeline processes and the underlying execution system. The "profile" is the string value for the config file names in the config folder, such as "standard" for the native local environment and "Azure" for Microsoft Azure cloud computing. Two types of profiles are defined in the nextflow.config -- for defining the executor ("local", "lsf") and the execution environment ("test", "conda", "docker", "singularity"). To run the workflow in an LSF cluster, for instance, you would run Nextflow with **nextflow run -profile lsf,singularity** .
 
@@ -1806,8 +1806,8 @@ checking all configuration files for user pipline and maintain orginal copy of u
 
 
 
-**SIF Image Verification / Fingerprints Header**
-==========================================================================
+SIF Image Verification / Fingerprints Header
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the bootstrap image is in the SIF format, then verification will be performed at build time. This verification checks whether the image has been signed. If it has been signed the integrity of the image is checked, and the signatures matched to public keys if available. This process is equivalent to running **apptainer verify** on the bootstrap image. 
 
@@ -1827,8 +1827,8 @@ If, at build time, the image is not signed with keys corresponding to all of the
     * The **Fingerprints:** header has no effect if the bootstrap image is not in SIF format. 
 
 
-**Signing and Verifying Containers(Container image security)**
-==============================================================
+Signing and Verifying Containers(Container image security)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Apptainer has the ability to create and manage PGP keys and use them to sign and verify containers. This provides a trusted method for Apptainer users to share containers. It ensures a bit-for-bit reproduction of the original container as the author intended it. This sections will answer the following two questions first one is how do you verify the containers when downloading images from untrusted sources using cryptographically signing and how do you run the containers in untrusted environments by encrypting using RSA public keys, so that nobody knows nothing what is running inside the container. Second use case is not necessary right now, so providing a case study for the first scenario.  
 
@@ -1894,8 +1894,8 @@ Because your public PGP key is saved locally you can verify the image without ne
 
 
 
-**SIF IDs and Groups:**
-
+SIF IDs and Groups
+^^^^^^^^^^^^^^^^^^^^^
 As well as the default behaviour, which signs all objects, fine-grained control of signing is possible. 
 
 sif list a SIF file you will see it is comprised of a number of objects. Each object has an ID, and belongs to a GROUP. 
