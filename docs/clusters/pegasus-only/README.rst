@@ -9,6 +9,7 @@ If you encounter issues running your jobs, let our IDSC cluster support team kno
 .. toctree::
    :maxdepth: 2
    
-   Pegasus Software Suites <soft/README>
-   Pegasus Container Platform (Apptainer) <Singularity/apptainerinfo>
-   Pegasus FAQ <p_faqs>
+   Pegasus Software Suites <1-soft/README>
+   Pegasus Container Platform (Apptainer) <2-apptainer/apptainerinfo>
+   Sylvester HPC <3-sylvester>
+   Pegasus FAQ <4-faqs>
