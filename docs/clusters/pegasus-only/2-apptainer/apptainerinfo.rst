@@ -11,35 +11,21 @@ Your container is a single file, and you don’t have to worry about how
 to install all the software you need on each different operating system
 and it reduces configuration setup work manually. We have implemented some of the applications using singularity and completed documentation.
 
-.. 1. `Quick start of Singularity`_ 
-
-.. 2. `Switching OS to run specific applications`_  
-
-.. 3. `Running Singularity container with python script`_
-
-.. 4. `Running GUI Jupyter notebook through apptainer container`_  
-
-.. 5. `Apptainer Interactive applications using MATLAB and R`_ 
-
-.. 6. `Apptainer Definition Files`_
-
-.. 7. `Apptainer GUI R Studio Server`_
-
-.. 8. `Running LSF Job with Singularity or Apptainer`_ 
-
-.. 9. `Comparison of LSF Job with singularity and Normal`_
-
-.. 10. `Singularity GPU Support with PyTorch and TensorFlow`_ 
-
-.. 11. `LSF JOB with Singularity GPU access Script submission`_ 
-
-.. 12.  `LSF Job with MCMICRO with singularity, NextFlow`_ 
-
-.. 13.  `Nextflow custom configuration to run LSF Job`_  
-
-.. 14.  `nf-core Module for Nextflow`_ 
-
-.. 15. `SIF Image Verification / Fingerprints Header`_
+1. `Quick start of Singularity`_ 
+2. `Switching OS to run specific applications`_  
+3. `Running Singularity container with python script`_
+4. `Running GUI Jupyter notebook through apptainer container`_  
+5. `Apptainer Interactive applications using MATLAB and R`_ 
+6. `Apptainer Definition Files`_
+7. `Apptainer GUI R Studio Server`_
+8. `Running LSF Job with Singularity or Apptainer`_ 
+9. `Comparison of LSF Job with singularity and Normal`_
+10. `Singularity GPU Support with PyTorch and TensorFlow`_ 
+11. `LSF JOB with Singularity GPU access Script submission`_ 
+12.  `LSF Job with MCMICRO with singularity, NextFlow`_ 
+13.  `Nextflow custom configuration to run LSF Job`_  
+14.  `nf-core Module for Nextflow`_ 
+15. `SIF Image Verification / Fingerprints Header`_
 
 **Why use Apptainer**
 
