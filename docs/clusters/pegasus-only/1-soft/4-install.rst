@@ -9,7 +9,7 @@ installation instructions.
 
 To install personal software on the Pegasus cluster, navigate to an interactive 
 node by submitting an interactive shell job to the Pegasus cluster LSF scheduler. 
-More on `Pegasus Interactive Jobs <https://acs-docs.readthedocs.io/pegasus/jobs/5-interactive.html#p-interactive>`__.
+More on :ref:`g-interactive`.
 
 Source code software installations ("compilations") can only be
 performed **in your local directories**. Users of Pegasus are not
