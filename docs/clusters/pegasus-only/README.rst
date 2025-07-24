@@ -10,5 +10,5 @@ If you encounter issues running your jobs, let our IDSC cluster support team kno
    :maxdepth: 2
    
    Pegasus Software Suites <1-soft/README>
-   Pegasus Container Platform (Apptainer) <2-apptainer/apptainerinfo>
+   Pegasus Container Platform (Apptainer) <2-apptainer/README>
    Sylvester HPC <3-sylvester>
