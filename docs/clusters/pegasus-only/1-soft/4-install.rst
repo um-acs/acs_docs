@@ -1,4 +1,4 @@
-.. _soft-install: 
+.. _p-soft-install: 
 
 Software Installation on Pegasus
 ================================
@@ -37,7 +37,6 @@ We suggest keeping downloaded source files separate from compiled files
 
 ACS does not install user software. Request cluster software
 installations from hpc@ccs.miami.edu 
-
 
 Downloading and extracting files
 ---------------------------------
