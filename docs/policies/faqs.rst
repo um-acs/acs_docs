@@ -2,7 +2,7 @@ FAQs - Frequently Asked Questions
 =========================================
 Detailed information for FAQ topics is available here and in :ref:`policies`
 
-.. note :: IDSC ACS does not install, provide support for, or provide documentation on how to code in your preferred software. ACS documentation contains information on using software in a Linux cluster environment.
+**Note:** IDSC ACS does not install, provide support for, or provide documentation on how to code in your preferred software. ACS documentation contains information on using software in a Linux cluster environment.
 
 
 Projects
