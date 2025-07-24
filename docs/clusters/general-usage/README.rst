@@ -8,5 +8,5 @@ General User guides
    Important Guidelines <2-guidelines>
    Connection <3-connect>
    Projects & Resources <4-projects>
-   Job Scheduling <6-jobs/README>
-   Quickstart Guide <7-quickstart>
+   Job Scheduling <5-jobs/README>
+   Quickstart Guide <6-quickstart>
