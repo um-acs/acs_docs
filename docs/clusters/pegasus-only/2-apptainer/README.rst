@@ -45,6 +45,7 @@ available, but Apptainer is focused on:
 
 
 The following sections guide you through using Apptainer on Pegasus, from basic setup to advanced workflows like GPU acceleration and Nextflow integration:
+
 .. toctree::
     :maxdepth: 5
     :glob: 
