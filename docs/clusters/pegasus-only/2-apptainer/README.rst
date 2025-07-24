@@ -44,8 +44,10 @@ available, but Apptainer is focused on:
           Apptainer: https://apptainer.org/docs/admin/1.0/security.html
 
 
+The following sections guide you through using Apptainer on Pegasus, from basic setup to advanced workflows like GPU acceleration and Nextflow integration:
 .. toctree::
     :maxdepth: 5
+    :glob: 
 
     System Setup and OS Switching <1-getting_started>
     Running Containers and Scripts <2-running_containers>
