@@ -1,33 +1,34 @@
 .. _p-softs:
 
-Pegasus Software
-================
+Pegasus Software Suites
+=======================
 
 .. toctree::
    :maxdepth: 2
    :caption: Modules and Languages
 
-   Modules <1-modules_languages/modules>
-   Perl <1-modules_languages/perl>
-   Python <1-modules_languages/python>
-   Python Virtual modules_languages <1-modules_languages/python-ve>
-   R <1-modules_languages/r>
-   Using R through Anaconda <1-modules_languages/RInstallation_via_conda>
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Application Development
-
-   Application Development Overview <2-app_dev/appdev>
-   Amazon Web Services CLI <2-app_dev/amazon_cli>
+   Modules <1-environments/modules>
+   Perl <1-environments/perl>
+   Python <1-environments/python>
+   Python Virtual environments <1-environments/python-ve>
+   R <1-environments/r>
+   Using R through Anaconda <1-environments/RInstallation_via_conda>
 
 .. toctree::
    :maxdepth: 2
    :caption: Data Science Tools
 
-   Jupyterhub <3-data_science/Jupyterhub>
-   RStudio <3-data_science/RStudio>
-   SAS <3-data_science/sas>
+   Jupyterhub <2-data_science/Jupyterhub>
+   RStudio <2-data_science/RStudio>
+   SAS <2-data_science/sas>
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Application Development
+
+   Application Development Overview <3-app_dev/appdev>
+   Amazon Web Services CLI <3-app_dev/amazon_cli>
 
 .. toctree::
    :maxdepth: 2
