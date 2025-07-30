@@ -10,3 +10,4 @@ General User guides
    Projects & Resources <4-projects>
    Job Scheduling <5-jobs/README>
    Quickstart Guide <6-quickstart>
+   Parallel Computing <7-parallel>
