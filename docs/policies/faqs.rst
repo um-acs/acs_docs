@@ -60,11 +60,9 @@ May I install software?
 Yes! Users are free to compile and install software in their
 respective home directories by following the software’s source code or
 local installation instructions. 
+See our :ref:`p-soft-install` guide for more information.
 
-See our :ref:`p-soft-install` guide for more information. ?
-
-
-.. note :: IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request to hpc@ccs.miami.edu 
+**Note:** IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request to hpc@ccs.miami.edu 
 
 
 How do I request global software installation?
