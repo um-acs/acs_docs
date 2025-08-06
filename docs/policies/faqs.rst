@@ -168,7 +168,6 @@ Why was my job killed?
 
 Jobs are killed to protect the cluster and preserve system performance.
 Common reasons include:
-
 -  running on a login node
 -  using more memory than reserved
 -  using all the memory on a compute node
@@ -218,8 +217,8 @@ Containerization Support on Pegasus
 Docker containers are not allowed on shared resource clusters like Pegasus or Triton because they require root privileges.
 Pegasus supports containerization through:
 
-- **Apptainer (formerly Singularity)** (:ref:`Check out <p-apptainer>`)
-- **Specific containerized software like RStudio** (:ref:`Check out <p-rstudio>`)
+- **Apptainer (formerly Singularity)** (:ref:`Check here <p-apptainer>`)
+- **Specific containerized software like RStudio** (:ref:`Check here <p-rstudio>`)
 
 If you need a specific application containerized, please email the IDSC support team at: `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with your current project and detailed requirements.
 
