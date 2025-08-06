@@ -1,3 +1,5 @@
+.. _p-rstudio:
+
 RStudio on Pegasus
 ==================
 

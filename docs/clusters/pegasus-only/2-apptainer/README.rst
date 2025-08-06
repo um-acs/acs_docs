@@ -1,3 +1,5 @@
+.. _p-apptainer: 
+
 Introduction to Singularity/Apptainer on Pegasus
 =================================================
 

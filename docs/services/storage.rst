@@ -1,3 +1,5 @@
+.. _ s_storage:
+
 Storage Services
 ================
 
