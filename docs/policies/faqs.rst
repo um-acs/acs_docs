@@ -61,10 +61,7 @@ Yes! Users are free to compile and install software in their
 respective home directories by following the software’s source code or
 local installation instructions. 
 
-See our :ref:`p-soft-install` and 
-
-
-`Software Installation <https://acs-docs.readthedocs.io/pegasus/soft/4-install.html#soft-install>`__ guide for more information.
+See our :ref:`p-soft-install` guide for more information.
 
 
 .. note :: IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request to hpc@ccs.miami.edu 
@@ -98,8 +95,7 @@ Load the java module, then change the value of \_JAVA_OPTIONS.
 
 Job Scheduling
 ----------------------
-
-`Scheduling Jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
+See our :ref:`g-lsf` guide for more information.
 
 May I run resource-intensive jobs on login nodes?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -109,17 +105,17 @@ No. Resource-intensive jobs must be submitted to LSF.
 How do I submit jobs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bsub`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
+With ``bsub`` (:ref:`g-lsf-commands`)
 
 How do I check on my submitted jobs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bjobs`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
+With ``bjobs`` (:ref:`g-lsf-commands`)
 
 How do I monitor job progress?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bpeek`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
+With ``bpeek`` (:ref:`g-lsf-commands`)
 
 Is there a limit on how many jobs I can run?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +127,7 @@ at a time.
 How can I see pending and running job counts for queues?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With ``bqueues`` `command <https://acs-docs.readthedocs.io/pegasus/jobs/3-commands.html#lsf-commands>`__ : `LSF <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
+With ``bqueues`` (:ref:`g-lsf-commands`)
 
 Why is my job still pending?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,17 +155,17 @@ The scheduler can handle hundreds of thousands of jobs.
 How do I submit jobs to my Project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the ``-P`` flag : `LSF jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__
+With the ``-P`` flag (:ref:`g-lsf`) 
 
 How do I submit an interactive job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the ``-Is -q interactive`` flags : `LSF interactive jobs <https://acs-docs.readthedocs.io/pegasus/jobs/5-interactive.html#p-interactive>`__
+With the ``-Is -q interactive`` (:ref:`g-interactive`) 
 
 How do I submit an interactive X11 job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the ``-Is -q interactive -XF`` flags : `LSF interactive jobs <https://acs-docs.readthedocs.io/pegasus/jobs/5-interactive.html#p-interactive>`__
+With the ``-Is -q interactive -XF`` flags (:ref:`g-interactive`) 
 
 Why was my job killed?
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -185,9 +181,8 @@ Common reasons include:
 -  needing more time to complete than reserved
 -  using more ``/tmp`` space than available on compute nodes
 
-See :ref:`LSF <p-jobs>` for assistance with appropriate resource
-reservations and `Pegasus Queues <https://acs-docs.readthedocs.io/pegasus/jobs/2-queues.html#p-queues>`__ for default wall
-times.
+See :ref:`g-lsf` for assistance with appropriate resource
+reservations and :ref:`g-queues` for default wall times.
 
 
 What about jobs in UNKWN state?
@@ -201,44 +196,65 @@ Re-queue your job in LSF :
 
 
 
+GPU Resource Requests on Pegasus or Triton
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If GPU resources are not accessible to you on cluster nodes, please email the IDSC support team at:
+`hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with the following information:
+
+- Project details
+- Number of GPUs required
+- Names and profile details of users who need access
+- Cluster name (Pegasus or Triton)
+- Principal Investigator (PI)
+- User email ID
+
+If GPU resources **are** accessible to you on cluster nodes, then you can request GPU resources by editing your LSF job script to submit to a GPU queue with the following parameters:
+
+.. code-block:: bash
+
+   #BSUB -q gpu_queue_name  # Example: gpu_h100
+   #BSUB -gpu "num=1"
+
+
+Containerization Support on Pegasus
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Docker containers are not allowed on shared resource clusters like Pegasus or Triton because they require root privileges.
+
+Pegasus supports containerization through:
+
+- **Apptainer (formerly Singularity)**
+- **Specific containerized software like RStudio**
+
+For more information, refer to:
+
+- :ref:`More information can be found Pegasus Apptainer containers <p-apptainer>`
+- :ref:`For RStudio container <p-rstudio>`
+
+If you need a specific application containerized, please email the IDSC support team at: `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with your current project and detailed requirements.
+
+
+Disk Quota and Storage Expansion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Home storage** cannot be expanded.
+- **Scratch storage** may be expanded **on a case-by-case basis**.
+
+If 10TB or more of storage is required, users will need to purchase either **GPFS** or **CES** storage.
+Check out the details on our storage services page: :ref:`s_storage` and for pricing details, refer to the following link:
+`IDSC Fee Schedule FY 2026 <https://idsc.miami.edu/wp-content/uploads/2025/05/IDSC-Fee-schedule-UM-FY-2026.pdf>`_
+
+To request additional disk space allocation, email the IDSC support team at:
+`hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with the following information:
+
+- Current allocation details
+- Required additional space
+- Project details
+- PI
+- User email ID
 
 
 
 
- 
-How can I request gpu Resources in Pegasus or Triton
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-“If GPU resources are not accessible to you on cluster nodes, 
-then please email the IDSC support team at: <a href='mailto:hpc@ccs.miami.edu'>hpc@ccs.miami.edu</a> 
-with your project details and number of GPU’s  required , who needs access to it profile details, 
-cluster name Pegasus or Triton, PI ,Mail ID etc.
- 
-If GPU resources are accessible to you on cluster nodes, 
-then GPU resources can be requested by editing your LSF job script to submit to a gpu queue 
-with the following parameters #BSUB -q gpu_queue_name or gpu_h100 
-#BSUB -gpu "num=1"
- 
-does Pegasus allowed docker container to run on it or Pegasus apptainer singularity containers
- 
-“In general, docker container needs root permission to run application, so docker is not allowed in shared resources clusters on Pegasus or Triton.
-Pegasus Supports containerization via Apptainer (Singularity) and specific containerized software like RStudio.
-<a href='https://acs-docs.readthedocs.io/pegasus/Singularity/apptainerinfo.html'> More information can be found Pegasus Apptainer containers </a>
-<a href='https://acs-docs.readthedocs.io/pegasus/soft/RStudio.html#rstudio-on-pegasus'> for RStudio container </a>
- 
-If you need any specific application request inters of containers, please email the IDSC support team at: <a href='mailto:hpc@ccs.miami.edu'>hpc@ccs.miami.edu</a> with your current project and further requirements."
- 
-how can I expand increase my disk quotas space or home storage or Scratch storage space
-“Home storage cannot be expanded.
-Scratch storage can be expanded out of courtesy and only in a case-by-case scenario. They will need to message us directly and we will review the request.
-If the user requires disk space10T of storage or more, they will need to purchase either GPFS or CES storage.
-<a href='https://acs-docs.readthedocs.io/services/storage.html'> Storage Services </a>
- 
-<a href='https://idsc.miami.edu/wp-content/uploads/2025/05/IDSC-Fee-schedule-UM-FY-2026.pdf'> Pricing details </a>
-For additional disk space allocation, please email the IDSC support team at: <a href='mailto:hpc@ccs.miami.edu'>hpc@ccs.miami.edu</a> with your current allocation details and required space along with project details, PI, mail ID information etc.”
-Introduction to Apptainer on Pegasus — acs_docs  documentation
- 
-let me know if any modification Nick and Rahman could you add it FAQ. Thanks 
- 
-Rahman remove this only from above  "They will need to message us directly and we will review the request." 
- 
