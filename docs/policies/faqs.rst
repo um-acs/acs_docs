@@ -52,7 +52,7 @@ How do I view my currently loaded modules?
 How do I use software modules?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See :ref:`g-modules`.
+See :ref:`p-modules` and :ref:`t-modules`.
 
 May I install software?
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,7 +61,7 @@ Yes! Users are free to compile and install software in their
 respective home directories by following the software’s source code or
 local installation instructions. 
 
-See our :ref:`p-soft-install` guide for more information.
+See our :ref:`p-soft-install` guide for more information. ?
 
 
 .. note :: IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request to hpc@ccs.miami.edu 
@@ -224,13 +224,8 @@ Docker containers are not allowed on shared resource clusters like Pegasus or Tr
 
 Pegasus supports containerization through:
 
-- **Apptainer (formerly Singularity)**
-- **Specific containerized software like RStudio**
-
-For more information, refer to:
-
-- :ref:`More information can be found Pegasus Apptainer containers <p-apptainer>`
-- :ref:`For RStudio container <p-rstudio>`
+- **Apptainer (formerly Singularity)** (:ref:`Check out <p-apptainer>`)
+- **Specific containerized software like RStudio** (:ref:`Check out <p-rstudio>`)
 
 If you need a specific application containerized, please email the IDSC support team at: `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with your current project and detailed requirements.
 
