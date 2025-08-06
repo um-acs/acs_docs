@@ -1,4 +1,6 @@
-Software Modules
+.. _t-modules:
+
+Triton Software Modules
 ================
 
 Below is a list of the software on Triton accessible through LMOD (modules) as of 2021/01/13 5:00pm.  

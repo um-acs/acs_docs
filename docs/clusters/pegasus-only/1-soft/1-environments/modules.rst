@@ -1,4 +1,4 @@
-.. _p-soft:
+.. _p-modules:
 
 Pegasus Software Modules
 ========================
