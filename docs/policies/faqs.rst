@@ -24,7 +24,6 @@ When will my project be created?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When the allocations committee has reviewed and approved it. 
-
 Scratch requests over 2TB can take a month for the allocations committee
 to review as availability is limited.
 
@@ -68,8 +67,7 @@ See our :ref:`p-soft-install` guide for more information.
 How do I request global software installation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Submit your request to hpc@ccs.miami.edu 
-
+Submit your request to hpc@ccs.miami.edu. 
 We only globally install software when we receive multiple requests for
 the software.
 
@@ -219,7 +217,6 @@ Containerization Support on Pegasus
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Docker containers are not allowed on shared resource clusters like Pegasus or Triton because they require root privileges.
-
 Pegasus supports containerization through:
 
 - **Apptainer (formerly Singularity)** (:ref:`Check out <p-apptainer>`)
