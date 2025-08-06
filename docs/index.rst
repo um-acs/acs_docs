@@ -45,4 +45,4 @@ To access IDSC resources while offsite, `open a VPN connection first <https://ac
    Linux Fundamentals <linux/README>
    Services <services/README>  
    Clusters  <clusters/README>
-   IDSC ACS Policies <policies/README>
+   IDSC ACS Policies & FAQs <policies/README>
