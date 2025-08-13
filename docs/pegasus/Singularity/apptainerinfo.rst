@@ -391,7 +391,7 @@ Namespaces are logical partitions (isolation) of container resources like user, 
 
 **fake root user inside container:** 
 
-Initially you need to get the fake root permissions from IDSC and requested to raise the ticket with brief description of project requirement to hpc@ccs.miami.edu .  A “fake root” user has almost the same administrative rights as root but only inside the container and the requested namespaces, which means that this user: can set different user/group ownership for files or directories they own can change user/group identity with su/sudo commands has full privileges inside the requested namespaces (network, ipc, uts) .
+Initially you need to get the fake root permissions from IDSC and requested to raise the ticket with brief description of project requirement to `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ .  A “fake root” user has almost the same administrative rights as root but only inside the container and the requested namespaces, which means that this user: can set different user/group ownership for files or directories they own can change user/group identity with su/sudo commands has full privileges inside the requested namespaces (network, ipc, uts) .
 
 A “fake root” user can’t access or modify files and directories for which they don’t already have access or rights on the host filesystem, so a “fake root” user won’t be able to access root-only host files like /etc/shadow or the host /root directory. 
 
@@ -431,7 +431,7 @@ https://acs-docs.readthedocs.io/pegasus/soft/Jupyterhub.html
 JupyterHub on Triton User Menu
 https://acs-docs.readthedocs.io/triton/2-sw/jh.html
 
-Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket to hpc@ccs.miami.edu, based on your project requirements and we will recommend the best execution approach  to run your application. For sample running Running jupyter notebook through apptainer container without port mapping as in kubernetes  pod configuration and click on the below kind of link to access notebook through container running on host system. Remember shell session will expire after closing, better to download workload sessions and files as backup. Any ipynb Jupyter Notebook file you will create for running applications will automatically be loaded to your Pegasus environment. You may also access files in your Pegasus environment to Jupyter notebook and to make it as permanent session download images through appatainer.  
+Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_, based on your project requirements and we will recommend the best execution approach  to run your application. For sample running Running jupyter notebook through apptainer container without port mapping as in kubernetes  pod configuration and click on the below kind of link to access notebook through container running on host system. Remember shell session will expire after closing, better to download workload sessions and files as backup. Any ipynb Jupyter Notebook file you will create for running applications will automatically be loaded to your Pegasus environment. You may also access files in your Pegasus environment to Jupyter notebook and to make it as permanent session download images through appatainer.  
 
 ::
 
@@ -586,7 +586,7 @@ assuming it is a file named lolcow.def. To build a container from this definitio
 
  $ apptainer build lolcow.sif lolcow.def 
 
-If it needed root credentials make use of  --fakeroot to container to build lolcow.sif image from def file. Initially you need to get the fake root permissions from IDSC and requested to raise the ticket with brief description of project requirement to hpc@ccs.miami.edu .  
+If it needed root credentials make use of  --fakeroot to container to build lolcow.sif image from def file. Initially you need to get the fake root permissions from IDSC and requested to raise the ticket with brief description of project requirement `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ .  
 
 ::
 
@@ -705,7 +705,7 @@ We have changed def file in above link as rajsample.def and given name of build 
 ==================================
 
 see the link RStudio on Pegasus
-https://acs-docs.readthedocs.io/pegasus/soft/RStudio.html . Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket to hpc@ccs.miami.edu, based on your project requirements and we will recommend the best execution approach  to run your application.  TO know sample Rstudio container execution Create apptainer  **tidyverse_long.def** file with environment variables of user_id and password. **export LC_ALL=C** means which support scirpts in all languages for container to run applications. Containers are read-only, but RStudio will want to be able to write configuration and temporary files in the home. Let us bind mount the current work directory as the container home. 
+https://acs-docs.readthedocs.io/pegasus/soft/RStudio.html . Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_, based on your project requirements and we will recommend the best execution approach  to run your application.  TO know sample Rstudio container execution Create apptainer  **tidyverse_long.def** file with environment variables of user_id and password. **export LC_ALL=C** means which support scirpts in all languages for container to run applications. Containers are read-only, but RStudio will want to be able to write configuration and temporary files in the home. Let us bind mount the current work directory as the container home. 
 There’s a little caveat here, in that the actual username in the RStudio server will be rstudio if the host user has ID equal to 1000 (first user in the system), and it will instead be the same as the host $USER otherwise. Let us code these conditions as follows: 
 
 
@@ -737,7 +737,7 @@ There’s a little caveat here, in that the actual username in the RStudio serve
 
 
 
-Apptainer builds tidyverse_long.sif image using def file. Initially you need to get the fake root permissions from IDSC HPC team and requested to raise the ticket with brief description of project requirement to hpc@ccs.miami.edu .  
+Apptainer builds tidyverse_long.sif image using def file. Initially you need to get the fake root permissions from IDSC HPC team and requested to raise the ticket with brief description of project requirement `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ .  
 
 :: 
 
@@ -927,7 +927,7 @@ Create singularity.job file and it describes, trying to execute the python scrip
 **Singularity GPU Support with PyTorch and TensorFlow** 
 =========================================================
 
-First check GPU are accessing to your environment, if not get access permission for GPU (need to pay for use) and requested to raise the ticket to get the GPU access with brief description of project requirement to hpc@ccs.miami.edu   
+First check GPU are accessing to your environment, if not get access permission for GPU (need to pay for use) and requested to raise the ticket to get the GPU access with brief description of project requirement `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_  
 
 ::
 
@@ -1934,7 +1934,7 @@ we can choose to sign and verify a specific object with the --sif-id option to s
  
 
 This QuickStart document describes the surface of all of the things you can do with Apptainer! For additional help or support, please visit: https://www.apptainer.org/docs/ .  
-If you need additional help or support, see: https://apptainer.org/help and contact HPC Team IDSC University of Miami or Raise Ticket with brief description of project requirement to hpc@ccs.miami.edu 
+If you need additional help or support, see: https://apptainer.org/help and contact HPC Team IDSC University of Miami or Raise Ticket with brief description of project requirement `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 
  
 
