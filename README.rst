@@ -13,7 +13,7 @@ How do I reset my IDSC password?
 How do I get IDSC cluster resources?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Resources on Triton and Pegasus are allocated by project.  Contact your PI for access to their project's resources, or request a New Project `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_
+Resources on Triton and Pegasus are allocated by project.  Contact your PI for access to their project's resources, or request a New Project `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_
 
 
 
