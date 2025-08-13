@@ -3,7 +3,8 @@ Pegasus user guides
 
 The Pegasus cluster has been upgraded to Rocky Linux 8.  
 
-If you encounter issues running your jobs, let our IDSC cluster support team know via email to `IDSC team (hpc@ccs.miami.edu) <mailto:hpc@ccs.miami.edu>`_ .
+If you encounter issues running your jobs, let our IDSC cluster support team know by submitting a help request `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_
+
 
 
 .. toctree::
