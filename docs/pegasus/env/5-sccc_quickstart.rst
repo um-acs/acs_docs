@@ -18,7 +18,8 @@ Sylvester Utilization
 ---------------------
 ::
 
-For access to the `Sylvester Utilization Dashboard <http://prometheus.idsc.miami.edu:3000/d/WZGTYp0Sz/sccc-cluster-dashboard?orgId=1>`__ please contact hpc@ccs.miami.edu.
+For access to the `Sylvester Utilization Dashboard <http://prometheus.idsc.miami.edu:3000/d/WZGTYp0Sz/sccc-cluster-dashboard?orgId=1>`__ please submit a help request `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
+
 
 
 Sylvester Dedicated HPC Queues 
