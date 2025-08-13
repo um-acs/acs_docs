@@ -22,7 +22,8 @@ Contact the project owner.
 How do I request a new project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Any PI or faculty member may request a new project : https://idsc.miami.edu/project_request
+Any PI or faculty member may request a new project at the `IDSC Project Request form <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_
+
 
 When will my project be created?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,7 +37,7 @@ to review as availability is limited.
 How can I manage my Projects and Groups?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Contact IDSC ACS at hpc@ccs.miami.edu 
+Contact IDSC ACS by submitting a ticket `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 
 Pegasus Software
 ----------------
@@ -67,13 +68,13 @@ local installation instructions. See our `Software Installation <https://acs-doc
  guide for more information.
 
 
-.. note :: IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request to hpc@ccs.miami.edu 
+.. note :: IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
 
 
 How do I request global software installation on Pegasus?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Submit your request to hpc@ccs.miami.edu 
+Submit your request `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 
 We only globally install software when we receive multiple requests for
 the software.
@@ -147,8 +148,8 @@ queues to provide fair access to resources, so that no user or queue can
 monopolize the resources of the cluster and no queue will be starved.
 
 If your job has been pending for more than 24 hours *and is not
-requesting exclusive access or all cores on a node*, you may e-mail
-`hpc@ccs.miami.edu <mailto:hpc@ccs.mami.edu>`__ for assistance.
+requesting exclusive access or all cores on a node*, you may request help
+`here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_ for assistance.
 
 Are other users’ pending jobs slowing my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -185,9 +186,6 @@ Common reasons include:
 -  needing more time to complete than reserved
 -  using more ``/tmp`` space than available on compute nodes
 
-See :ref:`LSF <p-jobs>` for assistance with appropriate resource
-reservations and `Pegasus Queues <https://acs-docs.readthedocs.io/pegasus/jobs/2-queues.html#p-queues>`__ for default wall
-times.
 
 
 What about jobs in UNKWN state?
