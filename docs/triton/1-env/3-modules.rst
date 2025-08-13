@@ -103,9 +103,9 @@ Triton available modules
 
 Available modules at login include the compilers, libraries and packages. 
 
-***Note :*** Please report any issues `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_
+***Note :*** Please report any issues `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_
 
-If you wish to request installation of Global software, please submit a request `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
+If you wish to request installation of Global software, please submit a request `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 
 
 -  show loaded modules with ``module list`` or ``ml``
