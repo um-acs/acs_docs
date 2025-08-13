@@ -36,7 +36,8 @@ We suggest keeping downloaded source files separate from compiled files
 (and any downloaded binary files).
 
 ACS does not install user software. Request cluster software
-installations from hpc@ccs.miami.edu 
+installations from `here <https://uhealthtest.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
+
 
 
 Downloading and extracting files
