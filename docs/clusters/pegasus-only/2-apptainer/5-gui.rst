@@ -2,7 +2,13 @@ Apptainer GUI R Studio Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 see the link RStudio on Pegasus
-https://acs-docs.readthedocs.io/pegasus/soft/RStudio.html . Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket to hpc@ccs.miami.edu, based on your project requirements and we will recommend the best execution approach  to run your application.  TO know sample Rstudio container execution Create apptainer  **tidyverse_long.def** file with environment variables of user_id and password. **export LC_ALL=C** means which support scirpts in all languages for container to run applications. Containers are read-only, but RStudio will want to be able to write configuration and temporary files in the home. Let us bind mount the current work directory as the container home. 
+https://acs-docs.readthedocs.io/pegasus/soft/RStudio.html . Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. 
+
+Before running any container application, please raise ticket 
+`here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_, 
+based on your project requirements and we will recommend the best execution approach to run your application. 
+
+To know sample Rstudio container execution Create apptainer  **tidyverse_long.def** file with environment variables of user_id and password. **export LC_ALL=C** means which support scirpts in all languages for container to run applications. Containers are read-only, but RStudio will want to be able to write configuration and temporary files in the home. Let us bind mount the current work directory as the container home. 
 There’s a little caveat here, in that the actual username in the RStudio server will be rstudio if the host user has ID equal to 1000 (first user in the system), and it will instead be the same as the host $USER otherwise. Let us code these conditions as follows: 
 
 
@@ -30,11 +36,9 @@ There’s a little caveat here, in that the actual username in the RStudio serve
       Author IDSC Miami University Supercomputing 
       Version 0.0.1 
 
-
-
-
-
-Apptainer builds tidyverse_long.sif image using def file. Initially you need to get the fake root permissions from IDSC HPC team and requested to raise the ticket with brief description of project requirement to hpc@ccs.miami.edu .  
+Apptainer builds tidyverse_long.sif image using def file. 
+Initially you need to get the fake root permissions from IDSC HPC team and request to raise the ticket with brief description of 
+project requirement `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_.
 
 :: 
 

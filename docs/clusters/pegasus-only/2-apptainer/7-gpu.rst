@@ -1,7 +1,9 @@
 Singularity GPU Support with PyTorch and TensorFlow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First check GPU are accessing to your environment, if not get access permission for GPU (need to pay for use) and requested to raise the ticket to get the GPU access with brief description of project requirement to hpc@ccs.miami.edu   
+First check GPU are accessing to your environment, if not get access permission for GPU (need to pay for use) 
+and request to raise the ticket to get the GPU access with brief description of project requirement 
+`here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_.
 
 ::
 

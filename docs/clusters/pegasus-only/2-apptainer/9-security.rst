@@ -120,12 +120,9 @@ we can choose to sign and verify a specific object with the --sif-id option to s
 
  
 
-This QuickStart document describes the surface of all of the things you can do with Apptainer! For additional help or support, please visit: https://www.apptainer.org/docs/ .  
-If you need additional help or support, see: https://apptainer.org/help and contact HPC Team IDSC University of Miami or Raise Ticket with brief description of project requirement to hpc@ccs.miami.edu 
-
- 
-
-
+This QuickStart document describes the surface of all of the things you can do with Apptainer! For additional help or support, please visit: https://www.apptainer.org/docs/ .
+If you need additional help or support, see: https://apptainer.org/help and contact HPC Team IDSC University of Miami or Raise Ticket 
+with brief description of project requirement `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_.
 
 
 

@@ -18,7 +18,8 @@ Contact the project owner. See :ref:`g-projects` for more info.
 How do I request a new project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Any PI or faculty member may request a new project : https://idsc.miami.edu/project_request
+Any PI or faculty member may request a new project : 
+`IDSC Account Registration Form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`__
 
 When will my project be created?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,13 +62,16 @@ respective home directories by following the software’s source code or
 local installation instructions. 
 See our :ref:`p-soft-install` guide for more information.
 
-**Note:** IDSC ACS does not install user software. For global installations on Pegasus, submit a Software Request to hpc@ccs.miami.edu 
+**Note:** IDSC ACS does not install user software. 
+For global installations on Pegasus, submit a Software Request using the 
+`IDSC Software Requests <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_.
 
 
 How do I request global software installation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Submit your request to hpc@ccs.miami.edu. 
+Submit your request using the 
+`IDSC Project Request Form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_.
 We only globally install software when we receive multiple requests for
 the software.
 
