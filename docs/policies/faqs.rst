@@ -19,7 +19,7 @@ How do I request a new project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Any PI or faculty member may request a new project : 
-`IDSC Account Registration Form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`__
+`IDSC Account Registration Form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`__
 
 When will my project be created?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,7 +32,8 @@ to review as availability is limited.
 How can I manage my Projects and Groups?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Contact IDSC ACS at hpc@ccs.miami.edu 
+Contact IDSC ACS by submitting a ticket `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
+
 
 Software Suites
 ----------------
@@ -143,8 +144,8 @@ queues to provide fair access to resources, so that no user or queue can
 monopolize the resources of the cluster and no queue will be starved.
 
 If your job has been pending for more than 24 hours *and is not
-requesting exclusive access or all cores on a node*, you may e-mail
-`hpc@ccs.miami.edu <mailto:hpc@ccs.mami.edu>`__ for assistance.
+requesting exclusive access or all cores on a node*, 
+you may request help `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_ for assistance.
 
 Are other users’ pending jobs slowing my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -198,8 +199,9 @@ Re-queue your job in LSF :
 GPU Resource Requests on Pegasus or Triton
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If GPU resources are not accessible to you on cluster nodes, please email the IDSC support team at:
-`hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with the following information:
+If GPU resources are not accessible to you on cluster nodes, 
+please contact the IDSC support team `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
+with the following information:
 
 - Project details
 - Number of GPUs required
@@ -225,8 +227,9 @@ Pegasus supports containerization through:
 - **Apptainer (formerly Singularity)** (:ref:`Check here <p-apptainer>`)
 - **Specific containerized software like RStudio** (:ref:`Check here <p-rstudio>`)
 
-If you need a specific application containerized, please email the IDSC support team at: `hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with your current project and detailed requirements.
-
+If you need a specific application containerized, please contact the IDSC support team 
+`here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
+with your current project and detailed requirements.
 
 Disk Quota and Storage Expansion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -238,8 +241,9 @@ If 10TB or more of storage is required, users will need to purchase either **GPF
 Check out the details on our storage services page: :ref:`s_storage` and for pricing details, refer to the following link:
 `IDSC Fee Schedule FY 2026 <https://idsc.miami.edu/wp-content/uploads/2025/05/IDSC-Fee-schedule-UM-FY-2026.pdf>`_
 
-To request additional disk space allocation, email the IDSC support team at:
-`hpc@ccs.miami.edu <mailto:hpc@ccs.miami.edu>`_ with the following information:
+To request additional disk space allocation, contact the IDSC support team 
+`here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
+with the following information:
 
 - Current allocation details
 - Required additional space
