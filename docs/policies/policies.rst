@@ -65,10 +65,6 @@ Software
 Support 
 --------
 
-Contact our IDSC cluster and system support team via email to `IDSC team (hpc@ccs.miami.edu) <mailto:hpc@ccs.miami.edu>`_ for help with connecting, software, jobs, data transfers, and more.  
-Please provide detailed descriptions, the paths to your job files and any outputs, the software modules you may have loaded, and your job ID when applicable.
-
-
 Contact our IDSC cluster and system support at the `IDSC ServiceNow Home Page <https://uhealth.service-now.com/esc?id=emp_taxonomy_topic&topic_id=a0ae36ae47a5ae10ddc5bfca116d43eb>`_ 
 for help with connecting, software, jobs, data transfers, and more. 
 Please provide detailed descriptions, the paths to your job files and any outputs, the software modules you may have loaded, and your job ID when applicable.
