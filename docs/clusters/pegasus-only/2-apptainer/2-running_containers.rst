@@ -128,7 +128,8 @@ Namespaces are logical partitions (isolation) of container resources like user, 
 
 **fake root user inside container:** 
 
-Initially you need to get the fake root permissions from IDSC and requested to raise the ticket with brief description of project requirement to hpc@ccs.miami.edu .  A “fake root” user has almost the same administrative rights as root but only inside the container and the requested namespaces, which means that this user: can set different user/group ownership for files or directories they own can change user/group identity with su/sudo commands has full privileges inside the requested namespaces (network, ipc, uts) .
+
+Initially you need to get the fake root permissions from IDSC and requested to raise the ticket with brief description of project requirement `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_.
 
 A “fake root” user can’t access or modify files and directories for which they don’t already have access or rights on the host filesystem, so a “fake root” user won’t be able to access root-only host files like /etc/shadow or the host /root directory. 
 
@@ -168,7 +169,15 @@ https://acs-docs.readthedocs.io/pegasus/soft/Jupyterhub.html
 JupyterHub on Triton User Menu
 https://acs-docs.readthedocs.io/triton/2-sw/jh.html
 
-Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. Before running any container application, please send an email or raise ticket to hpc@ccs.miami.edu, based on your project requirements and we will recommend the best execution approach  to run your application. For sample running Running jupyter notebook through apptainer container without port mapping as in kubernetes  pod configuration and click on the below kind of link to access notebook through container running on host system. Remember shell session will expire after closing, better to download workload sessions and files as backup. Any ipynb Jupyter Notebook file you will create for running applications will automatically be loaded to your Pegasus environment. You may also access files in your Pegasus environment to Jupyter notebook and to make it as permanent session download images through appatainer.  
+Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. 
+
+Before running any container application, please raise a ticket `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_, based on your project requirements and we will recommend the best execution approach to run your application.
+
+For sample running Running jupyter notebook through apptainer container without port mapping as in kubernetes  
+pod configuration and click on the below kind of link to access notebook through container running on host system. 
+Remember shell session will expire after closing, better to download workload sessions and files as backup. 
+Any ipynb Jupyter Notebook file you will create for running applications will automatically be loaded to your Pegasus environment. 
+You may also access files in your Pegasus environment to Jupyter notebook and to make it as permanent session download images through appatainer.  
 
 ::
 

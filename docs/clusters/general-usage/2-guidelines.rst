@@ -14,7 +14,7 @@ To use Pegasus or Triton, you must be associated with a valid project:
   ``triton_faculty``, ``triton_student``, or ``triton_education``.
 
 - **Pegasus Users:**  
-  Membership in a `Pegasus project <https://redcap.miami.edu/surveys/?s=F8MK9NMW9N>`__ with the resource type ``pegasus_project``.
+  Membership in a `Pegasus project <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`__ with the resource type ``pegasus_project``.
 
 Cluster resources (CPU hours, scratch space, etc.) are allocated to projects.  
 Join projects by contacting Principal Investigators (PIs). See :ref:`g-projects` for more.
