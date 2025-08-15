@@ -19,9 +19,9 @@ Accounts
 IDSC Links
 ----------------
 
-- `IDSC Account Registration Form <https://idsc.miami.edu/IDSC_Account_Registration>`_
-- `IDSC Project Request Form <https://idsc.miami.edu/project_request>`_
-- `IDSC Software Requests : e-mail IDSC <mailto:hpc@ccs.miami.edu>`_
+- `IDSC Account Registration Form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`_
+- `IDSC Project Request Form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_
+- `IDSC Software Requests <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 
 
 Supercomputers
