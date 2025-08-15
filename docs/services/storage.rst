@@ -18,13 +18,11 @@ GPFS storage
 CES storage
 -----------
 * Projects may also request 10T of CES storage.
-* The Principle Investigator (PI) of project must contact hpc@ccs.miami.edu for access to CES Storage.
+*	The Principle Investigator (PI) of project must submit a ticker `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ for access to CES Storage.
 * Usage above 10T requires review by the allocations committee.
 * Fee for 10T of CES project storage is charged annually. ($200)
 * CES storage is restricted to SFTP access through apex.idsc.miami.edu.
 
-You can access your CES storage using any SFTP client.  We recommend FileZilla.  Please see Using Filezilla use case in URL below.
+You can access your CES storage using any SFTP client.  We recommend FileZilla.  Please see the :ref:`transfer` section for the Using FileZilla use case.
 
-  https://acs-docs.readthedocs.io/services/2-transfer.html
-
-Please note that CES storage is currently **only** accessible through apex.idsc.miami.edu.  It is not accessible through any other IDSC server.  You will also only have access to your lab's directory.  If you do not know the directory or have any other questions or concerns please contact hpc@ccs.miami.edu.
+•	Please note that CES storage is currently only accessible through apex.idsc.miami.edu. It is not accessible through any other IDSC server. You will also only have access to your lab’s directory. If you do not know the directory or have any other questions or concerns please submit a ticket `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_.
