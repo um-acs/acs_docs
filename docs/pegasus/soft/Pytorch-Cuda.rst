@@ -30,7 +30,7 @@ you need for your project without affecting system-wide software.
 
 ::
    
-    (mytochenv) [nra20@pegasus ~]$ pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+    (mytochenv) [nra20@pegasus ~]$ pip install torch==2.7.0+cu126 torchvision==0.14.0+cu126 torchaudio==2.0.0 --index-url https://download.pytorch.org/whl/cu126
 
 **5. Test installation through an interactive job**
 
@@ -42,7 +42,7 @@ you need for your project without affecting system-wide software.
     <<Waiting for dispatch ...>>
     <<Starting on gpu2>>
     (mytorchenv) [nra20@gpu2 ~]$ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
-    2.5.1+cu121
+    2.7.0+cu126
     True
 
 Installing additional packages into your environment 
