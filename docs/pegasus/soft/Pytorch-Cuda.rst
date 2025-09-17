@@ -57,7 +57,7 @@ Make sure you submit your job to either the gpu_titan or gpu_h100 queues to acce
 Please see an example below:
 
 
-Example script for a serial Job
+Example script for a GPU Job
 -------------------------------
 
 ``torch_test.job``
