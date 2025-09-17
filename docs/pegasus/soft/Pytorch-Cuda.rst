@@ -27,13 +27,13 @@ Installation
 
 ::
    
-    (base) [nra20@pegasus ~]$ mamba activate mytochenv
+    (base) [nra20@pegasus ~]$ mamba activate mytorchenv
 
 **4. Pip install torch 2.7.0 with cuda 12.6 to match our system cuda**
 
 ::
    
-    (mytochenv) [nra20@pegasus ~]$ pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+    (mytorchenv) [nra20@pegasus ~]$ pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 
 **5. Test installation through an interactive job**
 
