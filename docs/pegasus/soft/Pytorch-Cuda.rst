@@ -9,20 +9,21 @@ you need for your project without affecting system-wide software.
 
 ::
    
-    [nra20@pegasus ~]$ module load mambaforge
+    [nra20@pegasus ~]$ module load mambaforge/1.5.8 
+    [nra20@pegasus ~]$ source /share/apps/mambaforge/install/etc/profile.d/conda.sh
 
 **2. Create your environment with python 3.10 base**
 
 
 ::
    
-    [nra20@pegasus ~]$ mamba create -n mytorchenv numpy scipy matplotlib python=3.10
+    (base) [nra20@pegasus ~]$ mamba create -n mytorchenv numpy scipy matplotlib python=3.10
 
 **3. Activate your new mamba environment**
 
 ::
    
-    [nra20@pegasus ~]$ mamba activate mytochenv
+    (base) [nra20@pegasus ~]$ mamba activate mytochenv
 
 **4. Pip install toch cuda 12.1 version**
 
@@ -43,6 +44,48 @@ you need for your project without affecting system-wide software.
     2.5.1+cu121
     True
 
+
+Running LSF Jobs
+========================
+
+When running LSF jobs with your pytorch mamba environment, please make sure you load the mambaforge software module and activate
+your environment within the LSF job script. 
+
+Make sure you submit your job to either the gpu_titan or gpu_h100 queues to access gpus. 
+
+Please see an example below:
+
+
+Example script for a serial Job
+-------------------------------
+
+``torch_test.job``
+
+--------------
+
+.. code:: bash
+
+    #!/bin/bash
+    #BSUB -J myGPUjob
+    #BSUB -P myproject
+    #BSUB -o %J.out
+    #BSUB -e %J.err
+    #BSUB -W 1:00
+    #BSUB -q gpu_titan
+    #BSUB -gpu "num=1"
+    #BSUB -n 1
+    #BSUB -R "rusage[mem=1280]"
+    #BSUB -B
+    #BSUB -N
+    #BSUB -u myemail@miami.edu
+    
+    
+    module purge
+    module load mambaforge/1.5.8
+    source /share/apps/mambaforge/install/etc/profile.d/conda.sh
+    source /share/apps/mambaforge/install/etc/profile.d/mamba.sh
+    mamba activate mytorchenv
+    python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
 
 
 
