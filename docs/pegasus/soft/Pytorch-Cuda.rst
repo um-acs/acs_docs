@@ -11,6 +11,7 @@ you need for your project without affecting system-wide software.
    
     [nra20@pegasus ~]$ module load mambaforge/1.5.8 
     [nra20@pegasus ~]$ source /share/apps/mambaforge/install/etc/profile.d/conda.sh
+    [nra20@pegasus ~]$ source /share/apps/mambaforge/install/etc/profile.d/mamba.sh
 
 **2. Create your environment with python 3.10 base**
 
