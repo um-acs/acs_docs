@@ -26,11 +26,11 @@ you need for your project without affecting system-wide software.
    
     (base) [nra20@pegasus ~]$ mamba activate mytochenv
 
-**4. Pip install toch cuda 12.1 version**
+**4. Pip install torch 2.7.0 with cuda 12.6 to match our system cuda**
 
 ::
    
-    (mytochenv) [nra20@pegasus ~]$ pip install torch==2.7.0+cu126 torchvision==0.14.0+cu126 torchaudio==2.0.0 --index-url https://download.pytorch.org/whl/cu126
+    (mytochenv) [nra20@pegasus ~]$ pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 
 **5. Test installation through an interactive job**
 
