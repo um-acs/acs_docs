@@ -110,7 +110,7 @@ Sample output in this case will show cuda is detectable.
 ::
 
     [nra20@pegasus gpu_test]$ cat 501973.out
-    2.5.1+cu121
+    2.7.0+cu126
     True
 
 
