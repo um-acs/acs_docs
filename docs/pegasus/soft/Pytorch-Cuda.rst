@@ -67,13 +67,13 @@ Example script for a serial Job
 .. code:: bash
 
     #!/bin/bash
-    #BSUB -J myGPUjob
-    #BSUB -P myproject
-    #BSUB -o %J.out
-    #BSUB -e %J.err
-    #BSUB -W 1:00
-    #BSUB -q gpu_titan
-    #BSUB -gpu "num=1"
+    #BSUB -J myGPUjob         # Job Name
+    #BSUB -P myproject        # Project ID
+    #BSUB -o %J.out           # Standard out
+    #BSUB -e %J.err           # Standard err
+    #BSUB -W 1:00             # Wall Time
+    #BSUB -q gpu_titan        # gpu queue. Can use gpu_titan or gpu_h100
+    #BSUB -gpu "num=1"        # number of gpus to reserve. Can reserve up to 2 per node. 
     #BSUB -n 1
     #BSUB -R "rusage[mem=1280]"
     #BSUB -B
