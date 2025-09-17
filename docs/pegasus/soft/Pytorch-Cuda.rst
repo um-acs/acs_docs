@@ -88,4 +88,12 @@ Example script for a serial Job
     python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
 
 
+Sample output in this case will show cuda is detectable.
+
+::
+
+    [nra20@pegasus gpu_test]$ cat 501973.out
+    2.5.1+cu121
+    True
+
 
