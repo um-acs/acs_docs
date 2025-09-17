@@ -45,8 +45,10 @@ you need for your project without affecting system-wide software.
     2.7.0+cu126
     True
 
+
+
 Installing additional packages into your environment 
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you still require additional packages in your environment, they can be installed with a combination of the commands **mamba install** or **pip install**. Be warned that mixing the two may lead to dependency conflicts.
 
@@ -63,7 +65,7 @@ The below example shows pandas installation using the mamba install command and 
 
 
 Running LSF Jobs
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When running LSF jobs with your pytorch mamba environment, please make sure you load the mambaforge software module and activate
 your environment within the LSF job script. 
