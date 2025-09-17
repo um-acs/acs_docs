@@ -5,6 +5,9 @@ This guide shows you how to install CUDA-enabled PyTorch on the Pegasus cluster.
 We'll set everything up inside your own personal mamba environment, so you can install the packages 
 you need for your project without affecting system-wide software.
 
+Installation 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 **1. Load mambaforge software module**
 
 ::
