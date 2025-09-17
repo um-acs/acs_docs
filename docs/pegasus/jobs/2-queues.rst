@@ -52,12 +52,12 @@ may be suspended (`Policies <https://acs-docs.readthedocs.io/policies/policies.h
      - 6 hours \/ 1 day 
      - interactive jobs :raw-html:`<br />` max 1 job per user
    * - gpu_h100 
-     - 3 GPUs
+     - 2 GPUs
      - 96 GB max V-RAM/node
      - 1 day \/ 7 days 
      - gpu h100
    * - gpu_titan 
-     - 1 GPU 
+     - 2 GPU 
      - 12 GB max V-RAM
      - 1 day \/ 7 days 
      - gpu titan v100
