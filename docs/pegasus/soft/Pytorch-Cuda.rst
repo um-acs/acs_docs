@@ -45,6 +45,22 @@ you need for your project without affecting system-wide software.
     2.5.1+cu121
     True
 
+Installing additional packages into your environment 
+========================
+
+If you still require additional packages in your environment, they can be installed with a combination of the commands **mamba install** or **pip install**. Be warned that mixing the two may lead to dependency conflicts.
+
+A list of packages can be searched for at https://anaconda.org/
+
+The below example shows pandas installation using the mamba install command and conda-forge channel. 
+
+
+::
+
+   (mytorchenv) [nra20@pegasus ~]$ mamba install -c conda-forge pandas
+   
+
+
 
 Running LSF Jobs
 ========================
