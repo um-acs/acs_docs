@@ -22,3 +22,4 @@ Pegasus Software
    Using R through Anaconda <RInstallation_via_conda>
    Jupyterhub <Jupyterhub>
    SimVascular <SimVascular>
+   Pytorch Cuda <Pytorch-Cuda>
