@@ -1,30 +1,29 @@
 Navigating the Linux Shell
 ==========================
 
-The shell is command-line interface (CLI), a type of user interface that
-interprets **commands** typed at a prompt. The default shell on Pegasus
-is Bash.
+This guide provides an introduction to essential Linux shell commands for navigating 
+and interacting with the filesystem, especially within a typical cluster login 
+environment. The shell is provides a **command-line interface (CLI)** that allows users to 
+communicate with the system by typing **commands**. On Triton/Pegasus, the default shell is Bash.
 
-Users send commands to the shell, which runs them and outputs results.
-Commands can include options (or **flags**) to modify output and
-**arguments** to specify command targets. In Bash, command history can
-be accessed from the prompt with up and down arrow keys - use this to
-repeat a previously issued command.
+Users input commands into the shell, which executes them and displays the output. 
+Commands may include **options** (also called **flags**) to modify behavior, 
+and **arguments** to specify targets or inputs. 
+To scroll through previously entered commands, use the **up/down arrow keys**.
 
-Below are some useful Linux shell commands with explanations and
-examples. Recall that Linux is *case-sensitive*– "name" is distinct from
-"NAME" and other capital and lower-case combinations ("Name", "nAMe",
-etc.). To cancel a process and return to the prompt in Linux, press
-``CTRL-C`` in Windows or ``Command-C`` in Mac.
+Below is a collection of commonly used Linux shell commands, 
+along with detailed explanations and examples. 
+Remember that Linux is **case-sensitive**—"name" is different from "NAME", "Name", 
+"nAMe", and so on. To stop a running process and return to the prompt, press ``CTRL-C`` (on Windows) or ``Command-C`` (on macOS).
 
-View your current shell with ``echo``:
+Check Your Current Shell with ``echo``
 --------------------------------------
 
-The ``echo`` command displays a line of text. In Linux, ``$`` denotes a
-**variable**. The ``$SHELL`` environment variable contains your current
-shell. To view the contents of this variable, send it to the ``echo``
-command. Variables will be interpreted by the command even when inside
-lines of text, as shown below.
+The ``echo`` command displays text or variable values in the terminal. 
+In Linux, **variables** are referenced using a leading dollar sign (``$``). 
+For instance, the variable ``$SHELL`` stores the path to your default shell. 
+To view it, you can pass the variable to ``echo``. 
+Variables can also be embedded within strings, as shown below.
 
 ::
 
@@ -33,11 +32,13 @@ lines of text, as shown below.
     [username@pegasus ~]$ echo "My shell is $SHELL"
     My shell is /bin/bash
 
-View all environment variables with ``env``:
---------------------------------------------
+List All Environment Variables with ``env``
+-------------------------------------------
 
-To view all your environment variables, use the ``env`` command. To view
-this list alphanumerically, use ``env | sort``.
+To view a complete list of your environment variables, use the ``env`` command. 
+To organize the output in alphabetical order, combine it with ``sort`` as shown.
+The pipe (``|``) command is used to connect multiple commands in sequence, 
+passing the output of one as the input to the next.
 
 ::
 
@@ -50,61 +51,56 @@ this list alphanumerically, use ``env | sort``.
     [username@pegasus ~]$ env | sort
     ...
 
-View your current directory with ``pwd``:
+Check Your Current Directory with ``pwd``
 -----------------------------------------
 
-**Directories** in Linux are similar to folders in other operating
-systems. Your home directory is the default location after login. The
-shortcut for home in Bash is the tilde (``~``), shown below just before
-the prompt (``$``). ``pwd`` outputs the **absolute path**, the unique
-location starting from the topmost, or root, directory (``/``).
+Linux uses **directories**, which are equivalent to folders in other operating systems. 
+When you log in, you are placed in your **home directory** by default. 
+The tilde (``~``) symbol is a shorthand for this location. 
+The ``pwd`` (print working directory) command outputs the **absolute path** of your 
+current location in the filesystem, beginning at the root directory (``/``).
 
 ::
 
     [username@pegasus ~]$ pwd
     /nethome/username
 
-View the contents of a directory with ``ls``:
----------------------------------------------
+List Directory Contents with ``ls``
+-----------------------------------
 
-Entering the ``ls`` command without arguments (as shown below) lists the
-contents of the current directory. *If this is your first connection to
-Pegasus, your home directory may be empty.* Directories can be
-distinguished from files by the leading ``d`` in file permissions.
+Running the ``ls`` command without any arguments displays 
+the contents of your current directory. 
+*Note: if this is your first login, your home directory may appear empty.* 
+Items that begin with a ``d`` in their permissions are directories.
 
 ::
 
-    [username@pegasus ~]$ ls 
+    [username@pegasus ~]$ ls
     example_file1  example_file2  testdir1
 
-To view the contents of a specific directory, send the path as an
-argument to ``ls``. In this example the current directory is home, which
-contains ``testdir1``. As shown in the output, ``testdir1`` contains one
-file: ``testdir1_file1``
+To inspect a specific directory, provide its path as an argument to ``ls``. 
+In the example below, ``testdir1`` is located in the home directory 
+and contains one file: ``testdir1_file1``.
 
 ::
 
     [username@pegasus ~]$ ls testdir1
     testdir1_file1
 
-Note that you can press the ``TAB`` key on your keyboard to
-auto-complete names. If there are multiple matches, a list of options
-will be shown. Type the next letter and press TAB again until
-tab-complete finishes.
+You can press the ``TAB`` key while typing a name to automatically complete it. 
+If multiple possibilities exist, a list will appear. 
+Continue typing more characters and press TAB again until completion succeeds.
 
-Command details and flag information can be found in the **Linux manual
-pages**, accessible via the command line:
+You can learn more about command flags and usage by accessing the **Linux manual pages** using:
 
 ::
 
     [username@pegasus ~]$ man topic or command
 
-Press ``SPACE`` to see the next set of lines. To scroll, use the arrow
-keys or ``Page Up`` and ``Page Down``. To exit, type ``q``.
+Use the arrow keys, ``Page Up``, or ``Page Down`` to scroll. 
+Press ``SPACE`` to view additional content, and type ``q`` to quit.
 
-``ls`` can be run with options, or flags, to customise output. For
-example, view more detailed information such as file permissions using
-the ``-lh`` flags.
+To display more detailed file information, use ``ls`` with flags like ``-lh``:
 
 ::
 
@@ -115,24 +111,23 @@ the ``-lh`` flags.
     drwxr-xr-x 2 username ccsuser 512  testdir1
     ...
 
-The flags on this ``ls -lh`` command:
+Explanation of ``ls -lh`` flags:
 
--  ``-l`` long list format (includes permissions, owner, and more)
--  ``-h`` human readable filesize format (useful for larger file sizes)
+-  ``-l``: Long listing format (includes size, owner, permissions, etc.)
+-  ``-h``: Human-readable file sizes (e.g., 1K, 234M, 2G)
 
-Other useful ``ls`` flags:
+Other useful ``ls`` options include:
 
--  ``-a`` include hidden files \*
--  ``-d`` list properties of a directory itself, not the contents
--  ``-1`` (**number 1**) one result per line
--  ``-R`` recursively list subdirectory contents
--  ``-S`` sort by file size
--  ``-X`` sort alphanumerically by extension
--  ``-m`` comma-separated list
+-  ``-a``: Include hidden files (starting with ``.``)
+-  ``-d``: Show directory details instead of listing contents
+-  ``-1`` (**number 1**): Output one entry per line
+-  ``-R``: Recursively display subdirectory contents
+-  ``-S``: Sort files by size
+-  ``-X``: Sort files alphabetically by extension
+-  ``-m``: Display output as a comma-separated list
 
-\* Hidden files include the **.** and **..** directories, which
-represent the current and parent (respectively). These can be used as
-shortcuts in relative paths:
+\* Hidden files include ``.`` (current directory) and ``..`` (parent directory). 
+These shortcuts are useful in relative paths:
 
 ::
 
@@ -141,30 +136,31 @@ shortcuts in relative paths:
     [username@pegasus testdir1]$ ls ..
     example_file1  example_file2  testdir1
 
-Navigate to directories with ``cd``:
+Move Between Directories with ``cd``
 ------------------------------------
 
-This command changes your current directory to the path specified, which
-can be **absolute**, starting with ``/``, or **relative**, starting from
-the current directory.
+Use the ``cd`` (change directory) command to navigate the filesystem. 
+The provided path can be **absolute** (starting with ``/``) 
+or **relative** to your current location.
 
 ::
 
     [username@pegasus ~]$ cd testdir1
     [username@pegasus testdir1]$
 
-Some useful ``cd`` commands:
+Some useful ``cd`` patterns:
 
--  ``cd`` or ``cd ~`` move to user’s home directory
--  ``cd ..`` move to parent directory
--  ``cd -`` move to previous working directory and also prints it. 
+-  ``cd`` or ``cd ~``: Return to your home directory
+-  ``cd ..``: Move up to the parent directory
+-  ``cd -``: Return to the previous directory and display it
 
-View directory contents with ``tree``:
---------------------------------------
+Visualize Directory Structure with ``tree``
+-------------------------------------------
 
-Pegasus has the ``tree`` package installed, which recursively outputs a
-depth-indented list of contents. This may be more helpful than ``ls``
-for nested directories.
+Pegasus includes the ``tree`` utility, which shows a recursive, 
+indented listing of files and directories. 
+This can be more informative than ``ls``, 
+especially for visualizing nested directories.
 
 ::
 
@@ -177,25 +173,24 @@ for nested directories.
 
     1 directory, 3 files
 
-The flags on this ``tree -vC`` command:
+Explanation of ``tree -vC`` flags:
 
--  ``-v`` sort alphanumerically by type
--  ``-C`` colorise output
+-  ``-v``: Sort contents alphanumerically by type
+-  ``-C``: Enable colored output for better visibility
 
-Other useful ``tree`` flags:
+Other helpful ``tree`` flags include:
 
--  ``-a`` include hidden files
--  ``-d`` list directories only
--  ``-r`` sort reverse alphanumerically
--  ``-L number`` descend only *number* levels deep
+-  ``-a``: Display hidden files
+-  ``-d``: Show directories only
+-  ``-r``: Reverse the sorting order
+-  ``-L number``: Limit the depth of displayed directory levels
 
-Check command availability and location with ``which``:
--------------------------------------------------------
+Locate Commands with ``which``
+------------------------------
 
-The ``which`` command returns the full path of any shell commands
-registered in the current environment by searching locations in the
-``$PATH`` environment variable. Use ``which`` to check command and
-software availability and location.
+The ``which`` command shows the full path of a command executable 
+by searching directories listed in your ``$PATH`` environment variable. 
+Use ``which`` to verify if a command is installed and to find its location.
 
 ::
 

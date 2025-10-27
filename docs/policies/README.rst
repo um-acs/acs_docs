@@ -5,4 +5,5 @@ IDSC ACS Policies
    :maxdepth: 3
 
    Policies <policies>
+   FAQs <faqs>
    Terms and Conditions <terms_conditions>

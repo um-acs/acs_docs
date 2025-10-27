@@ -141,7 +141,7 @@ administer VPN accounts.
 University of Miami VPN:
 https://my.it.miami.edu/wda/a-z/virtual-private-network/
 
-Send access range requests (for Vendor VPN applications) to : `IDSC ACS <mailto:hpc@ccs.miami.edu>`_  
+Send access range requests (for Vendor VPN applications) to : `IDSC ACS <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_  
 
 PLEASE NOTE: As of 2024, only UMIT provisoned hardware will be able to access the VPN off campus. 
 

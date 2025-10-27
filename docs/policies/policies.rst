@@ -24,7 +24,6 @@ IDSC Links
 - `IDSC Software Requests <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 
 
-
 Supercomputers
 ---------------------
 
@@ -67,20 +66,18 @@ Software
 Support 
 --------
 
-Contact our IDSC cluster and system support at the `IDSC ServiceNow Home Page <https://hpc.idsc.miami.edu/>`_ for help with connecting, software, jobs, data transfers, and more.  Please provide detailed descriptions, the paths to your job files and any outputs, the software modules you may have loaded, and your job ID when applicable.
+Contact our IDSC cluster and system support at the `IDSC ServiceNow Home Page <https://uhealth.service-now.com/esc?id=emp_taxonomy_topic&topic_id=a0ae36ae47a5ae10ddc5bfca116d43eb>`_ 
+for help with connecting, software, jobs, data transfers, and more. 
+Please provide detailed descriptions, the paths to your job files and any outputs, the software modules you may have loaded, and your job ID when applicable.
 
-Our ticketing systems has been migrated from RT to the ServiceNow Platform. 
 
-You can find our new IDSC ServiceNow Home page for ticket submissions here: `IDSC ServiceNow Home Page <https://hpc.idsc.miami.edu/>`_
+Our ticketing system has been migrated from RT to the ServiceNow Platform.
+You can find our new IDSC ServiceNow Home page for ticket submissions here: `IDSC ServiceNow Home Page <https://uhealth.service-now.com/esc?id=emp_taxonomy_topic&topic_id=a0ae36ae47a5ae10ddc5bfca116d43eb>`_ 
 
-To request a new project: `IDSC Project Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_
 
-Need something new or have a general question: `IDSC - Make a Request or Inquiry form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
-
-Report an issue with the clusters that needs immediate attention: `IDSC - HPC Cluster: Report a Problem form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_
-
-To request an IDSC account: `IDSC - Account Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`_
-
-Need to request a VM or a service for an existing one? (This form is restricted to members of HIHG and IDSC Software Engineering): `IDSC - Other Systems Support Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=f1aa9d494726ae10ddc5bfca116d43a2>`_
-
+- To request a new project: `IDSC Project Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_
+- Need something new or have a general question: `IDSC - Make a Request or Inquiry form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
+- Report an issue with the clusters that needs immediate attention: `IDSC - HPC Cluster: Report a Problem form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_
+- To request an IDSC account: `IDSC - Account Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`_
+- Need to request a VM or a service for an existing one? (This form is restricted to members of HIHG and IDSC Software Engineering): `IDSC - Other Systems Support Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=f1aa9d494726ae10ddc5bfca116d43a2>`_
 
