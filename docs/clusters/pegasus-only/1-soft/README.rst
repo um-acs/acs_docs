@@ -21,6 +21,7 @@ Pegasus Software Suites
    Jupyterhub <2-data_science/Jupyterhub>
    RStudio <2-data_science/RStudio>
    SAS <2-data_science/sas>
+   Pytorch-Cuda <2-data_science/Pytorch-Cuda>
 
 
 .. toctree::
