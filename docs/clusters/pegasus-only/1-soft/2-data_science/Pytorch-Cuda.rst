@@ -102,7 +102,6 @@ Example script for a GPU Job
     #BSUB -u myemail@miami.edu
     
     
-    module purge
     module load mambaforge/1.5.8
     source /share/apps/mambaforge/install/etc/profile.d/conda.sh
     source /share/apps/mambaforge/install/etc/profile.d/mamba.sh
