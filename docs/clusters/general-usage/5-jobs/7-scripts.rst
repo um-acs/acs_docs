@@ -1,6 +1,7 @@
 .. _g-scripts:
 
-.. Serial/ Parallel Job Scripts
+
+Serial/Parallel Job Scripts
 =======================
 
 The command ``bsub < ScriptFile`` will submit the given script for
