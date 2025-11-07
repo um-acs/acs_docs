@@ -9,6 +9,10 @@ How do I reset my IDSC password?
 | Via the IDSC Password Reset page : https://idsc.miami.edu/ccs-account
 | More Quick Links : https://idsc.miami.edu/quick-links/
 
+The password reset link is only accessible via a secured UM network or the VPN. 
+
+If you are a student and do not have access to either resource, please submit a ticket here: https://idsc.miami.edu/inquiry
+
 
 How do I get IDSC cluster resources?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
