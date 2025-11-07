@@ -48,7 +48,7 @@ Allocations
 -----------
 
 - Active cluster users are allocated a logical **home** directory area on the cluster, PEGASUS: ``/nethome/username``, TRITON: ``/home/username`` , limited to 250GB. 
-- Active projects can be allocated scratch directories:  PEGASUS: ``/scratch/projects/projectID``, TRITON: ``/scratch/projectID``, intended for compiles and run-time input & output files. 
+- Active projects can be allocated scratch directories:  PEGASUS: ``/scratch/projects/projectID``, TRITON: ``/scratch/projects/projectID``, intended for compiles and run-time input & output files. 
 - Disk allocations are only for data currently being processed.
 - Data for running jobs must be staged exclusively in the ``/scratch`` file system. IDSC accounts staging job data in the ``/nethome`` filesystem may be suspended.
 - Both **home** and **scratch** are available on all nodes in their respective clusters.
