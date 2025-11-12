@@ -79,5 +79,5 @@ You can find our new IDSC ServiceNow Home page for ticket submissions here: `IDS
 - Need something new or have a general question: `IDSC - Make a Request or Inquiry form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 - Report an issue with the clusters that needs immediate attention: `IDSC - HPC Cluster: Report a Problem form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_
 - To request an IDSC account: `IDSC - Account Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`_
-- Need to request a VM or a service for an existing one? (This form is restricted to members of HIHG and IDSC Software Engineering): `IDSC - Other Systems Support Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=f1aa9d494726ae10ddc5bfca116d43a2>`_
+- Need to request a VM or a service for an existing one? (This form is restricted to members of HIHG and IDSC Software Engineering): `IDSC - Other Systems Support Request form <https://idsc.miami.edu/systems>`_
 
