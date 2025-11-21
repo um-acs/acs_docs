@@ -41,7 +41,7 @@ Starting your Jupyter Notebook server
 -  (Optional) Choose a GPU queue only if you wish to utilize the node's GPU. By default, 1 GPU is allocated per session. 
 -  Press the ``Request`` button to request and start a Notebook server. This will take roughly 15 seconds. 
 
-Switching between JupyterLab & JupyterHub
+Switching between JupyterLab and JupyterHub
 -----------------------
 
 After the Jupyter Notebook server starts, you can switch to JupyterLab by changing the url from ``.../tree`` to ``.../lab``. If you want to stop the server from JupyterLab, choose ``File`` >> ``Hub Control Panel`` in the menu bar, then press ``Stop My Notebook Server`` button in the panel.
