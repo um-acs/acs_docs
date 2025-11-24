@@ -85,4 +85,4 @@ works best for your job requirements.
    This is most convenient for users requiring different versions of MPI
    for different jobs. Ensure your script can execute the
    ``module command`` properly. For job script information, see
-   `Scheduling Jobs on Pegasus <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__.
+   `Scheduling Jobs on Pegasus <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`__.
