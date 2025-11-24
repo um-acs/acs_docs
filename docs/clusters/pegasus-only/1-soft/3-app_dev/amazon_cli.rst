@@ -26,7 +26,7 @@ In order to access your AWS services from the Pegasus cluster:
 
 
 
-Getting Started 
+Getting Started Amazon Web Services CLI on Pegasus 
 ------------------------
  
 - Amazon s3 "Getting started" guide : https://aws.amazon.com/s3/getting-started/
