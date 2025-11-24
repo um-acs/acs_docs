@@ -4,7 +4,7 @@ Triton Software Suites
 ======================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Modules and Languages
 
    Modules <1-environments/modules>
@@ -13,7 +13,7 @@ Triton Software Suites
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Data Science Tools
 
    Jupyterhub <2-data_science/jh>
