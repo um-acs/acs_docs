@@ -130,8 +130,10 @@ The result would be as follows:
   	  ‘/tmp/RtmpnBwmdD/downloaded_packages’
   >
 
-Contact `IDSC ACS <mailto:hpc@ccs.miami.edu>`_ to review any core library 
+Submit a ticket `here <https://idsc.miami.edu/inquiry>`__ for assistance on reviewing any core library 
 pre-requisites and dependencies, for cluster-wide installation.  
+
+
 
 
 A Sample R script
