@@ -4,7 +4,7 @@
 JupyterHub on Triton User Menu
 ==============================
 
-Introduction
+Triton Jupyterhub Introduction
 ------------
 
 `JupyterHub <https://jupyterhub.readthedocs.io/en/stable/index.html>`__
@@ -23,7 +23,7 @@ nodes. It is recommended to use the Notebook as a testing tool and submit formal
 Using JupyterHub on Triton
 --------------------------
 
-Login
+Triton Jupyterhub Login
 ~~~~~
 
 -  First you need to have access to Triton. Please check the `IDSC ACS Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__
@@ -33,7 +33,7 @@ Login
    browser.
 -  Log in using your IDSC Account & Password.
 
-Starting your Jupyter Notebook server
+Starting your Triton Jupyter Notebook server 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Press the ``Start My Notebook Server`` button to launch the resource
@@ -42,7 +42,7 @@ Starting your Jupyter Notebook server
    Notebook server and whether or not you want to use a GPU.
 -  Press the ``Request`` button to request and start a Notebook server.
 
-Logout
+Triton Jupyterhub Logout
 ~~~~~~
 
 When using the JupyterHub, you need to be clear that there are three things you need to turn off:
@@ -55,7 +55,7 @@ When using the JupyterHub, you need to be clear that there are three things you 
    If you only logout from JupyterHub without stopping the Notebook Server first, 
    the Notebook Server will run until the time you set up when starting it. This could result in unintended increased SU usage. 
    
-Using Jupyter Notebook
+Using Triton Jupyter Notebook
 ----------------------
 
 After the notebook server starts, you will see the interface page
@@ -68,7 +68,7 @@ Details can be found at the official `Jupyter Notebook User
 Documentation <https://jupyter-notebook.readthedocs.io/en/stable/notebook.html>`__.
 
 
-Global Python Kernel
+Triton Global Python Jupyter Kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 There is a global python kernel available to all users with many python data science and deep learning packages. 
 
@@ -470,7 +470,7 @@ List of packages within this kernel:
    zict                          3.0.0
    zipp                          3.17.0
 
-Creating Your Python Kernel
+Creating Your Triton Jupyter Python Kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  $ ``ssh <caneid>@t2.idsc.miami.edu`` to login to Triton
@@ -510,7 +510,7 @@ Later on, you can still install new packages to the kernel using ``conda install
 After a package is installed, you can use it in your notebook by running ``import <package name>`` in a cell.
 
 
-Creating Your R Kernel
+Creating Your Triton Jupyter R Kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ::
 
@@ -522,7 +522,7 @@ Creating Your R Kernel
     > IRkernel::installspec(name='my_r_kernel', displayname='My R Kernel')
 
 
-Removing Personal Kernels
+Removing Personal Kernels from Triton Jupyterhub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You can view a list of all your kernels at the following path:
 
@@ -531,7 +531,7 @@ You can view a list of all your kernels at the following path:
 From this directory you can delete kernels using Linux **rm kernel_name** command. 
 
 
-Switching to JupyterLab
+Switching to JupyterLab on Triton
 -----------------------
 
 After the Jupyter Notebook server starts, you can switch to JupyterLab by changing the url from ``.../tree`` to ``.../lab``. If you want to stop the server from JupyterLab, choose ``File`` >> ``Hub Control Panel`` in the menu bar, then press ``Stop My Notebook Server`` button in the panel.
