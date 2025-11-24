@@ -7,7 +7,7 @@ If you encounter issues running your jobs, let our IDSC cluster support know by 
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    
    Pegasus Software Suites <1-soft/README>
    Pegasus Container Platform (Apptainer) <2-apptainer/README>
