@@ -14,7 +14,7 @@ Getting ACL information
 ACL permissions start the same as the standard Linux permissions shown
 by ``ls -l`` output.
 
-Get ACL information with ``getfacl``:
+Get ACL information with ``getfacl``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -41,7 +41,7 @@ Setting ACL information
 Once an ACL has been set for a file or directory, a ``+`` symbol will
 show at the end of standard Linux permissions.
 
-Set ACL with ``setfacl -m`` (modify):
+Set ACL with ``setfacl -m`` (modify)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Set for user ``mycollaborator`` permissions rwx on ``mydir``, directory
@@ -160,7 +160,7 @@ Removing ACL information
 Use ``setfacl`` to remove ACL permissions with flags ``-x`` (individual
 ACL permissions) or ``-b`` (all ACL rules).
 
-Remove ACL permissions with ``setfacl -x``:
+Remove ACL permissions with ``setfacl -x``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This flag can remove all permissions, but does not remove the ACL.
@@ -186,7 +186,7 @@ Note ``user:mycollaborator:rwx`` has been removed, but ``mask::rwx``
 remains in the ``getfacl`` output. In ``ls -ld`` output, the ``+``
 symbol remains because the ACL has not been removed.
 
-Remove all ACL rules with ``setfacl -b``:
+Remove all ACL rules with ``setfacl -b``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This flag removes the entire ACL, leaving permissions governed only by
