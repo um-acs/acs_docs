@@ -181,7 +181,7 @@ Output file as
     completed job 
 
 
-Inorder to see the ouput images install required softwares, I am using mac, make sure XQuartz is running before running Fiji  (See X11Forwarding in acs documentation: https://acs-docs.readthedocs.io/pegasus/soft/SimVascular.html)   
+Inorder to see the ouput images install required softwares, I am using mac, make sure XQuartz is running before running Fiji  (See X11Forwarding in acs documentation: https://acs-docs.readthedocs.io/clusters/pegasus-only/1-soft/4-scientific_computing/SimVascular.html)   
 
 ::
 
