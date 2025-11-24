@@ -18,7 +18,7 @@ version of R, say, ``3.6.3``, you can type the following:
 
 To see a list of available software, including R versions, use the command 
 ``module avail``. For more information about software available on Pegasus, 
-see `Software on the Pegasus Cluster <https://acs-docs.readthedocs.io/pegasus/soft/1-modules.html#p-soft>`__.
+see `Software on the Pegasus Cluster <https://acs-docs.readthedocs.io/clusters/pegasus-only/1-soft/README.html>`__.
 
 Batch R
 -------
