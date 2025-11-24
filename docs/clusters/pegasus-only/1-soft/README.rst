@@ -3,6 +3,7 @@
 Pegasus Software Suites
 =======================
 
+.. section:: Modules and Languages
 .. toctree::
    :maxdepth: 2
    :caption: Modules and Languages
