@@ -17,4 +17,3 @@ Triton Software Suites
    :caption: Data Science Tools
 
    Jupyterhub <2-data_science/Jupyterhub>
-   IBM WML CE <2-data_science/wmlce>
