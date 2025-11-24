@@ -163,7 +163,7 @@ This will also activate the newly-created virtual environment.
     Installing setuptools, pip...done.
     (test3)[username@pegasus ~]$ 
 
-Activate or switch to a virtual environment:
+Activate or switch to a virtual environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
@@ -171,7 +171,7 @@ Activate or switch to a virtual environment:
     (test3)[username@pegasus ~]$ workon test1
     (test1)[username@pegasus ~]$ 
 
-Deactivate the virtual environment:
+Deactivate the virtual environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
