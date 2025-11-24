@@ -31,7 +31,7 @@ Pegasus Jupyterhub Login
    browser.
 -  Log in using your UM CaneID and Pegasus password.
 
-Starting your Jupyter Notebook server
+Starting your Pegasus Jupyter Notebook server 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Press the ``Start My Notebook Server`` button to launch the resource
@@ -41,7 +41,7 @@ Starting your Jupyter Notebook server
 -  (Optional) Choose a GPU queue only if you wish to utilize the node's GPU. By default, 1 GPU is allocated per session. 
 -  Press the ``Request`` button to request and start a Notebook server. This will take roughly 15 seconds. 
 
-Switching between JupyterLab and JupyterHub
+Switching between JupyterLab and JupyterHub on Pegasus
 -----------------------
 
 After the Jupyter Notebook server starts, you can switch to JupyterLab by changing the url from ``.../tree`` to ``.../lab``. If you want to stop the server from JupyterLab, choose ``File`` >> ``Hub Control Panel`` in the menu bar, then press ``Stop My Notebook Server`` button in the panel.
@@ -59,7 +59,7 @@ When using the JupyterHub, you need to be clear that there are three things you 
    If you only logout from JupyterHub without stopping the Notebook Server first, 
    the Notebook Server will run until the time you set up when starting it. This could result in unintended increased SU usage. 
    
-Using Jupyter Notebook
+Using Jupyter Notebook on Pegasus
 ----------------------
 
 After the notebook server starts, you will see the interface page
@@ -71,7 +71,7 @@ using the ``New`` button at the top-right corner under the menu bar.
 Details can be found at the official `Jupyter Notebook User
 Documentation <https://jupyter-notebook.readthedocs.io/en/stable/notebook.html>`__.
 
-Global Deep-Learning Python Kernel
+Global Deep-Learning Python Kernel for Pegasus Jupyterhub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Pytorch2.0.1-cuda (open-ce)
 
@@ -310,7 +310,7 @@ Pytorch2.0.1-cuda (open-ce)
 
 
 
-Global R Kernel
+Global R Kernel for Pegasus Jupyterhub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Global R/4.3.3
 
@@ -393,7 +393,7 @@ Global R/4.3.3
 
    
 
-Creating Your Python Kernel
+Creating Your Python Kernel for Pegasus Jupyterhub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  $ ``ssh <caneid>@pegasus.ccs.miami.edu`` to login to Pegasus
@@ -446,7 +446,7 @@ Creating your R Kernels
 
 Later on, you can still install new packages to the kernel using ``conda install <package>`` or install.packages() in R after activating the environment.
 
-Removing Personal Kernels
+Removing Personal Kernels on Pegasus 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You can view a list of all your kernels at the following path:
 
@@ -455,7 +455,7 @@ You can view a list of all your kernels at the following path:
 From this directory you can delete kernels using Linux **rm -rf <kernel_name>** command. 
 
 
-Using Pre-installed Kernels
+Using Pre-installed Kernels for Pegasus Jupyterhub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Several kernels have been pre-installed on Pegasus. You can use them to test your code if you do not need
