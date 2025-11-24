@@ -4,7 +4,7 @@ Pegasus Software Suites
 =======================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Modules and Languages
 
    Modules <1-environments/modules>
