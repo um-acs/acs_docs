@@ -1,7 +1,7 @@
 IBM WML CE on Triton User Menu
 ==============================================
 
-Introduction
+Introduction to WML CE on Triton 
 ------------
 
 To release the power of the advanced hardware, IBM provides
@@ -13,7 +13,7 @@ learning frameworks such as TensorFlow and PyTorch, IBM-optimized Caffe,
 IBM's machine learning library (Snap ML) and software for distributed
 training (DDL) and large model support (LMS).
 
-Using Anaconda
+Using Anaconda for WML CE on Triton 
 --------------
 
 The WML CE packages are distributed as conda packages in `an online
@@ -27,7 +27,7 @@ the WML-configured Anaconda `module <https://acs-docs.readthedocs.io/triton/1-en
 We recommend using the pre-installed Anaconda since it will be easier for us to track down the problem if you need assistance. However, you can also install Anaconda or Miniconda in your home directory following `the WML CE system setup guide <https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_setupAnaconda.html>`__, and handle it by yourself.
 
 
-Installing WML CE packages
+Installing WML CE packages on Triton 
 --------------------------
 
 -  $ ``ml wml_anaconda3``
@@ -204,7 +204,7 @@ Inside an environment (after activating the environment):
 
 Please check the `official document <https://docs.conda.io/projects/conda/en/latest/commands.html#conda-general-commands>`__ for details.
 
-References and Additional Resources
+References and Additional Resources for IBM Watson machine learning 
 -----------------------------------
 
 `Watson Machine Learning Community
