@@ -5,7 +5,7 @@ Detailed information for FAQ topics is available here and in :ref:`policies`
 **Note:** IDSC ACS does not install, provide support for, or provide documentation on how to code in your preferred software. ACS documentation contains information on using software in a Linux cluster environment.
 
 
-Projects
+Projects and Resources
 ----------------
 
 Checkout the documentation on :ref:`g-projects` for more information.
