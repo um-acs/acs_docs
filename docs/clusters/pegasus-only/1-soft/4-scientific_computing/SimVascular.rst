@@ -16,7 +16,7 @@ Please see the following guide on how to achieve this:
 https://acs-docs.readthedocs.io/services/1-access.html?highlight=x11#connect-with-x11-forwarding
 
 
-Loading the Module
+Loading the SimVascular Software Module
 -------------------
 The SimVascular module is dependent on the gcc/8.3.1 software module. This will come pre-loaded once the SimVascular module has been loaded.
 
