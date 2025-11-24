@@ -12,7 +12,7 @@ To join an existing Project, submit a `IDSC Account Request <https://uhealth.ser
 
 If you are new to Pegasus, please review our `Onboarding Training Material <https://www.youtube.com/playlist?list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF>`__.
 
-If you’re new to Linux, please review our `Linux Training Material <https://acs-docs.readthedocs.io/linux>`__.
+If you’re new to Linux, please review our `Linux Training Material <https://acs-docs.readthedocs.io/linux/README.html>`__.
 
 Sylvester Utilization
 ---------------------
