@@ -16,4 +16,4 @@ Triton Software Suites
    :maxdepth: 2
    :caption: Data Science Tools
 
-   Jupyterhub <2-data_science/Jupyterhub>
+   Jupyterhub <2-data_science/jh>
