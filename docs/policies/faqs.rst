@@ -13,7 +13,7 @@ Checkout the documentation on :ref:`g-projects` for more information.
 How do I join a project?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Contact the project owner. See :ref:`g-projects` for more info.
+Contact the project owner. See <:ref:`g-projects`> for more info.
 
 How do I request a new project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -238,7 +238,7 @@ Disk Quota and Storage Expansion
 
 If 10TB or more of storage is required, users will need to purchase either **GPFS** or **CES** storage.
 Check out the details on our storage services page: :ref:`s_storage` and for pricing details, refer to the following link:
-`IDSC Fee Schedule FY 2026 <https://idsc.miami.edu/wp-content/uploads/2025/05/IDSC-Fee-schedule-UM-FY-2026.pdf>`_
+`IDSC Fee Schedule <https://idsc.miami.edu/fee-schedules/>`_
 
 To request additional disk space allocation, contact the IDSC support team 
 `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
