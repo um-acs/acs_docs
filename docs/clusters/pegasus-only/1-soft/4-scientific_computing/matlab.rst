@@ -336,7 +336,7 @@ shown below:
 
 
 
-Troubleshooting
+Troubleshooting Matlab on Pegasus
 ----------------
 
 When launching matlab for the first time as an interactive job you may get a connection error like so:
