@@ -4,7 +4,7 @@
 JupyterHub on Pegasus User Menu
 ===============================
 
-Introduction
+Pegasus JupyterhubIntroduction
 ------------
 
 `JupyterHub <https://jupyterhub.readthedocs.io/en/stable/index.html>`__
@@ -21,7 +21,7 @@ nodes. It is recommended to use the Notebook as a testing tool and submit formal
 Using JupyterHub on Pegasus
 ---------------------------
 
-Login
+Pegasus Jupyterhub Login
 ~~~~~
 
 -  First you need to have access to Pegasus. Please check the `IDSC ACS Policies <https://acs-docs.readthedocs.io/policies/policies.html#policies>`__
@@ -46,7 +46,7 @@ Switching between JupyterLab and JupyterHub
 
 After the Jupyter Notebook server starts, you can switch to JupyterLab by changing the url from ``.../tree`` to ``.../lab``. If you want to stop the server from JupyterLab, choose ``File`` >> ``Hub Control Panel`` in the menu bar, then press ``Stop My Notebook Server`` button in the panel.
 
-Logout
+Pegasus Jupyterhub Logout
 ~~~~~~
 
 When using the JupyterHub, you need to be clear that there are three things you need to turn off:
