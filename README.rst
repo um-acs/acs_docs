@@ -41,6 +41,13 @@ To access IDSC resources while offsite, `open a VPN connection first <https://ac
 | URL: http://miami.edu/vpn
 
 
+How can I request accest to the IDSC ACS Users Mailing List?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All users are automatically added to the IDSC ACS Users mailing list and will receive announcements regarding Triton & Pegasus updates.
+
+If you have not been added or are not receiving announcements, please submit a support ticket `here <https://idsc.miami.edu/inquiry>`__.
+
 
 --------------
 
