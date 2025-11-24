@@ -93,7 +93,7 @@ Batch Processing
 
 For off-line non-interactive computations, submit the MATLAB script to
 the LSF scheduler using the ``bsub`` command. For more information about
-job scheduling, see `Scheduling Jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__. Example
+job scheduling, see `Scheduling Jobs <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`__. Example
 single-processor job submission:
 
 ::
@@ -155,7 +155,7 @@ provide up to 16 MATLAB computational engines or workers on a single node
 on Pegasus. You may get up to 15 workers on the **general** queue, and 
 up to 16 on the **parallel** one. For more information
 about queue and parallel resource distribution requirements, see
-`Scheduling Jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__.
+`Scheduling Jobs <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`__.
 
 
 .. build-in default MATLAB cluster
@@ -164,7 +164,7 @@ about queue and parallel resource distribution requirements, see
 .. You can specify up to 15 on a single Pegasus node using the **general**
 .. queue, and 16 cpus using the **parallel** queue. For more information
 .. about queue and parallel resource distribution requirements, see
-.. `Scheduling Jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__.
+.. `Scheduling Jobs <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`__.
 
 Documentation from MATLAB outlines strategies and tools from the 
 Parallel Computing Toolbox that help adapt your script for
@@ -253,7 +253,7 @@ during your matlab session:
 
 *The multi-node parallel jobs must be submitted to the **parallel** queue with the
 appropriate ptile resource distribution.* For more information about
-queue and resource distribution requirements, see `Scheduling Jobs <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__.
+queue and resource distribution requirements, see `Scheduling Jobs <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`__.
 
 
 
