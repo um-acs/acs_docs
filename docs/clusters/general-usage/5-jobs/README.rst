@@ -12,5 +12,6 @@ Job Scheduling
    Submitting Jobs <4-schedule>
    Monitoring Jobs <5-monitor>
    Examining Jobs <6-examine>
-   Job Scripts <7-scripts>
-   Interactive Jobs <8-interactive>
+   Interactive Jobs <7-interactive>
+   Job Scripts <8-scripts>
+  
