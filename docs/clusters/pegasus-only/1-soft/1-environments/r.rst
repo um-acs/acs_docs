@@ -88,7 +88,7 @@ Installing additional R packages
 
 To install additional R packages, you'll need to confirm that your package's 
 pre-requisites are met by inspecting and modifying your local environment as needed 
-or by loading the appropriate modules. See `Pegasus Cluster Software Installation  <https://acs-docs.readthedocs.io/pegasus/soft/4-install.html#soft-install>`__ for help with complex requirements.
+or by loading the appropriate modules. See `Pegasus Cluster Software Installation  <https://acs-docs.readthedocs.io/clusters/pegasus-only/4-install.html>`__ for help with complex requirements.
 
 From the R prompt, install any R package to your personal R library with
 the standard ``install.package()`` R command. For instance, to install the 
