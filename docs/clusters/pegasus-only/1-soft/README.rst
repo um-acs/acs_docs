@@ -3,9 +3,9 @@
 Pegasus Software Suites
 =======================
 
-.. section:: Modules and Languages
 .. toctree::
    :maxdepth: 2
+   :caption: Modules and Languages
 
    Modules <1-environments/modules>
    Perl <1-environments/perl>
