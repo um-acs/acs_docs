@@ -82,7 +82,7 @@ bigmem queue.
    * - interactive 
      - 40 (15 for jobs)
      - up to 280 GB per node
-     -  - 2 V100s with 16GB VRAM and CUDA 12.4
+     - 2 V100s with 16GB VRAM and CUDA 12.4
      - interactive jobs :raw-html:`<br />` max 1 job per user
 
 
