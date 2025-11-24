@@ -31,7 +31,7 @@ Type the following command to submit the job:
     [username@pegasus ~]$ bsub < scriptfile
 
 For general information about how to submit jobs via LSF, see
-`Scheduling Jobs on Pegasus <https://acs-docs.readthedocs.io/pegasus/jobs/1-lsf.html#p-jobs>`__.
+`Scheduling Jobs on Pegasus <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`__.
 
 Interactive Graphical Mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
