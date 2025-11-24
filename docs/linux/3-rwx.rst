@@ -43,7 +43,7 @@ off:
 For a directory, ``x`` means users have permission to search the
 directory.
 
-File and Directory Permission Examples:
+File and Directory Permission Examples
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``mydir`` contains two files. The owner (u) has read and write (rw)
