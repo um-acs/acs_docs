@@ -50,8 +50,27 @@ Here are the basic steps to run a simple Python script.
 In this example, the user has CaneID ``abc123`` and is a member of project ``xyz``. 
 You need to replace these with your own CaneID and project name.
 
+1. Log in to the Pegasus and Triton Systems using SSH
+~~~~~~~~~~~~~~~~~~~~~~~
+You can use ``Terminal`` on a Mac or ``PuTTY`` on a Windows
+machine to log in to Pegasus via SSH Protocol.
 
-1. Prepare Your Code
+If using ``Terminal`` on Mac, you can run the following commands 
+(remember to replace abc123 with your CaneID) and follow the instruction to type your password.
+
+- **Triton:** ``ssh abc123@t2.idsc.miami.edu``
+- **Pegasus:** ``ssh abc123@pegasus2.ccs.miami.edu``
+
+If using ``PuTTY``, you need to put respective hostname in the
+``Host Name`` field, leave ``22`` in the ``Port`` field, and select
+``SSH`` as the ``Connection type``, then press ``Open``. After that, you
+can follow the instruction to type your password.
+
+At this point, you should be able to see the welcome message,
+which indicates you have logged in to the login node and at the home directory ``~``.
+
+
+2. Prepare Your Code
 ~~~~~~~~~~~~~~~~~~~~
 
 **Editing the code**
@@ -119,7 +138,7 @@ Pegasus for user abc123.
 
 
 
-2. Preparing the input data
+3. Preparing the input data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Getting the input data**
@@ -146,25 +165,6 @@ You can use ``FileZilla`` or ``scp`` to transfer the input data.
 Make sure to put your CaneID in place of ``abc123``, and then following the prompt for 
 the associated password. After that, the input file will be located at ``/nethome/abc123/example.py`` on
 Pegasus for user abc123.
-
-3. Log in to the System
-~~~~~~~~~~~~~~~~~~~~~~~
-You can use ``Terminal`` on a Mac or ``PuTTY`` on a Windows
-machine to log in to Pegasus via SSH Protocol.
-
-If using ``Terminal`` on Mac, you can run the following commands 
-(remember to replace abc123 with your CaneID) and follow the instruction to type your password.
-
-- **Triton:** ``ssh abc123@t2.idsc.miami.edu``
-- **Pegasus:** ``ssh abc123@pegasus2.ccs.miami.edu``
-
-If using ``PuTTY``, you need to put respective hostname in the
-``Host Name`` field, leave ``22`` in the ``Port`` field, and select
-``SSH`` as the ``Connection type``, then press ``Open``. After that, you
-can follow the instruction to type your password.
-
-At this point, you should be able to see the welcome message,
-which indicates you have logged in to the login node and at the home directory ``~``.
 
 
 4. Create a Conda Environment
@@ -349,7 +349,7 @@ which you intend to move the file)
 
 and following the prompt to provide a password.
 
-7. Chao
+7. Logging out from Triton or Pegasus
 ~~~~~~~
 
 **Logging out from Triton on the command-line interface**
