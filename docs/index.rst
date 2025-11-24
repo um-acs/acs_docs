@@ -40,7 +40,7 @@ To access IDSC resources while offsite, `open a VPN connection first <https://ac
 --------------
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    Linux Fundamentals <linux/README>
    Services <services/README>  
