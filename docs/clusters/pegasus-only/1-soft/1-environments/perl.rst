@@ -14,7 +14,7 @@ Local libraries can be configured during initial CPAN configuration and
 by editing shell configuration files after installing the ``local::lib``
 module. By default, ``local::lib`` installs here: ``~/perl5``.
 
-Configure with CPAN:
+Configure with CPAN
 ~~~~~~~~~~~~~~~~~~~~
 
 During initial CPAN configuration, answer ``yes`` to automatic
@@ -68,7 +68,7 @@ configuration files. Source your shell configuration before running
     [username@pegasus ~]$ source ~/.bashrc
     ...
 
-Update CPAN:
+Update CPAN
 ~~~~~~~~~~~~
 
 Update CPAN, if necessary. This can be done from the Pegasus prompt or
@@ -86,7 +86,7 @@ the CPAN prompt.
 
     cpan[2]> reload cpan
 
-Confirm local library location:
+Confirm local library location
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Look for ``~/perl5/...`` directories in ``$PATH`` and ``@INC``.
@@ -106,7 +106,7 @@ will install to the local directory (default ``~/perl5``). The format
 for installing Perl modules with CPAN or cpanminus is
 ``Module``::``Name``.
 
-Install with CPAN:
+Install with CPAN
 ~~~~~~~~~~~~~~~~~~
 
 Install from the Pegasus prompt or the CPAN prompt. Run ``cpan -h`` or
@@ -131,7 +131,7 @@ distribution path.
 
     [username@pegasus ~]$ cpan MIYAGAWA/App-cpanminus-1.7040.tar.gz
 
-Install with cpanminus:
+Install with cpanminus
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 cpanminus is a CPAN module installation tool that will use your local
