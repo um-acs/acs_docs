@@ -66,13 +66,14 @@ Software
 Support 
 --------
 
-Contact our IDSC cluster and system support at the `IDSC ServiceNow Home Page <https://uhealth.service-now.com/esc?id=emp_taxonomy_topic&topic_id=a0ae36ae47a5ae10ddc5bfca116d43eb>`_ 
-for help with connecting, software, jobs, data transfers, and more. 
+Contact our IDSC cluster and system support at the `Main IDSC ACS Services <https://hpc.idsc.miami.edu/>`_ 
+page for help with connecting, software, jobs, data transfers, and more. 
 Please provide detailed descriptions, the paths to your job files and any outputs, the software modules you may have loaded, and your job ID when applicable.
 
 
 Our ticketing system has been migrated from RT to the ServiceNow Platform.
-You can find our new IDSC ServiceNow Home page for ticket submissions here: `IDSC ServiceNow Home Page <https://uhealth.service-now.com/esc?id=emp_taxonomy_topic&topic_id=a0ae36ae47a5ae10ddc5bfca116d43eb>`_ 
+You can find our new IDSC ServiceNow Home page for ticket submissions here: `Main IDSC ACS Services <https://hpc.idsc.miami.edu/>`_ 
+
 
 
 - To request a new project: `IDSC Project Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_
