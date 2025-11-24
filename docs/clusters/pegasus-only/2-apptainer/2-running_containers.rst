@@ -164,10 +164,10 @@ A “fake root” user can’t access or modify files and directories for which 
 Running GUI Jupyter notebook through Apptainer container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 see JupyterHub on Pegasus User Menu
-https://acs-docs.readthedocs.io/pegasus/soft/Jupyterhub.html
+https://acs-docs.readthedocs.io/clusters/pegasus-only/1-soft/2-data_science/Jupyterhub.html
 
 JupyterHub on Triton User Menu
-https://acs-docs.readthedocs.io/triton/2-sw/jh.html
+https://acs-docs.readthedocs.io/clusters/triton-only/soft/2-data_science/jh.html
 
 Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. 
 
