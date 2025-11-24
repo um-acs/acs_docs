@@ -17,3 +17,4 @@ Triton Software Suites
    :caption: Data Science Tools
 
    Jupyterhub <2-data_science/jh>
+   Watson Machine Learning IBM <2-data_science/wmlce>
