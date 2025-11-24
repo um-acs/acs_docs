@@ -48,7 +48,7 @@ Using Conda environment on the command line
 - $  ``conda deactivate``
 
 .. note::
-   Only small test program should be run on the command line. Formal jobs need to be submitted via `LSF <https://acs-docs.readthedocs.io/triton/3-jobs/1-lsf.html>`__.
+   Only small test program should be run on the command line. Formal jobs need to be submitted via `LSF <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`__.
 
 Using Conda environment in the LSF job script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -75,7 +75,7 @@ An LSF job script example using Conda environment:
 
 In my\_program.py, you can import any package that has been installed in your environment.
 Details about job scheduling can be found at `Triton Job
-Scheduling <https://acs-docs.readthedocs.io/triton/3-jobs/README.html>`_.
+Scheduling <https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/README.html>`_.
 
 Creating an Conda environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
