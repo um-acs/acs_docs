@@ -2,7 +2,7 @@ Apptainer GUI R Studio Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 see the link RStudio on Pegasus
-https://acs-docs.readthedocs.io/clusters/pegasus-only/1-soft/2-data_science/Jupyterhub.html. Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. 
+https://acs-docs.readthedocs.io/clusters/pegasus-only/1-soft/2-data_science/RStudio.html#run-rstudi%E2%80%A6. Do not run Jupyter Notebook and RStudio container applications directly, as they will continue running on login nodes. This guide demonstrates the  way to run container applications on HPC systems.  These Containers should only be used for specific applications when the required software modules are not available on the HPC cluster. 
 
 Before running any container application, please raise ticket 
 `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_, 
