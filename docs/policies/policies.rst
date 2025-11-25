@@ -61,6 +61,7 @@ Software
 
 - Users are free to install software in their home directories on IDSC clusters. More information about installing software onto ACS systems on `ReadTheDocs <https://acs-docs.readthedocs.io/>`_ : `https://acs-docs.readthedocs.io/ <https://acs-docs.readthedocs.io/>`_
 - Cluster software requests are reviewed quarterly. Global software packages are evaluated per request. 
+- Requests can be made `here <https://idsc.miami.edu/inquiry>`_.
 
 
 Support 
