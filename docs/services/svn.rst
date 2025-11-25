@@ -1,4 +1,4 @@
-SVN for CCS
+SVN Subversion for IDSC 
 ===========
 
 Subversion Server
@@ -467,7 +467,7 @@ or specify revision numbers. Optionally specify multiple file names.
 
    </table>
 
-Basic SVN Usage
+Basic SVN Subversion Usage
 ~~~~~~~~~~~~~~~
 
 Once your repository is available, use ``svn import`` to populate it
