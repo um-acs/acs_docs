@@ -1,4 +1,4 @@
-QuickStart Guide
+Pegasus and Triton QuickStart Guide
 =====================
 
 This guide provides a streamlined overview for running jobs on the **Triton** and **Pegasus** systems at the University of Miami. While the workflows are similar, **Triton** uses a **Power9 architecture** and **Pegasus** uses **x86\_64 architecture**. Paths, environments, and modules differ slightly between the two systems.
@@ -6,7 +6,7 @@ This guide provides a streamlined overview for running jobs on the **Triton** an
 Basic Concepts
 --------------
 
-Home Directory vs. Scratch Directory
+Home Directory vs Scratch Directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Each user will have a home directory as the working directory for submitting and running
@@ -255,7 +255,7 @@ your CaneID.
 
 
 
-6. Submit and Monitor the Job
+6. How to submit job to LSF and Monitor LSF job
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Job submission**
