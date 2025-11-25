@@ -20,11 +20,13 @@ bigmem queue.
 
 .. warning:: Jobs using less than 1.5G of memory per core on the bigmem queue are in violation of acceptable use policies and the IDSC account responsible for those jobs may be suspended.
 
+Pegasus Queues
+^^^^^^^^^^^^^^^^^^^^
 
 .. role:: raw-html(raw)
     :format: html
 
-.. list-table:: Pegasus Job Queues  
+.. list-table::  
    :header-rows: 1
    
    * - Queue Name
@@ -63,10 +65,13 @@ bigmem queue.
      - 1 day \/ 7 days 
      - gpu titan v100
 
+Triton Queues
+^^^^^^^^^^^^^^^^^^^^
+
 .. role:: raw-html(raw)
     :format: html
 
-.. list-table:: Triton Job Queues  
+.. list-table::   
    :header-rows: 1
    
    * - Queue Name
