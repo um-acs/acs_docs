@@ -1,6 +1,6 @@
 .. _g-queues:
 
-Queues
+Pegasus and Triton Queues
 ==================
 
 .. this should be seperated for triton and pegasus as the names are different.
