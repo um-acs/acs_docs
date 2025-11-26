@@ -71,7 +71,7 @@ For global installations on Pegasus, submit a Software Request
 How do I request global software installation?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Submit your request `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`_.
+Submit your request `here <https://idsc.miami.edu/inquiry>`_.
 We only globally install software when we receive multiple requests for
 the software.
 
