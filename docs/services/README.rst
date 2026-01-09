@@ -8,3 +8,4 @@ Advanced Computing Systems Services
    Storage <storage>
    File Transfers <2-transfer>
    IDSC Onboarding Training Videos <3-IDSC_Onboarding_Videos>
+   IDSC Adanced Computing Services <4-IDSC_AC_Services>
