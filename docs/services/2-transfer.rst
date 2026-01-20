@@ -27,14 +27,14 @@ An example transfer might look like this:
 ::
 
     [localmachine: ~]$ scp /local/filename \
-                username@pegasus2.ccs.miami.edu:/scratch/projects/projectID/directory
+                username@dtn.idsc.miami.edu:/scratch/projects/projectID/directory
 
 To transfer a directory, use the ``-r`` flag (recursive):
 
 ::
 
     [localmachine: ~]$ scp -r /local/directory \
-                username@pegasus2.ccs.miami.edu:/scratch/projects/projectID/directory
+                username@dtn.idsc.miami.edu:/scratch/projects/projectID/directory
 
 Consult the Linux man pages for more information on scp.
 
@@ -51,7 +51,7 @@ demonstrates usage of the rsync command for transferring a file named
 ::
 
     [localmachine: ~]$ rsync firstExample.c \
-                username@pegasus2.ccs.miami.edu:/scratch/projects/projectID/directory
+                username@dtn.idsc.miami.edu:/scratch/projects/projectID/directory
 
 An entire directory can be transferred from source to destination by
 using rsync. For directory transfers, the options ``-atvr`` will
@@ -90,7 +90,7 @@ The rclone a command-line program that can be used to manage your file over SFTP
 1. Login to Pegasus 
 ::
 
-    $ ssh pegasus2.ccs.miami.edu
+    $ ssh pegasus.idsc.miami.edu
 
 
 2. Create a new Remote 
@@ -297,13 +297,13 @@ You can create a subdirectory if needed using the rclone mkdir command
      
     
 
-**Note:** Because ``rclone copy`` command can take hours to complete, we recommend you use the ``screen`` command when running rclone interactively.  This way the sync will not terminate prematurally, should your ssh session end.
+**Note:** Users are not allowed to runjobs on the login nodes. The rclone copy command should be run using an LSF interactive or batch job.
 
 ::
     
-    [pdavila@pegasus ~]$ screen
-    [pdavila@pegasus ~]$ rclone copy /projects/ccs/schurerlab/cheminfo/pdavila apex:/schurerlab/pdavila
-    [pdavila@pegasus ~]$ rclone lsd apex:/schurerlab/pdavila/apps/
+    [nra20@pegasus ~]$ bsub -Is -q transfers -P sccc_hpc screen -S rclone_transfer
+    [nra20@dtn1 ~]$ rclone copy /projectnb/path/to/your/files apex:/my_project/nra20
+    [nra20@dtn1 ~]$ rclone lsd aapex:/my_project/nra20/apps
       -1 2022-06-23 10:36:21        -1 bin
       -1 2022-06-23 10:36:21        -1 ffmpeg
       -1 2022-06-23 10:36:21        -1 firefox
@@ -327,7 +327,7 @@ Launch FileZilla and open **File : Site Manager**.
 
 Click the "New Site" button and name the entry.  Pegasus example::
 
-    Host:       pegasus2.ccs.miami.edu | t2.idsc.miami.edu | apex.idsc.miami.edu (CES)
+    Host:       dtn.idsc.miami.edu | t2.idsc.miami.edu | apex.idsc.miami.edu (CES)
     Protocol:   SFTP
     Logon Type: Normal
     enter your username and password
