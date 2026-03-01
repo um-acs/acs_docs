@@ -1,7 +1,24 @@
 .. _ssh:
 
-Connecting to Advanced Computing Systems 
-========================================
+Connecting to IDSC Systems from offsite
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Triton, Pegasus, and other IDSC resources are only available from within the
+University’s secure campus networks (wired or UMiamiWireless, CantNet_Wireless). To
+access IDSC resources while offsite, open a VPN connection first. IDSC does not
+administer VPN accounts.
+
+University of Miami VPN:
+https://my.it.miami.edu/wda/a-z/virtual-private-network/
+
+Send access range requests (for Vendor VPN applications) to : `IDSC ACS <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_  
+
+PLEASE NOTE: As of 2024, only UMIT provisoned hardware will be able to access the VPN off campus. 
+
+
+
+Connecting to Advanced Computing Systems from UM networks
+==========================================================
 
 Use a secure-shell (SSH) client to connect for secure, encrypted communication. From within UM's secure network (UMiamiWireless connection on campus) or VPN, connect from:
 
