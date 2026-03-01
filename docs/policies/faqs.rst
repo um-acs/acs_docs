@@ -32,7 +32,7 @@ to review as availability is limited.
 How can I manage my Projects and Groups?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Contact IDSC ACS by submitting a ticket `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
+Contact IDSC ACS by submitting a ticket `here https://idsc.miami.edu/hpc-help`_
 
 
 Software Suites
@@ -65,7 +65,7 @@ See our :ref:`p-soft-install` guide for more information.
 
 **Note:** IDSC ACS does not install user software. 
 For global installations on Pegasus, submit a Software Request
-`here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_.
+`here <https://idsc.miami.edu/systems`_.
 
 
 How do I request global software installation?
@@ -144,7 +144,7 @@ monopolize the resources of the cluster and no queue will be starved.
 
 If your job has been pending for more than 24 hours *and is not
 requesting exclusive access or all cores on a node*, 
-you may request help `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_ for assistance.
+you may request help `here <https://idsc.miami.edu/hpc-help`_ for assistance.
 
 Are other users’ pending jobs slowing my job?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -199,7 +199,7 @@ GPU Resource Requests on Pegasus or Triton
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If GPU resources are not accessible to you on cluster nodes, 
-please contact the IDSC support team `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
+please contact the IDSC support team `here <https://idsc.miami.edu/hpc-help`_ 
 with the following information:
 
 - Project details
@@ -227,7 +227,7 @@ Pegasus supports containerization through:
 - **Specific containerized software like RStudio** (:ref:`Check here <p-rstudio>`)
 
 If you need a specific application containerized, please contact the IDSC support team 
-`here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
+`here <https://idsc.miami.edu/hpc-help`_ 
 with your current project and detailed requirements.
 
 Disk Quota and Storage Expansion
@@ -241,7 +241,7 @@ Check out the details on our storage services page: :ref:`s_storage` and for pri
 `IDSC Fee Schedule <https://idsc.miami.edu/fee-schedules/>`_
 
 To request additional disk space allocation, contact the IDSC support team 
-`here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_ 
+`here <https://idsc.miami.edu/systems`_ 
 with the following information:
 
 - Current allocation details
