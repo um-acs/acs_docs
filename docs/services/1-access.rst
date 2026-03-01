@@ -1,7 +1,7 @@
 .. _ssh:
 
 Connecting to IDSC Systems from offsite
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Triton, Pegasus, and other IDSC resources are only available from within the
 University’s secure campus networks (wired or UMiamiWireless, CantNet_Wireless). To
@@ -10,8 +10,40 @@ administer VPN accounts.
 
 University of Miami VPN:
 https://my.it.miami.edu/wda/a-z/virtual-private-network/
+Email: umiami@service-now.com
+
 
 Send access range requests (for Vendor VPN applications) to : `IDSC ACS <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_  
+
+From home, you can’t reach Pegasus directly without the UM VPN. Off-campus access to all IDSC clusters must go through the UMIT VPN, and only UMIT-commissioned laptops are allowed to connect to that VPN and, by extension, the clusters.
+
+Here’s what that means for you:
+
+How to access Pegasus from home
+===============================
+
+Use a UMIT-commissioned laptop
+Only these machines are allowed to connect to the UM VPN and then to Pegasus.
+
+Install the UMIT VPN client (GlobalProtect)
+You can download it from:
+https://my.it.miami.edu/wda/a-z/virtual-private-network/
+
+Connect to the VPN
+
+Launch the VPN client and connect to the UM network.
+
+Once connected, you can SSH to Pegasus or use Pegasus JupyterHub as usual.
+
+What if I’m at home with no VPN / no UMIT laptop?
+==================================================
+
+Per the docs, only UMIT-commissioned laptops can connect to the VPN and thus the clusters from off campus. If you don’t have one or can’t download the VPN client, you’ll need to contact UMIT to see if they can grant you access:
+
+Email: umiami@service-now.com
+
+University of Miami VPN:
+https://my.it.miami.edu/wda/a-z/virtual-private-network/_  
 
 PLEASE NOTE: As of 2024, only UMIT provisoned hardware will be able to access the VPN off campus. 
 
