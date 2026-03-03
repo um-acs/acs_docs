@@ -19,7 +19,7 @@ How do I request a new project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Any PI or faculty member may request a new project : 
-`IDSC Project Registration Form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`__
+`IDSC Project Registration Form <https://idsc.miami.edu/project-request>`__
 
 When will my project be created?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
