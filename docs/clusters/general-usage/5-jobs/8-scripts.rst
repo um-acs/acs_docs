@@ -155,7 +155,9 @@ The command line is similar to Intel MPI job above. Option
 and openib for inter-process communication.
 
 
-**Requesting GPUs**
+How to Request GPUs
+=======================
+GPUs can be requested on a per node basis. Please see below an example job script. More information on the gpu queues and their restrictions can be found here: https://acs-docs.readthedocs.io/clusters/general-usage/5-jobs/2-queues.html
 
 ``testgpu.job``
 
@@ -171,9 +173,8 @@ and openib for inter-process communication.
     #BSUB -W 1:30
     #BSUB -q gpu_titan                     # On Pegasus the queues are "gpu_titan" or "gpu_h100". On Triton the queue is "normal"
     #BSUB -n 1                             # Request 1 core               
-    #BSUb -gpu "num=1"                     # Request 1 gpu per node. Can request up to 2. 
+    #BSUb -gpu "num=1"                     # Request 1 gpu. Can request up to 2.
     #BSUB -R "rusage[mem=128]"             # Request 128MB per core
-    #
 
     python cuda_test.py    
 
