@@ -153,3 +153,28 @@ argument list.
 The command line is similar to Intel MPI job above. Option
 ``--mca self,sm,openib`` tells OpenMP to use lookback, shared memory,
 and openib for inter-process communication.
+
+
+**Requesting GPUs**
+
+``testgpu.job``
+
+--------------
+
+.. code:: bash
+
+    #!/bin/bash
+    #BSUB -J GPUjob
+    #BSUB -p <project_ID>
+    #BSUB -o %J.out
+    #BSUB -e %J.err
+    #BSUB -W 1:30
+    #BSUB -q gpu_titan                     # On Pegasus the queues are "gpu_titan" or "gpu_h100". On Triton the queue is "normal"
+    #BSUB -n 1                             # Request 1 core               
+    #BSUb -gpu "num=1"                     # Request 1 gpu per node. Can request up to 2. 
+    #BSUB -R "rusage[mem=128]"             # Request 128MB per core
+    #
+
+    python cuda_test.py    
+
+You can request up to 2 gpus in your job script. On Pegasus, only the gpu_titan and gpu_h100 queues contain gpus. On Triton, every node in the normal queue contains 2 gpus. Virtual Memory of the gpu is allocated dynamically as needed. 
