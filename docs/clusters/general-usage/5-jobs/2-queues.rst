@@ -38,7 +38,7 @@ Pegasus Queues
      - 16 
      - up to 50 GB per node
      - 1 day \/ 7 days 
-     - parallel & serial jobs up to 16 cores, up to 50 GB memory 
+     - single and threaded jobs up to 16 cores, up to 50 GB memory 
    * - bigmem 
      - 16 
      - up to 200 GB per node
