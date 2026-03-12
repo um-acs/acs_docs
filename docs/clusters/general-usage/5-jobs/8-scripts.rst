@@ -78,7 +78,7 @@ assigned values listed in this script:
     specify number of processors. In this job, a single processor is requested.
 
     #BSUB -R "rusage[mem=128]"
-    specify that this job requests 128 megabytes of RAM per core. Without this, a default RAM setting will be applied:  1500MB per core
+    specify that this job requests 128 megabytes of RAM per job. Without this, a default RAM setting will be applied:  1500MB per job
 
     #BSUB -B
     send mail to specified email when the job is dispatched and begins execution.
@@ -121,7 +121,7 @@ other badly-configured jobs running on the same host.
     #BSUB -q normal
     #BSUB -n 32                             # Request 32 cores
     #BSUB -R "span[ptile=16]"               # Request 16 cores per node
-    #BSUB -R "rusage[mem=128]"              # Request 128MB per core
+    #BSUB -R "rusage[mem=128]"              # Request 128MB per job
     #
 
     mpiexec foo.exe
@@ -145,7 +145,7 @@ argument list.
     #BSUB -q normal
     #BSUB -n 32                             # Request 32 cores                
     #BSUB -R "span[ptile=16]"               # Request 16 cores per node
-    #BSUB -R "rusage[mem=128]"              # Request 128MB per core
+    #BSUB -R "rusage[mem=128]"              # Request 128MB per job
     #
 
     mpiexec --mca btl self,sm,openib foo.exe
@@ -174,7 +174,7 @@ GPUs can be requested on a per node basis. Please see below an example job scrip
     #BSUB -q gpu_titan                     # On Pegasus the queues are "gpu_titan" or "gpu_h100". On Triton the queue is "normal"
     #BSUB -n 1                             # Request 1 core               
     #BSUb -gpu "num=1"                     # Request 1 gpu. Can request up to 2.
-    #BSUB -R "rusage[mem=128]"             # Request 128MB per core
+    #BSUB -R "rusage[mem=128]"             # Request 128MB per job
 
     python cuda_test.py    
 
