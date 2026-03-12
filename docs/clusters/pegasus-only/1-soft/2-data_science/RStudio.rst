@@ -40,7 +40,7 @@ You should set your project, queue, and email.  You may also want to update the 
     #BSUB -W 8:00                   # 8 hours, 0 minutes job walltime (runtime)
     #BSUB -n 1                      # Set n = number of cores (1 in this template)
     #BSUB -R "span[hosts=1]"        # Select all cores from the same host
-    #BSUB -R "rusage[mem=7800]"     # Requests 7,800 MB of RAM per core
+    #BSUB -R "rusage[mem=7800]"     # Requests 7,800 MB of RAM per job
     #BSUB -u email@miami.edu        # Email address to send notification to
     #BSUB -B                        # Email user (-u) when job is dispatched and begins execution
     #BSUB -N                        # Email user (-u) job statistics report when job finishes.
