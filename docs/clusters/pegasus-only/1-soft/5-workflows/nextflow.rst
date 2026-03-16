@@ -92,7 +92,7 @@ Nextflow Submission Script
     #BSUB -W 1:00                # set wall clock run time limit of 1 hour, else queue default will be applied
     #BSUB -q sccc                # specify queue to be used, else 'general' queue will be applied
     #BSUB -n 1                   # specify number of processors. In this job, a single processor is requested
-    #BSUB -R "rusage[mem=6144]"  # Request 6GiB per core (6144 MiB = 6 GiB) to match your Nexflow Pegasus Config
+    #BSUB -R "rusage[mem=6144]"  # Request 6GiB (6144 MiB = 6 GiB) to match your Nexflow Pegasus Config
     #BSUB -B                     # send mail to specified email when the job is dispatched and begins execution
     #BSUB -u [YOUR_EMAIL]        # send notification to your email
     #BSUB -N                     # send job statistics report through email when job finishes
