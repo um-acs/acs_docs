@@ -102,7 +102,7 @@ queue is ``ptile=16``. This requires the LSF job scheduler to allocate
 used by that job. ***Without prior authorization, any jobs using a
 number other than 16 will be rejected from the parallel queue.***
 **Reserve enough memory for your jobs.** Memory reservations are per
-core. Parallel job performance may be affected, or even interrupted, by
+job. Parallel job performance may be affected, or even interrupted, by
 other badly-configured jobs running on the same host.
 
 **Example script for Intel/Intel MPI**
