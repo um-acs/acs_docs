@@ -23,6 +23,8 @@ bigmem queue.
 Pegasus Queues
 ^^^^^^^^^^^^^^^^^^
 
+Details:
+
 .. role:: raw-html(raw)
     :format: html
 
@@ -72,6 +74,8 @@ Pegasus Queues
 
 Triton Queues
 ^^^^^^^^^^^^^^^^^^
+
+Details:
 
 .. role:: raw-html(raw)
     :format: html
