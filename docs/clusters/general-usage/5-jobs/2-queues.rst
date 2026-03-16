@@ -18,7 +18,7 @@ memory per node. Submitting jobs to this queue requires project membership.
 Do not submit jobs that can run on the normal queues to the
 bigmem queue. 
 
-.. warning:: Jobs using less than 1.5G of memory per core on the bigmem queue are in violation of acceptable use policies and the IDSC account responsible for those jobs may be suspended.
+.. warning:: Jobs using less than 1.5G of memory on the bigmem queue are in violation of acceptable use policies and the IDSC account responsible for those jobs may be suspended.
 
 Pegasus Queues
 ^^^^^^^^^^^^^^^^^^
