@@ -14,4 +14,4 @@ Job Scheduling
    Examining Jobs <6-examine>
    Interactive Jobs <7-interactive>
    Job Scripts <8-scripts>
-  
+   Memory Management <9-memory>
