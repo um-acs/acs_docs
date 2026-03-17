@@ -2,8 +2,7 @@
 Memory Requests in LSF on Pegasus
 ===========================================
 
-This guide teaches you how to **reserve** memory so LSF schedules your jobs onto
-nodes that can actually support them on the **Pegasus** cluster.
+How to **reserve** memory under LSF on Pegasus. 
 
 Cluster Hardware and Queue Model
 ================================
