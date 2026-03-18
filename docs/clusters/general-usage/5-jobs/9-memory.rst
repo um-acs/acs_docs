@@ -215,9 +215,9 @@ Bigmem jobs
 * Use ``bigmem`` when per-host memory needs exceed what standard nodes can provide.
 * Reserve memory in MB appropriate for bigmem (hundreds of GB up to TB-scale).
 
-Practical reminder
+Summary
 ==================
 
-On Pegasus, ``rusage[mem=...]`` is the scheduling reservation knob.
+On Pegasus, ``rusage[mem=...]`` is used for memory reservation.
 Make it match the memory footprint expected **per host**, and use ``ptile`` to
 make “per task” requests predictable in the ``parallel`` (or ``bigmem``) queue.
