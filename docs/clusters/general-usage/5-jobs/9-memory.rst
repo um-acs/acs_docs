@@ -166,7 +166,7 @@ Reserve 1 TB on one bigmem host::
 Multi-host bigmem jobs
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If the bigmem queue does not allow multi-host jobs,  submit a ticket for assistance if you determine this is necessary for your work. 
+The bigmem queue does not allow multi-host jobs,  submit a ticket for assistance if you determine this is necessary for your work. 
 Submit big multi-node jobs to ``parallel`` instead.
 
 Verifying what you asked for and what happened
