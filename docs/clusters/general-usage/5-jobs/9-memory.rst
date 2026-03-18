@@ -166,15 +166,8 @@ Reserve 1 TB on one bigmem host::
 Multi-host bigmem jobs
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If the bigmem queue allows multi-host jobs, use ``ptile`` to set predictable packing.
-
-Example: 128 tasks total, 16 tasks/host, 8 GB per task -> 128 GB per host::
-
-  # MB_per_host = 8192 * 16 = 131072 MB (~128 GB)
-  bsub -q bigmem -P <project> -n 128 -R "span[ptile=16] rusage[mem=131072]" my_mpi_program
-
-If the bigmem queue is configured as single-host only, submit big multi-node jobs to
-``parallel`` instead.
+If the bigmem queue does not allow multi-host jobs,  submit a ticket for assistance if you determine this is necessary for your work. 
+Submit big multi-node jobs to ``parallel`` instead.
 
 Verifying what you asked for and what happened
 ==============================================
