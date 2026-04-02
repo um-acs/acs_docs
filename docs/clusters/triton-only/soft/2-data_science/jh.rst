@@ -474,7 +474,7 @@ Creating Your Triton Jupyter Python Kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  $ ``ssh <caneid>@t2.idsc.miami.edu`` to login to Triton
--  $ ``ml miniforge3/24.3.0-0``
+-  $ ``module load miniconda3/25.3.1-1``
 -  $ ``conda create -n <your environment> -c conda-forge python=<version> ipykernel <package1> <package2> ...`` 
 -  $ ``conda activate <your environment>``
 -  (your environment)$
@@ -487,7 +487,7 @@ Here is an example:
 **NOTE** It is highly recommended to install ipykernel during the environment creation step as to avoid dependency conflicts. 
 ::
 
-    $ ml miniforge3/24.3.0-0
+    $ module load miniconda3/25.3.1-1
     $ conda create -n my_py -c conda-forge python ipykernel
     $ conda activate my_py
     (my_py)$ ipython kernel install --user --name my_py_kernel --display-name "My Python kernel"
@@ -514,7 +514,7 @@ Creating Your Triton Jupyter R Kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ::
 
-    $ ml miniforge3/24.3.0-0
+    $ module load miniconda3/25.3.1-1
     $ conda create -n myRenv -c conda-forge r-base r-irkernel
     $ conda activate myRenv 
     $ conda install -c conda-forge jupyter_client
