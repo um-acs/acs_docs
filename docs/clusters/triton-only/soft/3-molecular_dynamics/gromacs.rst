@@ -10,7 +10,7 @@ To load Gromacs into your computing environment, type in
 
   module load gromacs
 
-This load Gromacs 2025.1 into your computing environment, together with its 
+This loads Gromacs 2025.1 into your computing environment, together with its 
 dependencies.
 
 In order to run calculations with this software, request resources on 
