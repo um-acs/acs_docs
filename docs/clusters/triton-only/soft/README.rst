@@ -22,5 +22,5 @@ Triton Software Suites
    :maxdepth: 2
    :caption: Molecular Science Software
 
-   Gromacs <1-molecular_science/gromacs>
+   Gromacs <2-molecular_science/gromacs>
    
