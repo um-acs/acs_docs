@@ -20,7 +20,7 @@ Triton Software Suites
 
 .. toctree::
    :maxdepth: 2
-   :caption: Molecular Dynamics Software
+   :caption: Molecular Science Software
 
    Gromacs <3-molecular_science/gromacs>
    
