@@ -17,3 +17,10 @@ Triton Software Suites
    :caption: Data Science Tools
 
    Jupyterhub <2-data_science/jh>
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Molecular Dynamics Software
+
+   Gromacs <3-molecular_dynamics/gromacs>
+   
