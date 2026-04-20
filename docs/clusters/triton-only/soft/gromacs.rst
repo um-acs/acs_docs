@@ -8,4 +8,4 @@ To load Gromacs into your computing environment, type in
 
 ::
 
-  module load Gromacs
+  module load gromacs
