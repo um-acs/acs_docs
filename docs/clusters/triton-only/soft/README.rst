@@ -10,7 +10,7 @@ Triton Software Suites
    Modules <1-environments/modules>
    Anaconda <1-environments/anaconda>
    R via Anaconda <1-environments/R_Through_Anaconda>
-   Gromacs <3-molecular_science/gromacs>
+   
 
 .. toctree::
    :maxdepth: 2
@@ -24,3 +24,4 @@ Triton Software Suites
 
    
    Gaussian <3-molecular_science/gaussian>
+    Gromacs <3-molecular_science/gromacs>
