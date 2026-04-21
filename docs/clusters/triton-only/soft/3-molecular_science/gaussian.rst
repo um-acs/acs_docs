@@ -1,3 +1,6 @@
+Gaussian 16
+=============
+
 Gaussian 16 is an electronic structure modeling/calculation software. 
 It can be loaded into a user's computing environment by the following 
 command
