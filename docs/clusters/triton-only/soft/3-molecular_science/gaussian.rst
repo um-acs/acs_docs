@@ -3,6 +3,7 @@ It can be loaded into a user's computing environment by the following
 command
 
 ::
+
   module load gaussian
 
 In order to run calculations with this software, a user needs to create
@@ -11,6 +12,7 @@ variable GAUSS_SCRDIR to the path of their scratch space. This is demonstrated
 in the job submission script below:
 
 ::
+
   #!/bin/bash
  
   #BSUB -J h2o              # name of your job
@@ -33,6 +35,7 @@ for Gaussian calculations. This calculation will run on 4 cores, and the input f
 is modified to reflect the compute resources to be used. See below
 
 ::
+
   %chk=water.chk
   %NProcShared=4
 
