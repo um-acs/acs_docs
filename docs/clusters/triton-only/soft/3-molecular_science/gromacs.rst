@@ -24,7 +24,7 @@ the compute nodes on t2 by using the following job submission script (set of ins
   #BSUB -e %J.err                  # file name for std. error output
   #BSUB -o %J.out                  # file name for std. out output
   #BSUB -q normal                  # request run on normal queue
-  #BSUB -n 1                       # request 16 cores
+  #BSUB -n 1                       # request 1 core
   #BSUB -W 2:00                    # request 2 hours of runtime
   #BSUB -P XYZ                     # your projectID
   #BSUB -gpu "num=1"               # request a single NVIDIA V100 GPU
