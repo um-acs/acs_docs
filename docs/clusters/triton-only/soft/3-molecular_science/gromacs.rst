@@ -14,7 +14,7 @@ This loads Gromacs 2025.1 into your computing environment, together with its
 dependencies.
 
 In order to run calculations with this software, request resources on 
-the compute nodes on t2 by using the following script (set of instructions):
+the compute nodes on t2 by using the following job submission script (set of instructions):
 
 ::
 
@@ -24,9 +24,14 @@ the compute nodes on t2 by using the following script (set of instructions):
   #BSUB -e %J.err                  # file name for std. error output
   #BSUB -o %J.out                  # file name for std. out output
   #BSUB -q normal                  # request run on normal queue
-  #BSUB -n 16                      # request 16 cores
+  #BSUB -n 1                       # request 16 cores
   #BSUB -W 2:00                    # request 2 hours of runtime
   #BSUB -P XYZ                     # your projectID
   #BSUB -gpu "num=1"               # request a single NVIDIA V100 GPU
 
   module load gromacs
+
+  gmx_mpi mdrun -v -s benchpep_h.tpr -deffnm benchpep
+
+This job submission script requests resources to run an MD simulation using 
+a single MPI rank mapped to a single NVIDIA V100 GPU on an input file ``benchpep_h``.
