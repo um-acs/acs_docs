@@ -14,8 +14,7 @@ To load Gromacs into your computing environment, type in
 
   module load gromacs
 
-This loads Gromacs 2025.1 into your computing environment, together with its 
-dependencies.
+This loads Gromacs 2025.1, and its dependencies, into your computing environment.
 
 In order to run calculations with this software, request resources on 
 the compute nodes on t2 by using the following job submission script (set of instructions):
