@@ -26,7 +26,7 @@ but there are benefits to put data in the scratch directory:
 have the same hardware (storage and i/o), **/scratch** has priority with hardware upgrades.
 
 - **Triton** scratch directory: ``/scratch/projects/<project_name>``
-- **Pegasus** scratch directory: ``/scratch/<project_name>``
+- **Pegasus** scratch directory: ``/scratch/projects/<project_name>``
 
 Login Node vs. Compute Node
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
