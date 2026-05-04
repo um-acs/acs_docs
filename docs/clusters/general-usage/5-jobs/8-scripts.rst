@@ -167,7 +167,7 @@ GPUs can be requested on a per node basis. Please see below an example job scrip
 
     #!/bin/bash
     #BSUB -J GPUjob
-    #BSUB -p <project_ID>
+    #BSUB -P <project_ID>
     #BSUB -o %J.out
     #BSUB -e %J.err
     #BSUB -W 1:30
