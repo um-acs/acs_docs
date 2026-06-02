@@ -23,7 +23,7 @@ the compute nodes on t2 by using the following job submission script (set of ins
 
   #!/bin/bash
   
-  #BSUB -J jobName              # name of your job
+  #BSUB -J jobName                 # name of your job
   #BSUB -e %J.err                  # file name for std. error output
   #BSUB -o %J.out                  # file name for std. out output
   #BSUB -q normal                  # request run on normal queue
