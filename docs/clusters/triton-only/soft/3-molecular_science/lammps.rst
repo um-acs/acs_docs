@@ -37,8 +37,6 @@ the compute nodes on t2 by using the following job submission script (set of ins
   ## Launch 1 task
   lmp -in in.lj
 
-  ## If launching multiple, including multiple distributed
+  ## If launching multiple, including multiple distributed. Adjust bsub parameters accordingly 
   ## mpirun lmp -in in.lj
 
-This job submission script requests resources to run an MD simulation using 
-a single MPI rank mapped to a single NVIDIA V100 GPU on an input file ``benchpep_h``.
