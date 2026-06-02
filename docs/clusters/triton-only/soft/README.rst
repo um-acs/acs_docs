@@ -23,3 +23,4 @@ Triton Software Suites
 
     Gaussian <3-molecular_science/gaussian>
     Gromacs <3-molecular_science/gromacs>
+    LAMMPS <3-molecular_science/lammps>
