@@ -36,7 +36,7 @@ HPC Storage
 - There are no IDSC managed backups of GPFS Scratch or Project space.
 - Scratch space is subject to purging when necessary for continued operation.
 - Scratch space is charged only for actual utilization.
-- Projects may lease additional GPFS project space annually at $500 for 10TB (2,000,000 files).
+- Projects may lease additional IDSC GPFS project space annually at $500 for 10TB.
 - Dedicated space is charged for total allocation and not by utilization.
 
 
