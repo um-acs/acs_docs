@@ -30,7 +30,7 @@ HPC Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - Each user may utilize up to 250 GB (50,000 files) of GPFS home space.
 - Each project may utilize up to 2T (400,000 files) of GPFS scratch space.
-- Each project may utilize up to 2T (400,000 files) of GPFS Sylvester project space.
+- Each project may utilize up to 2T (20,000 files) of GPFS Sylvester project space.
 - Users and Projects over quotas will not be able to create new files.
 - Scratch and Project space is intended only for data in active use.
 - There are no IDSC managed backups of GPFS Scratch or Project space.
