@@ -27,16 +27,15 @@ the compute nodes on t2 by using the following job submission script (set of ins
   #BSUB -e %J.err                  # file name for std. error output
   #BSUB -o %J.out                  # file name for std. out output
   #BSUB -q normal                  # request run on normal queue
-  #BSUB -n 1                       # request 1 core
+  #BSUB -n 20                      # request 1 core
   #BSUB -W 2:00                    # request 2 hours of runtime
   #BSUB -P XYZ                     # your projectID
   #BSUB -gpu "num=1"               # request a single NVIDIA V100 GPU
 
   module load lammps
 
-  ## Launch 1 task
-  lmp -in in.lj
+  ## Launch 20 tasks that use 1 GPU
+  mpirun lmp -sf gpu -pk gpu 1 -in in.lj
 
-  ## If launching multiple, including multiple distributed. Adjust bsub parameters accordingly 
-  ## mpirun lmp -in in.lj
+  ## If launching multiple distributed. Adjust bsub parameters accordingly 
 
