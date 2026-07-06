@@ -1,0 +1,172 @@
+.. _general-software-r:
+
+R
+=
+
+R can be used through software modules, Conda environments, RStudio, JupyterHub,
+or containers. This page covers common command-line R workflows and R package
+management. For Conda-based R environments, see the Conda and Anaconda page.
+
+.. note::
+
+   R versions, module names, and available packages can differ across systems.
+   Check the system where the job will run before writing a job script.
+
+Find and Load R
+---------------
+
+Search for R modules:
+
+::
+
+   module avail R
+   module spider R
+
+Load an R module:
+
+::
+
+   module load R/<version>
+
+Check the active R:
+
+::
+
+   which R
+   R --version
+
+Start R interactively:
+
+::
+
+   R
+
+Run an R script:
+
+::
+
+   Rscript script.R
+
+or:
+
+::
+
+   R CMD BATCH script.R
+
+User R Package Libraries
+------------------------
+
+Users can install R packages into a personal library when they do not have write
+access to the system library.
+
+Inside R:
+
+.. code:: r
+
+   install.packages("ggplot2")
+
+If R asks whether to use a personal library, answer yes.
+
+To set a project-specific R library path, create a directory and set
+``R_LIBS_USER`` before starting R:
+
+::
+
+   mkdir -p /scratch/projects/<project>/$USER/Rlibs
+   export R_LIBS_USER=/scratch/projects/<project>/$USER/Rlibs
+   R
+
+Inside R, check the library paths:
+
+.. code:: r
+
+   .libPaths()
+
+Install packages:
+
+.. code:: r
+
+   install.packages("dplyr")
+
+.. tip::
+
+   Use a project-specific R library for research projects that need stable
+   package versions or many dependencies.
+
+Run R in LSF
+------------
+
+Create ``r_job.sh``:
+
+.. code:: bash
+
+   #!/bin/bash
+   #BSUB -P <project>
+   #BSUB -J r_job
+   #BSUB -q general
+   #BSUB -n 1
+   #BSUB -R "rusage[mem=4000]"
+   #BSUB -W 01:00
+   #BSUB -o r_job.%J.out
+   #BSUB -e r_job.%J.err
+
+   module load R/<version>
+
+   export R_LIBS_USER=/scratch/projects/<project>/$USER/Rlibs
+   mkdir -p ${R_LIBS_USER}
+
+   Rscript script.R
+
+Submit the job:
+
+::
+
+   bsub < r_job.sh
+
+Using R through Conda
+---------------------
+
+If the system R module does not support the package dependencies needed for a
+project, create a Conda environment with R.
+
+Example:
+
+::
+
+   conda create -n r_env -c conda-forge r-base r-essentials
+   conda activate r_env
+   R
+
+For more details, see the Conda and Anaconda page.
+
+System Notes
+------------
+
+Pegasus
+~~~~~~~
+
+Pegasus can use R through modules, Conda environments, RStudio, JupyterHub, or
+containers. If module-based R does not support required packages, Conda-based R
+is a useful alternative.
+
+Triton/Summit
+~~~~~~~~~~~~~
+
+Triton/Summit uses ``ppc64le`` architecture. Conda-based R environments should
+use packages that support ``linux-ppc64le`` when possible. Some R packages may
+compile from source or require additional system libraries.
+
+.. caution::
+
+   On ``ppc64le`` systems, package availability may differ from standard
+   ``x86_64`` systems. Check package platform support before assuming that a
+   Conda or CRAN package will install.
+
+Recommended Practice
+--------------------
+
+* Use module-based R for simple workflows.
+* Use project-specific R libraries for reproducible package sets.
+* Use Conda when the module R version or dependencies are not sufficient.
+* Use RStudio or JupyterHub for interactive development.
+* Use LSF batch jobs for long-running R scripts.

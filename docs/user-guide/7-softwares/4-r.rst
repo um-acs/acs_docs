@@ -1,0 +1,107 @@
+.. _general-software-r:
+
+R
+=
+
+R is available on Pegasus based on the current software review. Triton/Summit R
+availability is not listed here unless confirmed.
+
+R can be used through modules, Conda/Miniforge environments, JupyterHub kernels,
+RStudio if supported, or Apptainer containers.
+
+Find and Load R
+---------------
+
+Search for R:
+
+::
+
+   module avail R
+   module spider R
+
+Load R:
+
+::
+
+   module load R/<version>
+
+Check R:
+
+::
+
+   which R
+   R --version
+
+Run an R script:
+
+::
+
+   Rscript script.R
+
+User R Libraries
+----------------
+
+Create a project-specific R library:
+
+::
+
+   mkdir -p /scratch/projects/<project>/$USER/Rlibs
+   export R_LIBS_USER=/scratch/projects/<project>/$USER/Rlibs
+
+Inside R:
+
+.. code:: r
+
+   .libPaths()
+   install.packages("ggplot2")
+
+Run R in LSF
+------------
+
+Example job script:
+
+.. code:: bash
+
+   #!/bin/bash
+   #BSUB -P <project>
+   #BSUB -J r_job
+   #BSUB -q general
+   #BSUB -n 1
+   #BSUB -R "rusage[mem=4000]"
+   #BSUB -W 01:00
+   #BSUB -o r_job.%J.out
+   #BSUB -e r_job.%J.err
+
+   module load R/<version>
+
+   export R_LIBS_USER=/scratch/projects/<project>/$USER/Rlibs
+   mkdir -p ${R_LIBS_USER}
+
+   Rscript script.R
+
+Pegasus Notes
+-------------
+
+R is available on Pegasus. Use module-based R for simple workflows, and use
+project-specific R libraries or Conda/Miniforge environments for custom package
+sets.
+
+Triton/Summit Notes
+-------------------
+
+R availability on Triton/Summit should be confirmed before documenting it as
+available. If R is needed and a module is not available, consider Conda,
+JupyterHub kernels, or Apptainer.
+
+.. caution::
+
+   Do not state that R is available on Triton/Summit unless it has been
+   confirmed with ``module avail R`` or current system documentation.
+
+Recommended Practice
+--------------------
+
+* Use R modules when available.
+* Use project-specific R libraries for reproducible package sets.
+* Use LSF batch jobs for long-running scripts.
+* Use Conda/Miniforge or Apptainer when module-based R is not sufficient.
