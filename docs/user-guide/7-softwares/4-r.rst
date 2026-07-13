@@ -3,11 +3,13 @@
 R
 =
 
-R is available on Pegasus based on the current software review. Triton/Summit R
-availability is not listed here unless confirmed.
+R can be used through modules, Conda or Miniforge environments, JupyterHub
+kernels, RStudio when supported, or Apptainer containers.
 
-R can be used through modules, Conda/Miniforge environments, JupyterHub kernels,
-RStudio if supported, or Apptainer containers.
+.. important::
+
+   Cluster availability: This software is available as a module on Pegasus.
+   It is not currently provided as a system module on Triton.
 
 Find and Load R
 ---------------
@@ -78,25 +80,6 @@ Example job script:
    mkdir -p ${R_LIBS_USER}
 
    Rscript script.R
-
-Pegasus Notes
--------------
-
-R is available on Pegasus. Use module-based R for simple workflows, and use
-project-specific R libraries or Conda/Miniforge environments for custom package
-sets.
-
-Triton/Summit Notes
--------------------
-
-R availability on Triton/Summit should be confirmed before documenting it as
-available. If R is needed and a module is not available, consider Conda,
-JupyterHub kernels, or Apptainer.
-
-.. caution::
-
-   Do not state that R is available on Triton/Summit unless it has been
-   confirmed with ``module avail R`` or current system documentation.
 
 Recommended Practice
 --------------------

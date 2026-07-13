@@ -3,10 +3,11 @@
 MATLAB
 ======
 
-MATLAB is available on Pegasus based on the current software review. Triton/Summit
-MATLAB availability is not listed here unless confirmed.
+MATLAB is available on Pegasus and can be used interactively or through LSF batch jobs when available.
 
-MATLAB can be used interactively or through LSF batch jobs when available.
+.. important::
+
+   MATLAB is not currently available on Triton.
 
 Find and Load MATLAB
 --------------------
@@ -78,18 +79,6 @@ Example job script:
    module load matlab/<version>
 
    matlab -batch "my_script"
-
-Pegasus Notes
--------------
-
-MATLAB is available on Pegasus. Use the appropriate module version and LSF
-resources for the workflow.
-
-Triton/Summit Notes
--------------------
-
-Triton/Summit MATLAB availability should be confirmed before documenting it as
-available.
 
 Recommended Practice
 --------------------

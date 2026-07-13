@@ -6,8 +6,6 @@ Conda and Miniforge
 Conda and Miniforge are package and environment managers used for Python, R,
 machine learning, and scientific software.
 
-Based on current documentation review:
-
 * Pegasus provides Miniforge.
 * Triton/Summit provides Conda.
 * Package availability can differ because Pegasus uses ``x86_64`` and
