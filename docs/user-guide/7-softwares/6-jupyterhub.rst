@@ -3,443 +3,370 @@
 JupyterHub and Personal JupyterLab
 ==================================
 
-IDSC users may work with Jupyter in two different ways:
+IDSC users can work with Jupyter in two ways:
 
-#. Use an IDSC-managed JupyterHub web service, when available.
-#. Start a personal JupyterLab server inside an LSF job and connect to it with
-   an SSH tunnel.
+* Use an IDSC-managed JupyterHub service.
+* Start a personal JupyterLab server inside an LSF job.
 
-These are related workflows, but they are not the same. JupyterHub is an
-admin-managed web service. A personal JupyterLab server is started by the user
-inside an allocated LSF job.
+JupyterHub is a managed web service. Personal JupyterLab gives users more
+control over the environment and requested resources.
 
 .. important::
 
-   Users should not run JupyterLab directly on login nodes for compute work.
-   Start JupyterLab inside an LSF job, then connect to it from a local browser
-   through an SSH tunnel.
+Do not run compute-intensive notebooks directly on a login node. Use
+JupyterHub or start JupyterLab inside an LSF job.
 
-When to Use Jupyter
--------------------
+IDSC-Managed JupyterHub
+-----------------------
 
-Use Jupyter for:
+IDSC provides separate JupyterHub services for Pegasus and Triton.
 
-* interactive Python or R notebook work
-* testing code before writing an LSF job script
-* exploring data
-* checking software versions and kernels
-* short CPU or GPU tests
-* teaching, demonstrations, and exploratory analysis
+Pegasus JupyterHub Access
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use LSF batch jobs instead for:
-
-* long-running production runs
-* large-memory workloads
-* jobs that need many CPU cores
-* jobs that must continue after closing the browser
-* repeated or automated workflows
-* large GPU training jobs
-
-IDSC-Managed JupyterHub Service
--------------------------------
-
-When available, the IDSC-managed JupyterHub service lets users log in through a
-browser, select resources, and start a notebook server through the service.
-
-Pegasus JupyterHub
-~~~~~~~~~~~~~~~~~~
-
-Pegasus JupyterHub has historically been documented at:
-
-::
+.. code-block:: text
 
    https://pegasusdev.ccs.miami.edu:8000
 
-Triton/Summit JupyterHub
-~~~~~~~~~~~~~~~~~~~~~~~~
+Triton JupyterHub Access
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Triton/Summit JupyterHub has historically been documented at:
-
-::
+.. code-block:: text
 
    https://t2.idsc.miami.edu:8000/hub/login
 
-.. caution::
 
-   Service URLs, login methods, and access routes can change. If a JupyterHub
-   URL does not load, confirm VPN or campus network access and contact IDSC
-   support for the current service access method.
+.. note::
 
-Typical JupyterHub Workflow
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Both JupyterHub services were verified from the UM CaneNet wireless network.
+   They did not load through the UM Accord VPN during testing.
 
-The usual managed-service workflow is:
+   Access through the IDSC VPN has not yet been verified.
 
-#. Connect to the UM network or VPN if off-site.
-#. Open the JupyterHub URL for the target system.
+
+Typical Workflow:
+~~~~~~~~~~~~~~~~~~
+
+#. Connect to the UM CaneNet network.
+#. Open the JupyterHub service for the target cluster.
 #. Log in with the required credentials.
-#. Click **Start My Notebook Server**, or the equivalent start button.
-#. Select the project, time, CPU, memory, and GPU options if shown.
-#. Click **Request**, or the equivalent submit button.
-#. Open Notebook or JupyterLab.
-#. Save work frequently.
-#. Stop the server from the JupyterHub control panel when finished.
+#. Start a notebook server.
+#. Select the requested resources, if prompted.
+#. Open Jupyter Notebook or JupyterLab.
+#. Save work regularly.
+#. Stop the notebook server when finished.
 
 .. warning::
 
-   Logging out or closing the browser is not always the same as stopping the
-   notebook server. Use the JupyterHub control panel to stop the server so
-   resources are released.
+   Closing the browser does not always stop the notebook server. Stop the
+   server from the JupyterHub control panel to release its resources.
+
+.. caution::
+
+   If a service does not load, first confirm that the device is connected to
+   CaneNet. Contact IDSC support if the problem continues.
 
 
 Personal JupyterLab Through LSF
 -------------------------------
 
-If the managed JupyterHub service is unavailable or a user needs more direct
-control, the user can start a personal JupyterLab server inside an LSF job and
-connect through an SSH tunnel.
+Users who need more control can start JupyterLab inside an LSF job and connect
+to it through an SSH tunnel.
 
-This workflow was tested on Pegasus using:
-
-* an interactive LSF job
-* a compute-node JupyterLab server
-* a local SSH tunnel through the Pegasus login path
-* a browser connection to ``http://127.0.0.1:<port>``
+The following workflow was tested on Pegasus.
 
 .. note::
 
-   This workflow starts a personal JupyterLab server. It does not start the
+   This starts a personal JupyterLab server. It does not start the managed
    JupyterHub service.
 
+
 Step 1: Connect to Pegasus
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Log in to Pegasus using the normal SSH method for the account.
+Connect using the normal Pegasus SSH method.
 
-Example using an SSH config alias:
+For example, when an SSH configuration alias is available:
 
-::
+.. code-block:: bash
 
    ssh pegasus
-
-If not using an SSH config alias, connect using the current IDSC-supported
-Pegasus login method.
 
 Step 2: Start an Interactive LSF Job
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Start a CPU interactive job:
+Start a CPU job:
 
-::
+.. code-block:: bash
 
-   bsub -P <project> -q general -Is -W 02:00 -n 1 -R "rusage[mem=4000]" bash
+   bsub -P <project> -q general -Is -W 02:00 -n 1 \
+      -R "rusage[mem=4000]" bash
 
 After the job starts, record the compute-node hostname:
 
-::
+.. code-block:: bash
 
    hostname
 
-Example output:
+Example:
 
-::
+.. code-block:: text
 
    n195
 
-The hostname is needed for the SSH tunnel.
 
+Step 3: Create the Startup Script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Step 3: Create a JupyterLab Startup Script
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Create this script once in the home directory:
 
-Create the script once in the user's home directory:
-
-.. code:: bash
+.. code-block:: bash
 
    cat > ~/start_jupyterlab.sh <<'EOF'
    #!/bin/bash
 
    PORT=${1:-7777}
 
-   mkdir -p $HOME/.jupyter
-   mkdir -p $HOME/.local/share/jupyter
-   mkdir -p $HOME/.local/share/jupyter/runtime
+   export JUPYTER_CONFIG_DIR="$HOME/.jupyter"
+   export JUPYTER_DATA_DIR="$HOME/.local/share/jupyter"
+   export JUPYTER_RUNTIME_DIR="$HOME/.local/share/jupyter/runtime"
+   export XDG_RUNTIME_DIR="$JUPYTER_RUNTIME_DIR"
 
-   export JUPYTER_CONFIG_DIR=$HOME/.jupyter
-   export JUPYTER_DATA_DIR=$HOME/.local/share/jupyter
-   export JUPYTER_RUNTIME_DIR=$HOME/.local/share/jupyter/runtime
-   export XDG_RUNTIME_DIR=$HOME/.local/share/jupyter/runtime
+   mkdir -p "$JUPYTER_CONFIG_DIR"
+   mkdir -p "$JUPYTER_DATA_DIR"
+   mkdir -p "$JUPYTER_RUNTIME_DIR"
 
-   chmod 700 $HOME/.local/share/jupyter/runtime
+   chmod 700 "$JUPYTER_RUNTIME_DIR"
 
-   echo "Starting JupyterLab"
-   echo "Host: $(hostname)"
-   echo "Port: ${PORT}"
-   echo
-   echo "From your laptop, create an SSH tunnel with:"
-   echo "ssh -N -L ${PORT}:$(hostname):${PORT} <your-pegasus-ssh-host-or-alias>"
-   echo
-   echo "If using the Acorn gateway and Pegasus login host directly:"
-   echo "ssh -N -L ${PORT}:$(hostname):${PORT} -J ${USER}@acorn-gw.idsc.miami.edu ${USER}@pegasus2.idsc.miami.edu"
-   echo
+   echo "Compute node: $(hostname)"
+   echo "JupyterLab port: $PORT"
 
-   jupyter lab --no-browser --ip=0.0.0.0 --port=${PORT} --ServerApp.use_redirect_file=False
+   jupyter lab \
+      --no-browser \
+      --ip=0.0.0.0 \
+      --port="$PORT" \
+      --ServerApp.use_redirect_file=False
    EOF
 
    chmod +x ~/start_jupyterlab.sh
 
-.. important::
+The user-specific Jupyter directories prevent Jupyter from attempting to write
+configuration or runtime files into a shared, read-only software installation.
 
-   The Jupyter environment variables are needed because Jupyter may otherwise
-   try to write configuration files under a system Miniforge path such as
-   ``/share/apps/c7/miniforge3/.jupyter``, which is not writable by users.
 
-Step 4: Start JupyterLab Inside the LSF Job
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 4: Start JupyterLab
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Inside the interactive LSF job, run:
+Inside the LSF job, run:
 
-::
+.. code-block:: bash
 
    ~/start_jupyterlab.sh 7777
 
-JupyterLab should print URLs similar to:
+JupyterLab will print a URL containing an authentication token.
 
-::
+Example:
 
-   http://<compute-node>:7777/lab?token=<token>
+.. code-block:: text
+
    http://127.0.0.1:7777/lab?token=<token>
 
-Keep this terminal running. Do not close it while using JupyterLab.
+Keep the LSF session open while using JupyterLab.
 
 
-Step 5: Create the SSH Tunnel from the Local Machine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 5: Create the SSH Tunnel
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open a new terminal on the local machine.
+Open another terminal on the local computer.
 
-If the user has an SSH config alias that normally connects to Pegasus, use that
-alias:
+Using an SSH configuration alias:
 
-::
+.. code-block:: bash
 
    ssh -N -L 7777:<compute-node>:7777 <pegasus-ssh-alias>
 
 Example:
 
-::
+.. code-block:: bash
 
    ssh -N -L 7777:n195:7777 pegasus
 
-If the user does not have an SSH config alias and must connect through the Acorn
-gateway, use the jump-host form:
+When connecting through the Acorn gateway:
 
-::
+.. code-block:: bash
 
-   ssh -N -L 7777:<compute-node>:7777 -J <username>@acorn-gw.idsc.miami.edu <username>@pegasus2.idsc.miami.edu
-
-Example:
-
-::
-
-   ssh -N -L 7777:n195:7777 -J dxr1368@acorn-gw.idsc.miami.edu dxr1368@pegasus2.idsc.miami.edu
+   ssh -N -L 7777:<compute-node>:7777 \
+      -J <username>@acorn-gw.idsc.miami.edu \
+      <username>@pegasus2.idsc.miami.edu
 
 .. note::
 
-   The SSH tunnel command may appear to do nothing. That is expected. Leave the
-   terminal open while using JupyterLab.
+   The tunnel command normally produces no output. Leave the terminal open
+   while using JupyterLab.
 
-Step 6: Open JupyterLab in the Browser
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open the local tunnel URL in a browser:
+Step 6: Open JupyterLab
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
+Open the localhost URL printed by JupyterLab:
+
+.. code-block:: text
 
    http://127.0.0.1:7777/lab?token=<token>
 
-Use the token printed by the JupyterLab server.
+Do not open the compute-node address directly from the local browser. Compute
+nodes are normally reached through the SSH tunnel.
 
-Do not use the compute-node URL directly from the local browser:
-
-::
-
-   http://<compute-node>:7777/lab?token=<token>
-
-The compute node is usually not directly reachable from the user's laptop.
 
 Using a Different Port
-~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""
 
-If port ``7777`` is already in use, choose another port such as ``8899``.
+Choose another port when ``7777`` is already in use.
 
 Inside the LSF job:
 
-::
+.. code-block:: bash
 
    ~/start_jupyterlab.sh 8899
 
-From the local machine:
+From the local computer:
 
-::
+.. code-block:: bash
 
-   ssh -N -L 8899:<compute-node>:8899 <pegasus-ssh-host-or-alias>
+   ssh -N -L 8899:<compute-node>:8899 <pegasus-ssh-alias>
 
 Then open:
 
-::
+.. code-block:: text
 
    http://127.0.0.1:8899/lab?token=<token>
 
 
+Stopping Personal JupyterLab
+"""""""""""""""""""""""""""""
+
+When finished:
+
+#. Save all notebooks.
+#. Stop running notebook kernels.
+#. Press ``Ctrl-C`` in the terminal running JupyterLab.
+#. Confirm shutdown if prompted.
+#. Exit the LSF job.
+#. Close the SSH tunnel terminal.
+
+.. warning::
+
+   Closing the browser does not stop JupyterLab or the LSF job.
+
+
+
 GPU JupyterLab Through LSF
---------------------------
+-------------------------------
 
-To use GPUs from a notebook, the JupyterLab server must be started inside an LSF
-job that has been allocated GPU resources.
+To use a GPU from JupyterLab, start the server inside an LSF job that has been
+allocated GPU resources.
 
-.. important::
-
-   Being on a GPU queue or GPU node is not always enough. Request a GPU with
-   the LSF ``-gpu`` option. If no GPU is allocated, ``nvidia-smi`` may run but
-   report ``No devices found``.
-
-Start a GPU Interactive Job
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Start a GPU Job
+~~~~~~~~~~~~~~~
 
 Pegasus H100 example:
 
-::
+.. code-block:: bash
 
-   bsub -P <project> -q gpu_h100 -Is -W 02:00 -n 1 -R "rusage[mem=4000]" -gpu "num=1" bash
+   bsub -P <project> -q gpu_h100 -Is -W 02:00 -n 1 \
+      -R "rusage[mem=4000]" -gpu "num=1" bash
 
-After the job starts, verify the GPU allocation before starting JupyterLab:
+Verify the allocation:
 
-::
+.. code-block:: bash
 
    hostname
    echo "CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES"
-   which nvidia-smi
-   nvidia-smi
    nvidia-smi -L
 
-Expected output from ``nvidia-smi -L`` should list at least one GPU.
+At least one GPU should be listed.
 
-Start JupyterLab from the GPU Job
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Start JupyterLab
+~~~~~~~~~~~~~~~~
 
 Inside the GPU job:
 
-::
+.. code-block:: bash
 
    ~/start_jupyterlab.sh 7777
 
-Record the GPU compute-node hostname, such as:
+Record the GPU-node hostname and create the tunnel from the local computer:
 
-::
+.. code-block:: bash
 
-   gpu2
+   ssh -N -L 7777:<gpu-node>:7777 <pegasus-ssh-alias>
 
-From the local machine, tunnel to that hostname:
+When using the Acorn gateway:
 
-::
+.. code-block:: bash
 
-   ssh -N -L 7777:<gpu-node>:7777 <pegasus-ssh-host-or-alias>
-
-Example with an SSH config alias:
-
-::
-
-   ssh -N -L 7777:gpu2:7777 pegasus
-
-Example with the Acorn gateway:
-
-::
-
-   ssh -N -L 7777:gpu2:7777 -J dxr1368@acorn-gw.idsc.miami.edu dxr1368@pegasus2.idsc.miami.edu
+   ssh -N -L 7777:<gpu-node>:7777 \
+      -J <username>@acorn-gw.idsc.miami.edu \
+      <username>@pegasus2.idsc.miami.edu
 
 Then open:
 
-::
+.. code-block:: text
 
    http://127.0.0.1:7777/lab?token=<token>
 
 
-Checking GPU Access from a Notebook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Check GPU Access
+~~~~~~~~~~~~~~~~
 
-Run this in a notebook cell:
+Basic system check:
 
-.. code:: python
+.. code-block:: python
 
    import os
-   import shutil
    import subprocess
-   import sys
 
-   print("Python executable:", sys.executable)
-   print("Python version:", sys.version)
    print("Hostname:", os.uname().nodename)
    print("CUDA_VISIBLE_DEVICES:", os.environ.get("CUDA_VISIBLE_DEVICES"))
+   print(subprocess.getoutput("nvidia-smi -L"))
 
-   nvidia_smi = shutil.which("nvidia-smi")
-   print("nvidia-smi path:", nvidia_smi)
-
-   if nvidia_smi:
-       print("\nGPU list:")
-       print(subprocess.getoutput("nvidia-smi -L"))
-
-       print("\nFull nvidia-smi:")
-       print(subprocess.getoutput("nvidia-smi"))
-   else:
-       print("nvidia-smi not found")
 
 PyTorch Check
 ~~~~~~~~~~~~~
 
-Run:
+.. code-block:: python
 
-.. code:: python
+   import torch
 
-   try:
-       import torch
+   print("PyTorch:", torch.__version__)
+   print("CUDA available:", torch.cuda.is_available())
+   print("CUDA version:", torch.version.cuda)
+   print("GPU count:", torch.cuda.device_count())
 
-       print("PyTorch:", torch.__version__)
-       print("CUDA available:", torch.cuda.is_available())
-       print("CUDA version:", torch.version.cuda)
-       print("GPU count:", torch.cuda.device_count())
+   for i in range(torch.cuda.device_count()):
+       print(f"GPU {i}:", torch.cuda.get_device_name(i))
 
-       for i in range(torch.cuda.device_count()):
-           print(f"GPU {i}:", torch.cuda.get_device_name(i))
-
-   except Exception as e:
-       print("PyTorch error:", repr(e))
 
 TensorFlow Check
 ~~~~~~~~~~~~~~~~
 
-Run:
+.. code-block:: python
 
-.. code:: python
+   import tensorflow as tf
 
-   try:
-       import tensorflow as tf
-
-       print("TensorFlow:", tf.__version__)
-       print("GPUs:", tf.config.list_physical_devices("GPU"))
-
-   except Exception as e:
-       print("TensorFlow error:", repr(e))
+   print("TensorFlow:", tf.__version__)
+   print("GPUs:", tf.config.list_physical_devices("GPU"))
 
 .. note::
 
-   JupyterLab working does not mean PyTorch or TensorFlow are installed in the
-   active notebook environment. If the imports fail, the selected Python kernel
-   does not include those packages.
+   A working JupyterLab session does not guarantee that PyTorch or TensorFlow
+   is installed in the selected kernel. Use the appropriate module, Conda
+   environment, Jupyter kernel, or Apptainer container.
 
 
-Troubleshooting Personal JupyterLab
------------------------------------
+Troubleshooting
+-----------------------
 
 .. list-table::
    :header-rows: 1
@@ -447,62 +374,30 @@ Troubleshooting Personal JupyterLab
 
    * - Problem
      - What to check
-   * - ``PermissionError`` for ``/share/apps/.../.jupyter``
-     - Set ``JUPYTER_CONFIG_DIR``, ``JUPYTER_DATA_DIR``, and
-       ``JUPYTER_RUNTIME_DIR`` to writable user directories. Use the startup
-       script above.
-   * - Browser cannot open ``http://<compute-node>:<port>``
-     - Use ``http://127.0.0.1:<port>`` through an SSH tunnel instead.
-   * - SSH tunnel command appears to do nothing
-     - This is normal for ``ssh -N -L``. Leave the terminal open and open the
-       localhost URL in the browser.
-   * - ``curl http://127.0.0.1:<port>`` fails locally
-     - The tunnel is not active, the wrong local port was used, or the Jupyter
-       server stopped.
-   * - Tunnel through direct hostname fails
-     - Use the same SSH alias or login path normally used to connect to Pegasus.
-       If a gateway is required, use the ``-J`` jump-host option.
-   * - ``nvidia-smi`` shows ``No devices found``
-     - The job did not receive a GPU allocation. Request a GPU with
-       ``-gpu "num=1"``.
-   * - PyTorch or TensorFlow import fails
-     - The active notebook kernel does not include the package. Use the correct
-       module, Conda/Miniforge environment, Jupyter kernel, or container.
-   * - PyTorch imports but ``torch.cuda.is_available()`` is ``False``
-     - Check GPU allocation, CUDA-compatible PyTorch build, and environment.
-   * - TensorFlow imports but shows no GPUs
-     - Check GPU allocation and TensorFlow/CUDA/cuDNN compatibility.
-   * - Notebook server keeps running after browser closes
-     - Stop JupyterLab with ``Ctrl-C`` in the terminal where it is running.
-
-Stopping the Personal JupyterLab Server
----------------------------------------
-
-When finished:
-
-#. Save notebooks and scripts.
-#. Stop running notebooks and kernels if needed.
-#. Press ``Ctrl-C`` in the terminal running JupyterLab.
-#. Confirm shutdown if prompted.
-#. Exit the LSF job shell.
-#. Close the SSH tunnel terminal.
-
-Example:
-
-::
-
-   Ctrl-C
-
-Then:
-
-::
-
-   exit
-
-.. warning::
-
-   Closing the browser does not stop the JupyterLab server or the LSF job.
-   Stop the server and exit the job when finished.
+   * - JupyterHub page does not load
+     - Confirm that the device is connected to CaneNet. Accord VPN did not work
+       during testing.
+   * - Permission error under ``/share/apps/.../.jupyter``
+     - Use the startup script, which sets writable Jupyter directories under
+       the user's home directory.
+   * - Compute-node URL does not open
+     - Open the ``127.0.0.1`` URL through the SSH tunnel.
+   * - SSH tunnel appears inactive
+     - No output is normal for ``ssh -N -L``. Keep the terminal open.
+   * - Localhost URL does not open
+     - Check that JupyterLab is still running and that the local and remote
+       ports match.
+   * - Direct Pegasus tunnel fails
+     - Use the same SSH alias or gateway path normally used to reach Pegasus.
+   * - ``nvidia-smi`` reports no devices
+     - Confirm that the job requested a GPU with ``-gpu "num=1"``.
+   * - Python package import fails
+     - The active notebook kernel does not contain the package.
+   * - PyTorch reports CUDA unavailable
+     - Check the GPU allocation, selected kernel, and CUDA-compatible PyTorch
+       installation.
+   * - TensorFlow does not detect a GPU
+     - Check the GPU allocation and TensorFlow, CUDA, and cuDNN compatibility.
 
 When to Contact IDSC
 --------------------
