@@ -62,24 +62,24 @@ separate Pegasus-only and Triton-only software sections.
      - :status_available:`Available`
      - See :ref:`general-software-ml-frameworks`.
    * - JupyterHub
-     - :status_check:`Confirm URL`
-     - :status_check:`Confirm URL`
+     - :status_available:`Available`
+     - :status_unavailable:`Not Available`
      - See :ref:`general-software-jupyterhub`.
    * - R
      - :status_available:`Available`
-     - :status_limited:`Not listed`
+     - :status_unavailable:`Not Available`
      - See :ref:`general-software-r`.
    * - RStudio
      - :status_check:`Confirm`
-     - :status_limited:`Not listed`
+     - :status_unavailable:`Not Available`
      - See :ref:`general-software-rstudio`.
    * - MATLAB
      - :status_available:`Available`
-     - :status_limited:`Not listed`
+     - :status_unavailable:`Not Available`
      - See :ref:`general-software-matlab`.
    * - Nextflow
      - :status_available:`Available`
-     - :status_limited:`Not listed`
+     - :status_unavailable:`Not Available`
      - See :ref:`general-software-workflow-tools`.
    * - SAS
      - :status_available:`Available`
@@ -142,5 +142,5 @@ separate Pegasus-only and Triton-only software sections.
    MATLAB <7-matlab>
    Machine Learning Frameworks <8-ml-frameworks>
    Workflow Tools <9-workflow-tools>
-   Specialized Scientific Software <10-specialized-software>
-   Debugging and Profiling Tools <11-debugging-profiling>
+   Debugging and Profiling Tools <10-debugging-profiling>
+   Specialized Scientific Software <11-specialized-software>
