@@ -37,3 +37,53 @@
     font-weight: 600;
     white-space: nowrap;
 }
+
+
+/* Collapsible desktop sidebar */
+@media screen and (min-width: 769px) {
+    .wy-nav-side {
+        transition: transform 0.25s ease;
+    }
+
+    .wy-nav-content-wrap {
+        transition: margin-left 0.25s ease;
+    }
+
+    body.sidebar-collapsed .wy-nav-side {
+        transform: translateX(-100%);
+    }
+
+    body.sidebar-collapsed .wy-nav-content-wrap {
+        margin-left: 0;
+    }
+
+    #sidebar-toggle {
+        position: fixed;
+        top: 12px;
+        left: 304px;
+        z-index: 1000;
+
+        width: 36px;
+        height: 36px;
+        padding: 0;
+
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: white;
+        color: #404040;
+
+        font-size: 24px;
+        cursor: pointer;
+        transition: left 0.25s ease;
+    }
+
+    body.sidebar-collapsed #sidebar-toggle {
+        left: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #sidebar-toggle {
+        display: none;
+    }
+}
