@@ -21,20 +21,8 @@ IDSC-Managed JupyterHub
 
 IDSC provides separate JupyterHub services for Pegasus and Triton.
 
-Pegasus JupyterHub Access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: text
-
-   https://pegasusdev.ccs.miami.edu:8000
-
-Triton JupyterHub Access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: text
-
-   https://t2.idsc.miami.edu:8000/hub/login
-
+- `Open Pegasus JupyterHub <https://pegasusdev.ccs.miami.edu:8000>`_
+- `Open Triton JupyterHub <https://t2.idsc.miami.edu:8000/hub/login>`_
 
 .. note::
 
@@ -44,7 +32,7 @@ Triton JupyterHub Access
    Access through the IDSC VPN has not yet been verified.
 
 
-Typical Workflow:
+Typical Workflow
 ~~~~~~~~~~~~~~~~~~
 
 #. Connect to the UM CaneNet network.
@@ -205,6 +193,30 @@ When connecting through the Acorn gateway:
    while using JupyterLab.
 
 
+.. note:: Using a Different Port
+
+   If port ``7777`` is already in use, choose another port and use the same
+   port when starting JupyterLab and creating the SSH tunnel.
+
+   For example, inside the LSF job:
+
+   .. code-block:: bash
+
+      ~/start_jupyterlab.sh 8899
+
+   From the local computer:
+
+   .. code-block:: bash
+
+      ssh -N -L 8899:<compute-node>:8899 <pegasus-ssh-alias>
+
+   Then open:
+
+   .. code-block:: text
+
+      http://127.0.0.1:8899/lab?token=<token>
+
+
 Step 6: Open JupyterLab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -217,33 +229,8 @@ Open the localhost URL printed by JupyterLab:
 Do not open the compute-node address directly from the local browser. Compute
 nodes are normally reached through the SSH tunnel.
 
-
-Using a Different Port
-""""""""""""""""""""""
-
-Choose another port when ``7777`` is already in use.
-
-Inside the LSF job:
-
-.. code-block:: bash
-
-   ~/start_jupyterlab.sh 8899
-
-From the local computer:
-
-.. code-block:: bash
-
-   ssh -N -L 8899:<compute-node>:8899 <pegasus-ssh-alias>
-
-Then open:
-
-.. code-block:: text
-
-   http://127.0.0.1:8899/lab?token=<token>
-
-
-Stopping Personal JupyterLab
-"""""""""""""""""""""""""""""
+Step 7: Stop the Personal JupyterLab Session
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When finished:
 
@@ -341,11 +328,9 @@ PyTorch Check
 
    print("PyTorch:", torch.__version__)
    print("CUDA available:", torch.cuda.is_available())
-   print("CUDA version:", torch.version.cuda)
-   print("GPU count:", torch.cuda.device_count())
 
-   for i in range(torch.cuda.device_count()):
-       print(f"GPU {i}:", torch.cuda.get_device_name(i))
+   if torch.cuda.is_available():
+       print("GPU:", torch.cuda.get_device_name(0))
 
 
 TensorFlow Check
