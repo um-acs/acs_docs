@@ -78,3 +78,4 @@ html_theme_options = {
 
 
 
+autosectionlabel_prefix_document = True
