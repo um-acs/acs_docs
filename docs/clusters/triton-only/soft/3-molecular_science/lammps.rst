@@ -27,7 +27,7 @@ the compute nodes on t2 by using the following job submission script (set of ins
   #BSUB -e %J.err                  # file name for std. error output
   #BSUB -o %J.out                  # file name for std. out output
   #BSUB -q normal                  # request run on normal queue
-  #BSUB -n 20                      # request 1 core
+  #BSUB -n 20                      # request 20 cores
   #BSUB -W 2:00                    # request 2 hours of runtime
   #BSUB -P XYZ                     # your projectID
   #BSUB -gpu "num=1"               # request a single NVIDIA V100 GPU
@@ -47,7 +47,7 @@ If Kokkos support is desired, then one needs to load LAMMPS 2024.08.29 instead
   #BSUB -e %J.err                  # file name for std. error output
   #BSUB -o %J.out                  # file name for std. out output
   #BSUB -q normal                  # request run on normal queue
-  #BSUB -n 20                      # request 1 core
+  #BSUB -n 20                      # request 20 cores
   #BSUB -W 2:00                    # request 2 hours of runtime
   #BSUB -P XYZ                     # your projectID
   #BSUB -gpu "num=2"               # request two NVIDIA V100 GPU
@@ -57,7 +57,7 @@ If Kokkos support is desired, then one needs to load LAMMPS 2024.08.29 instead
   export OMP_PROC_BIND=spread
   export OMP_PLACES=threads
 
-  ## Launch 20 tasks
+  ## Launch 20 tasks that use 2 GPUs
   mpirun lmp -in in.lj -k on g 2 -sf kk -pk kokkos ..........
 
  
