@@ -11,24 +11,20 @@ Availability
 
 .. list-table::
    :header-rows: 1
-   :widths: 25 20 20 35
+   :widths: 20 20 20
 
    * - Tool
      - Pegasus
      - Triton/Summit
-     - Notes
    * - Allinea
      - Available
      - Not listed
-     - Pegasus availability confirmed from the current review.
    * - Forge
      - Not listed
      - Available
-     - Triton/Summit availability confirmed from the current review.
    * - DDT
      - Not available
      - Not available
-     - Do not document as available unless this changes.
 
 Allinea
 -------

@@ -137,10 +137,9 @@ separate Pegasus-only and Triton-only software sections.
    Python <2-python>
    Conda and Miniforge <3-conda-miniforge>
    R <4-r>
-   RStudio <5-rstudio>
-   JupyterHub <6-jupyterhub>
-   MATLAB <7-matlab>
-   Machine Learning Frameworks <8-ml-frameworks>
-   Workflow Tools <9-workflow-tools>
-   Debugging and Profiling Tools <10-debugging-profiling>
-   Specialized Scientific Software <11-specialized-software>
+   JupyterHub <5-jupyterhub>
+   MATLAB <6-matlab>
+   Machine Learning Frameworks <7-ml-frameworks>
+   Workflow Tools <8-workflow-tools>
+   Debugging and Profiling Tools <9-debugging-profiling>
+   Specialized Scientific Software <10-specialized-software>
