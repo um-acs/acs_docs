@@ -632,8 +632,8 @@ If direct access to Pegasus is unavailable, use the Acorn jump host:
    Use the exact compute node and server port printed for the current RStudio
    job. These values change between sessions.
 
-Open and Log In
-----------------
+Open RStudio Server
+-------------------
 
 After creating the SSH tunnel, open the following address in a local web
 browser:
@@ -653,11 +653,9 @@ Log in using:
    Access RStudio Server only through the SSH tunnel and the local
    ``localhost`` address.
 
-Test & Verify
+Verify the Session
 ------------------
 
-Verify the Session
-```````````````````````````
 Verify the R environment from the RStudio Console:
 
 .. code-block:: r
