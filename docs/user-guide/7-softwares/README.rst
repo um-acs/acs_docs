@@ -63,7 +63,7 @@ separate Pegasus-only and Triton-only software sections.
      - See :ref:`general-software-ml-frameworks`.
    * - JupyterHub
      - :status_available:`Available`
-     - :status_unavailable:`Not Available`
+     - :status_unavailable:`Available`
      - See :ref:`general-software-jupyterhub`.
    * - R
      - :status_available:`Available`
@@ -101,22 +101,22 @@ separate Pegasus-only and Triton-only software sections.
      - :status_available:`Available`
      - :status_available:`Available`
      - See :ref:`general-software-specialized`.
-   * - Allinea
+   * - Allinea Forge
      - :status_available:`Available`
      - :status_limited:`Not listed`
-     - See :ref:`general-software-debugging-profiling`.
-   * - Forge
-     - :status_limited:`Not listed`
-     - :status_available:`Available`
-     - See :ref:`general-software-debugging-profiling`.
+     - Pegasus provides allinea/7.0.6. See :ref:`general-software-debugging-profiling`.
    * - DDT
-     - :status_unavailable:`Not available`
-     - :status_unavailable:`Not available`
-     - Do not document as available unless this changes.
-   * - MAPSplice
      - :status_available:`Available`
-     - :status_limited:`Not listed`
-     - See :ref:`general-software-specialized`.
+     - :status_available:`Available`
+     - Included with Allinea Forge.
+   * - MAP
+     - :status_available:`Available`
+     - :status_limited:`Confirm`
+     - Included with Allinea Forge.
+   * - Performance Reports
+     - :status_available:`Available` 
+     - :status_limited:`Confirm`
+     - Pegasus provides `allinea/7.0.6-PR`. See :ref:`general-software-debugging-profiling`.
 
 .. caution::
 
