@@ -26,8 +26,6 @@ Search available modules:
    module avail conda
    module avail miniforge
    module avail anaconda
-   module spider conda
-   module spider miniforge
 
 Load the appropriate module:
 

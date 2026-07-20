@@ -19,7 +19,6 @@ Search for Python modules:
 ::
 
    module avail python
-   module spider python
 
 Load Python:
 

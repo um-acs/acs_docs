@@ -26,8 +26,6 @@ Basic Commands
    * - ``module avail``
      - Show modules available in the current module environment.
    * - ``module avail <name>``
-     - Search for available modules matching a name.
-   * - ``module spider <name>``
      - Search module trees and show dependency requirements.
    * - ``module load <module>/<version>``
      - Load a module.
@@ -57,13 +55,6 @@ Search for a specific package:
    module avail matlab
    module avail gaussian
 
-Use ``module spider`` for a broader search:
-
-::
-
-   module spider python
-   module spider pytorch
-   module spider gromacs
 
 Load Software
 -------------

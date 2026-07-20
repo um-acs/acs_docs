@@ -17,7 +17,6 @@ Check the available MATLAB versions:
 .. code-block:: bash
 
    module avail matlab
-   module spider matlab
 
 Load an available version:
 

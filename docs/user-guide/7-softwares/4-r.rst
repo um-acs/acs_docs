@@ -19,7 +19,6 @@ Search for R:
 ::
 
    module avail R
-   module spider R
 
 Load R:
 
