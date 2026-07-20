@@ -15,120 +15,166 @@ Nextflow is available on Pegasus as a software module.
 
    Nextflow is not currently available as a system module on Triton.
 
-Find and Load Nextflow
-~~~~~~~~~~~~~~~~~~~~~~
+Load Nextflow
+~~~~~~~~~~~~~
 
 Check the available versions:
 
 .. code-block:: bash
 
    module avail nextflow
-   module spider nextflow
 
-Load an available version:
-
-.. code-block:: bash
-
-   module load nextflow/<version>
-
-Confirm that Nextflow is available:
+Load the verified version:
 
 .. code-block:: bash
 
-   which nextflow
+   module load nextflow/24.10.6
+
+The module automatically loads Java 17.
+
+Confirm the installation:
+
+.. code-block:: bash
+
    nextflow -version
+   java -version
 
-Run a Nextflow Workflow
-~~~~~~~~~~~~~~~~~~~~~~~
+Complete Pegasus Example
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Run workflows from project or scratch storage rather than the home directory:
+This example runs one Nextflow process through the LSF ``general`` queue.
+
+The verified storage project is ``dssas`` and the verified LSF project is
+``hpc``.
+
+Create the workflow files in project scratch:
 
 .. code-block:: bash
 
-   cd /scratch/projects/<project>/$USER/my_nextflow_project
+   mkdir -p /scratch/projects/dssas/$USER/nextflow-example
+   cd /scratch/projects/dssas/$USER/nextflow-example
 
-Start the workflow:
+Create ``hello_lsf.nf``:
 
 .. code-block:: bash
 
-   nextflow run <workflow> -profile <profile>
+   cat > hello_lsf.nf <<'EOF'
+   nextflow.enable.dsl = 2
 
-The workflow and profile names depend on the project being used.
+   params.outdir = "${baseDir}/results"
 
-.. important::
+   process VERIFY_LSF {
+       tag 'lsf-smoke-test'
 
-   Nextflow may coordinate the workflow from the login host, but
-   computationally intensive workflow processes must be submitted to LSF.
-   Do not configure workflow tasks to run directly on the login node.
+       publishDir params.outdir, mode: 'copy'
 
-Using LSF
-~~~~~~~~~
+       output:
+       path 'lsf_test.txt'
 
-Configure the workflow to use the LSF executor.
-
-Example ``nextflow.config`` setting:
-
-.. code-block:: groovy
-
-   process {
-       executor = 'lsf'
-       queue = 'general'
+       script:
+       '''
+       {
+           echo "hostname=$(hostname)"
+           echo "job_id=${LSB_JOBID:-not-set}"
+           echo "queue=${LSB_QUEUE:-not-set}"
+           echo "project=${LSB_PROJECT_NAME:-not-set}"
+           echo "allocated_cpus=${LSB_DJOB_NUMPROC:-not-set}"
+           echo "working_directory=$PWD"
+           echo "date=$(date)"
+       } | tee lsf_test.txt
+       '''
    }
 
-Additional CPU, memory, wall-time, and queue settings may be defined globally
-or for individual workflow processes.
+   workflow {
+       VERIFY_LSF()
+   }
+   EOF
 
-For example:
+Create ``pegasus_lsf.config``:
 
-.. code-block:: groovy
+.. code-block:: bash
 
+   cat > pegasus_lsf.config <<'EOF'
    process {
        executor = 'lsf'
        queue = 'general'
+       clusterOptions = '-P hpc'
+
        cpus = 1
-       memory = '4 GB'
-       time = '1h'
+       memory = '1 GB'
+       time = '10m'
    }
 
-Use project-specific values rather than applying the same resources to every
-workflow process.
+   executor {
+       queueSize = 10
+   }
+   EOF
 
-Using Apptainer Containers
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Containerized Nextflow workflows must use Apptainer rather than Docker on IDSC
-systems.
-
-Set the Nextflow work directory and Apptainer cache to project or scratch
-storage:
+Prepare the Nextflow work directory in project scratch:
 
 .. code-block:: bash
 
-   export NXF_WORK=/scratch/projects/<project>/$USER/nextflow_work
-   export APPTAINER_CACHEDIR=/scratch/projects/<project>/$USER/apptainer_cache
-
-Create the directories if necessary:
-
-.. code-block:: bash
-
+   export NXF_WORK=/scratch/projects/dssas/$USER/nextflow-example/work
    mkdir -p "$NXF_WORK"
-   mkdir -p "$APPTAINER_CACHEDIR"
 
-Enable Apptainer in ``nextflow.config``:
+Nextflow must be launched from a filesystem that supports file locking.
+Create a launch directory in the home directory:
 
-.. code-block:: groovy
+.. code-block:: bash
 
-   apptainer {
-       enabled = true
-   }
+   mkdir -p "$HOME/nextflow-launch/lsf-example"
+   cd "$HOME/nextflow-launch/lsf-example"
 
-A workflow profile may already configure LSF and Apptainer. Check the workflow
-documentation before adding or overriding configuration settings.
+Run the workflow using the files stored in project scratch:
 
-.. warning::
+.. code-block:: bash
 
-   Do not store large Nextflow work directories, Apptainer caches, or workflow
-   outputs in the home directory.
+   nextflow run \
+       /scratch/projects/dssas/$USER/nextflow-example/hello_lsf.nf \
+       -c /scratch/projects/dssas/$USER/nextflow-example/pegasus_lsf.config \
+       -w "$NXF_WORK" \
+       -with-trace trace.txt
+
+A successful run reports the LSF executor:
+
+.. code-block:: text
+
+   executor > lsf (1)
+
+Verify the published result:
+
+.. code-block:: bash
+
+   cat /scratch/projects/dssas/$USER/nextflow-example/results/lsf_test.txt
+
+The output should include a compute-node hostname and LSF information similar
+to:
+
+.. code-block:: text
+
+   hostname=n176
+   job_id=442287
+   queue=general
+   project=hpc
+   allocated_cpus=1
+
+Inspect the task trace:
+
+.. code-block:: bash
+
+   column -t -s $'\t' trace.txt
+
+Storage Requirement
+~~~~~~~~~~~~~~~~~~~
+
+Do not launch Nextflow directly from ``/scratch/projects`` on Pegasus. The
+scratch filesystem does not support the file locks required by the Nextflow
+cache database.
+
+Use:
+
+* the home directory for the Nextflow launch directory and ``.nextflow`` cache;
+* project scratch for ``NXF_WORK``, workflow files, input data, and results.
 
 Resuming a Workflow
 ~~~~~~~~~~~~~~~~~~~
@@ -137,16 +183,21 @@ Nextflow can reuse completed tasks after an interrupted or failed run:
 
 .. code-block:: bash
 
-   nextflow run <workflow> -profile <profile> -resume
+   nextflow run \
+       /scratch/projects/dssas/$USER/nextflow-example/hello_lsf.nf \
+       -c /scratch/projects/dssas/$USER/nextflow-example/pegasus_lsf.config \
+       -w "$NXF_WORK" \
+       -resume
 
-Use the same working directory when resuming the workflow.
+Use the same work directory when resuming.
 
 Recommended Practice
 --------------------
 
-* Run workflows from project or scratch storage.
+* Launch Nextflow from the home directory.
+* Store workflow files, task work directories, data, and results in project
+  scratch.
 * Configure computational processes to use the LSF executor.
-* Use Apptainer for containerized workflow processes.
-* Keep workflow and configuration files with the project.
-* Record the Nextflow, module, container, and workflow versions.
+* Request resources appropriate for each process.
+* Record the Nextflow version and workflow configuration.
 * Remove obsolete work directories only after required results are confirmed.
