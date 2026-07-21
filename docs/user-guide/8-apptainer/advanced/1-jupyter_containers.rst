@@ -1,5 +1,5 @@
-JupyterLab in an Apptainer Container
-=====================================
+JupyterLab
+==========
 
 JupyterLab can run inside an Apptainer container on a Pegasus LSF compute
 node. The session is accessed from a local browser through an SSH tunnel.

@@ -7,15 +7,6 @@ These pages cover common workflows for using IDSC cluster resources. Start here
 for connection, projects, job scheduling, software environments, containers, and
 other workflows that apply across supported clusters.
 
-Cluster-specific pages should only be used when a workflow depends on a specific
-system, queue, architecture, module version, hardware feature, or service.
-
-.. note::
-
-   General Usage should be the main starting point for users. Pegasus-specific
-   and Triton-specific pages should contain only the details that are different
-   for those systems.
-
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started

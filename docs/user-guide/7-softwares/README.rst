@@ -69,10 +69,6 @@ separate Pegasus-only and Triton-only software sections.
      - :status_available:`Available`
      - :status_unavailable:`Not Available`
      - See :ref:`general-software-r`.
-   * - RStudio
-     - :status_check:`Confirm`
-     - :status_unavailable:`Not Available`
-     - See :ref:`general-software-rstudio`.
    * - MATLAB
      - :status_available:`Available`
      - :status_unavailable:`Not Available`
