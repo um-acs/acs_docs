@@ -15,6 +15,6 @@ session. Do not run heavy applications directly on login nodes.
 
    1-jupyter_containers
    2-rstudio_server
-   3-interactive_matlab_r
+   3-1-interactive_r
    4-nextflow_mcmicro
    5-advanced_security
