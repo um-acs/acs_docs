@@ -11,27 +11,25 @@ other workflows that apply across supported clusters.
    :maxdepth: 2
    :caption: Getting Started
 
-   IDSC Cluster Overview <1-intro>
-   Important Guidelines <2-guidelines>
-   Connection <3-connect>
-   Quickstart Guide <4-quickstart>
+   Quickstart <1-quickstart>
+   Important Guidelines <2-guidelines> 
 
 .. toctree::
    :maxdepth: 2
    :caption: Resources and Scheduling
 
-   Projects & Resources <5-projects>
-   Job Scheduling <6-jobs/README>
+   Projects & Resources <3-projects>
+   Job Scheduling <4-jobs/README>
 
 .. toctree::
    :maxdepth: 2
    :caption: Software and Environments
 
-   Software and Modules <7-softwares/README>
-   Apptainer Containers <8-apptainer/README>
+   Software and Modules <5-softwares/README>
+   Apptainer Containers <6-apptainer/README>
 
 .. toctree::
    :maxdepth: 2
    :caption: Advanced Workflows
 
-   Parallel Computing <9-parallel>
+   Parallel Computing <7-parallel>
