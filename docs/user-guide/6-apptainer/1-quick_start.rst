@@ -127,8 +127,8 @@ For repeated use, it is better to pull the image once and use the local
 
    ::
 
-      mkdir -p /scratch/projects/<project>/$USER/containers
-      cd /scratch/projects/<project>/$USER/containers
+      mkdir -p /scratch/<project>/$USER/containers
+      cd /scratch/<project>/$USER/containers
       apptainer pull docker://python
 
    Apptainer also uses a cache when pulling images. If the cache becomes large,

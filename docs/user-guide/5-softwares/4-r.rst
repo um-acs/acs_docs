@@ -46,8 +46,8 @@ Create a project-specific R library:
 
 ::
 
-   mkdir -p /scratch/projects/<project>/$USER/Rlibs
-   export R_LIBS_USER=/scratch/projects/<project>/$USER/Rlibs
+   mkdir -p /scratch/<project>/$USER/Rlibs
+   export R_LIBS_USER=/scratch/<project>/$USER/Rlibs
 
 Inside R:
 
@@ -75,7 +75,7 @@ Example job script:
 
    module load R/<version>
 
-   export R_LIBS_USER=/scratch/projects/<project>/$USER/Rlibs
+   export R_LIBS_USER=/scratch/<project>/$USER/Rlibs
    mkdir -p ${R_LIBS_USER}
 
    Rscript script.R

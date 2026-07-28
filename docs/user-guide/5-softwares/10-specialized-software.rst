@@ -47,7 +47,7 @@ Create a working directory. Replace ``dssas`` with a project that you can use:
 .. code-block:: bash
 
    PROJECT=dssas
-   WORKDIR=/scratch/projects/$PROJECT/$USER/software-tests/gaussian
+   WORKDIR=/scratch/$PROJECT/$USER/software-tests/gaussian
 
    mkdir -p "$WORKDIR"
    cd "$WORKDIR"
@@ -91,7 +91,7 @@ Create ``gaussian_test.job``:
    module load gaussian/09.e.01
 
    PROJECT=dssas
-   WORKDIR=/scratch/projects/$PROJECT/$USER/software-tests/gaussian
+   WORKDIR=/scratch/$PROJECT/$USER/software-tests/gaussian
    export GAUSS_SCRDIR="$WORKDIR/scratch/$LSB_JOBID"
 
    mkdir -p "$GAUSS_SCRDIR"

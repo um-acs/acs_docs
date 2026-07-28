@@ -81,8 +81,8 @@ Project or scratch storage is better for large project-specific environments:
 
 ::
 
-   mkdir -p /scratch/projects/<project>/$USER/envs
-   python -m venv /scratch/projects/<project>/$USER/envs/myenv
+   mkdir -p /scratch/<project>/$USER/envs
+   python -m venv /scratch/<project>/$USER/envs/myenv
 
 Run Python in LSF
 -----------------
@@ -124,7 +124,7 @@ Example:
    #BSUB -e python_venv_job.%J.err
 
    module load python/<version>
-   source /scratch/projects/<project>/$USER/envs/myenv/bin/activate
+   source /scratch/<project>/$USER/envs/myenv/bin/activate
 
    python script.py
 

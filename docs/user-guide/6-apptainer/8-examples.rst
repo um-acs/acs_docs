@@ -129,7 +129,7 @@ Create a working directory in scratch or project storage:
 ::
 
    export PROJECT=<project>
-   export WORKDIR=/scratch/projects/${PROJECT}/${USER}/apptainer_cpu_example
+   export WORKDIR=/scratch/${PROJECT}/${USER}/apptainer_cpu_example
 
    mkdir -p ${WORKDIR}/scripts
    mkdir -p ${WORKDIR}/results
@@ -170,7 +170,7 @@ Create ``apptainer_cpu_example.job``:
 
    module load apptainer/<version>
 
-   WORKDIR=/scratch/projects/<project>/$USER/apptainer_cpu_example
+   WORKDIR=/scratch/<project>/$USER/apptainer_cpu_example
    IMAGE=${WORKDIR}/containers/python_latest.sif
 
    echo "Host: $(hostname)"
@@ -352,7 +352,7 @@ For workflows that need the same bind mounts repeatedly, set
 
 ::
 
-   export WORKDIR=/scratch/projects/<project>/$USER/my_apptainer_job
+   export WORKDIR=/scratch/<project>/$USER/my_apptainer_job
    mkdir -p ${WORKDIR}/data ${WORKDIR}/results
 
    export APPTAINER_BIND="${WORKDIR}/data:/data:ro,${WORKDIR}/results:/results"

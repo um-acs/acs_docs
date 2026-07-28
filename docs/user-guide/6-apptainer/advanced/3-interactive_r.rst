@@ -24,7 +24,7 @@ scratch project that you can use.
    module load apptainer/1.0.2
 
    PROJECT=<project>
-   CONTAINER_DIR=/scratch/projects/$PROJECT/$USER/containers
+   CONTAINER_DIR=/scratch/$PROJECT/$USER/containers
 
    mkdir -p "$CONTAINER_DIR"
 
@@ -92,7 +92,7 @@ used when the image was pulled:
 .. code-block:: bash
 
    PROJECT=<project>
-   IMAGE=/scratch/projects/$PROJECT/$USER/containers/tidyverse_4.4.2.sif
+   IMAGE=/scratch/$PROJECT/$USER/containers/tidyverse_4.4.2.sif
 
 Start an interactive R session:
 
@@ -169,7 +169,7 @@ current working directory. For example:
 
 .. code-block:: bash
 
-   DATA_DIR=/scratch/projects/<project>/$USER/data
+   DATA_DIR=/scratch/<project>/$USER/data
 
    apptainer exec \
        --cleanenv \

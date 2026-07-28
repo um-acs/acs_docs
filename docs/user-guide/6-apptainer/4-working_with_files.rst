@@ -22,7 +22,7 @@ runtime. Common examples include the current working directory,
    Common locations include:
 
    * ``/nethome/$USER`` for home-directory files
-   * ``/scratch/projects/<project>/$USER`` for scratch or project work
+   * ``/scratch/<project>/$USER`` for scratch or project work
    * project-specific storage paths provided by IDSC
 
 This means that a file created on the host can often be read from inside the
@@ -155,7 +155,7 @@ Example:
 ::
 
    export PROJECT=<project>
-   export WORKDIR=/scratch/projects/${PROJECT}/${USER}/my_apptainer_job
+   export WORKDIR=/scratch/${PROJECT}/${USER}/my_apptainer_job
 
    mkdir -p ${WORKDIR}/data
    mkdir -p ${WORKDIR}/results

@@ -28,7 +28,7 @@ Use project or scratch storage for workflow data:
 
 ::
 
-   /scratch/projects/<project>/$USER/exemplar-001
+   /scratch/<project>/$USER/exemplar-001
 
 MCMICRO Example Job
 -------------------
@@ -43,8 +43,8 @@ Create ``lsfmcmicro.job``:
    #!/bin/bash
    #BSUB -P <project>
    #BSUB -J lsfmcmicrojob
-   #BSUB -o /scratch/projects/<project>/$USER/lsfmcmicro.%J.out
-   #BSUB -e /scratch/projects/<project>/$USER/lsfmcmicro.%J.err
+   #BSUB -o /scratch/<project>/$USER/lsfmcmicro.%J.out
+   #BSUB -e /scratch/<project>/$USER/lsfmcmicro.%J.err
    #BSUB -q general
    #BSUB -n 3
    #BSUB -R "rusage[mem=4000]"
@@ -53,12 +53,12 @@ Create ``lsfmcmicro.job``:
    module load apptainer/1.1.5
    module load nextflow/22.10.4
 
-   export APPTAINER_BIND="/scratch/projects/<project>/$USER"
+   export APPTAINER_BIND="/scratch/<project>/$USER"
 
-   cd /scratch/projects/<project>/$USER/exemplar-001
+   cd /scratch/<project>/$USER/exemplar-001
 
    nextflow run labsyspharm/mcmicro \
-       --in /scratch/projects/<project>/$USER/exemplar-001 \
+       --in /scratch/<project>/$USER/exemplar-001 \
        -profile singularity,lsf
 
 Submit the job:
@@ -72,7 +72,7 @@ Check progress:
 ::
 
    bjobs
-   tail -f /scratch/projects/<project>/$USER/lsfmcmicro.<jobid>.out
+   tail -f /scratch/<project>/$USER/lsfmcmicro.<jobid>.out
 
 Viewing MCMICRO Results
 -----------------------

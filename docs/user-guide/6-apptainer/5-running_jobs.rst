@@ -121,7 +121,7 @@ Example:
 .. code:: bash
 
    IMAGE=/nethome/$USER/python_latest.sif
-   WORKDIR=/scratch/projects/<project>/$USER/my_job
+   WORKDIR=/scratch/<project>/$USER/my_job
 
    mkdir -p ${WORKDIR}/results
 
@@ -150,7 +150,7 @@ Example:
 .. code:: bash
 
    IMAGE=/nethome/$USER/python_latest.sif
-   WORKDIR=/scratch/projects/<project>/$USER/my_apptainer_job
+   WORKDIR=/scratch/<project>/$USER/my_apptainer_job
 
    mkdir -p ${WORKDIR}/data
    mkdir -p ${WORKDIR}/results
@@ -168,7 +168,7 @@ repeatedly:
 
 .. code:: bash
 
-   export APPTAINER_BIND="/scratch/projects/<project>/$USER/data:/data:ro,/scratch/projects/<project>/$USER/results:/results"
+   export APPTAINER_BIND="/scratch/<project>/$USER/data:/data:ro,/scratch/<project>/$USER/results:/results"
    apptainer exec image.sif command
 
 .. note::

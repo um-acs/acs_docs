@@ -51,8 +51,8 @@ Create the workflow files in project scratch:
 
 .. code-block:: bash
 
-   mkdir -p /scratch/projects/dssas/$USER/nextflow-example
-   cd /scratch/projects/dssas/$USER/nextflow-example
+   mkdir -p /scratch/dssas/$USER/nextflow-example
+   cd /scratch/dssas/$USER/nextflow-example
 
 Create ``hello_lsf.nf``:
 
@@ -114,7 +114,7 @@ Prepare the Nextflow work directory in project scratch:
 
 .. code-block:: bash
 
-   export NXF_WORK=/scratch/projects/dssas/$USER/nextflow-example/work
+   export NXF_WORK=/scratch/dssas/$USER/nextflow-example/work
    mkdir -p "$NXF_WORK"
 
 Nextflow must be launched from a filesystem that supports file locking.
@@ -130,8 +130,8 @@ Run the workflow using the files stored in project scratch:
 .. code-block:: bash
 
    nextflow run \
-       /scratch/projects/dssas/$USER/nextflow-example/hello_lsf.nf \
-       -c /scratch/projects/dssas/$USER/nextflow-example/pegasus_lsf.config \
+       /scratch/dssas/$USER/nextflow-example/hello_lsf.nf \
+       -c /scratch/dssas/$USER/nextflow-example/pegasus_lsf.config \
        -w "$NXF_WORK" \
        -with-trace trace.txt
 
@@ -145,7 +145,7 @@ Verify the published result:
 
 .. code-block:: bash
 
-   cat /scratch/projects/dssas/$USER/nextflow-example/results/lsf_test.txt
+   cat /scratch/dssas/$USER/nextflow-example/results/lsf_test.txt
 
 The output should include a compute-node hostname and LSF information similar
 to:
@@ -167,7 +167,7 @@ Inspect the task trace:
 Storage Requirement
 ~~~~~~~~~~~~~~~~~~~
 
-Do not launch Nextflow directly from ``/scratch/projects`` on Pegasus. The
+Do not launch Nextflow directly from ``/scratch`` on Pegasus. The
 scratch filesystem does not support the file locks required by the Nextflow
 cache database.
 
@@ -184,8 +184,8 @@ Nextflow can reuse completed tasks after an interrupted or failed run:
 .. code-block:: bash
 
    nextflow run \
-       /scratch/projects/dssas/$USER/nextflow-example/hello_lsf.nf \
-       -c /scratch/projects/dssas/$USER/nextflow-example/pegasus_lsf.config \
+       /scratch/dssas/$USER/nextflow-example/hello_lsf.nf \
+       -c /scratch/dssas/$USER/nextflow-example/pegasus_lsf.config \
        -w "$NXF_WORK" \
        -resume
 

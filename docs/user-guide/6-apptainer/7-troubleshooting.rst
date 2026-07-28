@@ -146,9 +146,9 @@ Create and bind the output directory explicitly:
 
 ::
 
-   mkdir -p /scratch/projects/<project>/$USER/results
+   mkdir -p /scratch/<project>/$USER/results
 
-   apptainer exec        --bind /scratch/projects/<project>/$USER/results:/results        image.sif command
+   apptainer exec        --bind /scratch/<project>/$USER/results:/results        image.sif command
 
 Fakeroot Not Available
 ----------------------

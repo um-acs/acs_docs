@@ -84,14 +84,14 @@ Create an environment by path:
 
 ::
 
-   mkdir -p /scratch/projects/<project>/$USER/conda/envs
-   conda create -p /scratch/projects/<project>/$USER/conda/envs/myenv python=3.11
+   mkdir -p /scratch/<project>/$USER/conda/envs
+   conda create -p /scratch/<project>/$USER/conda/envs/myenv python=3.11
 
 Activate it:
 
 ::
 
-   conda activate /scratch/projects/<project>/$USER/conda/envs/myenv
+   conda activate /scratch/<project>/$USER/conda/envs/myenv
 
 .. warning::
 
@@ -117,7 +117,7 @@ Example job script:
 
    module load conda/<version>
 
-   conda activate /scratch/projects/<project>/$USER/conda/envs/myenv
+   conda activate /scratch/<project>/$USER/conda/envs/myenv
 
    python script.py
 

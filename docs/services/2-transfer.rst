@@ -27,14 +27,14 @@ An example transfer might look like this:
 ::
 
     [localmachine: ~]$ scp /local/filename \
-                username@dtn.idsc.miami.edu:/scratch/projects/projectID/directory
+                username@dtn.idsc.miami.edu:/scratch/projectID/directory
 
 To transfer a directory, use the ``-r`` flag (recursive):
 
 ::
 
     [localmachine: ~]$ scp -r /local/directory \
-                username@dtn.idsc.miami.edu:/scratch/projects/projectID/directory
+                username@dtn.idsc.miami.edu:/scratch/projectID/directory
 
 Consult the Linux man pages for more information on scp.
 
@@ -51,7 +51,7 @@ demonstrates usage of the rsync command for transferring a file named
 ::
 
     [localmachine: ~]$ rsync firstExample.c \
-                username@dtn.idsc.miami.edu:/scratch/projects/projectID/directory
+                username@dtn.idsc.miami.edu:/scratch/projectID/directory
 
 An entire directory can be transferred from source to destination by
 using rsync. For directory transfers, the options ``-atvr`` will
