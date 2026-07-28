@@ -1,252 +1,360 @@
 Nextflow and MCMICRO with Apptainer
 ===================================
 
-This page preserves the useful parts of the older MCMICRO and Nextflow workflow.
-It is an advanced workflow example, not part of the basic Apptainer quick start.
+MCMICRO is a Nextflow pipeline for processing highly multiplexed microscopy
+data. On Pegasus, Nextflow manages the workflow and submits processing tasks to
+LSF, while Apptainer provides the software environment required by each MCMICRO
+module.
 
-Nextflow Execution Warning
---------------------------
+The registration smoke test on this page has been verified on Pegasus with the
+MCMICRO exemplar dataset, Nextflow 24.10.6, Apptainer 1.0.2, and ASHLAR 1.19.0.
 
-Nextflow can run tasks locally by default. On a shared HPC system, this can cause
-containers and cache files to be downloaded to compute nodes in an uncontrolled
-way. For production workflows, use a proper LSF configuration and store work,
-cache, and results in project or scratch storage.
-
-Do not run large Nextflow or MCMICRO workflows directly on login nodes.
-
-Modules and Project Storage
----------------------------
-
-Load the required modules inside the job or interactive session:
-
-::
-
-   module load apptainer/1.1.5
-   module load nextflow/22.10.4
-
-Use project or scratch storage for workflow data:
-
-::
-
-   /scratch/<project>/$USER/exemplar-001
-
-MCMICRO Example Job
--------------------
-
-The older documentation used the MCMICRO exemplar dataset and submitted the
-workflow through LSF. A cleaned example job is shown below.
-
-Create ``lsfmcmicro.job``:
-
-.. code:: bash
-
-   #!/bin/bash
-   #BSUB -P <project>
-   #BSUB -J lsfmcmicrojob
-   #BSUB -o /scratch/<project>/$USER/lsfmcmicro.%J.out
-   #BSUB -e /scratch/<project>/$USER/lsfmcmicro.%J.err
-   #BSUB -q general
-   #BSUB -n 3
-   #BSUB -R "rusage[mem=4000]"
-   #BSUB -W 1:00
-
-   module load apptainer/1.1.5
-   module load nextflow/22.10.4
-
-   export APPTAINER_BIND="/scratch/<project>/$USER"
-
-   cd /scratch/<project>/$USER/exemplar-001
-
-   nextflow run labsyspharm/mcmicro \
-       --in /scratch/<project>/$USER/exemplar-001 \
-       -profile singularity,lsf
-
-Submit the job:
-
-::
-
-   bsub < lsfmcmicro.job
-
-Check progress:
-
-::
-
-   bjobs
-   tail -f /scratch/<project>/$USER/lsfmcmicro.<jobid>.out
-
-Viewing MCMICRO Results
------------------------
-
-MCMICRO output is written under the workflow directory. The older documentation
-checked output images such as cell and nuclei outlines.
-
-General result checks:
-
-* Confirm that expected output folders were created.
-* Inspect ``cellOutlines.ome.tif`` and ``nucleiOutlines.ome.tif`` when produced.
-* Use Fiji or another image viewer that supports ``.ome.tif`` and ``.tif`` files.
-* Use X11 forwarding or a local workstation for GUI image viewing; do not run
-  heavy GUI work on login nodes.
-
-Nextflow Profiles
+Workflow Overview
 -----------------
 
-In Nextflow, profiles define execution behavior and software environment. A
-workflow may combine profiles such as:
+The Pegasus workflow uses:
 
-::
+* Nextflow to launch and monitor MCMICRO;
+* LSF to run MCMICRO processes on compute nodes;
+* Apptainer to run the module container images;
+* project scratch storage for datasets, temporary files, and Nextflow work
+  directories; and
+* home storage for the shared Nextflow container cache.
 
-   -profile singularity,lsf
+Nextflow alone is not sufficient unless all MCMICRO programs and their
+dependencies are installed separately. A container-free test reached the LSF
+compute node but failed with ``ashlar: command not found``.
 
-The ``lsf`` profile tells Nextflow to submit tasks through LSF. The
-``singularity`` profile tells the workflow to use Singularity/Apptainer-style
-containers when the pipeline supports that profile.
+Load the Modules
+----------------
 
-Minimal Nextflow Example
-------------------------
+Load the tested module versions:
 
-Create ``hello.nf``:
+.. code-block:: bash
 
-.. code:: groovy
+   module purge
+   module load nextflow/24.10.6
+   module load apptainer/1.0.2
 
-   #!/usr/bin/env nextflow
+Prepare Storage
+---------------
 
-   params.greeting = 'Hello world!'
-   greeting_ch = Channel.of(params.greeting)
+Set the project location and create the required directories:
 
-   process SPLITLETTERS {
-       input:
-       val x
+.. code-block:: bash
 
-       output:
-       path 'chunk_*'
+   export PROJECT_ROOT=/scratch/<projectID>/$USER/mcmicro-test
+   export NXF_WORK="$PROJECT_ROOT/work"
 
-       """
-       printf '$x' | split -b 6 - chunk_
-       """
-   }
+   export NXF_APPTAINER_CACHEDIR="$HOME/.nextflow/mcmicro-apptainer-cache"
+   export APPTAINER_CACHEDIR="$HOME/.apptainer/cache"
+   export APPTAINER_TMPDIR="$PROJECT_ROOT/apptainer-tmp"
 
-   process CONVERTTOUPPER {
-       input:
-       path y
+   mkdir -p \
+       "$PROJECT_ROOT" \
+       "$NXF_WORK" \
+       "$NXF_APPTAINER_CACHEDIR" \
+       "$APPTAINER_CACHEDIR" \
+       "$APPTAINER_TMPDIR"
 
-       output:
-       stdout
+Replace ``<projectID>`` with the appropriate Pegasus project allocation.
 
-       """
-       cat $y | tr '[a-z]' '[A-Z]'
-       """
-   }
+Keep the Nextflow work directory for the duration of the workflow. Nextflow
+needs it to reuse completed tasks with ``-resume``.
 
-   workflow {
-       letters_ch = SPLITLETTERS(greeting_ch)
-       results_ch = CONVERTTOUPPER(letters_ch.flatten())
-       results_ch.view { it }
-   }
+Download MCMICRO
+----------------
 
-Run the workflow with a container:
+Create a launch directory in the home filesystem:
 
-::
+.. code-block:: bash
 
-   nextflow run /nethome/$USER/hello.nf -with-singularity /nethome/$USER/python_latest.sif
+   mkdir -p "$HOME/nextflow-launch/mcmicro-test"
+   cd "$HOME/nextflow-launch/mcmicro-test"
 
-Run from an interactive LSF session:
+Download or update the MCMICRO workflow:
 
-::
+.. code-block:: bash
 
-   bsub -q general -P <project> -Is \
-       "nextflow run /nethome/$USER/hello.nf -with-singularity /nethome/$USER/python_latest.sif"
+   nextflow pull labsyspharm/mcmicro
 
-Example Nextflow LSF Configuration
-----------------------------------
+Download the Exemplar Dataset
+-----------------------------
 
-Create ``lsf_apptainer.config``:
+MCMICRO provides a small exemplar dataset for testing the workflow:
 
-.. code:: groovy
+.. code-block:: bash
 
-   params {
-       config_profile_description = 'Sample LSF Apptainer profile.'
-       config_profile_contact = 'IDSC'
-   }
+   mkdir -p "$PROJECT_ROOT/download-work"
 
-   executor {
-       name = 'lsf'
-       perTaskReserve = false
-       perJobMemLimit = true
-       queueSize = 100
-       submitRateLimit = '5 sec'
-   }
+   nextflow run labsyspharm/mcmicro/exemplar.nf \
+       --name exemplar-001 \
+       --path "$PROJECT_ROOT" \
+       -w "$PROJECT_ROOT/download-work"
 
-   profiles {
-       lsf {
-           process.executor = 'LSF'
-           process.queue = 'general'
-           process.cache = 'lenient'
-           process.clusterOptions = '-P <project>'
-       }
+The downloaded dataset is stored at:
+
+.. code-block:: text
+
+   $PROJECT_ROOT/exemplar-001
+
+This download step does not run the MCMICRO processing containers.
+
+Create the Pegasus Configuration
+--------------------------------
+
+Create ``pegasus_mcmicro.config`` in the launch directory:
+
+.. code-block:: groovy
+
+   docker {
+       enabled = false
    }
 
    singularity {
+       enabled = false
+   }
+
+   apptainer {
        enabled = true
        autoMounts = true
+       cacheDir = "${System.getenv('HOME')}/.nextflow/mcmicro-apptainer-cache"
+       runOptions = '-C -H $PWD'
    }
 
    process {
        executor = 'lsf'
        queue = 'general'
-       clusterOptions = '-P <project>'
-       cpus = 8
-       time = '2.h'
-       memory = '8.GB'
+       clusterOptions = '-P hpc'
 
-       withName: 'SPLITLETTERS|CONVERTTOUPPER' {
-           cpus = 4
-           memory = '4.GB'
-       }
+       cpus = 4
+       memory = '32 GB'
+       time = '4h'
    }
 
-Run with the configuration file:
+   executor {
+       queueSize = 6
+   }
 
-::
+   params {
+       contPfx = 'docker://'
+       publish_dir_mode = 'copy'
+   }
 
-   nextflow run /nethome/$USER/hello.nf -c /nethome/$USER/lsf_apptainer.config
+The Nextflow launcher can be started from a Pegasus login node because the
+configuration sends MCMICRO processing tasks to LSF. Do not remove the LSF
+executor configuration or run the processing tasks locally on the login node.
 
-Verify that Nextflow submitted LSF jobs:
+Pre-pull a Container Image
+--------------------------
 
-::
+The first run must download several container images. A Nextflow-managed image
+pull may appear inactive while Apptainer downloads Docker layers and converts
+them into a SIF image.
 
-   bjobs
-   bhist -l <jobid>
+If an image pull repeatedly does not complete, stop the Nextflow workflow and
+pull that image manually into the same cache directory.
 
-nf-core Notes
--------------
+For example, pull the ASHLAR image:
 
-The older documentation also mentioned ``nf-core`` for managing Nextflow
-pipelines.
+.. code-block:: bash
 
-Install ``nf-core`` inside a suitable Python or Conda environment:
+   apptainer pull --disable-cache \
+       "$NXF_APPTAINER_CACHEDIR/labsyspharm-ashlar-1.19.0.img" \
+       docker://labsyspharm/ashlar:1.19.0
 
-::
+During conversion, warnings about unsupported extended attributes on the
+scratch filesystem can normally be ignored if the command continues and
+creates the image.
 
-   conda activate <environment>
-   pip install nf-core
+Verify ASHLAR inside the image:
 
-List available pipelines:
+.. code-block:: bash
 
-::
+   apptainer exec \
+       "$NXF_APPTAINER_CACHEDIR/labsyspharm-ashlar-1.19.0.img" \
+       ashlar --version
 
-   nf-core list
+Expected output:
 
-Create a new pipeline template:
+.. code-block:: text
 
-::
+   ashlar 1.19.0
 
-   nf-core create
+Run the Verified Registration Test
+----------------------------------
 
-When editing generated pipelines, keep an original copy of ``nextflow.config``
-and document any site-specific changes.
+Remove reports from an earlier launch, but do not delete the work directory:
 
+.. code-block:: bash
 
+   rm -f registration-trace.txt \
+       registration-report.html \
+       registration-timeline.html
 
+Run the exemplar dataset through registration:
 
-#NEED TO WORK
+.. code-block:: bash
+
+   nextflow run labsyspharm/mcmicro \
+       --in "$PROJECT_ROOT/exemplar-001" \
+       --stop-at registration \
+       -c pegasus_mcmicro.config \
+       -w "$NXF_WORK" \
+       -with-trace registration-trace.txt \
+       -with-report registration-report.html \
+       -with-timeline registration-timeline.html \
+       -resume
+
+A successful test reports:
+
+.. code-block:: text
+
+   registration:ashlar (1) | 1 of 1 ✔
+
+The ASHLAR output is published under the exemplar project directory. Check the
+registration files with:
+
+.. code-block:: bash
+
+   find "$PROJECT_ROOT/exemplar-001" \
+       -maxdepth 3 \
+       -type f \
+       | sort
+
+Continue Through Quantification
+-------------------------------
+
+After registration succeeds, continue the workflow through quantification:
+
+.. code-block:: bash
+
+   rm -f trace.txt report.html timeline.html
+
+   nextflow run labsyspharm/mcmicro \
+       --in "$PROJECT_ROOT/exemplar-001" \
+       --stop-at quantification \
+       -c pegasus_mcmicro.config \
+       -w "$NXF_WORK" \
+       -with-trace trace.txt \
+       -with-report report.html \
+       -with-timeline timeline.html \
+       -resume
+
+The ``-resume`` option reuses the completed ASHLAR registration task and any
+previously downloaded container images.
+
+Additional stages may require additional images. When Nextflow prints a message
+such as:
+
+.. code-block:: text
+
+   Pulling Apptainer image docker://<repository>/<image>:<tag>
+
+the corresponding image can be manually pulled into
+``$NXF_APPTAINER_CACHEDIR`` using the same method shown for ASHLAR. Rerun the
+workflow with ``-resume`` after the image is available.
+
+Monitor LSF Jobs
+----------------
+
+Check submitted tasks from another terminal:
+
+.. code-block:: bash
+
+   bjobs -w
+
+Inspect a pending job:
+
+.. code-block:: bash
+
+   bjobs -l <jobID>
+
+A task displayed as ``0 of 1`` is not necessarily frozen. Nextflow waits in the
+foreground while the LSF job is pending or running.
+
+Common pending reasons include:
+
+* the queue job-slot limit has been reached;
+* no node currently satisfies the requested memory;
+* the requested number of CPU slots is unavailable; or
+* the queue is busy.
+
+Cancel a Workflow
+-----------------
+
+Press ``Ctrl+C`` once in the Nextflow terminal. Then check whether an LSF task
+remains:
+
+.. code-block:: bash
+
+   bjobs -w
+
+Cancel any remaining task with:
+
+.. code-block:: bash
+
+   bkill <jobID>
+
+Do not delete the Nextflow work directory if the workflow will be restarted
+with ``-resume``.
+
+Troubleshooting
+---------------
+
+Nextflow reports an existing trace file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Nextflow does not overwrite an existing trace, report, or timeline file by
+default. Remove the old files before restarting:
+
+.. code-block:: bash
+
+   rm -f trace.txt report.html timeline.html
+
+A container image pull does not complete
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Stop Nextflow, remove only the incomplete image and lock file, and then pull
+the image manually:
+
+.. code-block:: bash
+
+   rm -f \
+       "$NXF_APPTAINER_CACHEDIR/<image-name>.img" \
+       "$NXF_APPTAINER_CACHEDIR/<image-name>.img.lock"
+
+   apptainer pull --disable-cache \
+       "$NXF_APPTAINER_CACHEDIR/<image-name>.img" \
+       docker://<repository>/<image>:<tag>
+
+Do not delete other completed images from the cache.
+
+Apptainer cache variables conflict
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If Apptainer reports that ``SINGULARITY_CACHEDIR`` and
+``APPTAINER_CACHEDIR`` have different values, remove the older Singularity
+variables before launching the workflow:
+
+.. code-block:: bash
+
+   unset SINGULARITY_CACHEDIR
+   unset SINGULARITY_TMPDIR
+
+   export APPTAINER_CACHEDIR="$HOME/.apptainer/cache"
+   export APPTAINER_TMPDIR="$PROJECT_ROOT/apptainer-tmp"
+
+A MCMICRO command is not found
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+An error such as:
+
+.. code-block:: text
+
+   ashlar: command not found
+
+means that the process was launched without its container environment. Confirm
+that ``apptainer.enabled`` is set to ``true`` in
+``pegasus_mcmicro.config`` and that the required image exists in the Nextflow
+Apptainer cache.
