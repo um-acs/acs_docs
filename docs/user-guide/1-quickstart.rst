@@ -2,39 +2,47 @@ Pegasus and Triton QuickStart
 =============================
 
 Pegasus and Triton are shared high-performance computing (HPC) clusters
-available to authorized University of Miami researchers.
+available to authorized University of Miami researchers. Both systems use the
+LSF scheduler to run computational work on compute hosts.
 
-The **Triton** cluster consists of 10 `IBM POWER System AC922 <https://www.ibm.com/us-en/marketplace/power-systems-ac922>`__ compute nodes (with more on the way). Each node includes **two NVIDIA Tesla V100 GPUs** and is built on the **Power9 architecture**, optimized for **data-intensive workloads** and **high-performance deep learning training**.
+.. list-table::
+   :header-rows: 1
+   :widths: 16 16 24 28 16
 
-::
+   * - Cluster
+     - Compute hosts
+     - Architecture
+     - Typical use
+     - QuickStart queue
+   * - Pegasus
+     - 282
+     - x86_64
+     - General-purpose HPC
+     - ``general``
+   * - Triton
+     - 72
+     - IBM POWER9 (ppc64le)
+     - GPU-accelerated and data-intensive workloads
+     - ``short``
 
-    System:               Triton Supercomputer
-    Architecture:         IBM Power9
-    GPUs:                 NVIDIA Tesla V100 (2 per node)
-    Operating System:     Red Hat Enterprise Linux 8.6
-    Default Shell:        Bash
-    Access Requirements:  IDSC Account
-    Data Transfer:        SCP, SFTP
-    Target Workloads:     Deep Learning(GPU Heavy)
+This QuickStart demonstrates a complete workflow from a local computer to the
+cluster and back:
 
+.. code-block:: text
 
-The **Pegasus** cluster is the University of Miami’s flagship high-performance computing system, currently featuring **73+ compute nodes**. Pegasus resources—both hardware and software—are shared among all authorized University of Miami users.
-
-
-::
-
-    System:               Pegasus Supercomputer
-    Architecture:         x86_64
-    GPUs:                 -
-    Operating System:     Rocky Linux 8.8
-    Default Shell:        Bash
-    Access Requirements:  IDSC Account
-    Data Transfer:        SCP, SFTP
-    Target Workloads:     General HPC
-
-This QuickStart walks through connecting to either cluster, creating a working
-directory, submitting a simple job through the LSF scheduler, and viewing the
-result.
+   dataset + Python script + LSF job script
+                      |
+                      |  SCP or SFTP
+                      v
+              cluster scratch storage
+                      |
+                      |  LSF batch job
+                      v
+                 result file
+                      |
+                      |  SCP or SFTP
+                      v
+                 local computer
 
 Before You Begin
 ----------------
@@ -42,13 +50,17 @@ Before You Begin
 You need:
 
 - an active CaneID;
-- access to an approved Pegasus or Triton project;
-- the name of the project to use for job submission; and
-- a connection to the University of Miami network or
-  `VPN <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
+- access to Pegasus or Triton;
+- the name of an approved LSF project;
+- access to that project's scratch directory; and
+- a connection method provided for your account, such as the University of
+  Miami network, VPN, or a configured SSH jump host.
 
-In the commands below, replace ``<caneid>`` and ``<project>`` with your own
-CaneID and project name.
+In the commands below:
+
+- replace ``<caneid>`` with your CaneID;
+- replace ``<project>`` with your LSF project name; and
+- use ``general`` as ``<queue>`` on Pegasus or ``short`` on Triton.
 
 1. Connect to a Cluster
 -----------------------
@@ -60,7 +72,7 @@ On macOS or Linux, use Terminal.
 
 .. code-block:: bash
 
-   ssh <caneid>@pegasus2.ccs.miami.edu
+   ssh <caneid>@pegasus2.idsc.miami.edu
 
 **Triton**
 
@@ -70,6 +82,11 @@ On macOS or Linux, use Terminal.
 
 Enter your CaneID password when prompted. After login, you will be on a cluster
 login node.
+
+.. note::
+
+   If your account uses a configured SSH alias or jump host, use the same SSH
+   destination supplied for your account instead of the host shown above.
 
 .. important::
 
@@ -83,7 +100,7 @@ For additional SSH options, see :ref:`ssh`. For graphical applications, see
 2. Create a Scratch Working Directory
 -------------------------------------
 
-Use project scratch storage for active job files and output:
+On the cluster, create a directory for the QuickStart files:
 
 .. code-block:: bash
 
@@ -102,89 +119,308 @@ The output should resemble:
 
    /scratch/<project>/<caneid>/quickstart
 
-3. Create a Job Script
-----------------------
+The environment variable ``$PROJECT`` is not assumed to be defined. Enter the
+project name directly wherever ``<project>`` appears.
 
-Create a file named ``hello.job``:
+3. Prepare the Example Files Locally
+------------------------------------
+
+Open a second terminal on your local computer and create a directory for the
+example:
 
 .. code-block:: bash
 
-   nano hello.job
+   mkdir -p ~/hpc-quickstart
+   cd ~/hpc-quickstart
 
-Add the following content, replacing ``<project>`` with your project name:
+The example uses three files:
+
+.. code-block:: text
+
+   data.csv      Input dataset
+   analyze.py    Python analysis program
+   analyze.job   LSF batch-job script
+
+Create the Dataset
+~~~~~~~~~~~~~~~~~~
+
+Create ``data.csv`` with the following content:
+
+.. code-block:: text
+
+   sample,value
+   A,10
+   B,15
+   C,12
+   D,18
+
+Create the Python Script
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create ``analyze.py``:
+
+.. code-block:: python
+
+   #!/usr/bin/env python3
+
+   import csv
+   import sys
+   from pathlib import Path
+
+
+   def main():
+       if len(sys.argv) != 3:
+           raise SystemExit(
+               f"Usage: {sys.argv[0]} INPUT_CSV OUTPUT_CSV"
+           )
+
+       input_file = Path(sys.argv[1])
+       output_file = Path(sys.argv[2])
+
+       values = []
+
+       with input_file.open(newline="", encoding="utf-8") as csv_file:
+           reader = csv.DictReader(csv_file)
+
+           for row in reader:
+               values.append(float(row["value"]))
+
+       if not values:
+           raise ValueError(f"No data values were found in {input_file}")
+
+       results = {
+           "count": len(values),
+           "minimum": min(values),
+           "maximum": max(values),
+           "mean": sum(values) / len(values),
+       }
+
+       with output_file.open("w", newline="", encoding="utf-8") as csv_file:
+           writer = csv.writer(csv_file)
+           writer.writerow(["metric", "value"])
+
+           for metric, value in results.items():
+               writer.writerow([metric, value])
+
+       print(f"Read {len(values)} values from {input_file}")
+       print(f"Wrote the analysis results to {output_file}")
+
+
+   if __name__ == "__main__":
+       main()
+
+This program reads the values in ``data.csv`` and writes summary statistics to
+``summary.csv``. It uses only the Python standard library.
+
+Create the LSF Job Script
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create ``analyze.job``:
 
 .. code-block:: bash
 
    #!/bin/bash
-   #BSUB -J quickstart
+   #BSUB -J quickstart-python
    #BSUB -P <project>
+   #BSUB -q <queue>
    #BSUB -n 1
    #BSUB -R "rusage[mem=512M]"
    #BSUB -W 00:05
    #BSUB -o quickstart.%J.out
    #BSUB -e quickstart.%J.err
 
-   echo "Hello from $(hostname)"
-   echo "User: $USER"
-   echo "Started: $(date)"
-   echo "Working directory: $(pwd)"
+   set -euo pipefail
 
-In ``nano``, press ``Ctrl+O`` and then ``Enter`` to save the file. Press
-``Ctrl+X`` to exit.
+   WORKDIR="${LS_SUBCWD:-$PWD}"
+   cd "$WORKDIR"
 
-The ``#BSUB`` lines define the project, CPU, memory, runtime, and output files
-for the job. See :ref:`g-lsf` for a complete explanation of LSF job options.
+   echo "Job ID: $LSB_JOBID"
+   echo "Compute host: $(hostname)"
+   echo "Architecture: $(uname -m)"
+   echo "Working directory: $WORKDIR"
+   echo
 
-4. Submit the Job
------------------
+   python3 analyze.py data.csv summary.csv
 
-Submit the script to LSF:
+Replace ``<project>`` with your LSF project. Replace ``<queue>`` according to
+the cluster:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 30
+
+   * - Cluster
+     - Queue
+   * - Pegasus
+     - ``general``
+   * - Triton
+     - ``short``
+
+The main LSF directives in this example specify:
+
+- ``-J`` -- the job name;
+- ``-P`` -- the LSF project;
+- ``-q`` -- the queue;
+- ``-n`` -- the number of CPU cores;
+- ``-R`` -- the requested memory;
+- ``-W`` -- the runtime limit;
+- ``-o`` -- the standard-output file; and
+- ``-e`` -- the standard-error file.
+
+The token ``%J`` is replaced with the LSF job ID.
+
+Confirm that the local directory contains all three files:
 
 .. code-block:: bash
 
-   bsub < hello.job
+   ls -l data.csv analyze.py analyze.job
 
-LSF will return a job ID similar to:
+4. Transfer the Files to the Cluster
+------------------------------------
+
+Transfer with SCP
+~~~~~~~~~~~~~~~~~
+
+Run ``scp`` from the local computer, not from the cluster login node.
+
+**Pegasus**
+
+.. code-block:: bash
+
+   scp data.csv analyze.py analyze.job \
+       <caneid>@pegasus2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/
+
+**Triton**
+
+.. code-block:: bash
+
+   scp data.csv analyze.py analyze.job \
+       <caneid>@t2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/
+
+If your account uses an SSH alias or jump host, replace the destination host
+with the same destination you use successfully for ``ssh``.
+
+Transfer with an SFTP Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You may instead use an SFTP application such as FileZilla, Cyberduck, or
+WinSCP.
+
+Use these connection settings:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 55
+
+   * - Setting
+     - Value
+   * - Protocol
+     - SFTP
+   * - Port
+     - ``22``
+   * - Username
+     - Your CaneID
+   * - Pegasus host
+     - ``pegasus2.ccs.miami.edu``
+   * - Triton host
+     - ``t2.idsc.miami.edu``
+   * - Remote directory
+     - ``/scratch/<project>/<caneid>/quickstart``
+
+Connect using the same authentication or jump-host configuration required for
+SSH. Upload ``data.csv``, ``analyze.py``, and ``analyze.job`` to the remote
+directory.
+
+5. Verify the Uploaded Files
+----------------------------
+
+Return to the cluster terminal:
+
+.. code-block:: bash
+
+   cd /scratch/<project>/$USER/quickstart
+   ls -l
+
+The directory should contain:
 
 .. code-block:: text
 
-   Job <123456> is submitted.
+   analyze.job
+   analyze.py
+   data.csv
 
-5. Check the Job Status
------------------------
+You can inspect the files before submission:
 
-Check your active jobs:
+.. code-block:: bash
+
+   cat data.csv
+   cat analyze.job
+
+6. Submit the LSF Job
+---------------------
+
+Submit the job from the scratch working directory:
+
+.. code-block:: bash
+
+   bsub < analyze.job
+
+LSF returns a job ID similar to:
+
+.. code-block:: text
+
+   Job <123456> is submitted to queue <general>.
+
+On Triton, the queue name in the message will be ``short``.
+
+7. Monitor the Job
+------------------
+
+Check active jobs:
 
 .. code-block:: bash
 
    bjobs
 
-Common job states include:
+Common states include:
 
 - ``PEND`` -- waiting for resources;
 - ``RUN`` -- currently running;
 - ``DONE`` -- completed successfully; and
 - ``EXIT`` -- ended with an error.
 
-A completed job may no longer appear in the default ``bjobs`` output. If LSF
-reports that no unfinished jobs were found, continue to the next step.
-
-6. View the Result
-------------------
-
-List the files created by the job:
+This example runs quickly. It may finish before ``bjobs`` displays it. If LSF
+reports ``No unfinished job found``, list recent jobs with:
 
 .. code-block:: bash
 
-   ls -lh
+   bjobs -a
 
-You should see files similar to:
+For detailed information about a specific job, use:
+
+.. code-block:: bash
+
+   bjobs -a -l <jobid>
+
+8. Inspect the Output
+---------------------
+
+After the job finishes, list the directory:
+
+.. code-block:: bash
+
+   ls -l
+
+The job creates files similar to:
 
 .. code-block:: text
 
-   hello.job
    quickstart.123456.out
    quickstart.123456.err
+   summary.csv
+
+On a shared filesystem, the LSF output and error files may take a few seconds
+to appear after a very short job finishes.
 
 View the standard output:
 
@@ -192,27 +428,84 @@ View the standard output:
 
    cat quickstart.*.out
 
-The output should resemble:
+Near the end of the file, you should see output similar to:
 
 .. code-block:: text
 
-   Hello from <compute-node>
-   User: <caneid>
-   Started: <date and time>
+   Job ID: 123456
+   Compute host: <compute-host>
+   Architecture: <architecture>
    Working directory: /scratch/<project>/<caneid>/quickstart
 
-Check the error file as well:
+   Read 4 values from data.csv
+   Wrote the analysis results to summary.csv
+
+Check the standard-error file:
 
 .. code-block:: bash
 
    cat quickstart.*.err
 
-An empty error file and the expected standard output confirm that your first
-LSF job completed successfully.
+An empty error file indicates that the program did not write an error message.
 
+View the generated result:
 
-7. Disconnect
-------------------
+.. code-block:: bash
+
+   cat summary.csv
+
+Expected result:
+
+.. code-block:: text
+
+   metric,value
+   count,4
+   minimum,10.0
+   maximum,18.0
+   mean,13.75
+
+This confirms that LSF ran the Python program on a compute host, passed the
+dataset to the program, and wrote the result to scratch storage.
+
+9. Download the Result
+----------------------
+
+Run the download command from the local computer.
+
+**Pegasus**
+
+.. code-block:: bash
+
+   scp \
+       <caneid>@pegasus2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/summary.csv \
+       .
+
+**Triton**
+
+.. code-block:: bash
+
+   scp \
+       <caneid>@t2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/summary.csv \
+       .
+
+If your account uses an SSH alias or jump host, use the same destination that
+worked for the upload.
+
+Confirm the downloaded file:
+
+.. code-block:: bash
+
+   cat summary.csv
+
+You have now completed the full workflow:
+
+.. code-block:: text
+
+   prepare files -> upload -> submit -> monitor -> inspect -> download
+
+10. Disconnect
+--------------
+
 To disconnect from the cluster, run:
 
 .. code-block:: bash
@@ -228,7 +521,7 @@ Before running production workloads, review the
 Continue with the detailed guides as needed:
 
 - :ref:`g-projects` for project access and allocation information;
-- :ref:`transfer` for transferring files;
+- :ref:`transfer` for additional transfer methods;
 - :ref:`g-modules` for software modules;
 - :ref:`g-lsf` for batch-job submission;
 - :ref:`g-interactive` for interactive jobs; and
