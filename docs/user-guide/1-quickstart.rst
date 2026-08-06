@@ -49,8 +49,7 @@ Before You Begin
 
 You need:
 
-- an active CaneID;
-- access to Pegasus or Triton;
+- an active IDSC account with access to Pegasus or Triton;
 - the name of an approved LSF project;
 - access to that project's scratch directory; and
 - a connection method provided for your account, such as the University of
@@ -58,9 +57,15 @@ You need:
 
 In the commands below:
 
-- replace ``<caneid>`` with your CaneID;
+- replace ``<username>`` with the username associated with your IDSC account;
 - replace ``<project>`` with your LSF project name; and
 - use ``general`` as ``<queue>`` on Pegasus or ``short`` on Triton.
+
+.. note::
+
+   The complete QuickStart workflow has been tested on both Pegasus and Triton.
+   The same dataset and Python program work on both clusters. The login host,
+   queue, and reported system architecture differ by cluster.
 
 1. Connect to a Cluster
 -----------------------
@@ -72,15 +77,16 @@ On macOS or Linux, use Terminal.
 
 .. code-block:: bash
 
-   ssh <caneid>@pegasus2.idsc.miami.edu
+   ssh <username>@pegasus2.idsc.miami.edu
 
 **Triton**
 
 .. code-block:: bash
 
-   ssh <caneid>@t2.idsc.miami.edu
+   ssh <username>@t2.idsc.miami.edu
 
-Enter your CaneID password when prompted. After login, you will be on a cluster
+Enter the password or complete the authentication method associated with your
+IDSC account when prompted. After login, you will be on a cluster
 login node.
 
 .. note::
@@ -117,7 +123,7 @@ The output should resemble:
 
 .. code-block:: text
 
-   /scratch/<project>/<caneid>/quickstart
+   /scratch/<project>/<username>/quickstart
 
 The environment variable ``$PROJECT`` is not assumed to be defined. Enter the
 project name directly wherever ``<project>`` appears.
@@ -288,14 +294,14 @@ Run ``scp`` from the local computer, not from the cluster login node.
 .. code-block:: bash
 
    scp data.csv analyze.py analyze.job \
-       <caneid>@pegasus2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/
+       <username>@pegasus2.idsc.miami.edu:/scratch/<project>/<username>/quickstart/
 
 **Triton**
 
 .. code-block:: bash
 
    scp data.csv analyze.py analyze.job \
-       <caneid>@t2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/
+       <username>@t2.idsc.miami.edu:/scratch/<project>/<username>/quickstart/
 
 If your account uses an SSH alias or jump host, replace the destination host
 with the same destination you use successfully for ``ssh``.
@@ -319,13 +325,13 @@ Use these connection settings:
    * - Port
      - ``22``
    * - Username
-     - Your CaneID
+     - Your IDSC account username
    * - Pegasus host
-     - ``pegasus2.ccs.miami.edu``
+     - ``pegasus2.idsc.miami.edu``
    * - Triton host
      - ``t2.idsc.miami.edu``
    * - Remote directory
-     - ``/scratch/<project>/<caneid>/quickstart``
+     - ``/scratch/<project>/<username>/quickstart``
 
 Connect using the same authentication or jump-host configuration required for
 SSH. Upload ``data.csv``, ``analyze.py``, and ``analyze.job`` to the remote
@@ -435,7 +441,7 @@ Near the end of the file, you should see output similar to:
    Job ID: 123456
    Compute host: <compute-host>
    Architecture: <architecture>
-   Working directory: /scratch/<project>/<caneid>/quickstart
+   Working directory: /scratch/<project>/<username>/quickstart
 
    Read 4 values from data.csv
    Wrote the analysis results to summary.csv
@@ -477,7 +483,7 @@ Run the download command from the local computer.
 .. code-block:: bash
 
    scp \
-       <caneid>@pegasus2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/summary.csv \
+       <username>@pegasus2.idsc.miami.edu:/scratch/<project>/<username>/quickstart/summary.csv \
        .
 
 **Triton**
@@ -485,7 +491,7 @@ Run the download command from the local computer.
 .. code-block:: bash
 
    scp \
-       <caneid>@t2.idsc.miami.edu:/scratch/<project>/<caneid>/quickstart/summary.csv \
+       <username>@t2.idsc.miami.edu:/scratch/<project>/<username>/quickstart/summary.csv \
        .
 
 If your account uses an SSH alias or jump host, use the same destination that
