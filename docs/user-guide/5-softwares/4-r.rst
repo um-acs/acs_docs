@@ -1,0 +1,89 @@
+.. _general-software-r:
+
+R
+=
+
+R can be used through modules, Conda or Miniforge environments, JupyterHub
+kernels, RStudio when supported, or Apptainer containers.
+
+.. important::
+
+   Cluster availability: This software is available as a module on Pegasus.
+   It is not currently provided as a system module on Triton.
+
+Find and Load R
+---------------
+
+Search for R:
+
+::
+
+   module avail R
+
+Load R:
+
+::
+
+   module load R/<version>
+
+Check R:
+
+::
+
+   which R
+   R --version
+
+Run an R script:
+
+::
+
+   Rscript script.R
+
+User R Libraries
+----------------
+
+Create a project-specific R library:
+
+::
+
+   mkdir -p /scratch/<project>/$USER/Rlibs
+   export R_LIBS_USER=/scratch/<project>/$USER/Rlibs
+
+Inside R:
+
+.. code:: r
+
+   .libPaths()
+   install.packages("ggplot2")
+
+Run R in LSF
+------------
+
+Example job script:
+
+.. code:: bash
+
+   #!/bin/bash
+   #BSUB -P <project>
+   #BSUB -J r_job
+   #BSUB -q general
+   #BSUB -n 1
+   #BSUB -R "rusage[mem=4000]"
+   #BSUB -W 01:00
+   #BSUB -o r_job.%J.out
+   #BSUB -e r_job.%J.err
+
+   module load R/<version>
+
+   export R_LIBS_USER=/scratch/<project>/$USER/Rlibs
+   mkdir -p ${R_LIBS_USER}
+
+   Rscript script.R
+
+Recommended Practice
+--------------------
+
+* Use R modules when available.
+* Use project-specific R libraries for reproducible package sets.
+* Use LSF batch jobs for long-running scripts.
+* Use Conda/Miniforge or Apptainer when module-based R is not sufficient.
