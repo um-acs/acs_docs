@@ -15,7 +15,7 @@ How do I get IDSC cluster resources?
 
 Resources on Triton and Pegasus are allocated by project. Contact your PI for
 access to their project's resources, or request a new project here:
-https://idsc.miami.edu/project_request
+https://idsc.miami.edu/project-request
 
 How do I use IDSC cluster resources?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
