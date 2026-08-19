@@ -61,6 +61,13 @@ Details:
      - up to 250 GB per node
      - 6 hours \/ 1 day 
      - interactive jobs :raw-html:`<br />` max 1 job per user
+   * - transfers
+     - up to 4 tasks per job
+     - N/A
+     - N/A
+     - Data transfers, checksum verification, and other I/O-intensive
+       data-management work on the Pegasus Data Transfer Node. See
+       :ref:`transfer-dtn`.
    * - gpu_h100 
      - 2 GPUs
      - 96 GB max V-RAM/node
@@ -98,7 +105,3 @@ Details:
      - up to 280 GB per node
      - 2 V100s with 16GB VRAM and CUDA 12.4
      - interactive jobs :raw-html:`<br />` max 1 job per user
-
-
-
-

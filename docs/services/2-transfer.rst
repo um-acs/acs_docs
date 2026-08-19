@@ -4,10 +4,70 @@ Transferring Files
 
 IDSC systems support multiple file transfer programs such as FileZilla and
 PSFTP, and common command line utilities such as ``scp`` and ``rsync``.
-Use cluster head nodes (login nodes) for these types of file transfers.
+Use cluster head nodes (login nodes) for short, interactive transfers. For
+large transfers, checksum verification, recursive scans, archive extraction,
+or other I/O-intensive data-management work on Pegasus, use the Data Transfer
+Node through the ``transfers`` LSF queue as described below.
 For transferring large amounts of data from systems outside the
 University of Miami, IDSC ACS also offers a gateway server that supports
 SFTP and Globus.
+
+.. _transfer-dtn:
+
+Use the Pegasus Data Transfer Node for large workflows
+------------------------------------------------------
+
+Pegasus provides a dedicated Data Transfer Node (DTN) through the LSF
+``transfers`` queue. Use this queue for substantial ``rsync``, ``scp``, or
+SFTP workflows; recursive ``find`` or ``du`` scans; checksum verification;
+and archive creation or extraction. This keeps I/O-intensive work off the
+shared Pegasus login nodes.
+
+Do not SSH directly to ``dtn1``. Request the DTN through LSF so the scheduler
+can allocate and account for the work.
+
+For a short interactive transfer, replace ``<projectID>`` with your Pegasus
+project ID and request a shell::
+
+   bsub -Is -q transfers -P <projectID> -n 1 -W 01:00 bash
+
+When LSF starts the shell on the DTN, run the transfer there and exit when it
+finishes::
+
+   rsync -a --info=progress2 /path/to/source/ /path/to/destination/
+   exit
+
+For longer work, submit a batch job. Save the following as
+``transfer-job.sh``::
+
+   #!/bin/bash
+   #BSUB -J project-transfer
+   #BSUB -q transfers
+   #BSUB -P <projectID>
+   #BSUB -n 1
+   #BSUB -W 04:00
+   #BSUB -o transfer.%J.out
+   #BSUB -eo transfer.%J.err
+
+   set -euo pipefail
+   rsync -a --info=progress2 /path/to/source/ /path/to/destination/
+
+Submit and monitor the job::
+
+   bsub < transfer-job.sh
+   bjobs
+   bjobs -l <jobID>
+
+Stop a submitted or running transfer job with::
+
+   bkill <jobID>
+
+Limit explicit transfer or checksum parallelism to one or two workers to
+start, and never exceed four workers in one DTN job. Large fan-outs of SFTP
+sessions or checksum commands can still degrade shared storage. Avoid
+``rsync --checksum`` for routine synchronization because it reads every file
+at both ends; use it only when a complete checksum verification is required,
+and run that verification through the ``transfers`` queue.
 
 Using command line utilities
 ----------------------------
