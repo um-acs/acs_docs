@@ -101,15 +101,24 @@ Use the Environment Modules system to access centrally installed software:
 Use project-specific environments when additional packages or isolated software
 stacks are required. See :ref:`g-modules` and the relevant software guides.
 
-Transfer Files from Login Nodes
--------------------------------
+Use the Data Transfer Node for I/O-Intensive Work
+-------------------------------------------------
 
-Use supported transfer methods such as SCP or SFTP to move data between your
-local computer and the clusters. Perform transfers through the cluster login
-endpoints rather than compute nodes.
+On Pegasus, do not run long-running or I/O-intensive data-management work on
+a login node. This includes ``rsync``, ``scp``, SFTP or rclone workflows
+involving many files; recursive ``find`` or ``du`` scans; checksum
+verification; and archive creation or extraction.
 
-See :ref:`transfer` for commands, graphical tools, and recommendations for
-large transfers.
+Submit this work through the ``transfers`` LSF queue, which runs on the
+dedicated Data Transfer Node (DTN). For example::
+
+   bsub -Is -q transfers -P <projectID> -n 1 -W 01:00 bash
+
+Do not SSH directly to the DTN. See :ref:`transfer-dtn` for interactive and
+batch transfer-job examples, monitoring commands, cancellation, and safe
+parallelism guidance. For transferring data between your local computer and
+the cluster, use the supported external transfer endpoint described in
+:ref:`transfer`.
 
 Getting Help
 ------------
