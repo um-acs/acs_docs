@@ -47,7 +47,7 @@ For longer work, submit a batch job. Save the following as
    #BSUB -n 1
    #BSUB -W 04:00
    #BSUB -o transfer.%J.out
-   #BSUB -eo transfer.%J.err
+   #BSUB -e transfer.%J.err
 
    set -euo pipefail
    rsync -a --info=progress2 /path/to/source/ /path/to/destination/
