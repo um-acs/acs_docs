@@ -47,12 +47,12 @@ Supercomputers
 Allocations
 -----------
 
-- Active cluster users are allocated a logical **home** directory area on the cluster, PEGASUS: ``/nethome/username``, TRITON: ``/home/username`` , limited to 250GB. 
+- Active cluster users are allocated a logical **home** directory area on the cluster, PEGASUS: ``/nethome/username``, TRITON: ``/home/username`` , limited to 250 GB and 250,000 files.
 - Active projects can be allocated scratch directories:  PEGASUS: ``/scratch/projectID``, TRITON: ``/scratch/projectID``, intended for compiles and run-time input & output files. 
 - Disk allocations are only for data currently being processed.
 - Data for running jobs must be staged exclusively in the ``/scratch`` file system. IDSC accounts staging job data in the ``/nethome`` filesystem may be suspended.
 - Both **home** and **scratch** are available on all nodes in their respective clusters.
-- Accounts exceeding the 250GB home limit will be suspended. Once usage is under 250GB, the account will be enabled.
+- Accounts exceeding the 250 GB home limit or the 250,000-file limit will be suspended. Once usage is under both limits, the account will be enabled.
 - Data on /scratch may be purged after 21 days if necessary to maintain adaquate space for all accounts. 
 - For both the above exceeded allocation scenarios, a member of IDSC will send a notification before this occurs. This will give you the opporutnity to move your data if needed. 
 
@@ -82,4 +82,3 @@ You can find our new IDSC ServiceNow Home page for ticket submissions here: `Mai
 - Report an issue with the clusters that needs immediate attention: `IDSC - HPC Cluster: Report a Problem form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=ec74f27d47162290ddc5bfca116d43c4>`_
 - To request an IDSC account: `IDSC - Account Request form <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`_
 - Need to request a VM or a service for an existing one? (This form is restricted to members of HIHG and IDSC Software Engineering): `IDSC - Other Systems Support Request form <https://idsc.miami.edu/systems>`_
-
