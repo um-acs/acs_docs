@@ -19,7 +19,6 @@ other workflows that apply across supported clusters.
    :caption: Resources and Scheduling
 
    Projects & Resources <3-projects>
-   Sylvester HPC <8-sylvester>
    Job Scheduling <4-jobs/README>
 
 .. toctree::
@@ -34,3 +33,9 @@ other workflows that apply across supported clusters.
    :caption: Advanced Workflows
 
    Parallel Computing <7-parallel>
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Sylvester HPC
+
+   Sylvester HPC QuickStart <8-sylvester>
