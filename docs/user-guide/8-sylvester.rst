@@ -1,239 +1,179 @@
-Sylvester HPC QuickStart
-=========================
+Sylvester HPC QuickStart Guide
+==============================
 
-The Sylvester Comprehensive Cancer Center has access to dedicated
-high-performance computing (HPC) resources through IDSC's Pegasus cluster.
+The purpose of this document is to provide members of the Sylvester Comprehensive Cancer Center community with the basic tools necessary to access the High-Performance Computing (HPC) resources at the UM Frost Institute for Data Science and Computing (IDSC). This guide is designed as a starting point for users new to Pegasus and is intended to act as a reference to supplement the on boarding training required for all users.
 
-This guide covers the Sylvester-specific steps for requesting access, choosing
-Sylvester queues, and finding related resources. For general Pegasus usage,
-including connecting to the cluster, transferring files, submitting jobs, and
-monitoring jobs, use the :doc:`Pegasus and Triton QuickStart <1-quickstart>`.
-
-Before You Begin
-----------------
-
-Before using Sylvester HPC resources, you should:
-
-- review the :ref:`policies`;
-- have an active IDSC account;
-- belong to an approved Sylvester project; and
-- be connected through an approved University network path, such as the
-  University of Miami VPN when working remotely.
-
-If you are new to HPC or Linux, review the available onboarding and Linux
-training materials before running production workloads.
-
-1. Request or Join a Sylvester Project
---------------------------------------
-
-New Sylvester projects require a Sylvester Project Allocation.
-
-`Request a Sylvester Project Allocation
-<https://umiami.qualtrics.com/jfe/form/SV_dgMjKPBxPuIt9ci>`__
-
-To join an existing project, submit an IDSC Account Request and include the
-Project ID.
-
-`Request an IDSC Account
-<https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`__
-
-For general information about IDSC projects and allocations, see
-:ref:`g-projects`.
-
-2. Connect to Pegasus
+How do I get started?
 ---------------------
 
-Sylvester HPC resources are accessed through Pegasus.
+After reviewing our `Policies <https://acs-docs.readthedocs.io/policies/policies.html>`__, you will need a Sylvester Project Allocation.  You can submit a `Sylvester Project Allocation Request <https://umiami.qualtrics.com/jfe/form/SV_dgMjKPBxPuIt9ci>`__. 
 
-Follow the connection instructions in the
-:doc:`Pegasus and Triton QuickStart <1-quickstart>`.
+To join an existing Project, submit a `IDSC Account Request <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=2528565647662610ddc5bfca116d4379>`__, with the Project ID.
 
-For a standard Pegasus account, the login command is:
+If you are new to Pegasus, please review our `Onboarding Training Material <https://www.youtube.com/playlist?list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF>`__.
 
-.. code-block:: bash
+If you’re new to Linux, please review our `Linux Training Material <https://acs-docs.readthedocs.io/linux/README.html>`__.
 
-   ssh <username>@pegasus2.idsc.miami.edu
+Sylvester Utilization
+---------------------
 
-Replace ``<username>`` with the username associated with your IDSC account.
+For access to the `Sylvester Utilization Dashboard <http://prometheus.idsc.miami.edu:3000/d/WZGTYp0Sz/sccc-cluster-dashboard?orgId=1>`__ 
+please submit a ticket through `here <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`_
 
-.. note::
 
-   If your account uses a configured SSH alias or jump host, use the
-   destination provided for your account instead of the hostname shown above.
+Sylvester Dedicated HPC Queues 
+------------------------------
 
-.. important::
+We can leverage the `IDSC Service Units (SU) pricing model <https://idsc.miami.edu/service-unit-match/>`__ and a **Tier Subscription** approach to increase the **performance** and **utilization** of Sylvester HPC dedicated resources while maintaining high availability for users who have financially contributed to these dedicated resources. 
 
-   Login nodes are intended for tasks such as editing files, transferring
-   data, loading software, and submitting jobs. Run computational work through
-   the LSF scheduler rather than directly on a login node.
+HPC Storage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Each user may utilize up to 250 GB (50,000 files) of GPFS home space.
+- Each project may utilize up to 2T (400,000 files) of GPFS scratch space.
+- Each project may utilize up to 2T (400,000 files) of GPFS Sylvester project space.
+- Users and Projects over quotas will not be able to create new files.
+- Scratch and Project space is intended only for data in active use.
+- There are no IDSC managed backups of GPFS Scratch or Project space.
+- Scratch space is subject to purging when necessary for continued operation.
+- Scratch space is charged only for actual utilization.
+- Projects may lease additional GPFS project space annually at $500 for 10TB (2,000,000 files).
+- Dedicated space is charged for total allocation and not by utilization.
 
-3. Sylvester Utilization
-------------------------
 
-The Sylvester Utilization Dashboard provides information about the use of
-Sylvester HPC resources.
+Tier 1 Development (sccc-dev)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
-`Sylvester Utilization Dashboard
-<http://prometheus.idsc.miami.edu:3000/d/WZGTYp0Sz/sccc-cluster-dashboard?orgId=1>`__
+::
 
-If access is required, submit a request through the Sylvester dashboard access
-form:
+                 - For users new to HPC, like the “IDSC Early Career Research Grant”
+                 - Job priority significantly less than Tier 2
+                 - Preemptible Jobs after 1 hour of runtime
+                 - Max Job Runtime: 8 hours
+                 - Max Cores per job, and concurrent: 16 cores per job, 32 cores per project 
+                 - Max Memory per job: 128GB ram per job, 512GB ram per project (1 node)
+                 - Scratch Storage: Local 1TB NVMe (optimal) and Pegasus HPC Scratch (PI respondsible)
+                 - Project Storage: Pegasus HPC HOME (250GB) and Pegasus HPC Storage (PI respondsible)
 
-`Request Dashboard Access
-<https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=4080579787f1ee1099fd11383cbb3583>`__
+Tier 2 General (sccc) 
+~~~~~~~~~~~~~~~~~~~~~
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
-4. Sylvester LSF Queues
------------------------
+::
 
-Sylvester workloads run through LSF on Pegasus. The previous Sylvester guide
-documented the following queue families:
+                 - Job priority significantly less than Tier 3.
+                 - Preemptible Jobs after 1 hours of runtime 
+                 - Max Job Runtime: 48 hours
+                 - Max Cores per job, and concurrent: 64 cores per job (same node), no limit per project.
+                 - Max Memory per job: 512GB ram per job, no limit per project.
+                 - Scratch Storage: Local 1TB NVMe (optimal) and Pegasus HPC Scratch (PI respondsible)
+                 - Project Storage: Pegasus HPC HOME (250GB) and Pegasus HPC Storage (PI respondsible)
 
-.. list-table::
-   :header-rows: 1
-   :widths: 24 24 52
+Tier 3 Big Memory (sccc-bigmem) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
-   * - Queue
-     - Tier
-     - Intended use
-   * - ``sccc-dev``
-     - Tier 1
-     - Development, testing, and introductory HPC workloads
-   * - ``sccc``
-     - Tier 2
-     - General Sylvester CPU workloads
-   * - ``sccc-bigmem``
-     - Tier 3
-     - Large-memory workloads
-   * - ``sccc-gpu``
-     - Tier 3
-     - GPU workloads
-   * - ``sccc-premium``
-     - Tier 4
-     - Dedicated resources purchased by participating Sylvester labs
-   * - ``sccc-bigmem-premium``
-     - Tier 4
-     - Dedicated large-memory resources
-   * - ``sccc-gpu-premium``
-     - Tier 4
-     - Dedicated GPU resources
+::
 
-.. important::
+                 - Job priority significantly less than Tier 4.
+                 - Preemptible Jobs after 1 hours of runtime 
+                 - Max Job Runtime: 96 hours
+                 - Max Cores per job, and concurrent: 64 cores per job (same node), 1 job per project.
+                 - Max Memory per job: 4TB per job and project (each of the two nodes has 4TB RAM).
+                 - Scratch Storage: Local 1TB NVMe (optimal) and Pegasus HPC Scratch (PI respondsible)
+                 - Project Storage: Pegasus HPC HOME (250GB) and Pegasus HPC Storage (PI respondsible)
 
-   Queue availability, runtime limits, CPU limits, memory limits, preemption
-   rules, and project concurrency limits can change. Verify the current LSF
-   configuration before publishing fixed limits in this guide. The canonical
-   queue documentation should remain the source of truth for those values.
+Tier 3 GPU Queue (sccc-gpu) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Open to all Sylvester Labs upon resource availability, requires Lab's PI approval.
 
-For general LSF usage, see :ref:`g-lsf`.
+::
 
-5. Submit a Sylvester Job
--------------------------
+                 - Job priority: Significantly less than Tier 4.
+                 - Preemptible Jobs after 1 hours of runtime 
+                 - Max Job Runtime: 96 hours
+                 - Access to Sylvester GPU's (1 Nvidia A100 per node) 
+                 - Max Cores per job, and concurrent: 4 cores per job (same node), 1 job per project.
+                 - Max Memory per job: 512GB per job and project.
+                 - Scratch Storage: Local 1TB NVMe (optimal) and Pegasus HPC Scratch (PI respondsible)
+                 - Project Storage: Pegasus HPC HOME (250GB) and Pegasus HPC Storage (PI respondsible)
 
-The general submission workflow is the same as the Pegasus workflow described
-in the :doc:`Pegasus and Triton QuickStart <1-quickstart>`.
+Tier 4 Premium (sccc-premium, sccc-bigmem-premium, sccc-gpu-premium)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reserved for Sylvester Labs that have purchased dedicated resources
 
-A Sylvester job script must use an approved Sylvester project and a queue that
-your project is authorized to use.
+::
 
-For example:
+                 - Job priority: Other Tier 4 Jobs
+                 - Job limitations: Up to Lab PI's
+                 - Scratch Storage: Local 1TB NVMe (optimal) and Pegasus HPC Scratch (PI respondsible)
+                 - Project Storage: Pegasus HPC HOME (250GB), Sylvester HPC Storage, and Pegasus HPC Storage (PI respondsible)
 
-.. code-block:: bash
 
-   #!/bin/bash
-   #BSUB -J sylvester-example
-   #BSUB -P <project>
-   #BSUB -q sccc
-   #BSUB -n 1
-   #BSUB -R "rusage[mem=1GB]"
-   #BSUB -W 00:10
-   #BSUB -o sylvester.%J.out
-   #BSUB -e sylvester.%J.err
+What are specs of available HPC Nodes?
+--------------------------------------
 
-   set -euo pipefail
+Triton (96 nodes)
+~~~~~~~~~~~~~~~~~
 
-   echo "Job ID: $LSB_JOBID"
-   echo "Compute host: $(hostname)"
-   echo "Working directory: ${LS_SUBCWD:-$PWD}"
+::
 
-Replace ``<project>`` with your approved Sylvester LSF project.
+    OS:   CentOS 7.9, ppc64le
+    CPU:  2 x IBM Power9 (40 cores/node, 3840 cores total)
+    RAM:  16 x 16GiB RDIMM DDR4 2666MHz ECC (256GiB/node, 6.4GB/core)
+    GPU:  2 x Nvidia V100-SXM2 (16GB GPU RAM) 
+    NET:  100Gbps Infiniband (IB), 1Gbps Ethernet
+    Disk: 2 x 1.92TB Micron 5100PRO SSD (RAID1, 1080MBps/1040MBps Seq Read/Write, 186K/74K IOPS)
 
-Submit the job with:
 
-.. code-block:: bash
+Pegasus Compute (350 nodes)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   bsub < job.lsf
+::
 
-Monitor it with:
+    OS:   CentOS 7.6, x86_64
+    CPU:  16c/node (for a total of 4800 CPU-cores)
+    RAM:  64GiB nodes (4GiB/core, for a total of 22400GiB)
+    RAM:  256GiB nodes (16GiB/core, for a total of 4096GiB)
+    NET:  56Gbps Infiniband, 1 Gbps Ethernet 
+    Disk: Stateless (ramdisk)
 
-.. code-block:: bash
 
-   bjobs
+Pegasus Sylvester Dedicated Compute (16 nodes)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For more detailed examples, including file transfer and output retrieval, use
-the :doc:`Pegasus and Triton QuickStart <1-quickstart>`.
+::
 
-6. Storage
-----------
+    OS:   CentOS 7.9, x86_64 
+    CPU:  2 x Intel Xeon Gold 6338 CPU @ 2.00GHz (64 cores/node, 1024 cores total)
+    RAM:  16 x 32GiB RDIMM DDR4 3200MHz ECC (512GiB/node, 8192GiB RAM total) 
+    Net:  100Gbps Infiniband, 10Gbps Ethernet, 
+    Disk: 960GiB Samsung PM9A3 NVMe (6500MBps/1500MBps Seq Read/Write, 580K/70K IOPS)  
 
-Use project scratch space for active computational work. General IDSC storage
-policies, quotas, and supported storage services should be maintained in the
-central storage documentation rather than duplicated here.
+Pegasus Sylvester Dedicated Big Memory GPU (2 nodes)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For project-specific storage questions, confirm the allocation associated with
-your Sylvester project before starting large workloads.
+::
 
-.. important::
+    OS:   CentOS 7.9, x86_64  
+    CPU:  2 x Intel Xeon Gold 6338 CPU @ 2.00GHz (64 cores/node, 128 cores total)
+    RAM:  32 x 128GiB RDIMM DDR4 3200MHz ECC (4096GB/node, 8192GiB RAM total)
+    GPU:  1 x Nvidia A100 (80GB GPU RAM)  
+    Net:  100Gbps Infiniband, 10Gbps Ethernet, 
+    Disk: 960GiB Samsung PM9A3 NVMe (6500MBps/1500MBps Seq Read/Write, 580K/70K IOPS) 
 
-   The previous Sylvester guide included fixed GPFS quotas and pricing. Those
-   values should be verified against the current storage policy before they
-   are restored to production documentation.
 
-7. Password and Remote Access
------------------------------
+How do I reset my IDSC password?
+--------------------------------
 
-IDSC passwords can be managed through the IDSC Password Management tool:
+Via the `IDSC Password Management <https://idsc.miami.edu/ccs-account>`__ tool.  You will need to be connected to the **University's Secure Network** to access this tool and all Sylvester HPC Resources.
 
-`IDSC Password Management
-<https://idsc.miami.edu/ccs-account>`__
+How do I access the Secure Network remotely?
+--------------------------------------------
 
-When remote access requires the University secure network, connect using the
-University of Miami VPN:
+Via the `University of Miami's VPN <https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__.
 
-`University of Miami VPN
-<https://www.it.miami.edu/a-z-listing/virtual-private-network/index.html>`__
+How do I run Nextflow on Sylvester HPC resources?
+-------------------------------------------------
 
-8. Nextflow on Sylvester
-------------------------
-
-Nextflow workloads should follow the current workflow-tool documentation rather
-than the retired ``clusters/pegasus-only`` documentation path.
-
-Use the current workflow-tools or Nextflow documentation in the shared user
-guide for configuration and submission examples.
-
-9. Additional Training
-----------------------
-
-For users new to Pegasus:
-
-`IDSC Onboarding Training
-<https://www.youtube.com/playlist?list=PLldDLMcIa33Z38fwC6e_7YSQZtwJZLSzF>`__
-
-For users new to Linux:
-
-`Linux Training Material
-<https://acs-docs.readthedocs.io/linux/README.html>`__
-
-Next Steps
-----------
-
-Continue with the shared IDSC user guide as needed:
-
-- :doc:`Pegasus and Triton QuickStart <1-quickstart>` for an end-to-end job
-  workflow;
-- :ref:`g-projects` for project access and allocation information;
-- :ref:`transfer` for file-transfer methods;
-- :ref:`g-modules` for software modules;
-- :ref:`g-lsf` for LSF batch-job submission;
-- :ref:`g-interactive` for interactive jobs; and
-- :ref:`policies` for cluster policies.
+`Running Nextflow (nf-core/sarek) <https://acs-docs.readthedocs.io/clusters/pegasus-only/1-soft/5-workflows/nextflow.html>`__
