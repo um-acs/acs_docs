@@ -176,4 +176,4 @@ Via the `University of Miami's VPN <https://www.it.miami.edu/a-z-listing/virtual
 How do I run Nextflow on Sylvester HPC resources?
 -------------------------------------------------
 
-`Running Nextflow (nf-core/sarek) <https://acs-docs.readthedocs.io/clusters/pegasus-only/1-soft/5-workflows/nextflow.html>`__
+`Running Nextflow (nf-core/sarek) <https://acs-docs.readthedocs.io/user-guide/5-softwares/8-workflow-tools.html>`__
