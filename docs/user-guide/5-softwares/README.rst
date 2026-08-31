@@ -1,6 +1,5 @@
 .. _general-software:
 
-
 .. role:: status_available
    :class: status-available
 
@@ -12,8 +11,6 @@
 
 .. role:: status_check
    :class: status-check
-
-
 
 
 Software and Modules
@@ -63,7 +60,7 @@ separate Pegasus-only and Triton-only software sections.
      - See :ref:`general-software-ml-frameworks`.
    * - JupyterHub
      - :status_available:`Available`
-     - :status_unavailable:`Available`
+     - :status_available:`Available`
      - See :ref:`general-software-jupyterhub`.
    * - R
      - :status_available:`Available`
@@ -77,6 +74,10 @@ separate Pegasus-only and Triton-only software sections.
      - :status_available:`Available`
      - :status_unavailable:`Not Available`
      - See :ref:`general-software-workflow-tools`.
+   * - MAPSplice
+     - :status_available:`Available`
+     - :status_limited:`Not listed`
+     - See :ref:`general-software-specialized`.
    * - SAS
      - :status_available:`Available`
      - :status_limited:`Not listed`
@@ -110,20 +111,15 @@ separate Pegasus-only and Triton-only software sections.
      - :status_limited:`Confirm`
      - Included with Allinea Forge.
    * - Performance Reports
-     - :status_available:`Available` 
+     - :status_available:`Available`
      - :status_limited:`Confirm`
-     - Pegasus provides `allinea/7.0.6-PR`. See :ref:`general-software-debugging-profiling`.
+     - Pegasus provides ``allinea/7.0.6-PR``. See :ref:`general-software-debugging-profiling`.
 
 .. caution::
 
    Software availability, module names, service URLs, and versions can change.
-   Confirm availability on the target system with ``module avail`` or
-   ``module spider`` before preparing production jobs.
-
-.. caution::
-
-   Availability tables can become outdated. Users should confirm module
-   availability on the target system with ``module avail`` or ``module spider``.
+   Confirm availability on the target system with ``module avail``. On systems
+   that support it, ``module spider`` can provide additional module details.
 
 .. toctree::
    :maxdepth: 2
@@ -138,4 +134,4 @@ separate Pegasus-only and Triton-only software sections.
    Machine Learning Frameworks <7-ml-frameworks>
    Workflow Tools <8-workflow-tools>
    Debugging and Profiling Tools <9-debugging-profiling>
-   Specialized Scientific Software <10-specialized-software>
+   Specialized Scientific Software <10-specialized-software/README>
