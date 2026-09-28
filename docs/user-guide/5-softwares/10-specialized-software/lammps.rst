@@ -63,6 +63,10 @@ If Kokkos support is desired, then one needs to load LAMMPS 2024.08.29 instead
   ## Launch 20 tasks that use 2 GPUs
   mpirun lmp -in in.lj -k on g 2 -sf kk -pk kokkos ..........
 
+.. note::
+   If support for Plumed is needed, make sure you load the version of LAMMPS 2025.07.22 that supports it:
+   module load lammps/20250722.3-gcc-13.4.0-xz5z7f5. This version of LAMMPS supports Plumed 2.10.0.
+
 Pegasus
 -------
 
