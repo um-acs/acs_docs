@@ -331,7 +331,7 @@ One-Time Setup
       module load apptainer/1.0.2
 
       IMAGE="/projectnb/pegasus/sw/rstudio/sif/tidyverse_4.6.0.sif"
-      LOGIN_NODE="pegasus2.idsc.miami.edu"
+      LOGIN_NODE="pegasus2.ccs.miami.edu"
       JOB_ID="${LSB_JOBID:?This script must run as an LSF job}"
       CPUS="${LSB_DJOB_NUMPROC:-1}"
       COMPUTE_NODE="$(hostname -s)"
@@ -606,7 +606,7 @@ Use the following pattern:
 .. code-block:: bash
 
    ssh -N -L 8787:<compute-node>:<server-port> \
-      <username>@pegasus2.idsc.miami.edu
+      <username>@pegasus2.ccs.miami.edu
 
 Replace:
 
@@ -625,7 +625,7 @@ If direct access to Pegasus is unavailable, use the Acorn jump host:
 
    ssh -N -L 8787:<compute-node>:<server-port> \
       -J <username>@acorn-gw.idsc.miami.edu \
-      <username>@pegasus2.idsc.miami.edu
+      <username>@pegasus2.ccs.miami.edu
 
 .. note::
 
@@ -881,7 +881,7 @@ first port number in the SSH command:
 .. code-block:: bash
 
    ssh -N -L 8788:<compute-node>:<server-port> \
-      <username>@pegasus2.idsc.miami.edu
+      <username>@pegasus2.ccs.miami.edu
 
 Then open:
 
