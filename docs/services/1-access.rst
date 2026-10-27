@@ -1,5 +1,9 @@
 .. _ssh:
 
+To access IDSC system, you will use your caneID along with your generated IDSC password. You can set your password at the following link: https://idsc.miami.edu/ccs-account/
+
+Please note that the above link is currently only accessible through a secured UM faculty network or the VPN. If you are a student, please contact one of our administrators for support at: https://idsc.miami.edu/inquiry
+
 Connecting to IDSC Systems from offsite
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -19,7 +23,7 @@ From home, you can’t reach Pegasus directly without the UM VPN. Off-campus acc
 
 Here’s what that means for you:
 
-How to access Pegasus from home
+How to access Pegasus & Triton from home
 ===============================
 
 Use a UMIT-commissioned laptop
@@ -48,6 +52,18 @@ https://my.it.miami.edu/wda/a-z/virtual-private-network/_
 PLEASE NOTE: As of 2024, only UMIT provisoned hardware will be able to access the VPN off campus. 
 
 
+ACoRN Network 
+==================================================
+
+Students or others who do not have access to a UMIT commissioned device can still access the clusters through the new ACoRN network. Please have your PI or Supervisor sign up for your access using the following link: 
+https://it-resources.research.miami.edu/acorn/index.html
+
+Specify that you require access to Pegasus & Triton. Once approved they will provide you with instructions on how to connect to our systems through the ACoRN network. 
+
+1. SSH from ACoRN (either on WiFi or VPN) to acorn-gw.idsc.miami.edu , using your CaneID
+2. SSH to Pegasus (pegasus2.idsc.miami.edu) or Triton (t2.idsc.miami.edu) using the IDSC credentials
+
+
 
 Connecting to Advanced Computing Systems from UM networks
 ==========================================================
@@ -71,6 +87,12 @@ Log into IDSC servers with the appropriate account credentials.  Pegasus example
 
    PuTTY in Windows
 
+Triton example::
+
+    username@t2.idsc.miami.edu (optional username @ host)
+    22 (port)
+    SSH (connection type)
+
 Mac and Linux
 ~~~~~~~~~~~~~
 
@@ -86,6 +108,17 @@ or SSH without account credentials to be prompted::
     bash-4.1$ ssh pegasus2.ccs.miami.edu
     login as: username
     username@pegasus2.ccs.miami.edu's password:
+
+Triton example::
+
+    bash-4.1$ ssh username@t2.idsc.miami.edu
+    username@t2.idsc.miami.edu’s password:
+
+or SSH without account credentials to be prompted::
+
+    bash-4.1$ ssh t2.idsc.miami.edu
+    login as: username
+    username@t2.idsc.miami.edu's password:
 
 To use SSH key pairs to authenticate, see Tutorial below:
 https://phoenixnap.com/kb/how-to-generate-ssh-key-centos-7
@@ -164,6 +197,12 @@ Using either the Mac Terminal or the xterm window, connect using the
 ::
 
     bash-4.1$ ssh -X username@pegasus2.ccs.miami.edu
+
+Or
+
+::
+
+    bash-4.1$ ssh -X username@t2.idsc.miami.edu
 
 Launch a graphical application
 ------------------------------
