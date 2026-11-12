@@ -17,7 +17,7 @@ project.
   appropriate resource type, such as ``triton_faculty``, ``triton_student``,
   or ``triton_education``.
 - **Pegasus:** Join a
-  `Pegasus project <https://uhealth.service-now.com/esc?id=sc_cat_item&sys_id=1bd010ed87c58a10b2f12029dabb35d9>`__
+  `Pegasus project <https://idsc.miami.edu/project-request>`__
   with the ``pegasus_project`` resource type.
 
 Cluster resources, including compute time and scratch storage, are allocated to
