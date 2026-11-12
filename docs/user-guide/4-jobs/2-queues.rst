@@ -51,11 +51,6 @@ Details:
      - up to 200 GB per node
      - 4 hours \/ 5 days 
      - jobs requiring nodes with more than 200 GB of memory, max. of 32 cores allowed per job.
-   * - debug 
-     - 16
-     - up to 32 GB 
-     - 30 mins \/ 30 mins 
-     - job debugging, max. of 64 cores allowed per job.
    * - interactive 
      - 16 (15 for jobs)
      - up to 250 GB per node
